@@ -1,0 +1,87 @@
+---
+import StatusDot from './StatusDot.astro';
+import type { CollectionEntry } from 'astro:content';
+
+interface Props {
+  project: CollectionEntry<'engineProjects'>;
+}
+
+const { project } = Astro.props;
+const p = project.data;
+---
+
+<article class="engine">
+  <div class="engine__head">
+    <div>
+      <span class="engine__name">{p.name}</span>
+      <span class="engine__lineage">{p.lineage}</span>
+    </div>
+    <StatusDot status={p.status} />
+  </div>
+
+  {/* Unlabelled by design: every one of these values says what it is on its
+      own, and the labels the brief's data model carries would double the row
+      count for no reading gain. `docsUrl` is captured in the data and is not
+      surfaced here — the design gives the card one link. */}
+  <div class="engine__facts">
+    <div>{p.language}</div>
+    <div>{p.platforms}</div>
+    <div class="engine__facts-wide">{p.saveCompat}</div>
+    <div class="engine__facts-wide">{p.activity}</div>
+  </div>
+
+  <a class="engine__link" href={p.repoUrl} rel="noopener">Repository ↗</a>
+</article>
+
+<style>
+  .engine {
+    border: 1px solid var(--color-divider);
+    border-radius: var(--radius-md);
+    background: var(--color-surface);
+    padding: 16px 18px;
+  }
+
+  .engine__head {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 10px;
+    margin-bottom: 8px;
+  }
+
+  .engine__name {
+    font-family: var(--font-heading);
+    font-weight: 600;
+    font-size: 16px;
+  }
+
+  .engine__lineage {
+    font-size: 12px;
+    color: var(--color-text-dim);
+    margin-left: 8px;
+  }
+
+  .engine__facts {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 8px 16px;
+    font-size: 12.5px;
+    color: var(--color-text-dim);
+    margin-bottom: 8px;
+  }
+
+  .engine__facts-wide {
+    grid-column: 1 / -1;
+  }
+
+  .engine__link {
+    font-size: 12.5px;
+    color: var(--color-accent);
+    text-decoration: none;
+  }
+
+  .engine__link:hover {
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+</style>
