@@ -1,6 +1,7 @@
 ---
 import NavBar from '../components/NavBar.astro';
 import SiteFooter from '../components/SiteFooter.astro';
+import { withBase } from '../lib/url';
 import '../styles/tokens.css';
 import '../styles/base.css';
 
@@ -9,9 +10,22 @@ interface Props {
   description: string;
   /** Game id, when this page is a game hub — highlights it in the nav. */
   current?: string;
+  /** Keep this page out of search indexes. Used for pages with no standing
+   *  content of their own, which would otherwise be indexed as thin results. */
+  noindex?: boolean;
 }
 
-const { title, description, current } = Astro.props;
+const { title, description, current, noindex } = Astro.props;
+
+/*
+ * Every traffic assumption behind this site is "someone arrives from a
+ * search", so the canonical URL and the social card are not decoration.
+ * Astro.url carries the base path, and Astro.site the origin CI reported.
+ */
+const canonical = new URL(Astro.url.pathname, Astro.site).href;
+const ogImage = new URL(withBase('/og.png'), Astro.site).href;
+
+const SITE_NAME = 'Impressions Games Archive';
 ---
 
 <!doctype html>
@@ -21,6 +35,30 @@ const { title, description, current } = Astro.props;
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>{title}</title>
     <meta name="description" content={description} />
+    {/* A noindex page has no canonical to declare — and the 404 in particular
+        is served at every unknown URL, so claiming one would be a lie. */}
+    {!noindex && <link rel="canonical" href={canonical} />}
+    {noindex && <meta name="robots" content="noindex, follow" />}
+
+    <link rel="icon" href={withBase('/favicon.svg')} type="image/svg+xml" />
+    <link rel="icon" href={withBase('/favicon-32.png')} sizes="32x32" />
+    <link rel="apple-touch-icon" href={withBase('/apple-touch-icon.png')} />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content={SITE_NAME} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:image" content={ogImage} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content={`${SITE_NAME} — a reference and modding archive`} />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImage} />
+
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -29,8 +67,11 @@ const { title, description, current } = Astro.props;
     />
   </head>
   <body>
+    {/* Seven links and a search box stand between the top of the page and the
+        content on every route — too many to tab through on each visit. */}
+    <a class="skip-link" href="#content">Skip to content</a>
     <NavBar current={current} />
-    <main>
+    <main id="content" tabindex="-1">
       <slot />
     </main>
     <SiteFooter />

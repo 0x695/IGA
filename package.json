@@ -10,7 +10,8 @@
     "build": "astro build && pagefind --site dist",
     "preview": "astro preview",
     "check": "astro check",
-    "images": "node scripts/optimize-images.mjs"
+    "images": "node scripts/optimize-images.mjs",
+    "social": "node scripts/make-social-images.mjs"
   },
   "dependencies": {
     "astro": "^5.0.0"

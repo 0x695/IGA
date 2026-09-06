@@ -2,19 +2,22 @@
 import { defineConfig } from 'astro/config';
 
 /*
- * The domain is still an open decision (masterdoc §8), so nothing is
- * hardcoded here. CI sets SITE_URL and BASE_PATH from what GitHub Pages
- * actually reports for the repository — which is why moving to a custom
- * domain later is a Pages setting rather than an edit to this file.
+ * The site is deployed, so these now describe a real place rather than a
+ * placeholder — canonical URLs, Open Graph tags and the sitemap all need an
+ * absolute origin, and a build that guesses one is worse than no build.
  *
- * Unset, as in local development, `site` stays undefined and `base` is "/".
- * That is correct for `npm run dev` and for serving dist/ locally; it only
- * means absolute URLs (canonical tags, sitemap) aren't generated, and nothing
- * generates them yet.
+ * CI still overrides both from what GitHub Pages actually reports
+ * (actions/configure-pages), which is what makes a custom domain later a
+ * Pages setting rather than an edit here. Note the base is "/IGA" with the
+ * repository's real capitalisation: Pages is case-sensitive, and a lowercase
+ * guess would 404 every link on the site.
  */
+const SITE = process.env.SITE_URL || 'https://0x695.github.io';
+const BASE = process.env.BASE_PATH || '/IGA';
+
 export default defineConfig({
   output: 'static',
   build: { format: 'directory' },
-  site: process.env.SITE_URL || undefined,
-  base: process.env.BASE_PATH || '/',
+  site: SITE,
+  base: BASE,
 });
