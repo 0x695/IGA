@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet data-dc-atomics>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Lora:ital,wght@0,400;0,600;1,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>body{margin:0}a{color:inherit}::selection{background:oklch(72% 0.11 70 / 0.3)}</style>
+</helmet>
+<dc-import name="NavBar" current-page="home" hint-size="100%,56px"></dc-import>
+<div style="--color-bg:oklch(15% 0.004 60);--color-surface:oklch(19% 0.005 60);--color-surface-2:oklch(23% 0.006 60);--color-text:oklch(94% 0.004 60);--color-text-dim:oklch(66% 0.006 60);--color-divider:oklch(94% 0.004 60 / 0.14);--color-accent:oklch(72% 0.11 70);--color-accent-dim:oklch(28% 0.05 70);--color-accent-strong:oklch(60% 0.12 70);--accent-rome:oklch(72% 0.11 70);--accent-rome-dim:oklch(26% 0.05 70);--accent-egypt:oklch(72% 0.09 250);--accent-egypt-dim:oklch(26% 0.045 250);--accent-greece:oklch(74% 0.08 195);--accent-greece-dim:oklch(26% 0.04 195);--accent-china:oklch(68% 0.13 25);--accent-china-dim:oklch(26% 0.06 25);--status-active:oklch(70% 0.1 145);--status-dormant:oklch(68% 0.012 60);--status-dead:oklch(62% 0.09 18);--font-heading:'Cormorant Garamond',Georgia,serif;--font-body:'Lora',Georgia,serif;--font-mono:'JetBrains Mono',ui-monospace,monospace;--radius-sm:2px;--radius-md:4px;--radius-lg:8px;--shadow-sm:0 1px 3px oklch(0% 0 0 / 0.4);--shadow-md:0 6px 20px oklch(0% 0 0 / 0.45);
+  background:var(--color-bg);color:var(--color-text);font-family:var(--font-body);min-height:100vh;">
+
+  <!-- Hero -->
+  <section style="max-width:1120px;margin:0 auto;padding:88px 32px 56px;">
+    <div style="font-family:var(--font-mono);font-size:12px;letter-spacing:0.1em;text-transform:uppercase;color:var(--color-accent);margin-bottom:18px;">A reference &amp; modding archive</div>
+    <h1 style="font-family:var(--font-heading);font-weight:700;font-size:clamp(40px,6vw,68px);line-height:1.04;letter-spacing:-0.01em;margin:0 0 22px;max-width:14ch;">Impressions Games Archive</h1>
+    <p style="font-size:19px;line-height:1.6;color:var(--color-text-dim);max-width:640px;margin:0 0 34px;">Everything worth knowing about Caesar, Caesar&nbsp;II, Caesar&nbsp;III, Pharaoh, Zeus, and Emperor — the games, their file formats, and the open-source engines keeping them running today.</p>
+  </section>
+
+  <!-- Timeline -->
+  <section id="timeline" style="max-width:900px;margin:0 auto;padding:0 32px 20px;">
+    <h2 style="font-family:var(--font-heading);font-weight:600;font-size:14px;letter-spacing:0.1em;text-transform:uppercase;color:var(--color-text-dim);margin:0 0 22px;">The series, 1992 → 2023</h2>
+
+    <div style="display:grid;grid-template-columns:1fr 1fr 1fr;border:1px solid var(--color-divider);border-radius:var(--radius-md);overflow:hidden;margin-bottom:32px;">
+      <div style="padding:14px 18px;border-right:1px solid var(--color-divider);">
+        <div style="font-size:10px;letter-spacing:0.08em;text-transform:uppercase;color:var(--color-text-dim);margin-bottom:4px;">1990–2002</div>
+        <div style="font-family:var(--font-heading);font-weight:600;font-size:15px;">Impressions Games</div>
+      </div>
+      <div style="padding:14px 18px;border-right:1px solid var(--color-divider);">
+        <div style="font-size:10px;letter-spacing:0.08em;text-transform:uppercase;color:var(--color-text-dim);margin-bottom:4px;">2002</div>
+        <div style="font-family:var(--font-heading);font-weight:600;font-size:15px;">BreakAway Games</div>
+      </div>
+      <div style="padding:14px 18px;">
+        <div style="font-size:10px;letter-spacing:0.08em;text-transform:uppercase;color:var(--color-text-dim);margin-bottom:4px;">2004–2006</div>
+        <div style="font-family:var(--font-heading);font-weight:600;font-size:15px;">Tilted Mill</div>
+      </div>
+    </div>
+
+    <div style="position:relative;padding-left:28px;border-left:1px solid var(--color-divider);display:flex;flex-direction:column;gap:32px;">
+
+      <div style="position:relative;">
+        <div style="position:absolute;left:-33px;top:2px;width:9px;height:9px;border-radius:50%;background:oklch(97% 0.003 60);border:1px solid var(--color-divider);"></div>
+        <div style="display:flex;gap:14px;">
+          <a href="./Caesar-I.dc.html" style="flex:none;"><img src="./images/caesar1-cover.jpg" alt="Caesar cover art" style="display:block;width:64px;height:96px;object-fit:cover;border-radius:3px;border:1px solid var(--color-divider);"></a>
+          <div>
+            <div style="display:flex;gap:12px;align-items:baseline;flex-wrap:wrap;margin-bottom:5px;">
+              <span style="font-family:var(--font-mono);font-size:12px;color:var(--color-text-dim);">1992</span>
+              <a href="./Caesar-I.dc.html" style="font-family:var(--font-heading);font-weight:600;font-size:19px;color:var(--color-text);text-decoration:none;">Caesar</a>
+              <span style="font-size:10px;font-family:var(--font-mono);letter-spacing:0.06em;text-transform:uppercase;color:var(--color-text-dim);border:1px solid var(--color-divider);border-radius:3px;padding:1px 6px;">Archive entry</span>
+            </div>
+            <p style="margin:0;font-size:13.5px;line-height:1.6;color:var(--color-text-dim);max-width:64ch;">Top-down, pre-isometric — predates the shared SG/.555 pipeline entirely, its own reverse-engineering problem. Designer David Lester, programmer Simon Bradbury. Amiga first (Oct 12), DOS/Atari ST/Mac in 1993.</p>
+          </div>
+        </div>
+      </div>
+
+      <div style="position:relative;">
+        <div style="position:absolute;left:-33px;top:2px;width:9px;height:9px;border-radius:50%;background:oklch(97% 0.003 60);border:1px solid var(--color-divider);"></div>
+        <div style="display:flex;gap:14px;">
+          <a href="./Caesar-II.dc.html" style="flex:none;"><img src="./images/caesar2-cover.jpg" alt="Caesar II cover art" style="display:block;width:64px;height:96px;object-fit:cover;border-radius:3px;border:1px solid var(--color-divider);"></a>
+          <div>
+            <div style="display:flex;gap:12px;align-items:baseline;flex-wrap:wrap;margin-bottom:5px;">
+              <span style="font-family:var(--font-mono);font-size:12px;color:var(--color-text-dim);">1995</span>
+              <a href="./Caesar-II.dc.html" style="font-family:var(--font-heading);font-weight:600;font-size:19px;color:var(--color-text);text-decoration:none;">Caesar II</a>
+              <span style="font-size:10px;font-family:var(--font-mono);letter-spacing:0.06em;text-transform:uppercase;color:var(--color-text-dim);border:1px solid var(--color-divider);border-radius:3px;padding:1px 6px;">Archive entry</span>
+            </div>
+            <p style="margin:0;font-size:13.5px;line-height:1.6;color:var(--color-text-dim);max-width:64ch;">Transitional generation. Same core team (Lester/Bradbury), Chris Beatrice joining on art. Still no open documentation of its asset formats.</p>
+          </div>
+        </div>
+      </div>
+
+      <div style="position:relative;">
+        <div style="position:absolute;left:-33px;top:2px;width:9px;height:9px;border-radius:50%;background:oklch(97% 0.003 60);border:1px solid var(--color-divider);box-shadow:0 0 0 3px oklch(97% 0.003 60 / 0.2);"></div>
+        <div style="display:flex;gap:14px;">
+          <a href="./Caesar-III.dc.html" style="flex:none;"><img src="./images/caesar3-cover.jpg" alt="Caesar III cover art" style="display:block;width:64px;height:96px;object-fit:cover;border-radius:3px;border:1px solid var(--color-divider);"></a>
+          <div>
+            <div style="display:flex;gap:12px;align-items:baseline;flex-wrap:wrap;margin-bottom:5px;">
+              <span style="font-family:var(--font-mono);font-size:12px;color:var(--color-text-dim);">1998</span>
+              <a href="./Caesar-III.dc.html" style="font-family:var(--font-heading);font-weight:600;font-size:19px;color:var(--color-text);text-decoration:none;">Caesar III</a>
+              <span style="font-size:10px;font-family:var(--font-mono);letter-spacing:0.06em;text-transform:uppercase;color:var(--accent-rome);border:1px solid var(--accent-rome-dim);border-radius:3px;padding:1px 6px;">The archetype</span>
+            </div>
+            <p style="margin:0;font-size:13.5px;line-height:1.6;color:var(--color-text-dim);max-width:64ch;">Isometric 2D sprites on the .sg2 + .555 asset pipeline, .map scenarios, .sav saves. Official map editor landed in the v1.1 patch.</p>
+          </div>
+        </div>
+      </div>
+
+      <div style="position:relative;">
+        <div style="position:absolute;left:-33px;top:2px;width:9px;height:9px;border-radius:50%;background:oklch(75% 0.004 60);border:1px solid var(--color-divider);"></div>
+        <div style="display:flex;gap:14px;">
+          <a href="./Pharaoh.dc.html" style="flex:none;"><img src="./images/pharaoh-cover.jpg" alt="Pharaoh cover art" style="display:block;width:64px;height:96px;object-fit:cover;border-radius:3px;border:1px solid var(--color-divider);"></a>
+          <div>
+            <div style="display:flex;gap:12px;align-items:baseline;flex-wrap:wrap;margin-bottom:5px;">
+              <span style="font-family:var(--font-mono);font-size:12px;color:var(--color-text-dim);">1999</span>
+              <a href="./Pharaoh.dc.html" style="font-family:var(--font-heading);font-weight:600;font-size:19px;color:var(--color-text);text-decoration:none;">Pharaoh</a>
+              <span style="font-size:10px;font-family:var(--font-mono);letter-spacing:0.06em;text-transform:uppercase;color:var(--color-text-dim);border:1px solid var(--color-divider);border-radius:3px;padding:1px 6px;">+ Cleopatra, 2000</span>
+            </div>
+            <p style="margin:0;font-size:13.5px;line-height:1.6;color:var(--color-text-dim);max-width:64ch;">Same engine as Caesar III, moved to Ancient Egypt, now on .sg3. Bundled as Pharaoh Gold in 2001.</p>
+          </div>
+        </div>
+      </div>
+
+      <div style="position:relative;">
+        <div style="position:absolute;left:-33px;top:2px;width:9px;height:9px;border-radius:50%;background:oklch(48% 0.004 60);border:1px solid var(--color-divider);"></div>
+        <div style="display:flex;gap:14px;">
+          <a href="./Zeus.dc.html" style="flex:none;"><img src="./images/zeus-cover.jpg" alt="Zeus: Master of Olympus cover art" style="display:block;width:64px;height:96px;object-fit:cover;border-radius:3px;border:1px solid var(--color-divider);"></a>
+          <div>
+            <div style="display:flex;gap:12px;align-items:baseline;flex-wrap:wrap;margin-bottom:5px;">
+              <span style="font-family:var(--font-mono);font-size:12px;color:var(--color-text-dim);">2000</span>
+              <a href="./Zeus.dc.html" style="font-family:var(--font-heading);font-weight:600;font-size:19px;color:var(--color-text);text-decoration:none;">Zeus: Master of Olympus</a>
+              <span style="font-size:10px;font-family:var(--font-mono);letter-spacing:0.06em;text-transform:uppercase;color:var(--color-text-dim);border:1px solid var(--color-divider);border-radius:3px;padding:1px 6px;">+ Poseidon, 2001</span>
+            </div>
+            <p style="margin:0;font-size:13.5px;line-height:1.6;color:var(--color-text-dim);max-width:64ch;">An engine revamp: global labor pool replaces labor walkers, no forts, elite housing built directly. Same designer/programmer team as Pharaoh.</p>
+          </div>
+        </div>
+      </div>
+
+      <div style="position:relative;">
+        <div style="position:absolute;left:-33px;top:2px;width:9px;height:9px;border-radius:50%;background:oklch(34% 0.004 60);border:1px solid var(--color-divider);"></div>
+        <div style="display:flex;gap:14px;">
+          <a href="./Emperor.dc.html" style="flex:none;"><img src="./images/emperor-cover.jpg" alt="Emperor: Rise of the Middle Kingdom cover art" style="display:block;width:64px;height:96px;object-fit:cover;border-radius:3px;border:1px solid var(--color-divider);"></a>
+          <div>
+            <div style="display:flex;gap:12px;align-items:baseline;flex-wrap:wrap;margin-bottom:5px;">
+              <span style="font-family:var(--font-mono);font-size:12px;color:var(--color-text-dim);">2002</span>
+              <a href="./Emperor.dc.html" style="font-family:var(--font-heading);font-weight:600;font-size:19px;color:var(--color-text);text-decoration:none;">Emperor: Rise of the Middle Kingdom</a>
+              <span style="font-size:10px;font-family:var(--font-mono);letter-spacing:0.06em;text-transform:uppercase;color:var(--color-text-dim);border:1px solid var(--color-divider);border-radius:3px;padding:1px 6px;">BreakAway Games</span>
+            </div>
+            <p style="margin:0;font-size:13.5px;line-height:1.6;color:var(--color-text-dim);max-width:64ch;">Built on the Zeus engine, spanning Xia to Song-Jin China. Last title on the 2D sprite engine, and the first with multiplayer.</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <section style="max-width:900px;margin:0 auto;padding:0 32px 72px;">
+    <p style="border-top:1px solid var(--color-divider);padding-top:20px;margin:0;font-style:italic;font-size:13px;color:var(--color-text-dim);white-space:nowrap;overflow-x:auto;">
+      <span style="text-transform:uppercase;letter-spacing:0.08em;font-style:normal;font-size:12px;">Related, not core</span> — Caesar IV (2006) · Children of the Nile (2004) · Pharaoh: A New Era (2023) · Nebuchadnezzar (2021, spiritual successor)
+    </p>
+  </section>
+
+  <footer style="border-top:1px solid var(--color-divider);padding:28px 32px;">
+    <div style="max-width:1120px;margin:0 auto;display:flex;flex-direction:column;align-items:center;gap:6px;text-align:center;font-size:12.5px;color:var(--color-text-dim);">
+      <span>Impressions Games Archive is a fan-run reference. Not affiliated with Impressions Games, Activision, Sierra, or Tilted Mill.</span>
+    </div>
+  </footer>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {}
+</script>
+</body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet data-dc-atomics>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Lora:ital,wght@0,400;0,600;1,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>body{margin:0}</style>
+</helmet>
+<nav style="--color-bg:oklch(15% 0.004 60);--color-surface:oklch(19% 0.005 60);--color-text:oklch(94% 0.004 60);--color-text-dim:oklch(66% 0.006 60);--color-divider:oklch(94% 0.004 60 / 0.14);--color-accent:oklch(72% 0.11 70);--accent-rome:oklch(72% 0.11 70);--accent-egypt:oklch(72% 0.09 250);--accent-greece:oklch(74% 0.08 195);--accent-china:oklch(68% 0.13 25);--font-heading:'Cormorant Garamond',Georgia,serif;--font-body:'Lora',Georgia,serif;--font-mono:'JetBrains Mono',ui-monospace,monospace;
+  display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:22px;padding:13px 32px;background:var(--color-bg);border-bottom:1px solid var(--color-divider);font-family:var(--font-body);row-gap:10px;position:sticky;top:0;z-index:20;">
+  <a href="./Home.dc.html" style="display:flex;align-items:baseline;gap:8px;text-decoration:none;color:var(--color-text);">
+    <span style="font-family:var(--font-heading);font-weight:700;font-size:21px;letter-spacing:0.02em;">IGA</span>
+  </a>
+
+  <div style="display:flex;align-items:center;gap:20px;flex-wrap:wrap;justify-content:center;">
+    <a href="./Caesar-I.dc.html" style="display:flex;align-items:center;gap:6px;color:var(--color-text-dim);text-decoration:none;font-size:14px;"><span style="width:6px;height:6px;border-radius:50%;background:oklch(97% 0.003 60);border:1px solid var(--color-divider);"></span>Caesar<sc-if value="{{ curCaesar1 }}" hint-placeholder-val="{{ false }}"><span style="display:block;height:2px;background:var(--color-accent);margin-top:2px;border-radius:1px;"></span></sc-if></a>
+    <a href="./Caesar-II.dc.html" style="display:flex;align-items:center;gap:6px;color:var(--color-text-dim);text-decoration:none;font-size:14px;"><span style="width:6px;height:6px;border-radius:50%;background:oklch(97% 0.003 60);border:1px solid var(--color-divider);"></span>Caesar II<sc-if value="{{ curCaesar2 }}" hint-placeholder-val="{{ false }}"><span style="display:block;height:2px;background:var(--color-accent);margin-top:2px;border-radius:1px;"></span></sc-if></a>
+    <a href="./Caesar-III.dc.html" style="display:flex;align-items:center;gap:6px;color:var(--color-text-dim);text-decoration:none;font-size:14px;"><span style="width:6px;height:6px;border-radius:50%;background:oklch(97% 0.003 60);border:1px solid var(--color-divider);"></span>Caesar III<sc-if value="{{ curCaesar3 }}" hint-placeholder-val="{{ false }}"><span style="display:block;height:2px;background:var(--color-accent);margin-top:2px;border-radius:1px;"></span></sc-if></a>
+    <a href="./Pharaoh.dc.html" style="display:flex;align-items:center;gap:6px;color:var(--color-text-dim);text-decoration:none;font-size:14px;"><span style="width:6px;height:6px;border-radius:50%;background:oklch(75% 0.004 60);border:1px solid var(--color-divider);"></span>Pharaoh<sc-if value="{{ curPharaoh }}" hint-placeholder-val="{{ false }}"><span style="display:block;height:2px;background:var(--color-accent);margin-top:2px;border-radius:1px;"></span></sc-if></a>
+    <a href="./Zeus.dc.html" style="display:flex;align-items:center;gap:6px;color:var(--color-text-dim);text-decoration:none;font-size:14px;"><span style="width:6px;height:6px;border-radius:50%;background:oklch(48% 0.004 60);border:1px solid var(--color-divider);"></span>Zeus<sc-if value="{{ curZeus }}" hint-placeholder-val="{{ false }}"><span style="display:block;height:2px;background:var(--color-accent);margin-top:2px;border-radius:1px;"></span></sc-if></a>
+    <a href="./Emperor.dc.html" style="display:flex;align-items:center;gap:6px;color:var(--color-text-dim);text-decoration:none;font-size:14px;"><span style="width:6px;height:6px;border-radius:50%;background:oklch(34% 0.004 60);border:1px solid var(--color-divider);"></span>Emperor<sc-if value="{{ curEmperor }}" hint-placeholder-val="{{ false }}"><span style="display:block;height:2px;background:var(--color-accent);margin-top:2px;border-radius:1px;"></span></sc-if></a>
+  </div>
+
+  <div></div>
+</nav>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;currentPage&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;default&quot;:&quot;home&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;options&quot;:[&quot;home&quot;,&quot;caesar1&quot;,&quot;caesar2&quot;,&quot;caesar3&quot;,&quot;pharaoh&quot;,&quot;zeus&quot;,&quot;emperor&quot;,&quot;engine-hub&quot;,&quot;formats&quot;,&quot;community&quot;]}}">
+class Component extends DCLogic {
+  renderVals() {
+    const p = this.props.currentPage;
+    return {
+      curCaesar1: p === 'caesar1',
+      curCaesar2: p === 'caesar2',
+      curCaesar3: p === 'caesar3',
+      curPharaoh: p === 'pharaoh',
+      curZeus: p === 'zeus',
+      curEmperor: p === 'emperor',
+    };
+  }
+}
+</script>
+</body>
+</html>

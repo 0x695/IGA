@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<sc-if value="{{ loaded }}" hint-placeholder-val="{{ false }}">
+<div>
+
+  <!-- Hero -->
+  <section style="max-width:900px;margin:0 auto;padding:64px 32px 8px;">
+    <div style="display:flex;align-items:center;gap:10px;margin-bottom:14px;">
+      <span style="width:10px;height:10px;border-radius:50%;background:{{ g.accentVar }};border:1px solid var(--color-divider);flex:none;"></span>
+      <span style="font-family:var(--font-mono);font-size:12px;letter-spacing:0.1em;text-transform:uppercase;color:var(--color-text-dim);">{{ g.years }} · {{ g.civ }}</span>
+      <sc-if value="{{ g.archive }}" hint-placeholder-val="{{ false }}"><span style="font-size:10px;font-family:var(--font-mono);letter-spacing:0.06em;text-transform:uppercase;border:1px solid var(--color-divider);border-radius:3px;padding:1px 7px;color:var(--color-text-dim);">Archive entry</span></sc-if>
+    </div>
+    <h1 style="font-family:var(--font-heading);font-weight:700;font-size:clamp(30px,5vw,46px);margin:0 0 16px;border-bottom:3px solid {{ g.accentVar }};padding-bottom:16px;display:inline-block;">{{ g.name }}</h1>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:14px;margin:18px 0 20px;font-size:13px;">
+      <div><div style="color:var(--color-text-dim);font-size:10px;letter-spacing:0.06em;text-transform:uppercase;margin-bottom:3px;">Setting</div><div>{{ g.setting }}</div></div>
+      <div><div style="color:var(--color-text-dim);font-size:10px;letter-spacing:0.06em;text-transform:uppercase;margin-bottom:3px;">Developer</div><div>{{ g.developer }}</div></div>
+      <div><div style="color:var(--color-text-dim);font-size:10px;letter-spacing:0.06em;text-transform:uppercase;margin-bottom:3px;">Publisher</div><div>{{ g.publisher }}</div></div>
+      <sc-if value="{{ hasExpansions }}" hint-placeholder-val="{{ false }}"><div><div style="color:var(--color-text-dim);font-size:10px;letter-spacing:0.06em;text-transform:uppercase;margin-bottom:3px;">Expansions</div><div>{{ g.expansions }}</div></div></sc-if>
+    </div>
+    <sc-if value="{{ hasCredits }}" hint-placeholder-val="{{ false }}"><p style="font-size:13px;color:var(--color-text-dim);margin:0 0 18px;">{{ g.credits }}</p></sc-if>
+    <p style="font-size:15px;line-height:1.65;color:var(--color-text-dim);max-width:70ch;margin:0;">{{ g.engineNote }}</p>
+  </section>
+
+  <!-- Screenshot -->
+  <section style="max-width:900px;margin:0 auto;padding:8px 32px 8px;">
+    <figure style="margin:0;border:1px solid var(--color-divider);border-radius:var(--radius-lg);overflow:hidden;background:var(--color-surface);">
+      <img src="{{ g.image }}" alt="{{ g.name }} screenshot" style="display:block;width:100%;aspect-ratio:16/9;object-fit:cover;">
+      <figcaption style="padding:8px 14px;font-size:11px;color:var(--color-text-dim);border-top:1px solid var(--color-divider);">{{ g.imageCredit }}</figcaption>
+    </figure>
+  </section>
+
+  <!-- Formats -->
+  <section style="max-width:900px;margin:0 auto;padding:36px 32px 8px;">
+    <h2 style="font-family:var(--font-heading);font-weight:600;font-size:13px;letter-spacing:0.1em;text-transform:uppercase;color:var(--color-text-dim);margin:0 0 14px;">File formats</h2>
+    <div style="border:1px solid var(--color-divider);border-radius:var(--radius-md);overflow:hidden;">
+      <sc-for list="{{ g.formats }}" as="f" hint-placeholder-count="2">
+        <div style="display:flex;justify-content:space-between;align-items:baseline;gap:12px;padding:12px 16px;border-top:1px solid var(--color-divider);flex-wrap:wrap;">
+          <div style="display:flex;gap:10px;align-items:baseline;flex-wrap:wrap;">
+            <span style="font-family:var(--font-mono);font-size:13px;font-weight:600;">{{ f.name }}</span>
+            <span style="font-size:12.5px;color:var(--color-text-dim);">{{ f.note }}</span>
+          </div>
+          <dc-import name="StatusDot" status="{{ f.status }}" hint-size="90px,16px"></dc-import>
+        </div>
+      </sc-for>
+    </div>
+  </section>
+
+  <!-- Engines -->
+  <section style="max-width:900px;margin:0 auto;padding:36px 32px 8px;">
+    <h2 style="font-family:var(--font-heading);font-weight:600;font-size:13px;letter-spacing:0.1em;text-transform:uppercase;color:var(--color-text-dim);margin:0 0 14px;">Open-source engines</h2>
+
+    <sc-if value="{{ hasWanted }}" hint-placeholder-val="{{ false }}">
+      <div style="border:1.5px dashed var(--color-divider);border-radius:var(--radius-lg);padding:20px 22px;">
+        <p style="margin:0;font-size:13.5px;line-height:1.6;color:var(--color-text-dim);">{{ g.wanted }}</p>
+      </div>
+    </sc-if>
+
+    <sc-if value="{{ hasProjects }}" hint-placeholder-val="{{ false }}">
+      <div style="display:flex;flex-direction:column;gap:12px;">
+        <sc-for list="{{ g.projects }}" as="p" hint-placeholder-count="2">
+          <div style="border:1px solid var(--color-divider);border-radius:var(--radius-md);background:var(--color-surface);padding:16px 18px;">
+            <div style="display:flex;justify-content:space-between;align-items:flex-start;gap:10px;margin-bottom:8px;">
+              <div>
+                <span style="font-family:var(--font-heading);font-weight:600;font-size:16px;">{{ p.name }}</span>
+                <span style="font-size:12px;color:var(--color-text-dim);margin-left:8px;">{{ p.lineage }}</span>
+              </div>
+              <dc-import name="StatusDot" status="{{ p.status }}" hint-size="70px,16px"></dc-import>
+            </div>
+            <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:8px 16px;font-size:12.5px;color:var(--color-text-dim);margin-bottom:8px;">
+              <div>{{ p.language }}</div>
+              <div>{{ p.platforms }}</div>
+              <div style="grid-column:1/-1;">{{ p.saveCompat }}</div>
+              <div style="grid-column:1/-1;">{{ p.activity }}</div>
+            </div>
+            <a href="{{ p.repoUrl }}" style="font-size:12.5px;color:var(--color-accent);text-decoration:none;">Repository ↗</a>
+          </div>
+        </sc-for>
+      </div>
+    </sc-if>
+
+  </section>
+
+  <!-- Community -->
+  <section style="max-width:900px;margin:0 auto;padding:36px 32px 72px;">
+    <h2 style="font-family:var(--font-heading);font-weight:600;font-size:13px;letter-spacing:0.1em;text-transform:uppercase;color:var(--color-text-dim);margin:0 0 14px;">Community</h2>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:14px;">
+      <sc-for list="{{ g.community }}" as="c" hint-placeholder-count="2">
+        <div style="border:1px solid var(--color-divider);border-radius:var(--radius-md);padding:16px 18px;">
+          <div style="display:flex;justify-content:space-between;align-items:baseline;gap:10px;margin-bottom:6px;">
+            <span style="font-family:var(--font-heading);font-weight:600;font-size:15px;">{{ c.title }}</span>
+            <dc-import name="StatusDot" status="{{ c.status }}" hint-size="70px,16px"></dc-import>
+          </div>
+          <span style="font-size:10px;letter-spacing:0.06em;text-transform:uppercase;border:1px solid var(--color-divider);border-radius:3px;padding:1px 6px;color:var(--color-text-dim);">{{ c.category }}</span>
+          <p style="margin:8px 0 0;font-size:13px;line-height:1.55;color:var(--color-text-dim);">{{ c.note }}</p>
+        </div>
+      </sc-for>
+    </div>
+  </section>
+
+</div>
+</sc-if>
+<sc-if value="{{ notLoaded }}" hint-placeholder-val="{{ true }}"><div style="padding:64px 32px;color:var(--color-text-dim,#999);font-size:13px;">Loading…</div></sc-if>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;gameId&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;default&quot;:&quot;caesar3&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;options&quot;:[&quot;caesar1&quot;,&quot;caesar2&quot;,&quot;caesar3&quot;,&quot;pharaoh&quot;,&quot;zeus&quot;,&quot;emperor&quot;]}}">
+class Component extends DCLogic {
+  state = { g: null };
+  async componentDidMount() {
+    const mod = await import('./content-data.js');
+    this.setState({ g: mod.GAME_DATA[this.props.gameId] });
+  }
+  renderVals() {
+    const g = this.state.g;
+    if (!g) return { loaded: false, notLoaded: true };
+    return {
+      loaded: true, notLoaded: false, g,
+      hasCredits: !!g.credits,
+      hasExpansions: !!g.expansions,
+      hasProjects: g.projects.length > 0,
+      hasWanted: !!g.wanted,
+    };
+  }
+}
+</script>
+</body>
+</html>
