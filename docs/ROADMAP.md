@@ -7,8 +7,9 @@ done) and the v1/v2/v3 build order in the build brief.*
 
 ## Where this stands
 
-v1 is built and runs locally: Home with the series timeline, six
-self-contained game hubs, Pagefind search, 3.2 MB of static output.
+v1 is **live at https://0x695.github.io/IGA/**: Home with the series
+timeline, six self-contained game hubs, Pagefind search, a 404, and the
+metadata a page needs to be found. Phases 0 and 1 are complete.
 
 **The build brief's version plan is already spent, and not in the way it
 expected.** It ordered the work as *v1 = the centralized Engine Hub / Format
@@ -98,38 +99,51 @@ first push wire it up and Pages takes over.
 
 ## Phase 1 — Finish the shell
 
-Small, unglamorous, and all of it is the difference between a site that
-*works* and one that behaves like a real reference.
+**Done.** 7 September 2026.
 
-- [ ] **Metadata.** The built pages carry a title, a description and nothing
-      else: no canonical, no Open Graph or Twitter card, no sitemap, no
-      `robots.txt`, no favicon. For a site whose entire traffic model is
-      "someone arrives from a search", this is the highest-leverage hour on
-      the list.
-- [ ] **A 404 page** in the site's own voice, pointing at the six hubs.
-- [ ] **Decide the cover credits.** Masterdoc §10 says both the screenshots
-      and the box art are credited inline. The hub screenshots are; the Home
-      timeline covers are not, because the artboard has no credit line there.
-      The string is in the data (`coverCredit`) and rides on the image's
-      `title` today. Either render it or accept the artboard — but decide it
-      alongside the Phase 0 rights review, since it's the same question.
-- [x] **"How to play it today" — decided, and built.** Masterdoc §4 lists it
-      as part of the per-game hub and the design pass dropped it; it is back,
-      sitting under the engines because it answers the question they raise.
-      Every storefront URL was checked against the live store page rather than
-      guessed from a slug: Caesar, Caesar II and Emperor are GOG-only, the
-      other three are on GOG and Steam, and the note on each hub says why a
-      store is missing rather than leaving a gap.
-- [ ] **The rest of §4's "how to play" material.** The section ships
-      storefronts only. Patches and compat notes — PCGamingWiki per game, the
-      WSGF and Jackfuste resolution work for Emperor, the official Caesar III
-      map editor on ModDB — are researched in §3.3 and not yet on any page.
-      They want a `patches`/`compat` shape in the data rather than prose.
-- [ ] **Accessibility and performance pass.** Keyboard path through the nav
-      and search, focus visibility on the cards, colour contrast on
-      `--color-text-dim` at 12.5px (the smallest text on the site sits on a
-      near-black ground and wants measuring, not assuming), and a real look at
-      the render-blocking Google Fonts link.
+- [x] **Metadata.** Canonical URLs, Open Graph and Twitter tags, favicons, a
+      hand-rolled sitemap and a robots.txt. The social card is typographic and
+      carries no game art — a preview image is a different *use* of that art
+      than illustrating the game it documents, which Phase 0 said would be a
+      new question rather than a free extension.
+
+      The sitemap is hand-rolled rather than `@astrojs/sitemap` because the
+      decision worth making is *which* routes belong in an index:
+      auto-discovery would have listed `/search` and `/404`, both real pages
+      with no standing content. Both are `noindex` instead, and neither
+      declares a canonical — the 404 in particular is served at every unknown
+      URL, so claiming one would be a lie.
+
+      **One honest limitation:** robots.txt is inert while the site lives at a
+      Pages *project* URL. Crawlers read it only at a domain root, so they
+      fetch `0x695.github.io/robots.txt` and never `/IGA/robots.txt`. It goes
+      live with a custom domain; until then the `noindex` tags are what
+      actually work, and the sitemap can be submitted directly in Search
+      Console rather than discovered.
+- [x] **A 404 page** in the site's own voice. Most dead inbound links here
+      will be old forum and wiki links, which means the reader wanted
+      something specific — so it lists the six hubs and points at search
+      instead of apologising.
+- [x] **Cover credits — decided.** The artboard gives the timeline covers
+      none, and a credit under each of six 64px thumbnails would be louder
+      than the covers themselves. One line closes the section and credits all
+      six, keeping masterdoc §10 without touching the rows.
+- [x] **The rest of §4's "how to play" material.** PCGamingWiki for all six
+      games, plus the resolution customiser for Zeus and Emperor. Every URL
+      was opened and confirmed — PCGamingWiki blocks plain fetches, and the
+      guessed URL for a Zeus customiser page turned out to 404, so it links
+      the project's repository instead.
+
+      Kept deliberately narrow: this is patches and compatibility, **not** a
+      downloads index. §4 listed that separately, the design dropped it, and
+      growing one inside this section would be a different page hiding in a
+      subsection.
+- [x] **Accessibility and performance pass.** The contrast question was
+      measured rather than assumed, and the answer was that nothing needed
+      changing: the smallest dim text is 6.32:1 on the ground and 5.93:1 on
+      cards, and every status colour clears AA on both. What the pass did add
+      is a skip link — seven links and a search box stand between the top of
+      every page and its content.
 
 ---
 
@@ -212,13 +226,13 @@ actually good.
 
 ## Decisions this roadmap is waiting on
 
-1. **Cover credits** — render them, or accept the artboard. Phase 1.
-2. **Where a full format spec lives** — per-format pages, or expanded in the
-   hub. Phase 2.
+1. **Where a full format spec lives** — per-format pages hung off each hub, or
+   expanded in place on the hub. Phase 2, and the only one left.
 
-*Resolved since this was written: "how to play it today" is in, storefronts
-first; the images stay as designed; the site ships on GitHub Pages with a
-custom domain left as a later setting.*
+*Everything else that was on this list has been decided: "how to play it
+today" is in, storefronts first and patches alongside; the images stay as
+designed and the timeline covers carry one closing credit line; the site ships
+on GitHub Pages with a custom domain left as a later setting.*
 
 ---
 

@@ -58,6 +58,16 @@ const games = defineCollection({
     ),
     /** One line of compat/availability truth, including why a store is absent. */
     playNote: z.string(),
+    /**
+     * Patches and compatibility, per masterdoc §4 — PCGamingWiki for every
+     * game, plus the resolution work where it exists. Links out; this site
+     * hosts no downloads. Deliberately *not* a downloads index: §4 listed
+     * that separately and the design dropped it, and quietly growing one here
+     * would be a different page hiding inside this section.
+     */
+    compat: z.array(
+      z.object({ title: z.string(), url: z.string().url(), note: z.string() }),
+    ),
     image: z.string(),
     imageCredit: z.string(),
     cover: z.string(),
