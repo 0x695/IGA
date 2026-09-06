@@ -21,6 +21,8 @@ export async function getStaticPaths() {
   const formats = await getCollection('fileFormats');
   const links = await getCollection('communityLinks');
 
+  const buildings = await getCollection('buildings');
+
   return games.map((game) => ({
     params: { game: game.id },
     props: {
@@ -28,11 +30,12 @@ export async function getStaticPaths() {
       projects: projects.filter((p) => p.data.games.includes(game.id)),
       formats: formats.filter((f) => f.data.games.includes(game.id)),
       links: links.filter((l) => l.data.games.includes(game.id)),
+      buildingCount: buildings.filter((b) => b.data.variants.some((v) => v.game === game.id)).length,
     },
   }));
 }
 
-const { game, projects, formats, links } = Astro.props;
+const { game, projects, formats, links, buildingCount } = Astro.props;
 const g = game.data;
 ---
 
@@ -96,6 +99,24 @@ const g = game.data;
         }
       </div>
     </section>
+
+    {/* A hundred cards would bury this page, so the hub carries the count and
+        the reference lives on its own route — the same shape as the format
+        pages. Only shown for games whose buildings are actually populated. */}
+    {
+      buildingCount > 0 && (
+        <section class="section block">
+          <h2 class="section-heading">Buildings</h2>
+          <a class="buildings-link" href={withBase(`/${game.id}/buildings/`)}>
+            <span class="buildings-link__count">{buildingCount} buildings →</span>
+            <span class="buildings-link__note">
+              Every building the engine defines, with its footprint in tiles and the constant that
+              names it in the source. Filterable by name or category.
+            </span>
+          </a>
+        </section>
+      )
+    }
 
     <section class="section block">
       <h2 class="section-heading">Open-source engines</h2>
@@ -347,6 +368,34 @@ const g = game.data;
     display: flex;
     flex-direction: column;
     gap: 12px;
+  }
+
+  .buildings-link {
+    display: block;
+    border: 1px solid var(--color-divider);
+    border-radius: var(--radius-md);
+    padding: 16px 18px;
+    text-decoration: none;
+  }
+
+  .buildings-link:hover {
+    border-color: var(--color-accent-dim);
+  }
+
+  .buildings-link__count {
+    display: block;
+    font-family: var(--font-mono);
+    font-size: 13px;
+    color: var(--color-accent);
+    margin-bottom: 5px;
+  }
+
+  .buildings-link__note {
+    display: block;
+    font-size: 13px;
+    line-height: 1.6;
+    color: var(--color-text-dim);
+    max-width: 70ch;
   }
 
   .play__prereq {

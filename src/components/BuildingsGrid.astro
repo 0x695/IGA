@@ -1,0 +1,255 @@
+---
+import type { CollectionEntry } from 'astro:content';
+
+/**
+ * The buildings reference: a filterable grid of every building the engine
+ * defines, for one game.
+ *
+ * This is the site's first component with real interaction, and it is
+ * deliberately the least interactive thing that works: no framework, no
+ * fetch, no state beyond two inputs. Every card is in the HTML at build time,
+ * so the list is complete before any script runs, works with JavaScript off,
+ * and is indexed by Pagefind. The script only hides rows.
+ */
+interface Props {
+  buildings: CollectionEntry<'buildings'>[];
+  game: string;
+}
+
+const { buildings, game } = Astro.props;
+
+const rows = buildings
+  .map((building) => ({
+    ...building.data,
+    variant: building.data.variants.find((v) => v.game === game)!,
+  }))
+  .filter((row) => row.variant);
+
+const categories = [...new Set(rows.map((r) => r.category))].sort();
+---
+
+<div class="buildings" data-buildings>
+  <div class="controls">
+    <label class="controls__label" for="building-search">Filter buildings</label>
+    <input
+      class="controls__input"
+      id="building-search"
+      type="search"
+      placeholder="Filter by name or engine constant…"
+      autocomplete="off"
+      data-search
+    />
+    <div class="chips" role="group" aria-label="Filter by category">
+      <button class="chip chip--on" type="button" data-category="">All</button>
+      {
+        categories.map((category) => (
+          <button class="chip" type="button" data-category={category}>
+            {category}
+          </button>
+        ))
+      }
+    </div>
+  </div>
+
+  <p class="count" role="status" aria-live="polite" data-count>
+    {rows.length} buildings
+  </p>
+
+  <ul class="grid">
+    {
+      rows.map((row) => (
+        <li
+          class="card"
+          data-name={row.name.toLowerCase()}
+          data-engine={row.variant.engineType.toLowerCase()}
+          data-category={row.category}
+        >
+          <div class="card__head">
+            <span class="card__name">{row.name}</span>
+            {row.variant.size && <span class="card__size">{row.variant.size}×{row.variant.size}</span>}
+          </div>
+          <span class="card__category">{row.category}</span>
+          <code class="card__engine">{row.variant.engineType}</code>
+        </li>
+      ))
+    }
+  </ul>
+
+  <p class="empty" hidden data-empty>Nothing matches that.</p>
+</div>
+
+<script>
+  const root = document.querySelector('[data-buildings]');
+  if (root) {
+    const search = root.querySelector('[data-search]') as HTMLInputElement;
+    const count = root.querySelector('[data-count]') as HTMLElement;
+    const empty = root.querySelector('[data-empty]') as HTMLElement;
+    const chips = [...root.querySelectorAll<HTMLButtonElement>('[data-category]')].filter(
+      (el) => el.tagName === 'BUTTON',
+    );
+    const cards = [...root.querySelectorAll<HTMLElement>('.card')];
+
+    let category = '';
+
+    function apply() {
+      const query = search.value.trim().toLowerCase();
+      let shown = 0;
+
+      for (const card of cards) {
+        const matchesCategory = !category || card.dataset.category === category;
+        const matchesQuery =
+          !query ||
+          (card.dataset.name ?? '').includes(query) ||
+          (card.dataset.engine ?? '').includes(query);
+        const visible = matchesCategory && matchesQuery;
+        card.hidden = !visible;
+        if (visible) shown += 1;
+      }
+
+      count.textContent =
+        shown === cards.length
+          ? `${cards.length} buildings`
+          : `${shown} of ${cards.length} buildings`;
+      empty.hidden = shown > 0;
+    }
+
+    search.addEventListener('input', apply);
+
+    for (const chip of chips) {
+      chip.addEventListener('click', () => {
+        category = chip.dataset.category ?? '';
+        for (const other of chips) other.classList.toggle('chip--on', other === chip);
+        apply();
+      });
+    }
+  }
+</script>
+
+<style>
+  .controls {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    margin-bottom: 20px;
+  }
+
+  .controls__label {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip-path: inset(50%);
+    white-space: nowrap;
+  }
+
+  .controls__input {
+    width: 100%;
+    max-width: 420px;
+    background: var(--color-surface);
+    border: 1px solid var(--color-divider);
+    border-radius: var(--radius-md);
+    color: var(--color-text);
+    font-family: var(--font-body);
+    font-size: 14px;
+    padding: 9px 13px;
+  }
+
+  .controls__input::placeholder {
+    color: var(--color-text-dim);
+  }
+
+  .chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  /* Outlined, never filled — the selected chip is marked by an accent border
+     and brighter text, in keeping with the rest of the site. */
+  .chip {
+    font-family: var(--font-body);
+    font-size: 12px;
+    color: var(--color-text-dim);
+    background: none;
+    border: 1px solid var(--color-divider);
+    border-radius: var(--radius-md);
+    padding: 5px 11px;
+    cursor: pointer;
+  }
+
+  .chip:hover {
+    color: var(--color-text);
+    border-color: var(--color-accent-dim);
+  }
+
+  .chip--on {
+    color: var(--color-text);
+    border-color: var(--color-accent);
+  }
+
+  .count {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--color-text-dim);
+    margin: 0 0 14px;
+  }
+
+  .grid {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
+    gap: 10px;
+  }
+
+  .card {
+    border: 1px solid var(--color-divider);
+    border-radius: var(--radius-md);
+    padding: 12px 14px;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+  }
+
+  .card__head {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 10px;
+  }
+
+  .card__name {
+    font-family: var(--font-heading);
+    font-weight: 600;
+    font-size: 15px;
+  }
+
+  .card__size {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    color: var(--color-accent);
+    white-space: nowrap;
+  }
+
+  .card__category {
+    font-size: 11px;
+    color: var(--color-text-dim);
+  }
+
+  .card__engine {
+    font-family: var(--font-mono);
+    font-size: 10.5px;
+    color: var(--color-text-dim);
+    opacity: 0.75;
+    word-break: break-all;
+  }
+
+  .empty {
+    font-size: 13px;
+    color: var(--color-text-dim);
+    margin: 16px 0 0;
+  }
+</style>

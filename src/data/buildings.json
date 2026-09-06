@@ -1,1 +1,1902 @@
-[]
+[
+  {
+    "id": "dock",
+    "name": "Dock",
+    "category": "Distribution",
+    "description": null,
+    "variants": [
+      {
+        "game": "caesar3",
+        "name": "Dock",
+        "engineType": "BUILDING_DOCK",
+        "size": 3,
+        "cost": null,
+        "employees": null,
+        "requires": [],
+        "produces": [],
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "granary",
+    "name": "Granary",
+    "category": "Distribution",
+    "description": null,
+    "variants": [
+      {
+        "game": "caesar3",
+        "name": "Granary",
+        "engineType": "BUILDING_GRANARY",
+        "size": 3,
+        "cost": null,
+        "employees": null,
+        "requires": [],
+        "produces": [],
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "market",
+    "name": "Market",
+    "category": "Distribution",
+    "description": null,
+    "variants": [
+      {
+        "game": "caesar3",
+        "name": "Market",
+        "engineType": "BUILDING_MARKET",
+        "size": 2,
+        "cost": null,
+        "employees": null,
+        "requires": [],
+        "produces": [],
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "shipyard",
+    "name": "Shipyard",
+    "category": "Distribution",
+    "description": null,
+    "variants": [
+      {
+        "game": "caesar3",
+        "name": "Shipyard",
+        "engineType": "BUILDING_SHIPYARD",
+        "size": 2,
+        "cost": null,
+        "employees": null,
+        "requires": [],
+        "produces": [],
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "warehouse",
+    "name": "Warehouse",
+    "category": "Distribution",
+    "description": null,
+    "variants": [
+      {
+        "game": "caesar3",
+        "name": "Warehouse",
+        "engineType": "BUILDING_WAREHOUSE",
+        "size": 1,
+        "cost": null,
+        "employees": null,
+        "requires": [],
+        "produces": [],
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "wharf",
+    "name": "Wharf",
+    "category": "Distribution",
+    "description": null,
+    "variants": [
+      {
+        "game": "caesar3",
+        "name": "Wharf",
+        "engineType": "BUILDING_WHARF",
+        "size": 2,
+        "cost": null,
+        "employees": null,
+        "requires": [],
+        "produces": [],
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "academy",
+    "name": "Academy",
+    "category": "Education",
+    "description": null,
+    "variants": [
+      {
+        "game": "caesar3",
+        "name": "Academy",
+        "engineType": "BUILDING_ACADEMY",
+        "size": 3,
+        "cost": null,
+        "employees": null,
+        "requires": [],
+        "produces": [],
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "library",
+    "name": "Library",
+    "category": "Education",
+    "description": null,
+    "variants": [
+      {
+        "game": "caesar3",
+        "name": "Library",
+        "engineType": "BUILDING_LIBRARY",
+        "size": 2,
+        "cost": null,
+        "employees": null,
+        "requires": [],
+        "produces": [],
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "school",
+    "name": "School",
+    "category": "Education",
+    "description": null,
+    "variants": [
+      {
+        "game": "caesar3",
+        "name": "School",
+        "engineType": "BUILDING_SCHOOL",
+        "size": 2,
+        "cost": null,
+        "employees": null,
+        "requires": [],
+        "produces": [],
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "actor-colony",
+    "name": "Actor Colony",
+    "category": "Entertainment",
+    "description": null,
+    "variants": [
+      {
+        "game": "caesar3",
+        "name": "Actor Colony",
+        "engineType": "BUILDING_ACTOR_COLONY",
+        "size": 3,
+        "cost": null,
+        "employees": null,
+        "requires": [],
+        "produces": [],
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "amphitheater",
+    "name": "Amphitheater",
+    "category": "Entertainment",
+    "description": null,
+    "variants": [
+      {
+        "game": "caesar3",
+        "name": "Amphitheater",
+        "engineType": "BUILDING_AMPHITHEATER",
+        "size": 3,
+        "cost": null,
+        "employees": null,
+        "requires": [],
+        "produces": [],
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "chariot-maker",
+    "name": "Chariot Maker",
+    "category": "Entertainment",
+    "description": null,
+    "variants": [
+      {
+        "game": "caesar3",
+        "name": "Chariot Maker",
+        "engineType": "BUILDING_CHARIOT_MAKER",
+        "size": 3,
+        "cost": null,
+        "employees": null,
+        "requires": [],
+        "produces": [],
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "colosseum",
+    "name": "Colosseum",
+    "category": "Entertainment",
+    "description": null,
+    "variants": [
+      {
+        "game": "caesar3",
+        "name": "Colosseum",
+        "engineType": "BUILDING_COLOSSEUM",
+        "size": 5,
+        "cost": null,
+        "employees": null,
+        "requires": [],
+        "produces": [],
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "gladiator-school",
+    "name": "Gladiator School",
+    "category": "Entertainment",
+    "description": null,
+    "variants": [
+      {
+        "game": "caesar3",
+        "name": "Gladiator School",
+        "engineType": "BUILDING_GLADIATOR_SCHOOL",
+        "size": 3,
+        "cost": null,
+        "employees": null,
+        "requires": [],
+        "produces": [],
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "hippodrome",
+    "name": "Hippodrome",
+    "category": "Entertainment",
+    "description": null,
+    "variants": [
+      {
+        "game": "caesar3",
+        "name": "Hippodrome",
+        "engineType": "BUILDING_HIPPODROME",
+        "size": 5,
+        "cost": null,
+        "employees": null,
+        "requires": [],
+        "produces": [],
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "lion-house",
+    "name": "Lion House",
+    "category": "Entertainment",
+    "description": null,
+    "variants": [
+      {
+        "game": "caesar3",
+        "name": "Lion House",
+        "engineType": "BUILDING_LION_HOUSE",
+        "size": 3,
+        "cost": null,
+        "employees": null,
+        "requires": [],
+        "produces": [],
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "theater",
+    "name": "Theater",
+    "category": "Entertainment",
+    "description": null,
+    "variants": [
+      {
+        "game": "caesar3",
+        "name": "Theater",
+        "engineType": "BUILDING_THEATER",
+        "size": 2,
+        "cost": null,
+        "employees": null,
+        "requires": [],
+        "produces": [],
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "fruit-farm",
+    "name": "Fruit Farm",
+    "category": "Farming",
+    "description": null,
+    "variants": [
+      {
+        "game": "caesar3",
+        "name": "Fruit Farm",
+        "engineType": "BUILDING_FRUIT_FARM",
+        "size": 3,
+        "cost": null,
+        "employees": null,
+        "requires": [],
+        "produces": [],
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "olive-farm",
+    "name": "Olive Farm",
+    "category": "Farming",
+    "description": null,
+    "variants": [
+      {
+        "game": "caesar3",
+        "name": "Olive Farm",
+        "engineType": "BUILDING_OLIVE_FARM",
+        "size": 3,
+        "cost": null,
+        "employees": null,
+        "requires": [],
+        "produces": [],
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "pig-farm",
+    "name": "Pig Farm",
+    "category": "Farming",
+    "description": null,
+    "variants": [
+      {
+        "game": "caesar3",
+        "name": "Pig Farm",
+        "engineType": "BUILDING_PIG_FARM",
+        "size": 3,
+        "cost": null,
+        "employees": null,
+        "requires": [],
+        "produces": [],
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "vegetable-farm",
+    "name": "Vegetable Farm",
+    "category": "Farming",
+    "description": null,
+    "variants": [
+      {
+        "game": "caesar3",
+        "name": "Vegetable Farm",
+        "engineType": "BUILDING_VEGETABLE_FARM",
+        "size": 3,
+        "cost": null,
+        "employees": null,
+        "requires": [],
+        "produces": [],
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "vines-farm",
+    "name": "Vines Farm",
+    "category": "Farming",
+    "description": null,
+    "variants": [
+      {
+        "game": "caesar3",
+        "name": "Vines Farm",
+        "engineType": "BUILDING_VINES_FARM",
+        "size": 3,
+        "cost": null,
+        "employees": null,
+        "requires": [],
+        "produces": [],
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "wheat-farm",
+    "name": "Wheat Farm",
+    "category": "Farming",
+    "description": null,
+    "variants": [
+      {
+        "game": "caesar3",
+        "name": "Wheat Farm",
+        "engineType": "BUILDING_WHEAT_FARM",
+        "size": 3,
+        "cost": null,
+        "employees": null,
+        "requires": [],
+        "produces": [],
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "forum",
+    "name": "Forum",
+    "category": "Government",
+    "description": null,
+    "variants": [
+      {
+        "game": "caesar3",
+        "name": "Forum",
+        "engineType": "BUILDING_FORUM",
+        "size": 2,
+        "cost": null,
+        "employees": null,
+        "requires": [],
+        "produces": [],
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "governors-house",
+    "name": "Governor's House",
+    "category": "Government",
+    "description": null,
+    "variants": [
+      {
+        "game": "caesar3",
+        "name": "Governor's House",
+        "engineType": "BUILDING_GOVERNORS_HOUSE",
+        "size": 3,
+        "cost": null,
+        "employees": null,
+        "requires": [],
+        "produces": [],
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "governors-palace",
+    "name": "Governor's Palace",
+    "category": "Government",
+    "description": null,
+    "variants": [
+      {
+        "game": "caesar3",
+        "name": "Governor's Palace",
+        "engineType": "BUILDING_GOVERNORS_PALACE",
+        "size": 5,
+        "cost": null,
+        "employees": null,
+        "requires": [],
+        "produces": [],
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "governors-villa",
+    "name": "Governor's Villa",
+    "category": "Government",
+    "description": null,
+    "variants": [
+      {
+        "game": "caesar3",
+        "name": "Governor's Villa",
+        "engineType": "BUILDING_GOVERNORS_VILLA",
+        "size": 4,
+        "cost": null,
+        "employees": null,
+        "requires": [],
+        "produces": [],
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "mission-post",
+    "name": "Mission Post",
+    "category": "Government",
+    "description": null,
+    "variants": [
+      {
+        "game": "caesar3",
+        "name": "Mission Post",
+        "engineType": "BUILDING_MISSION_POST",
+        "size": 2,
+        "cost": null,
+        "employees": null,
+        "requires": [],
+        "produces": [],
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "senate",
+    "name": "Senate",
+    "category": "Government",
+    "description": null,
+    "variants": [
+      {
+        "game": "caesar3",
+        "name": "Senate",
+        "engineType": "BUILDING_SENATE",
+        "size": 5,
+        "cost": null,
+        "employees": null,
+        "requires": [],
+        "produces": [],
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "barber",
+    "name": "Barber",
+    "category": "Health",
+    "description": null,
+    "variants": [
+      {
+        "game": "caesar3",
+        "name": "Barber",
+        "engineType": "BUILDING_BARBER",
+        "size": 1,
+        "cost": null,
+        "employees": null,
+        "requires": [],
+        "produces": [],
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "bathhouse",
+    "name": "Bathhouse",
+    "category": "Health",
+    "description": null,
+    "variants": [
+      {
+        "game": "caesar3",
+        "name": "Bathhouse",
+        "engineType": "BUILDING_BATHHOUSE",
+        "size": 2,
+        "cost": null,
+        "employees": null,
+        "requires": [],
+        "produces": [],
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "doctor",
+    "name": "Doctor",
+    "category": "Health",
+    "description": null,
+    "variants": [
+      {
+        "game": "caesar3",
+        "name": "Doctor",
+        "engineType": "BUILDING_DOCTOR",
+        "size": 1,
+        "cost": null,
+        "employees": null,
+        "requires": [],
+        "produces": [],
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "hospital",
+    "name": "Hospital",
+    "category": "Health",
+    "description": null,
+    "variants": [
+      {
+        "game": "caesar3",
+        "name": "Hospital",
+        "engineType": "BUILDING_HOSPITAL",
+        "size": 3,
+        "cost": null,
+        "employees": null,
+        "requires": [],
+        "produces": [],
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "house-grand-insula",
+    "name": "House Grand Insula",
+    "category": "Housing",
+    "description": null,
+    "variants": [
+      {
+        "game": "caesar3",
+        "name": "House Grand Insula",
+        "engineType": "BUILDING_HOUSE_GRAND_INSULA",
+        "size": 2,
+        "cost": null,
+        "employees": null,
+        "requires": [],
+        "produces": [],
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "house-grand-villa",
+    "name": "House Grand Villa",
+    "category": "Housing",
+    "description": null,
+    "variants": [
+      {
+        "game": "caesar3",
+        "name": "House Grand Villa",
+        "engineType": "BUILDING_HOUSE_GRAND_VILLA",
+        "size": 3,
+        "cost": null,
+        "employees": null,
+        "requires": [],
+        "produces": [],
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "house-large-casa",
+    "name": "House Large Casa",
+    "category": "Housing",
+    "description": null,
+    "variants": [
+      {
+        "game": "caesar3",
+        "name": "House Large Casa",
+        "engineType": "BUILDING_HOUSE_LARGE_CASA",
+        "size": 1,
+        "cost": null,
+        "employees": null,
+        "requires": [],
+        "produces": [],
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "house-large-hovel",
+    "name": "House Large Hovel",
+    "category": "Housing",
+    "description": null,
+    "variants": [
+      {
+        "game": "caesar3",
+        "name": "House Large Hovel",
+        "engineType": "BUILDING_HOUSE_LARGE_HOVEL",
+        "size": 1,
+        "cost": null,
+        "employees": null,
+        "requires": [],
+        "produces": [],
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "house-large-insula",
+    "name": "House Large Insula",
+    "category": "Housing",
+    "description": null,
+    "variants": [
+      {
+        "game": "caesar3",
+        "name": "House Large Insula",
+        "engineType": "BUILDING_HOUSE_LARGE_INSULA",
+        "size": 2,
+        "cost": null,
+        "employees": null,
+        "requires": [],
+        "produces": [],
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "house-large-palace",
+    "name": "House Large Palace",
+    "category": "Housing",
+    "description": null,
+    "variants": [
+      {
+        "game": "caesar3",
+        "name": "House Large Palace",
+        "engineType": "BUILDING_HOUSE_LARGE_PALACE",
+        "size": 4,
+        "cost": null,
+        "employees": null,
+        "requires": [],
+        "produces": [],
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "house-large-shack",
+    "name": "House Large Shack",
+    "category": "Housing",
+    "description": null,
+    "variants": [
+      {
+        "game": "caesar3",
+        "name": "House Large Shack",
+        "engineType": "BUILDING_HOUSE_LARGE_SHACK",
+        "size": 1,
+        "cost": null,
+        "employees": null,
+        "requires": [],
+        "produces": [],
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "house-large-tent",
+    "name": "House Large Tent",
+    "category": "Housing",
+    "description": null,
+    "variants": [
+      {
+        "game": "caesar3",
+        "name": "House Large Tent",
+        "engineType": "BUILDING_HOUSE_LARGE_TENT",
+        "size": 1,
+        "cost": null,
+        "employees": null,
+        "requires": [],
+        "produces": [],
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "house-large-villa",
+    "name": "House Large Villa",
+    "category": "Housing",
+    "description": null,
+    "variants": [
+      {
+        "game": "caesar3",
+        "name": "House Large Villa",
+        "engineType": "BUILDING_HOUSE_LARGE_VILLA",
+        "size": 3,
+        "cost": null,
+        "employees": null,
+        "requires": [],
+        "produces": [],
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "house-luxury-palace",
+    "name": "House Luxury Palace",
+    "category": "Housing",
+    "description": null,
+    "variants": [
+      {
+        "game": "caesar3",
+        "name": "House Luxury Palace",
+        "engineType": "BUILDING_HOUSE_LUXURY_PALACE",
+        "size": 4,
+        "cost": null,
+        "employees": null,
+        "requires": [],
+        "produces": [],
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "house-medium-insula",
+    "name": "House Medium Insula",
+    "category": "Housing",
+    "description": null,
+    "variants": [
+      {
+        "game": "caesar3",
+        "name": "House Medium Insula",
+        "engineType": "BUILDING_HOUSE_MEDIUM_INSULA",
+        "size": 1,
+        "cost": null,
+        "employees": null,
+        "requires": [],
+        "produces": [],
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "house-medium-palace",
+    "name": "House Medium Palace",
+    "category": "Housing",
+    "description": null,
+    "variants": [
+      {
+        "game": "caesar3",
+        "name": "House Medium Palace",
+        "engineType": "BUILDING_HOUSE_MEDIUM_PALACE",
+        "size": 3,
+        "cost": null,
+        "employees": null,
+        "requires": [],
+        "produces": [],
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "house-medium-villa",
+    "name": "House Medium Villa",
+    "category": "Housing",
+    "description": null,
+    "variants": [
+      {
+        "game": "caesar3",
+        "name": "House Medium Villa",
+        "engineType": "BUILDING_HOUSE_MEDIUM_VILLA",
+        "size": 2,
+        "cost": null,
+        "employees": null,
+        "requires": [],
+        "produces": [],
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "house-small-casa",
+    "name": "House Small Casa",
+    "category": "Housing",
+    "description": null,
+    "variants": [
+      {
+        "game": "caesar3",
+        "name": "House Small Casa",
+        "engineType": "BUILDING_HOUSE_SMALL_CASA",
+        "size": 1,
+        "cost": null,
+        "employees": null,
+        "requires": [],
+        "produces": [],
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "house-small-hovel",
+    "name": "House Small Hovel",
+    "category": "Housing",
+    "description": null,
+    "variants": [
+      {
+        "game": "caesar3",
+        "name": "House Small Hovel",
+        "engineType": "BUILDING_HOUSE_SMALL_HOVEL",
+        "size": 1,
+        "cost": null,
+        "employees": null,
+        "requires": [],
+        "produces": [],
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "house-small-insula",
+    "name": "House Small Insula",
+    "category": "Housing",
+    "description": null,
+    "variants": [
+      {
+        "game": "caesar3",
+        "name": "House Small Insula",
+        "engineType": "BUILDING_HOUSE_SMALL_INSULA",
+        "size": 1,
+        "cost": null,
+        "employees": null,
+        "requires": [],
+        "produces": [],
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "house-small-palace",
+    "name": "House Small Palace",
+    "category": "Housing",
+    "description": null,
+    "variants": [
+      {
+        "game": "caesar3",
+        "name": "House Small Palace",
+        "engineType": "BUILDING_HOUSE_SMALL_PALACE",
+        "size": 3,
+        "cost": null,
+        "employees": null,
+        "requires": [],
+        "produces": [],
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "house-small-shack",
+    "name": "House Small Shack",
+    "category": "Housing",
+    "description": null,
+    "variants": [
+      {
+        "game": "caesar3",
+        "name": "House Small Shack",
+        "engineType": "BUILDING_HOUSE_SMALL_SHACK",
+        "size": 1,
+        "cost": null,
+        "employees": null,
+        "requires": [],
+        "produces": [],
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "house-small-tent",
+    "name": "House Small Tent",
+    "category": "Housing",
+    "description": null,
+    "variants": [
+      {
+        "game": "caesar3",
+        "name": "House Small Tent",
+        "engineType": "BUILDING_HOUSE_SMALL_TENT",
+        "size": 1,
+        "cost": null,
+        "employees": null,
+        "requires": [],
+        "produces": [],
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "house-small-villa",
+    "name": "House Small Villa",
+    "category": "Housing",
+    "description": null,
+    "variants": [
+      {
+        "game": "caesar3",
+        "name": "House Small Villa",
+        "engineType": "BUILDING_HOUSE_SMALL_VILLA",
+        "size": 2,
+        "cost": null,
+        "employees": null,
+        "requires": [],
+        "produces": [],
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "aqueduct",
+    "name": "Aqueduct",
+    "category": "Infrastructure",
+    "description": null,
+    "variants": [
+      {
+        "game": "caesar3",
+        "name": "Aqueduct",
+        "engineType": "BUILDING_AQUEDUCT",
+        "size": 1,
+        "cost": null,
+        "employees": null,
+        "requires": [],
+        "produces": [],
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "engineers-post",
+    "name": "Engineer's Post",
+    "category": "Infrastructure",
+    "description": null,
+    "variants": [
+      {
+        "game": "caesar3",
+        "name": "Engineer's Post",
+        "engineType": "BUILDING_ENGINEERS_POST",
+        "size": 1,
+        "cost": null,
+        "employees": null,
+        "requires": [],
+        "produces": [],
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "fountain",
+    "name": "Fountain",
+    "category": "Infrastructure",
+    "description": null,
+    "variants": [
+      {
+        "game": "caesar3",
+        "name": "Fountain",
+        "engineType": "BUILDING_FOUNTAIN",
+        "size": 1,
+        "cost": null,
+        "employees": null,
+        "requires": [],
+        "produces": [],
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "gardens",
+    "name": "Gardens",
+    "category": "Infrastructure",
+    "description": null,
+    "variants": [
+      {
+        "game": "caesar3",
+        "name": "Gardens",
+        "engineType": "BUILDING_GARDENS",
+        "size": 1,
+        "cost": null,
+        "employees": null,
+        "requires": [],
+        "produces": [],
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "large-statue",
+    "name": "Large Statue",
+    "category": "Infrastructure",
+    "description": null,
+    "variants": [
+      {
+        "game": "caesar3",
+        "name": "Large Statue",
+        "engineType": "BUILDING_LARGE_STATUE",
+        "size": 3,
+        "cost": null,
+        "employees": null,
+        "requires": [],
+        "produces": [],
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "low-bridge",
+    "name": "Low Bridge",
+    "category": "Infrastructure",
+    "description": null,
+    "variants": [
+      {
+        "game": "caesar3",
+        "name": "Low Bridge",
+        "engineType": "BUILDING_LOW_BRIDGE",
+        "size": 1,
+        "cost": null,
+        "employees": null,
+        "requires": [],
+        "produces": [],
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "medium-statue",
+    "name": "Medium Statue",
+    "category": "Infrastructure",
+    "description": null,
+    "variants": [
+      {
+        "game": "caesar3",
+        "name": "Medium Statue",
+        "engineType": "BUILDING_MEDIUM_STATUE",
+        "size": 2,
+        "cost": null,
+        "employees": null,
+        "requires": [],
+        "produces": [],
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "plaza",
+    "name": "Plaza",
+    "category": "Infrastructure",
+    "description": null,
+    "variants": [
+      {
+        "game": "caesar3",
+        "name": "Plaza",
+        "engineType": "BUILDING_PLAZA",
+        "size": 1,
+        "cost": null,
+        "employees": null,
+        "requires": [],
+        "produces": [],
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "prefecture",
+    "name": "Prefecture",
+    "category": "Infrastructure",
+    "description": null,
+    "variants": [
+      {
+        "game": "caesar3",
+        "name": "Prefecture",
+        "engineType": "BUILDING_PREFECTURE",
+        "size": 1,
+        "cost": null,
+        "employees": null,
+        "requires": [],
+        "produces": [],
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "reservoir",
+    "name": "Reservoir",
+    "category": "Infrastructure",
+    "description": null,
+    "variants": [
+      {
+        "game": "caesar3",
+        "name": "Reservoir",
+        "engineType": "BUILDING_RESERVOIR",
+        "size": 3,
+        "cost": null,
+        "employees": null,
+        "requires": [],
+        "produces": [],
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "road",
+    "name": "Road",
+    "category": "Infrastructure",
+    "description": null,
+    "variants": [
+      {
+        "game": "caesar3",
+        "name": "Road",
+        "engineType": "BUILDING_ROAD",
+        "size": 1,
+        "cost": null,
+        "employees": null,
+        "requires": [],
+        "produces": [],
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "ship-bridge",
+    "name": "Ship Bridge",
+    "category": "Infrastructure",
+    "description": null,
+    "variants": [
+      {
+        "game": "caesar3",
+        "name": "Ship Bridge",
+        "engineType": "BUILDING_SHIP_BRIDGE",
+        "size": 1,
+        "cost": null,
+        "employees": null,
+        "requires": [],
+        "produces": [],
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "small-statue",
+    "name": "Small Statue",
+    "category": "Infrastructure",
+    "description": null,
+    "variants": [
+      {
+        "game": "caesar3",
+        "name": "Small Statue",
+        "engineType": "BUILDING_SMALL_STATUE",
+        "size": 1,
+        "cost": null,
+        "employees": null,
+        "requires": [],
+        "produces": [],
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "well",
+    "name": "Well",
+    "category": "Infrastructure",
+    "description": null,
+    "variants": [
+      {
+        "game": "caesar3",
+        "name": "Well",
+        "engineType": "BUILDING_WELL",
+        "size": 1,
+        "cost": null,
+        "employees": null,
+        "requires": [],
+        "produces": [],
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "barracks",
+    "name": "Barracks",
+    "category": "Military",
+    "description": null,
+    "variants": [
+      {
+        "game": "caesar3",
+        "name": "Barracks",
+        "engineType": "BUILDING_BARRACKS",
+        "size": 3,
+        "cost": null,
+        "employees": null,
+        "requires": [],
+        "produces": [],
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "fort",
+    "name": "Fort",
+    "category": "Military",
+    "description": null,
+    "variants": [
+      {
+        "game": "caesar3",
+        "name": "Fort",
+        "engineType": "BUILDING_FORT",
+        "size": 3,
+        "cost": null,
+        "employees": null,
+        "requires": [],
+        "produces": [],
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "fort-javelin",
+    "name": "Fort — Javelin",
+    "category": "Military",
+    "description": null,
+    "variants": [
+      {
+        "game": "caesar3",
+        "name": "Fort — Javelin",
+        "engineType": "BUILDING_FORT_JAVELIN",
+        "size": 3,
+        "cost": null,
+        "employees": null,
+        "requires": [],
+        "produces": [],
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "fort-legionaries",
+    "name": "Fort — Legionaries",
+    "category": "Military",
+    "description": null,
+    "variants": [
+      {
+        "game": "caesar3",
+        "name": "Fort — Legionaries",
+        "engineType": "BUILDING_FORT_LEGIONARIES",
+        "size": 3,
+        "cost": null,
+        "employees": null,
+        "requires": [],
+        "produces": [],
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "fort-mounted",
+    "name": "Fort — Mounted",
+    "category": "Military",
+    "description": null,
+    "variants": [
+      {
+        "game": "caesar3",
+        "name": "Fort — Mounted",
+        "engineType": "BUILDING_FORT_MOUNTED",
+        "size": 3,
+        "cost": null,
+        "employees": null,
+        "requires": [],
+        "produces": [],
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "gatehouse",
+    "name": "Gatehouse",
+    "category": "Military",
+    "description": null,
+    "variants": [
+      {
+        "game": "caesar3",
+        "name": "Gatehouse",
+        "engineType": "BUILDING_GATEHOUSE",
+        "size": 2,
+        "cost": null,
+        "employees": null,
+        "requires": [],
+        "produces": [],
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "military-academy",
+    "name": "Military Academy",
+    "category": "Military",
+    "description": null,
+    "variants": [
+      {
+        "game": "caesar3",
+        "name": "Military Academy",
+        "engineType": "BUILDING_MILITARY_ACADEMY",
+        "size": 3,
+        "cost": null,
+        "employees": null,
+        "requires": [],
+        "produces": [],
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "tower",
+    "name": "Tower",
+    "category": "Military",
+    "description": null,
+    "variants": [
+      {
+        "game": "caesar3",
+        "name": "Tower",
+        "engineType": "BUILDING_TOWER",
+        "size": 2,
+        "cost": null,
+        "employees": null,
+        "requires": [],
+        "produces": [],
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "triumphal-arch",
+    "name": "Triumphal Arch",
+    "category": "Military",
+    "description": null,
+    "variants": [
+      {
+        "game": "caesar3",
+        "name": "Triumphal Arch",
+        "engineType": "BUILDING_TRIUMPHAL_ARCH",
+        "size": 3,
+        "cost": null,
+        "employees": null,
+        "requires": [],
+        "produces": [],
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "wall",
+    "name": "Wall",
+    "category": "Military",
+    "description": null,
+    "variants": [
+      {
+        "game": "caesar3",
+        "name": "Wall",
+        "engineType": "BUILDING_WALL",
+        "size": 1,
+        "cost": null,
+        "employees": null,
+        "requires": [],
+        "produces": [],
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "native-crops",
+    "name": "Native Crops",
+    "category": "Native",
+    "description": null,
+    "variants": [
+      {
+        "game": "caesar3",
+        "name": "Native Crops",
+        "engineType": "BUILDING_NATIVE_CROPS",
+        "size": 1,
+        "cost": null,
+        "employees": null,
+        "requires": [],
+        "produces": [],
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "native-hut",
+    "name": "Native Hut",
+    "category": "Native",
+    "description": null,
+    "variants": [
+      {
+        "game": "caesar3",
+        "name": "Native Hut",
+        "engineType": "BUILDING_NATIVE_HUT",
+        "size": 1,
+        "cost": null,
+        "employees": null,
+        "requires": [],
+        "produces": [],
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "native-meeting",
+    "name": "Native Meeting",
+    "category": "Native",
+    "description": null,
+    "variants": [
+      {
+        "game": "caesar3",
+        "name": "Native Meeting",
+        "engineType": "BUILDING_NATIVE_MEETING",
+        "size": 2,
+        "cost": null,
+        "employees": null,
+        "requires": [],
+        "produces": [],
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "clay-pit",
+    "name": "Clay Pit",
+    "category": "Raw materials",
+    "description": null,
+    "variants": [
+      {
+        "game": "caesar3",
+        "name": "Clay Pit",
+        "engineType": "BUILDING_CLAY_PIT",
+        "size": 2,
+        "cost": null,
+        "employees": null,
+        "requires": [],
+        "produces": [],
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "iron-mine",
+    "name": "Iron Mine",
+    "category": "Raw materials",
+    "description": null,
+    "variants": [
+      {
+        "game": "caesar3",
+        "name": "Iron Mine",
+        "engineType": "BUILDING_IRON_MINE",
+        "size": 2,
+        "cost": null,
+        "employees": null,
+        "requires": [],
+        "produces": [],
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "marble-quarry",
+    "name": "Marble Quarry",
+    "category": "Raw materials",
+    "description": null,
+    "variants": [
+      {
+        "game": "caesar3",
+        "name": "Marble Quarry",
+        "engineType": "BUILDING_MARBLE_QUARRY",
+        "size": 2,
+        "cost": null,
+        "employees": null,
+        "requires": [],
+        "produces": [],
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "timber-yard",
+    "name": "Timber Yard",
+    "category": "Raw materials",
+    "description": null,
+    "variants": [
+      {
+        "game": "caesar3",
+        "name": "Timber Yard",
+        "engineType": "BUILDING_TIMBER_YARD",
+        "size": 2,
+        "cost": null,
+        "employees": null,
+        "requires": [],
+        "produces": [],
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "large-temple-ceres",
+    "name": "Large Temple Ceres",
+    "category": "Religion",
+    "description": null,
+    "variants": [
+      {
+        "game": "caesar3",
+        "name": "Large Temple Ceres",
+        "engineType": "BUILDING_LARGE_TEMPLE_CERES",
+        "size": 3,
+        "cost": null,
+        "employees": null,
+        "requires": [],
+        "produces": [],
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "large-temple-mars",
+    "name": "Large Temple Mars",
+    "category": "Religion",
+    "description": null,
+    "variants": [
+      {
+        "game": "caesar3",
+        "name": "Large Temple Mars",
+        "engineType": "BUILDING_LARGE_TEMPLE_MARS",
+        "size": 3,
+        "cost": null,
+        "employees": null,
+        "requires": [],
+        "produces": [],
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "large-temple-mercury",
+    "name": "Large Temple Mercury",
+    "category": "Religion",
+    "description": null,
+    "variants": [
+      {
+        "game": "caesar3",
+        "name": "Large Temple Mercury",
+        "engineType": "BUILDING_LARGE_TEMPLE_MERCURY",
+        "size": 3,
+        "cost": null,
+        "employees": null,
+        "requires": [],
+        "produces": [],
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "large-temple-neptune",
+    "name": "Large Temple Neptune",
+    "category": "Religion",
+    "description": null,
+    "variants": [
+      {
+        "game": "caesar3",
+        "name": "Large Temple Neptune",
+        "engineType": "BUILDING_LARGE_TEMPLE_NEPTUNE",
+        "size": 3,
+        "cost": null,
+        "employees": null,
+        "requires": [],
+        "produces": [],
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "large-temple-venus",
+    "name": "Large Temple Venus",
+    "category": "Religion",
+    "description": null,
+    "variants": [
+      {
+        "game": "caesar3",
+        "name": "Large Temple Venus",
+        "engineType": "BUILDING_LARGE_TEMPLE_VENUS",
+        "size": 3,
+        "cost": null,
+        "employees": null,
+        "requires": [],
+        "produces": [],
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "oracle",
+    "name": "Oracle",
+    "category": "Religion",
+    "description": null,
+    "variants": [
+      {
+        "game": "caesar3",
+        "name": "Oracle",
+        "engineType": "BUILDING_ORACLE",
+        "size": 2,
+        "cost": null,
+        "employees": null,
+        "requires": [],
+        "produces": [],
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "small-temple-ceres",
+    "name": "Small Temple Ceres",
+    "category": "Religion",
+    "description": null,
+    "variants": [
+      {
+        "game": "caesar3",
+        "name": "Small Temple Ceres",
+        "engineType": "BUILDING_SMALL_TEMPLE_CERES",
+        "size": 2,
+        "cost": null,
+        "employees": null,
+        "requires": [],
+        "produces": [],
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "small-temple-mars",
+    "name": "Small Temple Mars",
+    "category": "Religion",
+    "description": null,
+    "variants": [
+      {
+        "game": "caesar3",
+        "name": "Small Temple Mars",
+        "engineType": "BUILDING_SMALL_TEMPLE_MARS",
+        "size": 2,
+        "cost": null,
+        "employees": null,
+        "requires": [],
+        "produces": [],
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "small-temple-mercury",
+    "name": "Small Temple Mercury",
+    "category": "Religion",
+    "description": null,
+    "variants": [
+      {
+        "game": "caesar3",
+        "name": "Small Temple Mercury",
+        "engineType": "BUILDING_SMALL_TEMPLE_MERCURY",
+        "size": 2,
+        "cost": null,
+        "employees": null,
+        "requires": [],
+        "produces": [],
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "small-temple-neptune",
+    "name": "Small Temple Neptune",
+    "category": "Religion",
+    "description": null,
+    "variants": [
+      {
+        "game": "caesar3",
+        "name": "Small Temple Neptune",
+        "engineType": "BUILDING_SMALL_TEMPLE_NEPTUNE",
+        "size": 2,
+        "cost": null,
+        "employees": null,
+        "requires": [],
+        "produces": [],
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "small-temple-venus",
+    "name": "Small Temple Venus",
+    "category": "Religion",
+    "description": null,
+    "variants": [
+      {
+        "game": "caesar3",
+        "name": "Small Temple Venus",
+        "engineType": "BUILDING_SMALL_TEMPLE_VENUS",
+        "size": 2,
+        "cost": null,
+        "employees": null,
+        "requires": [],
+        "produces": [],
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "furniture-workshop",
+    "name": "Furniture Workshop",
+    "category": "Workshops",
+    "description": null,
+    "variants": [
+      {
+        "game": "caesar3",
+        "name": "Furniture Workshop",
+        "engineType": "BUILDING_FURNITURE_WORKSHOP",
+        "size": 2,
+        "cost": null,
+        "employees": null,
+        "requires": [],
+        "produces": [],
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "oil-workshop",
+    "name": "Oil Workshop",
+    "category": "Workshops",
+    "description": null,
+    "variants": [
+      {
+        "game": "caesar3",
+        "name": "Oil Workshop",
+        "engineType": "BUILDING_OIL_WORKSHOP",
+        "size": 2,
+        "cost": null,
+        "employees": null,
+        "requires": [],
+        "produces": [],
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "pottery-workshop",
+    "name": "Pottery Workshop",
+    "category": "Workshops",
+    "description": null,
+    "variants": [
+      {
+        "game": "caesar3",
+        "name": "Pottery Workshop",
+        "engineType": "BUILDING_POTTERY_WORKSHOP",
+        "size": 2,
+        "cost": null,
+        "employees": null,
+        "requires": [],
+        "produces": [],
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "weapons-workshop",
+    "name": "Weapons Workshop",
+    "category": "Workshops",
+    "description": null,
+    "variants": [
+      {
+        "game": "caesar3",
+        "name": "Weapons Workshop",
+        "engineType": "BUILDING_WEAPONS_WORKSHOP",
+        "size": 2,
+        "cost": null,
+        "employees": null,
+        "requires": [],
+        "produces": [],
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "wine-workshop",
+    "name": "Wine Workshop",
+    "category": "Workshops",
+    "description": null,
+    "variants": [
+      {
+        "game": "caesar3",
+        "name": "Wine Workshop",
+        "engineType": "BUILDING_WINE_WORKSHOP",
+        "size": 2,
+        "cost": null,
+        "employees": null,
+        "requires": [],
+        "produces": [],
+        "notes": null
+      }
+    ]
+  }
+]

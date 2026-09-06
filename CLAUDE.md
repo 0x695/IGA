@@ -142,6 +142,27 @@ documented".
 one per game — `.sg3` is a single format used by three titles, and storing it
 three times would produce three identical pages.
 
+## Buildings are generated, not written
+
+`src/data/buildings.json` is output. Edit `scripts/build-buildings.mjs` and
+re-run it; hand-editing the JSON will be overwritten and, worse, will not be
+checked. The script joins Julius's building enum to its properties table **by
+numeric index**, which is precisely the operation that fails silently, so it
+asserts the row count and verifies fourteen sizes known independently. If a
+size ever looks wrong, the assertions are the first thing to read.
+
+**Two fields are deliberately absent, and neither is an oversight:**
+
+- **`cost` and `employees` are not in the engine.** They live in
+  `c3_model.txt`, which ships with the game and which mods rewrite. Publishing
+  one version's numbers would be right for one installation and quietly wrong
+  for others, so the site documents that file's columns instead. Don't
+  "complete" the table by pasting values from a wiki.
+- **`fire_proof` is parsed and not emitted.** Its meaning could not be
+  confirmed — the warehouse is flagged in a way that contradicts the game, and
+  no consuming code was found. Don't revive it without finding where the
+  engine reads it.
+
 ## Search is not optional
 
 Both briefs call static search non-negotiable for a reference site. The

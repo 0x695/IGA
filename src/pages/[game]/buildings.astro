@@ -1,0 +1,158 @@
+---
+import { getCollection } from 'astro:content';
+import Base from '../../layouts/Base.astro';
+import BuildingsGrid from '../../components/BuildingsGrid.astro';
+import { withBase } from '../../lib/url';
+
+/**
+ * A game's buildings reference.
+ *
+ * Hung off the hub, like the format pages: a hundred cards would bury
+ * everything else on the hub, and the hub's job is to orient rather than to
+ * hold every table. A game only gets this route if there is data for it.
+ */
+export async function getStaticPaths() {
+  const games = await getCollection('games');
+  const buildings = await getCollection('buildings');
+
+  return games
+    .map((game) => ({
+      game,
+      buildings: buildings.filter((b) => b.data.variants.some((v) => v.game === game.id)),
+    }))
+    .filter(({ buildings }) => buildings.length > 0)
+    .map(({ game, buildings }) => ({
+      params: { game: game.id },
+      props: { game, buildings },
+    }));
+}
+
+const { game, buildings } = Astro.props;
+const g = game.data;
+---
+
+<Base
+  title={`${g.title} buildings — Impressions Games Archive`}
+  description={`Every building ${g.title} defines, with its footprint in tiles and the engine constant that names it.`}
+  current={game.id}
+>
+  <div data-pagefind-body>
+    <section class="section head">
+      <p class="head__kicker">
+        <a href={withBase(`/${game.id}/`)}>{g.title}</a>
+        <span aria-hidden="true"> · </span>Buildings
+      </p>
+      <h1 class="head__title">Buildings</h1>
+      <p class="head__summary">
+        Every building the engine defines, with its footprint in tiles and the constant that names
+        it in the source. Read out of Julius's building type table rather than transcribed, so the
+        sizes are the ones the game actually uses.
+      </p>
+
+      {/*
+        The obvious two columns are missing, and saying why is more useful than
+        leaving a reader to wonder whether the table is simply unfinished.
+      */}
+      <aside class="caveat">
+        <h2 class="caveat__title">Where cost and labour are</h2>
+        <p>
+          Not here, and not in the engine either. Both are read at startup from
+          <code>c3_model.txt</code>, a plain-text file that ships with the game and that any mod may
+          rewrite — so a table of costs frozen on this page would be right for one copy of the game
+          and quietly wrong for others. The file is on your own disk;
+          <a href={withBase('/formats/c3-model/')}>what each of its columns means</a> is documented
+          here instead.
+        </p>
+      </aside>
+    </section>
+
+    <section class="section grid-section">
+      <BuildingsGrid buildings={buildings} game={game.id} />
+    </section>
+  </div>
+</Base>
+
+<style>
+  .head {
+    padding-block: 56px 0;
+  }
+
+  .head__kicker {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--color-text-dim);
+    margin: 0 0 14px;
+  }
+
+  .head__kicker a {
+    color: var(--color-accent);
+    text-decoration: none;
+  }
+
+  .head__kicker a:hover {
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+
+  .head__title {
+    font-family: var(--font-heading);
+    font-weight: 700;
+    font-size: clamp(30px, 5vw, 46px);
+    margin: 0 0 18px;
+    padding-bottom: 16px;
+    border-bottom: 3px solid var(--color-divider);
+    display: inline-block;
+  }
+
+  .head__summary {
+    font-size: 15px;
+    line-height: 1.65;
+    color: var(--color-text-dim);
+    max-width: 70ch;
+    margin: 0 0 24px;
+  }
+
+  .caveat {
+    border: 1px solid var(--color-divider);
+    border-left: 3px solid var(--color-accent);
+    border-radius: var(--radius-md);
+    background: var(--color-surface);
+    padding: 16px 20px;
+  }
+
+  .caveat__title {
+    font-family: var(--font-heading);
+    font-weight: 600;
+    font-size: 15px;
+    margin: 0 0 6px;
+  }
+
+  .caveat p {
+    margin: 0;
+    font-size: 13.5px;
+    line-height: 1.65;
+    color: var(--color-text-dim);
+    max-width: 70ch;
+  }
+
+  .caveat code {
+    font-family: var(--font-mono);
+    font-size: 12.5px;
+  }
+
+  .caveat a {
+    color: var(--color-accent);
+  }
+
+  .grid-section {
+    padding-block: 36px 80px;
+  }
+
+  @media (max-width: 640px) {
+    .head {
+      padding-block: 36px 0;
+    }
+  }
+</style>
