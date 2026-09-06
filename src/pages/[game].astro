@@ -4,6 +4,7 @@ import Base from '../layouts/Base.astro';
 import StatusDot from '../components/StatusDot.astro';
 import EngineCard from '../components/EngineCard.astro';
 import CommunityCard from '../components/CommunityCard.astro';
+import { withBase } from '../lib/url';
 
 /**
  * A game hub. Self-contained by design (masterdoc §10): it shows the engine
@@ -60,7 +61,7 @@ const g = game.data;
 
     <section class="section shot">
       <figure class="shot__figure">
-        <img src={g.image} alt={`${g.title} screenshot`} loading="lazy" />
+        <img src={withBase(g.image)} alt={`${g.title} screenshot`} loading="lazy" />
         <figcaption>{g.imageCredit}</figcaption>
       </figure>
     </section>

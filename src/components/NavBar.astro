@@ -1,5 +1,6 @@
 ---
 import { getCollection } from 'astro:content';
+import { withBase } from '../lib/url';
 
 /**
  * The header: wordmark, the six game hubs, search.
@@ -21,14 +22,14 @@ const games = (await getCollection('games')).sort((a, b) => a.data.order - b.dat
 ---
 
 <nav class="nav">
-  <a class="nav__brand" href="/">IGA</a>
+  <a class="nav__brand" href={withBase('/')}>IGA</a>
 
   <div class="nav__links">
     {
       games.map((game) => (
         <a
           class:list={['nav__link', { 'nav__link--current': current === game.id }]}
-          href={`/${game.id}/`}
+          href={withBase(`/${game.id}/`)}
           aria-current={current === game.id ? 'page' : undefined}
         >
           <span class="nav__dot" style={`background:${game.data.accent}`} aria-hidden="true" />
@@ -38,7 +39,7 @@ const games = (await getCollection('games')).sort((a, b) => a.data.order - b.dat
     }
   </div>
 
-  <form class="nav__search" action="/search/" method="get" role="search">
+  <form class="nav__search" action={withBase('/search/')} method="get" role="search">
     <label class="nav__search-label" for="nav-search">Search the archive</label>
     <input
       class="nav__search-input"
