@@ -45,7 +45,8 @@ up. See `CLAUDE.md` for the decisions behind the structure.
 
 ## Status
 
-v1 is built: Home and all six game hubs, with search.
+v1 is built: Home and all six game hubs, with search. What comes next,
+and the decisions it is waiting on, is in [docs/ROADMAP.md](docs/ROADMAP.md).
 
 Not built yet, and deliberately: the buildings reference (the schema is
 defined and the data file is empty), a devlog, and a cross-game engine
