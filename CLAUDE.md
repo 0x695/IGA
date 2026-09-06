@@ -114,6 +114,34 @@ What follows from that:
 - **The remedy is cheap if it is ever needed.** The images are data-driven;
   both the hub figure and the timeline row can fall back to type.
 
+## Format specs: the rules that keep them honest
+
+The format pages at `/formats/<id>/` are the reason the site exists. Four
+rules hold them together:
+
+- **A format gets a page if and only if it has a written spec.** Undocumented
+  formats stay as a hub row that says so in one line and link nowhere. The
+  arrow on a linked row is a promise that the click is worth making.
+- **There is no `/formats/` index, and there must not be.** That is the
+  centralised File Format Reference masterdoc §10 rejected. Hubs are the only
+  way in.
+- **Mono only where a value is compared character by character** — offsets,
+  sizes, types, field names. Descriptions are body text. A table whose prose
+  is also monospaced is the "wall of monospace" the design brief warned about.
+- **Say where the knowledge stops.** Every unknown field is written as
+  "purpose not established" rather than omitted, and each page carries a
+  callout naming what it cannot tell you. A reference that quietly skips the
+  bits nobody knows is worse than one that marks them.
+
+**Derived, never stored:** a format's status dot comes from its
+`documentation` value via `src/lib/formats.ts`. When both were data they
+disagreed, and `.map` shipped a green dot beside the words "Partially
+documented".
+
+**Formats are canonical, not per-game.** One entry with a `games` array, not
+one per game — `.sg3` is a single format used by three titles, and storing it
+three times would produce three identical pages.
+
 ## Search is not optional
 
 Both briefs call static search non-negotiable for a reference site. The

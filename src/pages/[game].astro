@@ -5,6 +5,7 @@ import StatusDot from '../components/StatusDot.astro';
 import EngineCard from '../components/EngineCard.astro';
 import CommunityCard from '../components/CommunityCard.astro';
 import { withBase } from '../lib/url';
+import { formatStatus, formatLabel } from '../lib/formats';
 
 /**
  * A game hub. Self-contained by design (masterdoc §10): it shows the engine
@@ -73,10 +74,23 @@ const g = game.data;
           formats.map((format) => (
             <div class="format">
               <div class="format__label">
-                <span class="format__name">{format.data.name}</span>
+                {/* A format links to its own page only when there is a written
+                    spec behind it. The rest state their situation and stop —
+                    a link that leads to "nobody has documented this" wastes
+                    the click that the arrow promised was worth making. */}
+                {format.data.spec ? (
+                  <a class="format__link" href={withBase(`/formats/${format.id}/`)}>
+                    {format.data.name} →
+                  </a>
+                ) : (
+                  <span class="format__name">{format.data.name}</span>
+                )}
                 <span class="format__note">{format.data.note}</span>
               </div>
-              <StatusDot status={format.data.status} />
+              <StatusDot
+                status={formatStatus(format.data.documentation)}
+                label={formatLabel(format.data.documentation)}
+              />
             </div>
           ))
         }
@@ -295,6 +309,20 @@ const g = game.data;
     font-family: var(--font-mono);
     font-size: 13px;
     font-weight: 600;
+  }
+
+  .format__link {
+    font-family: var(--font-mono);
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--color-accent);
+    text-decoration: none;
+    white-space: nowrap;
+  }
+
+  .format__link:hover {
+    text-decoration: underline;
+    text-underline-offset: 3px;
   }
 
   .format__note {

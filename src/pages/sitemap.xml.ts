@@ -10,14 +10,20 @@ import { getCollection } from 'astro:content';
 export const GET: APIRoute = async ({ site }) => {
   const base = import.meta.env.BASE_URL.replace(/\/$/, '');
   const games = (await getCollection('games')).sort((a, b) => a.data.order - b.data.order);
+  const formats = (await getCollection('fileFormats')).filter((f) => f.data.spec !== null);
 
-  const paths = ['/', ...games.map((game) => `/${game.id}/`)];
+  const paths = [
+    '/',
+    ...games.map((game) => `/${game.id}/`),
+    ...formats.map((format) => `/formats/${format.id}/`),
+  ];
 
   const urls = paths
     .map((path) => {
       const loc = new URL(base + path, site).href;
       // Home changes whenever any hub does; the hubs change independently.
-      const priority = path === '/' ? '1.0' : '0.8';
+      // Format pages are the ones most likely to be linked from elsewhere.
+      const priority = path === '/' ? '1.0' : path.startsWith('/formats/') ? '0.9' : '0.8';
       return `  <url>\n    <loc>${loc}</loc>\n    <priority>${priority}</priority>\n  </url>`;
     })
     .join('\n');

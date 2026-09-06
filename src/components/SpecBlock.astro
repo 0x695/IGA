@@ -1,0 +1,256 @@
+---
+import type { CollectionEntry } from 'astro:content';
+
+/**
+ * One block of a format specification.
+ *
+ * The design brief asked for byte offsets and field tables that are "genuinely
+ * readable, not a wall of monospace", and that is the whole design of this
+ * component: mono is used only where it is functional — offsets, sizes, types
+ * and field names, things you compare character by character — while every
+ * description is set in the body face at a readable size. A table where the
+ * prose is also monospaced is the wall the brief was warning about.
+ */
+type Spec = NonNullable<CollectionEntry<'fileFormats'>['data']['spec']>;
+
+interface Props {
+  block: Spec[number];
+}
+
+const { block } = Astro.props;
+---
+
+{
+  block.kind === 'prose' && (
+    <section class="block">
+      {block.title && <h2 class="block__title">{block.title}</h2>}
+      {block.body.map((paragraph) => (
+        <p class="prose">{paragraph}</p>
+      ))}
+    </section>
+  )
+}
+
+{
+  block.kind === 'fields' && (
+    <section class="block">
+      <h2 class="block__title">{block.title}</h2>
+      {block.note && <p class="block__note">{block.note}</p>}
+      {/* A byte table has an irreducible minimum width. It scrolls inside its
+          own box rather than squeezing the description column to nothing or
+          pushing the page sideways. */}
+      <div class="scroller">
+        <table class="fields">
+          <thead>
+            <tr>
+              <th scope="col">Offset</th>
+              <th scope="col">Size</th>
+              <th scope="col">Type</th>
+              <th scope="col">Field</th>
+              <th scope="col">Description</th>
+            </tr>
+          </thead>
+          <tbody>
+            {block.rows.map((row) => (
+              <tr>
+                <td class="num">{row.offset}</td>
+                <td class="num">{row.size}</td>
+                <td class="type">{row.type}</td>
+                <td class="name">{row.name}</td>
+                <td class="desc">{row.description}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    </section>
+  )
+}
+
+{
+  block.kind === 'list' && (
+    <section class="block">
+      <h2 class="block__title">{block.title}</h2>
+      {block.note && <p class="block__note">{block.note}</p>}
+      <dl class="enum">
+        {block.items.map((item) => (
+          <div class="enum__row">
+            <dt>{item.term}</dt>
+            <dd>{item.description}</dd>
+          </div>
+        ))}
+      </dl>
+    </section>
+  )
+}
+
+{
+  block.kind === 'callout' && (
+    <aside class="callout">
+      <h2 class="callout__title">{block.title}</h2>
+      <p class="callout__body">{block.body}</p>
+    </aside>
+  )
+}
+
+<style>
+  .block {
+    margin-bottom: 44px;
+  }
+
+  .block__title {
+    font-family: var(--font-heading);
+    font-weight: 600;
+    font-size: 13px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--color-text-dim);
+    margin: 0 0 14px;
+  }
+
+  .block__note {
+    font-size: 13px;
+    line-height: 1.6;
+    color: var(--color-text-dim);
+    margin: 0 0 16px;
+    max-width: 70ch;
+  }
+
+  .prose {
+    font-size: 15px;
+    line-height: 1.7;
+    margin: 0 0 14px;
+    max-width: 70ch;
+  }
+
+  .prose:last-child {
+    margin-bottom: 0;
+  }
+
+  .scroller {
+    overflow-x: auto;
+    border: 1px solid var(--color-divider);
+    border-radius: var(--radius-md);
+  }
+
+  .fields {
+    width: 100%;
+    min-width: 560px;
+    border-collapse: collapse;
+    font-size: 13px;
+  }
+
+  .fields th {
+    text-align: left;
+    font-family: var(--font-mono);
+    font-weight: 500;
+    font-size: 10px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--color-text-dim);
+    padding: 10px 14px;
+    border-bottom: 1px solid var(--color-divider);
+    white-space: nowrap;
+    background: var(--color-surface);
+  }
+
+  .fields td {
+    padding: 10px 14px;
+    border-bottom: 1px solid var(--color-divider);
+    vertical-align: baseline;
+  }
+
+  .fields tr:last-child td {
+    border-bottom: 0;
+  }
+
+  /* Mono only where the value is compared character by character. */
+  .num,
+  .type,
+  .name {
+    font-family: var(--font-mono);
+    white-space: nowrap;
+  }
+
+  .num {
+    color: var(--color-text-dim);
+    text-align: right;
+    font-variant-numeric: tabular-nums;
+  }
+
+  .type {
+    color: var(--color-text-dim);
+    font-size: 12px;
+  }
+
+  .name {
+    color: var(--color-accent);
+    font-size: 12.5px;
+  }
+
+  .desc {
+    color: var(--color-text-dim);
+    line-height: 1.6;
+    min-width: 24ch;
+  }
+
+  .enum {
+    margin: 0;
+    border-top: 1px solid var(--color-divider);
+  }
+
+  .enum__row {
+    display: grid;
+    grid-template-columns: minmax(90px, max-content) 1fr;
+    gap: 4px 20px;
+    padding: 11px 0;
+    border-bottom: 1px solid var(--color-divider);
+  }
+
+  .enum dt {
+    font-family: var(--font-mono);
+    font-size: 13px;
+    color: var(--color-accent);
+  }
+
+  .enum dd {
+    margin: 0;
+    font-size: 13.5px;
+    line-height: 1.6;
+    color: var(--color-text-dim);
+  }
+
+  /* The one place the site raises its voice: a correction that will cost
+     someone hours if they miss it. Amber outline, never a fill. */
+  .callout {
+    border: 1px solid var(--color-accent-dim);
+    border-left: 3px solid var(--color-accent);
+    border-radius: var(--radius-md);
+    padding: 16px 20px;
+    margin-bottom: 44px;
+    background: var(--color-surface);
+  }
+
+  .callout__title {
+    font-family: var(--font-heading);
+    font-weight: 600;
+    font-size: 15px;
+    margin: 0 0 6px;
+    color: var(--color-text);
+  }
+
+  .callout__body {
+    margin: 0;
+    font-size: 13.5px;
+    line-height: 1.65;
+    color: var(--color-text-dim);
+    max-width: 70ch;
+  }
+
+  @media (max-width: 560px) {
+    .enum__row {
+      grid-template-columns: 1fr;
+      gap: 2px;
+    }
+  }
+</style>

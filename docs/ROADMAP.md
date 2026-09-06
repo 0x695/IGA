@@ -9,7 +9,8 @@ done) and the v1/v2/v3 build order in the build brief.*
 
 v1 is **live at https://0x695.github.io/IGA/**: Home with the series
 timeline, six self-contained game hubs, Pagefind search, a 404, and the
-metadata a page needs to be found. Phases 0 and 1 are complete.
+metadata a page needs to be found, and four written file-format specs.
+Phases 0, 1 and 2 are complete.
 
 **The build brief's version plan is already spent, and not in the way it
 expected.** It ordered the work as *v1 = the centralized Engine Hub / Format
@@ -24,21 +25,21 @@ rather than read it once.
 
 ---
 
-## The gap that matters most
+## The gap that matters most — now filled
 
 Masterdoc §3.2 identified the thing no existing site does: *"there is no
 single consolidated format reference across all six games."* The design brief
 called that page *"likely the most-linked page"* on the site.
 
-Today the site has **eleven format entries, each a name, a one-line note and a
-status dot.** The `spec` field — structured byte offsets and field tables —
-exists on every one of them in the schema and is `null` on all eleven.
+For v1 the site had eleven format entries, each a name, a one-line note and a
+status dot, with `spec` null on every one — it *indexed* the format situation
+and documented none of it.
 
-So IGA currently *indexes* the format situation accurately and *documents*
-none of it. It tells you `.sg2` is documented and points at someone else's
-wiki. That is a useful index and a fair v1, but it is not the differentiator
-the whole project was justified by. **Phase 2 below is the real work of this
-site**, and everything before it is clearing the runway.
+Phase 2 closed that. There are now four written specs — SG, ENG, and Caesar
+III's scenario and savegame formats — each with field tables, each naming its
+sources, and each marking where the knowledge stops rather than smoothing over
+it. **What remains is not a gap in coverage but a gap in knowledge**, and the
+pages say which is which.
 
 ---
 
@@ -149,40 +150,74 @@ first push wire it up and Pages takes over.
 
 ## Phase 2 — Make the format reference real
 
-**This is the point of the site.** Everything above is setup.
+**Done.** 7 September 2026. Four written specs at `/formats/<id>/`, linked
+from the hubs of every game that uses them.
 
-- [ ] **Build the format spec component.** The design brief listed it as a
-      required component — *"byte offsets, field tables, hex and code samples;
-      must be genuinely readable, not a wall of monospace"* — and the
-      delivered design does not contain one. It is the hardest component in
-      the project and the one the site's credibility rests on. Design it
-      against the tokens that already exist.
-- [ ] **Decide where a full spec lives.** Masterdoc §10 removed the standalone
-      File Format Reference page, and that decision should hold. But a
-      *per-format detail page* linked from each hub is not the centralized
-      reference §10 rejected — the hub keeps the framing and the per-format
-      page carries the depth. Alternatively the spec expands in place on the
-      hub. Decide before writing, because it changes how the writing is
-      chunked.
-- [ ] **Write up SG2/SG3 + .555 properly.** The sources are known: the
-      citybuilding-tools wiki, Julius issue #513 (first-hand notes on SG2/SG3
-      internals — the kind of thing that vanishes, so summarize rather than
-      link), and OpenPharaoh's `SG3.bt` 010 Editor template plus its C#
-      `ContainerSG3` parser. The facts to anchor it: the 600-byte index of 300
-      `uint16` entries mapping stable group IDs to image indices, so artists
-      could reorder without breaking code; 16-bit little-endian 5-5-5 RGB
-      pixel data with `0xF81F` as the transparency sentinel; external images
-      in sibling `.555` files named for the bitmap entry.
-- [ ] **Write `.map`, `.sav` and `.eng` as honestly partial.** Julius and
-      Augustus source is the real `.map`/`.sav` spec and nobody has written it
-      down; eZeus ships a working `.eng` converter against a format never
-      formally documented. Read the source, write what is *confirmed*, and
-      mark the rest unknown rather than inferring. A reference that guesses is
-      worth less than one that says it doesn't know.
-- [ ] **Leave Caesar I and II undocumented, loudly.** No engine, no format
-      documentation, nothing to write up. The wanted callout is already the
-      correct content. Reverse-engineering them is a different project — it is
-      the *reason* this site exists, not a task on it.
+- [x] **Where a full spec lives — decided: per-format pages hung off each
+      hub.** There is deliberately **no `/formats/` index**; that would
+      rebuild the centralised File Format Reference the design pass rejected
+      (masterdoc §10). The hub stays the only way in, and carries the
+      one-liner; the format page carries the depth.
+
+      A format gets a page **if and only if it has a written spec**. A page
+      whose whole content is "nobody has documented this" is worse than a hub
+      row saying so in one line, so undocumented formats stay as rows and link
+      nowhere — the arrow is a promise that the click is worth making.
+- [x] **The format spec component.** Blocks, not prose: field tables,
+      enumerations, prose, and callouts. The brief asked for byte offsets that
+      are "genuinely readable, not a wall of monospace", so mono is used only
+      where a value is compared character by character — offsets, sizes, types,
+      field names — and every description is set in the body face.
+- [x] **SG2/SG3 + .555, written up properly.** Header, index, bitmap record
+      and image record field-by-field, the three version codes, the image
+      types, all three storage modes, and the 5-5-5 colour format with its
+      0xF81F transparency key.
+- [x] **`.map`, `.sav` and `.eng`, honestly.** Read off Julius's loader and
+      the citybuilding-tools wiki rather than inferred, and each says plainly
+      where the knowledge stops.
+
+**The data had to change shape first.** Formats were stored per game, so
+`.sg3` existed three times over — which would have produced three identical
+pages. They are now canonical entries with a `games` array, which is what the
+schema always allowed and what makes a deferred cross-game view possible.
+
+### Four things the research corrected
+
+Worth recording, because two of them contradict the masterdoc and one costs
+real hours:
+
+- **`.eng` is documented**, and well. Masterdoc §3.2 has it as "Partial —
+  eZeus ships a converter, format not formally documented". There is a
+  complete ENG page on the citybuilding-tools wiki covering both the text
+  files and the message files.
+- **`.eng` is not just Zeus and Emperor.** Caesar III uses it too — its files
+  identify themselves as "C3 textfile." — so the format spans the whole
+  isometric era, and the Caesar III hub now says so.
+- **Caesar III's save compression is not ZIP.** Julius calls the functions
+  `zip_compress` and `zip_decompress` and the file is `core/zip.c`, but the
+  implementation is `pk_implode`/`pk_explode` — the PKWARE Data Compression
+  Library, not DEFLATE. A zlib call on that data fails. The naming has misled
+  people and the page says so in a callout.
+- **A Caesar III `.map` is exactly 211,692 bytes.** Ten uncompressed chunks in
+  a fixed order, and every per-tile chunk is 26,244 bytes or twice it —
+  26,244 being 162², with `GRID_SIZE = 162` in Julius. That makes the file
+  size a one-line integrity check, which is the sort of thing a reference
+  exists to hand you.
+
+### Left undone, deliberately
+
+- **Caesar I and Caesar II stay undocumented, loudly.** No engine, no
+  documentation, nothing to write up. The wanted callout is the correct
+  content. Reverse-engineering them is the *reason* this site exists, not a
+  task on it.
+- **The later titles' `.map`/`.sav`.** Julius is Caesar III only. Pharaoh,
+  Zeus and Emperor have their own scenario and save formats and nobody has
+  written them up; the hub row says that and points at Akhenaten and
+  Ozymandias.
+- **The 1,720-byte scenario block** inside a Caesar III `.map`, and the record
+  layouts inside the savegame chunks. Both are named but not described —
+  the largest genuinely open gap in the Caesar III lineage, and the obvious
+  next piece of original research this site could contribute.
 
 ---
 
@@ -226,8 +261,7 @@ actually good.
 
 ## Decisions this roadmap is waiting on
 
-1. **Where a full format spec lives** — per-format pages hung off each hub, or
-   expanded in place on the hub. Phase 2, and the only one left.
+Nothing. Every decision this roadmap was blocked on has been made.
 
 *Everything else that was on this list has been decided: "how to play it
 today" is in, storefronts first and patches alongside; the images stay as
