@@ -27,6 +27,18 @@
  * and which mods edit, so there is no single correct value to publish. The
  * site documents that file instead: /formats/c3-model/.
  *
+ * PHARAOH comes from a different project and a different shape. Akhenaten
+ * keeps its building definitions in JavaScript config blocks under
+ * src/scripts/building/, so unlike Julius it carries cost and labourers in the
+ * repository itself — which is why the Pharaoh table has columns the
+ * Caesar III one cannot. Each cost is five numbers, one per difficulty level.
+ *
+ * Monuments are excluded from the Pharaoh table on purpose. Pyramids, the
+ * sphinx, obelisks and the temple complexes carry an is_monument flag and are
+ * built in phases by work camps; building_size reads 2 even for the grand
+ * pyramid complex, so it is plainly not a footprint. Rather than publish a
+ * number that cannot be stood behind they are left out, and the page says so.
+ *
  *   node scripts/build-buildings.mjs
  */
 import { writeFile } from 'node:fs/promises';
@@ -318,12 +330,232 @@ for (const { symbol, index } of enumEntries) {
   });
 }
 
+
+// --- Pharaoh, from Akhenaten's src/scripts/building/*.js ---------------------
+// name|building_size|cost (5 difficulty levels)|laborers|labor_category
+const PHARAOH = `
+stonemason_guild|2|30,50,80,100,150|12|INFRASTRUCTURE
+bricklayers_guild|2|20,40,80,120,200|10|INFRASTRUCTURE
+carpenters_guild|2|10,15,30,50,100|8|INFRASTRUCTURE
+military_academy|4|240,300,500,1000,1500|25|MILITARY
+military_academy_adv|4|300,500,1000,1500,2000|30|MILITARY
+reed_gatherer|2|10,20,40,80,120|8|INDUSTRY_COMMERCE
+wood_cutter|2|10,20,40,80,140|8|INDUSTRY_COMMERCE
+artisans_guild|2|30,50,80,100,150|15|INFRASTRUCTURE
+tax_collector|2|15,20,40,70,100|6|GOVERNMENT
+tax_collector_up|2|15,24,40,80,100|8|GOVERNMENT
+recruiter|3|30,50,100,200,300|10|MILITARY
+festival_square|5|100,250,500,1000,1500||ENTERTAINMENT
+roadblock|1|1,2,5,10,20||INFRASTRUCTURE
+brick_tower|2|50,100,150,300,500|20|MILITARY
+clay_tower|2|50,80,100,150,300|20|MILITARY
+mud_tower|2|30,50,100,150,200|6|MILITARY
+ferry|2|8,15,30,50,100|5|GOVERNMENT
+shipyard|3|70,100,150,200,300|20|INDUSTRY_COMMERCE
+plaza|1|3,5,10,15,20||INFRASTRUCTURE
+garden|1|3,5,10,15,20||INFRASTRUCTURE
+road|1|1,2,5,10,15||INFRASTRUCTURE
+irrigation_ditch|1|2,4,7,10,15||INFRASTRUCTURE
+sandstone_quarry|2|15,30,50,80,150|12|INDUSTRY_COMMERCE
+stone_quarry|2|15,30,50,80,150|12|INDUSTRY_COMMERCE
+granite_quarry|2|20,40,80,150,200|12|INDUSTRY_COMMERCE
+limestone_quarry|2|15,30,50,80,150|12|INDUSTRY_COMMERCE
+clay_gatehouse|1|60,90,150,250,300|9|MILITARY
+brick_gatehouse|1|60,90,150,250,300|9|MILITARY
+tower_gatehouse|2|200,300,400,500,600|6|MILITARY
+mud_gatehouse|1|50,70,100,150,200|3|MILITARY
+decorative_gatehouse|5|100,150,200,300,400|3|MILITARY
+brick_wall|1|7,12,25,40,70|0|MILITARY
+mud_wall|1|7,12,25,40,70||MILITARY
+police_station|1|6,12,25,40,60|6|INFRASTRUCTURE
+bazaar|2|8,15,30,50,100|5|INDUSTRY_COMMERCE
+dock|3|20,40,70,100,150|12|INDUSTRY_COMMERCE
+meadow_farm_grain|3|8,10,15,20,50|10|FOOD_PRODUCTION
+farm_grain|3|8,10,15,20,50|10|FOOD_PRODUCTION
+meadow_farm_chickpeas|3|8,10,15,20,50|10|FOOD_PRODUCTION
+farm_chickpeas|3|8,10,15,20,50|10|FOOD_PRODUCTION
+meadow_farm_lettuce|3|8,10,15,20,50|10|FOOD_PRODUCTION
+farm_lettuce|3|8,10,15,20,50|10|FOOD_PRODUCTION
+meadow_farm_pomegranates|3|8,10,15,20,50|10|FOOD_PRODUCTION
+farm_pomegranates|3|8,10,15,20,50|12|FOOD_PRODUCTION
+meadow_farm_barley|3|8,10,15,20,50|10|FOOD_PRODUCTION
+farm_barley|3|8,10,15,20,50|10|FOOD_PRODUCTION
+meadow_farm_flax|3|8,10,15,20,50|10|FOOD_PRODUCTION
+farm_flax|3|8,10,15,20,50|10|FOOD_PRODUCTION
+meadow_farm_henna|3|8,10,15,20,50|10|FOOD_PRODUCTION
+farm_henna|3|8,10,15,20,50|10|FOOD_PRODUCTION
+meadow_farm_figs|3|8,10,15,20,50|10|FOOD_PRODUCTION
+farm_figs|3|8,10,15,20,50|10|FOOD_PRODUCTION
+fort_charioteers|3|500,700,900,1300,2000||MILITARY
+fort_infantry|3|200,300,500,800,1200||MILITARY
+fort_archers|3|200,300,500,800,1200||MILITARY
+library|3|90,140,200,300,400|20|EDUCATION
+academy|2|200,250,300,400,500|20|EDUCATION
+village_palace|4|100,200,300,400,500|20|GOVERNMENT
+town_palace|5|200,300,400,500,800|30|GOVERNMENT
+city_palace|6|300,400,500,800,1000||GOVERNMENT
+temple_osiris|3|30,50,80,150,300|8|RELIGION
+temple_ra|3|30,50,80,150,300|8|RELIGION
+temple_ptah|3|30,50,80,150,300|8|RELIGION
+temple_seth|3|30,50,80,150,300|8|RELIGION
+temple_bast|3|30,50,80,150,300|8|RELIGION
+shrine_osiris|1|20,30,50,80,120|0|RELIGION
+shrine_ra|1|20,30,50,80,120|0|RELIGION
+shrine_ptah|1|20,30,50,80,120|0|RELIGION
+shrine_seth|1|20,30,50,80,120|0|RELIGION
+shrine_bast|1|20,30,50,80,120|0|RELIGION
+granary|4|50,70,100,200,300|20|INFRASTRUCTURE
+small_statue|1|3,5,8,13,21||INFRASTRUCTURE
+medium_statue|2|12,18,24,30,50||INFRASTRUCTURE
+large_statue|3|30,45,60,90,150||INFRASTRUCTURE
+personal_mansion|3|30,50,100,200,400|0|GOVERNMENT
+village_mansion|4|80,100,150,200,400|0|GOVERNMENT
+family_mansion|4|80,120,150,200,300|0|GOVERNMENT
+dynasty_mansion|4|140,200,300,400,500|0|GOVERNMENT
+brewery|2|15,25,50,80,120|12|INDUSTRY_COMMERCE
+weaver|2|16,30,50,100,150|12|INDUSTRY_COMMERCE
+jewels_workshop|2|18,30,50,100,200|12|INDUSTRY_COMMERCE
+lamp_workshop|2|20,30,50,100,150|12|INDUSTRY_COMMERCE
+paint_workshop|2|20,30,50,100,150|12|INDUSTRY_COMMERCE
+juggler_school|2|10,20,50,100,200|5|ENTERTAINMENT
+dancer_school|4|30,50,100,150,200|10|ENTERTAINMENT
+pavilion|4|100,200,300,500,800|20|ENTERTAINMENT
+bandstand|3|30,50,100,150,200|12|ENTERTAINMENT
+senet_house|4|300,400,500,700,1000|25|ENTERTAINMENT
+bullfight_school|2|50,80,100,150,200|15|ENTERTAINMENT
+booth|2|10,20,40,80,150|8|ENTERTAINMENT
+firehouse|1|6,12,25,40,60|6|INFRASTRUCTURE
+apothecary|1|6,10,15,30,50|5|WATER_HEALTH
+dentist|1|10,15,30,50,80|5|WATER_HEALTH
+physician|2|10,15,30,50,100|8|WATER_HEALTH
+storage_yard|3|14,30,50,100,150|6|INDUSTRY_COMMERCE
+mortuary|2|20,30,50,100,200|8|WATER_HEALTH
+architect_post|1|6,12,25,40,60|5|INFRASTRUCTURE
+courthouse|3|30,50,100,200,400|10|INFRASTRUCTURE
+work_camp|2|12,20,40,80,120|20|INDUSTRY_COMMERCE
+food_mill|3|40,60,100,150,250|12|FOOD_PRODUCTION
+industry_office|2|25,40,70,120,200|10|GOVERNMENT
+well|1|1,2,5,10,20|0|WATER_HEALTH
+water_lift|2|6,12,25,50,100|8|INFRASTRUCTURE
+water_supply|2|10,20,40,80,140|5|WATER_HEALTH
+conservatory|3|20,50,90,150,200|8|ENTERTAINMENT
+bricks_workshop|2|12,20,30,40,50|12|INDUSTRY_COMMERCE
+chariots_workshop|2|50,100,150,300,500|30|INDUSTRY_COMMERCE
+cattle_ranch|3|15,20,30,50,80|12|FOOD_PRODUCTION
+clay_pit|2|8,15,30,50,100|8|INDUSTRY_COMMERCE
+hunting_lodge|2|5,10,25,40,60|6|FOOD_PRODUCTION
+pottery|2|12,20,30,40,50|12|INDUSTRY_COMMERCE
+papyrus_maker|2|20,30,50,100,200|12|INDUSTRY_COMMERCE
+weaponsmith|2|24,40,80,120,150|12|MILITARY
+mine_copper|2|50,75,100,150,300|10|INDUSTRY_COMMERCE
+mine_gold|2|50,100,150,250,400|12|INDUSTRY_COMMERCE
+mine_gems|2|50,75,100,150,300|8|INDUSTRY_COMMERCE
+zoo|6|500,1500,2000,2200,2600|30|ENTERTAINMENT
+scribal_school|2|30,50,70,100,150|10|EDUCATION
+fishing_wharf|2|40,70,100,150,300|6|FOOD_PRODUCTION
+transport_wharf|2|40,70,100,150,300|5|MILITARY
+warship_wharf|3|120,150,200,300,400|15|MILITARY
+low_bridge|1|8,32,40,48,60|0|INFRASTRUCTURE
+ship_bridge|1|8,32,40,48,60||INFRASTRUCTURE
+dike|1|3,6,10,15,25|0|INFRASTRUCTURE
+`;
+
+const PH_CATEGORY = {
+  FOOD_PRODUCTION: 'Farming',
+  INDUSTRY_COMMERCE: 'Industry',
+  INFRASTRUCTURE: 'Infrastructure',
+  GOVERNMENT: 'Government',
+  MILITARY: 'Military',
+  RELIGION: 'Religion',
+  EDUCATION: 'Education',
+  ENTERTAINMENT: 'Entertainment',
+  WATER_HEALTH: 'Health',
+};
+
+const GOD = { osiris: 'Osiris', ra: 'Ra', ptah: 'Ptah', seth: 'Seth', bast: 'Bast' };
+
+function pharaohName(id) {
+  const titled = (v) => v.split('_').map((w) => w[0].toUpperCase() + w.slice(1)).join(' ');
+  const special = {
+    tax_collector_up: 'Tax Collector (upgraded)',
+    military_academy_adv: 'Military Academy (advanced)',
+  };
+  if (special[id]) return special[id];
+  let m;
+  if ((m = id.match(/^meadow_farm_(.+)$/))) return titled(m[1]) + ' Farm (meadow)';
+  if ((m = id.match(/^farm_(.+)$/))) return titled(m[1]) + ' Farm';
+  if ((m = id.match(/^temple_(.+)$/))) return 'Temple of ' + (GOD[m[1]] || titled(m[1]));
+  if ((m = id.match(/^shrine_(.+)$/))) return 'Shrine to ' + (GOD[m[1]] || titled(m[1]));
+  if ((m = id.match(/^fort_(.+)$/))) return 'Fort — ' + titled(m[1]);
+  if ((m = id.match(/^mine_(.+)$/))) return titled(m[1]) + ' Mine';
+  return titled(id);
+}
+
+const NEWLINE = String.fromCharCode(10);
+const pharaohRows = PHARAOH.trim()
+  .split(NEWLINE)
+  .map((line) => line.split('|'))
+  .map(([id, size, cost, lab, cat]) => ({
+    id,
+    name: pharaohName(id),
+    size: Number(size) || null,
+    cost: cost ? cost.split(',').map(Number) : null,
+    employees: lab === '' ? null : Number(lab),
+    category: PH_CATEGORY[cat] || 'Infrastructure',
+  }));
+
+if (pharaohRows.length < 100) {
+  throw new Error('Only ' + pharaohRows.length + ' Pharaoh rows - the block was truncated');
+}
+for (const row of pharaohRows) {
+  if (!row.size) throw new Error(row.id + ' has no size');
+  if (row.cost && row.cost.length !== 5) {
+    throw new Error(row.id + ' has ' + row.cost.length + ' costs, expected 5');
+  }
+}
+
+// Merge into the cross-game model: where a Pharaoh building carries the same
+// name as a Caesar III one it becomes a second variant of the same concept,
+// rather than a separate entry. That is what the variants array exists for.
+const byName = new Map(buildings.map((b) => [b.name, b]));
+let merged = 0;
+
+for (const row of pharaohRows) {
+  const variant = {
+    game: 'pharaoh',
+    name: row.name,
+    engineType: 'building_' + row.id,
+    size: row.size,
+    cost: row.cost,
+    employees: row.employees,
+    requires: [],
+    produces: [],
+    notes: null,
+  };
+
+  const existing = byName.get(row.name);
+  if (existing) {
+    existing.variants.push(variant);
+    merged += 1;
+  } else {
+    buildings.push({
+      id: 'pharaoh-' + row.id.replace(/_/g, '-'),
+      name: row.name,
+      category: row.category,
+      description: null,
+      variants: [variant],
+    });
+  }
+}
+
+console.log(pharaohRows.length + ' Pharaoh buildings, ' + merged + ' merged into existing concepts');
+
 buildings.sort((a, b) => a.category.localeCompare(b.category) || a.name.localeCompare(b.name));
 
 await writeFile('src/data/buildings.json', JSON.stringify(buildings, null, 2) + '\n');
 
 const byCategory = buildings.reduce((acc, b) => ({ ...acc, [b.category]: (acc[b.category] ?? 0) + 1 }), {});
-console.log(`${buildings.length} buildings written, all spot checks passed`);
+console.log(`${buildings.length} entries written, all spot checks passed`);
 for (const [name, count] of Object.entries(byCategory).sort()) {
   console.log(`  ${name.padEnd(16)} ${count}`);
 }

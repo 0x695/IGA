@@ -69,6 +69,24 @@ const categories = [...new Set(rows.map((r) => r.category))].sort();
             {row.variant.size && <span class="card__size">{row.variant.size}×{row.variant.size}</span>}
           </div>
           <span class="card__category">{row.category}</span>
+          {
+            /* Cost and labour only exist where the engine carries them, which
+               today means Pharaoh. Pharaoh states cost per difficulty level, so
+               the card shows the range and the title attribute carries all
+               five rather than pretending there is one number. */
+            (row.variant.cost || row.variant.employees !== null) && (
+              <span class="card__stats">
+                {row.variant.cost && (
+                  <span title={`By difficulty: ${row.variant.cost.join(', ')}`}>
+                    {row.variant.cost[0]}
+                    {String.fromCharCode(8211)}
+                    {row.variant.cost[row.variant.cost.length - 1]} db
+                  </span>
+                )}
+                {row.variant.employees !== null && <span>{row.variant.employees} workers</span>}
+              </span>
+            )
+          }
           <code class="card__engine">{row.variant.engineType}</code>
         </li>
       ))
@@ -235,6 +253,15 @@ const categories = [...new Set(rows.map((r) => r.category))].sort();
   }
 
   .card__category {
+    font-size: 11px;
+    color: var(--color-text-dim);
+  }
+
+  .card__stats {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px 12px;
+    font-family: var(--font-mono);
     font-size: 11px;
     color: var(--color-text-dim);
   }

@@ -15,6 +15,23 @@
         "requires": [],
         "produces": [],
         "notes": null
+      },
+      {
+        "game": "pharaoh",
+        "name": "Dock",
+        "engineType": "building_dock",
+        "size": 3,
+        "cost": [
+          20,
+          40,
+          70,
+          100,
+          150
+        ],
+        "employees": 12,
+        "requires": [],
+        "produces": [],
+        "notes": null
       }
     ]
   },
@@ -31,6 +48,23 @@
         "size": 3,
         "cost": null,
         "employees": null,
+        "requires": [],
+        "produces": [],
+        "notes": null
+      },
+      {
+        "game": "pharaoh",
+        "name": "Granary",
+        "engineType": "building_granary",
+        "size": 4,
+        "cost": [
+          50,
+          70,
+          100,
+          200,
+          300
+        ],
+        "employees": 20,
         "requires": [],
         "produces": [],
         "notes": null
@@ -69,6 +103,23 @@
         "size": 2,
         "cost": null,
         "employees": null,
+        "requires": [],
+        "produces": [],
+        "notes": null
+      },
+      {
+        "game": "pharaoh",
+        "name": "Shipyard",
+        "engineType": "building_shipyard",
+        "size": 3,
+        "cost": [
+          70,
+          100,
+          150,
+          200,
+          300
+        ],
+        "employees": 20,
         "requires": [],
         "produces": [],
         "notes": null
@@ -129,6 +180,23 @@
         "requires": [],
         "produces": [],
         "notes": null
+      },
+      {
+        "game": "pharaoh",
+        "name": "Academy",
+        "engineType": "building_academy",
+        "size": 2,
+        "cost": [
+          200,
+          250,
+          300,
+          400,
+          500
+        ],
+        "employees": 20,
+        "requires": [],
+        "produces": [],
+        "notes": null
       }
     ]
   },
@@ -148,6 +216,23 @@
         "requires": [],
         "produces": [],
         "notes": null
+      },
+      {
+        "game": "pharaoh",
+        "name": "Library",
+        "engineType": "building_library",
+        "size": 3,
+        "cost": [
+          90,
+          140,
+          200,
+          300,
+          400
+        ],
+        "employees": 20,
+        "requires": [],
+        "produces": [],
+        "notes": null
       }
     ]
   },
@@ -164,6 +249,31 @@
         "size": 2,
         "cost": null,
         "employees": null,
+        "requires": [],
+        "produces": [],
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "pharaoh-scribal-school",
+    "name": "Scribal School",
+    "category": "Education",
+    "description": null,
+    "variants": [
+      {
+        "game": "pharaoh",
+        "name": "Scribal School",
+        "engineType": "building_scribal_school",
+        "size": 2,
+        "cost": [
+          30,
+          50,
+          70,
+          100,
+          150
+        ],
+        "employees": 10,
         "requires": [],
         "produces": [],
         "notes": null
@@ -209,6 +319,81 @@
     ]
   },
   {
+    "id": "pharaoh-bandstand",
+    "name": "Bandstand",
+    "category": "Entertainment",
+    "description": null,
+    "variants": [
+      {
+        "game": "pharaoh",
+        "name": "Bandstand",
+        "engineType": "building_bandstand",
+        "size": 3,
+        "cost": [
+          30,
+          50,
+          100,
+          150,
+          200
+        ],
+        "employees": 12,
+        "requires": [],
+        "produces": [],
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "pharaoh-booth",
+    "name": "Booth",
+    "category": "Entertainment",
+    "description": null,
+    "variants": [
+      {
+        "game": "pharaoh",
+        "name": "Booth",
+        "engineType": "building_booth",
+        "size": 2,
+        "cost": [
+          10,
+          20,
+          40,
+          80,
+          150
+        ],
+        "employees": 8,
+        "requires": [],
+        "produces": [],
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "pharaoh-bullfight-school",
+    "name": "Bullfight School",
+    "category": "Entertainment",
+    "description": null,
+    "variants": [
+      {
+        "game": "pharaoh",
+        "name": "Bullfight School",
+        "engineType": "building_bullfight_school",
+        "size": 2,
+        "cost": [
+          50,
+          80,
+          100,
+          150,
+          200
+        ],
+        "employees": 15,
+        "requires": [],
+        "produces": [],
+        "notes": null
+      }
+    ]
+  },
+  {
     "id": "chariot-maker",
     "name": "Chariot Maker",
     "category": "Entertainment",
@@ -239,6 +424,81 @@
         "engineType": "BUILDING_COLOSSEUM",
         "size": 5,
         "cost": null,
+        "employees": null,
+        "requires": [],
+        "produces": [],
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "pharaoh-conservatory",
+    "name": "Conservatory",
+    "category": "Entertainment",
+    "description": null,
+    "variants": [
+      {
+        "game": "pharaoh",
+        "name": "Conservatory",
+        "engineType": "building_conservatory",
+        "size": 3,
+        "cost": [
+          20,
+          50,
+          90,
+          150,
+          200
+        ],
+        "employees": 8,
+        "requires": [],
+        "produces": [],
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "pharaoh-dancer-school",
+    "name": "Dancer School",
+    "category": "Entertainment",
+    "description": null,
+    "variants": [
+      {
+        "game": "pharaoh",
+        "name": "Dancer School",
+        "engineType": "building_dancer_school",
+        "size": 4,
+        "cost": [
+          30,
+          50,
+          100,
+          150,
+          200
+        ],
+        "employees": 10,
+        "requires": [],
+        "produces": [],
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "pharaoh-festival-square",
+    "name": "Festival Square",
+    "category": "Entertainment",
+    "description": null,
+    "variants": [
+      {
+        "game": "pharaoh",
+        "name": "Festival Square",
+        "engineType": "building_festival_square",
+        "size": 5,
+        "cost": [
+          100,
+          250,
+          500,
+          1000,
+          1500
+        ],
         "employees": null,
         "requires": [],
         "produces": [],
@@ -285,6 +545,31 @@
     ]
   },
   {
+    "id": "pharaoh-juggler-school",
+    "name": "Juggler School",
+    "category": "Entertainment",
+    "description": null,
+    "variants": [
+      {
+        "game": "pharaoh",
+        "name": "Juggler School",
+        "engineType": "building_juggler_school",
+        "size": 2,
+        "cost": [
+          10,
+          20,
+          50,
+          100,
+          200
+        ],
+        "employees": 5,
+        "requires": [],
+        "produces": [],
+        "notes": null
+      }
+    ]
+  },
+  {
     "id": "lion-house",
     "name": "Lion House",
     "category": "Entertainment",
@@ -297,6 +582,56 @@
         "size": 3,
         "cost": null,
         "employees": null,
+        "requires": [],
+        "produces": [],
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "pharaoh-pavilion",
+    "name": "Pavilion",
+    "category": "Entertainment",
+    "description": null,
+    "variants": [
+      {
+        "game": "pharaoh",
+        "name": "Pavilion",
+        "engineType": "building_pavilion",
+        "size": 4,
+        "cost": [
+          100,
+          200,
+          300,
+          500,
+          800
+        ],
+        "employees": 20,
+        "requires": [],
+        "produces": [],
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "pharaoh-senet-house",
+    "name": "Senet House",
+    "category": "Entertainment",
+    "description": null,
+    "variants": [
+      {
+        "game": "pharaoh",
+        "name": "Senet House",
+        "engineType": "building_senet_house",
+        "size": 4,
+        "cost": [
+          300,
+          400,
+          500,
+          700,
+          1000
+        ],
+        "employees": 25,
         "requires": [],
         "produces": [],
         "notes": null
@@ -323,6 +658,306 @@
     ]
   },
   {
+    "id": "pharaoh-zoo",
+    "name": "Zoo",
+    "category": "Entertainment",
+    "description": null,
+    "variants": [
+      {
+        "game": "pharaoh",
+        "name": "Zoo",
+        "engineType": "building_zoo",
+        "size": 6,
+        "cost": [
+          500,
+          1500,
+          2000,
+          2200,
+          2600
+        ],
+        "employees": 30,
+        "requires": [],
+        "produces": [],
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "pharaoh-farm-barley",
+    "name": "Barley Farm",
+    "category": "Farming",
+    "description": null,
+    "variants": [
+      {
+        "game": "pharaoh",
+        "name": "Barley Farm",
+        "engineType": "building_farm_barley",
+        "size": 3,
+        "cost": [
+          8,
+          10,
+          15,
+          20,
+          50
+        ],
+        "employees": 10,
+        "requires": [],
+        "produces": [],
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "pharaoh-meadow-farm-barley",
+    "name": "Barley Farm (meadow)",
+    "category": "Farming",
+    "description": null,
+    "variants": [
+      {
+        "game": "pharaoh",
+        "name": "Barley Farm (meadow)",
+        "engineType": "building_meadow_farm_barley",
+        "size": 3,
+        "cost": [
+          8,
+          10,
+          15,
+          20,
+          50
+        ],
+        "employees": 10,
+        "requires": [],
+        "produces": [],
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "pharaoh-cattle-ranch",
+    "name": "Cattle Ranch",
+    "category": "Farming",
+    "description": null,
+    "variants": [
+      {
+        "game": "pharaoh",
+        "name": "Cattle Ranch",
+        "engineType": "building_cattle_ranch",
+        "size": 3,
+        "cost": [
+          15,
+          20,
+          30,
+          50,
+          80
+        ],
+        "employees": 12,
+        "requires": [],
+        "produces": [],
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "pharaoh-farm-chickpeas",
+    "name": "Chickpeas Farm",
+    "category": "Farming",
+    "description": null,
+    "variants": [
+      {
+        "game": "pharaoh",
+        "name": "Chickpeas Farm",
+        "engineType": "building_farm_chickpeas",
+        "size": 3,
+        "cost": [
+          8,
+          10,
+          15,
+          20,
+          50
+        ],
+        "employees": 10,
+        "requires": [],
+        "produces": [],
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "pharaoh-meadow-farm-chickpeas",
+    "name": "Chickpeas Farm (meadow)",
+    "category": "Farming",
+    "description": null,
+    "variants": [
+      {
+        "game": "pharaoh",
+        "name": "Chickpeas Farm (meadow)",
+        "engineType": "building_meadow_farm_chickpeas",
+        "size": 3,
+        "cost": [
+          8,
+          10,
+          15,
+          20,
+          50
+        ],
+        "employees": 10,
+        "requires": [],
+        "produces": [],
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "pharaoh-farm-figs",
+    "name": "Figs Farm",
+    "category": "Farming",
+    "description": null,
+    "variants": [
+      {
+        "game": "pharaoh",
+        "name": "Figs Farm",
+        "engineType": "building_farm_figs",
+        "size": 3,
+        "cost": [
+          8,
+          10,
+          15,
+          20,
+          50
+        ],
+        "employees": 10,
+        "requires": [],
+        "produces": [],
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "pharaoh-meadow-farm-figs",
+    "name": "Figs Farm (meadow)",
+    "category": "Farming",
+    "description": null,
+    "variants": [
+      {
+        "game": "pharaoh",
+        "name": "Figs Farm (meadow)",
+        "engineType": "building_meadow_farm_figs",
+        "size": 3,
+        "cost": [
+          8,
+          10,
+          15,
+          20,
+          50
+        ],
+        "employees": 10,
+        "requires": [],
+        "produces": [],
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "pharaoh-fishing-wharf",
+    "name": "Fishing Wharf",
+    "category": "Farming",
+    "description": null,
+    "variants": [
+      {
+        "game": "pharaoh",
+        "name": "Fishing Wharf",
+        "engineType": "building_fishing_wharf",
+        "size": 2,
+        "cost": [
+          40,
+          70,
+          100,
+          150,
+          300
+        ],
+        "employees": 6,
+        "requires": [],
+        "produces": [],
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "pharaoh-farm-flax",
+    "name": "Flax Farm",
+    "category": "Farming",
+    "description": null,
+    "variants": [
+      {
+        "game": "pharaoh",
+        "name": "Flax Farm",
+        "engineType": "building_farm_flax",
+        "size": 3,
+        "cost": [
+          8,
+          10,
+          15,
+          20,
+          50
+        ],
+        "employees": 10,
+        "requires": [],
+        "produces": [],
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "pharaoh-meadow-farm-flax",
+    "name": "Flax Farm (meadow)",
+    "category": "Farming",
+    "description": null,
+    "variants": [
+      {
+        "game": "pharaoh",
+        "name": "Flax Farm (meadow)",
+        "engineType": "building_meadow_farm_flax",
+        "size": 3,
+        "cost": [
+          8,
+          10,
+          15,
+          20,
+          50
+        ],
+        "employees": 10,
+        "requires": [],
+        "produces": [],
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "pharaoh-food-mill",
+    "name": "Food Mill",
+    "category": "Farming",
+    "description": null,
+    "variants": [
+      {
+        "game": "pharaoh",
+        "name": "Food Mill",
+        "engineType": "building_food_mill",
+        "size": 3,
+        "cost": [
+          40,
+          60,
+          100,
+          150,
+          250
+        ],
+        "employees": 12,
+        "requires": [],
+        "produces": [],
+        "notes": null
+      }
+    ]
+  },
+  {
     "id": "fruit-farm",
     "name": "Fruit Farm",
     "category": "Farming",
@@ -335,6 +970,181 @@
         "size": 3,
         "cost": null,
         "employees": null,
+        "requires": [],
+        "produces": [],
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "pharaoh-farm-grain",
+    "name": "Grain Farm",
+    "category": "Farming",
+    "description": null,
+    "variants": [
+      {
+        "game": "pharaoh",
+        "name": "Grain Farm",
+        "engineType": "building_farm_grain",
+        "size": 3,
+        "cost": [
+          8,
+          10,
+          15,
+          20,
+          50
+        ],
+        "employees": 10,
+        "requires": [],
+        "produces": [],
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "pharaoh-meadow-farm-grain",
+    "name": "Grain Farm (meadow)",
+    "category": "Farming",
+    "description": null,
+    "variants": [
+      {
+        "game": "pharaoh",
+        "name": "Grain Farm (meadow)",
+        "engineType": "building_meadow_farm_grain",
+        "size": 3,
+        "cost": [
+          8,
+          10,
+          15,
+          20,
+          50
+        ],
+        "employees": 10,
+        "requires": [],
+        "produces": [],
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "pharaoh-farm-henna",
+    "name": "Henna Farm",
+    "category": "Farming",
+    "description": null,
+    "variants": [
+      {
+        "game": "pharaoh",
+        "name": "Henna Farm",
+        "engineType": "building_farm_henna",
+        "size": 3,
+        "cost": [
+          8,
+          10,
+          15,
+          20,
+          50
+        ],
+        "employees": 10,
+        "requires": [],
+        "produces": [],
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "pharaoh-meadow-farm-henna",
+    "name": "Henna Farm (meadow)",
+    "category": "Farming",
+    "description": null,
+    "variants": [
+      {
+        "game": "pharaoh",
+        "name": "Henna Farm (meadow)",
+        "engineType": "building_meadow_farm_henna",
+        "size": 3,
+        "cost": [
+          8,
+          10,
+          15,
+          20,
+          50
+        ],
+        "employees": 10,
+        "requires": [],
+        "produces": [],
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "pharaoh-hunting-lodge",
+    "name": "Hunting Lodge",
+    "category": "Farming",
+    "description": null,
+    "variants": [
+      {
+        "game": "pharaoh",
+        "name": "Hunting Lodge",
+        "engineType": "building_hunting_lodge",
+        "size": 2,
+        "cost": [
+          5,
+          10,
+          25,
+          40,
+          60
+        ],
+        "employees": 6,
+        "requires": [],
+        "produces": [],
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "pharaoh-farm-lettuce",
+    "name": "Lettuce Farm",
+    "category": "Farming",
+    "description": null,
+    "variants": [
+      {
+        "game": "pharaoh",
+        "name": "Lettuce Farm",
+        "engineType": "building_farm_lettuce",
+        "size": 3,
+        "cost": [
+          8,
+          10,
+          15,
+          20,
+          50
+        ],
+        "employees": 10,
+        "requires": [],
+        "produces": [],
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "pharaoh-meadow-farm-lettuce",
+    "name": "Lettuce Farm (meadow)",
+    "category": "Farming",
+    "description": null,
+    "variants": [
+      {
+        "game": "pharaoh",
+        "name": "Lettuce Farm (meadow)",
+        "engineType": "building_meadow_farm_lettuce",
+        "size": 3,
+        "cost": [
+          8,
+          10,
+          15,
+          20,
+          50
+        ],
+        "employees": 10,
         "requires": [],
         "produces": [],
         "notes": null
@@ -373,6 +1183,56 @@
         "size": 3,
         "cost": null,
         "employees": null,
+        "requires": [],
+        "produces": [],
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "pharaoh-farm-pomegranates",
+    "name": "Pomegranates Farm",
+    "category": "Farming",
+    "description": null,
+    "variants": [
+      {
+        "game": "pharaoh",
+        "name": "Pomegranates Farm",
+        "engineType": "building_farm_pomegranates",
+        "size": 3,
+        "cost": [
+          8,
+          10,
+          15,
+          20,
+          50
+        ],
+        "employees": 12,
+        "requires": [],
+        "produces": [],
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "pharaoh-meadow-farm-pomegranates",
+    "name": "Pomegranates Farm (meadow)",
+    "category": "Farming",
+    "description": null,
+    "variants": [
+      {
+        "game": "pharaoh",
+        "name": "Pomegranates Farm (meadow)",
+        "engineType": "building_meadow_farm_pomegranates",
+        "size": 3,
+        "cost": [
+          8,
+          10,
+          15,
+          20,
+          50
+        ],
+        "employees": 10,
         "requires": [],
         "produces": [],
         "notes": null
@@ -430,6 +1290,106 @@
         "size": 3,
         "cost": null,
         "employees": null,
+        "requires": [],
+        "produces": [],
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "pharaoh-city-palace",
+    "name": "City Palace",
+    "category": "Government",
+    "description": null,
+    "variants": [
+      {
+        "game": "pharaoh",
+        "name": "City Palace",
+        "engineType": "building_city_palace",
+        "size": 6,
+        "cost": [
+          300,
+          400,
+          500,
+          800,
+          1000
+        ],
+        "employees": null,
+        "requires": [],
+        "produces": [],
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "pharaoh-dynasty-mansion",
+    "name": "Dynasty Mansion",
+    "category": "Government",
+    "description": null,
+    "variants": [
+      {
+        "game": "pharaoh",
+        "name": "Dynasty Mansion",
+        "engineType": "building_dynasty_mansion",
+        "size": 4,
+        "cost": [
+          140,
+          200,
+          300,
+          400,
+          500
+        ],
+        "employees": 0,
+        "requires": [],
+        "produces": [],
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "pharaoh-family-mansion",
+    "name": "Family Mansion",
+    "category": "Government",
+    "description": null,
+    "variants": [
+      {
+        "game": "pharaoh",
+        "name": "Family Mansion",
+        "engineType": "building_family_mansion",
+        "size": 4,
+        "cost": [
+          80,
+          120,
+          150,
+          200,
+          300
+        ],
+        "employees": 0,
+        "requires": [],
+        "produces": [],
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "pharaoh-ferry",
+    "name": "Ferry",
+    "category": "Government",
+    "description": null,
+    "variants": [
+      {
+        "game": "pharaoh",
+        "name": "Ferry",
+        "engineType": "building_ferry",
+        "size": 2,
+        "cost": [
+          8,
+          15,
+          30,
+          50,
+          100
+        ],
+        "employees": 5,
         "requires": [],
         "produces": [],
         "notes": null
@@ -513,6 +1473,31 @@
     ]
   },
   {
+    "id": "pharaoh-industry-office",
+    "name": "Industry Office",
+    "category": "Government",
+    "description": null,
+    "variants": [
+      {
+        "game": "pharaoh",
+        "name": "Industry Office",
+        "engineType": "building_industry_office",
+        "size": 2,
+        "cost": [
+          25,
+          40,
+          70,
+          120,
+          200
+        ],
+        "employees": 10,
+        "requires": [],
+        "produces": [],
+        "notes": null
+      }
+    ]
+  },
+  {
     "id": "mission-post",
     "name": "Mission Post",
     "category": "Government",
@@ -532,6 +1517,31 @@
     ]
   },
   {
+    "id": "pharaoh-personal-mansion",
+    "name": "Personal Mansion",
+    "category": "Government",
+    "description": null,
+    "variants": [
+      {
+        "game": "pharaoh",
+        "name": "Personal Mansion",
+        "engineType": "building_personal_mansion",
+        "size": 3,
+        "cost": [
+          30,
+          50,
+          100,
+          200,
+          400
+        ],
+        "employees": 0,
+        "requires": [],
+        "produces": [],
+        "notes": null
+      }
+    ]
+  },
+  {
     "id": "senate",
     "name": "Senate",
     "category": "Government",
@@ -544,6 +1554,156 @@
         "size": 5,
         "cost": null,
         "employees": null,
+        "requires": [],
+        "produces": [],
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "pharaoh-tax-collector",
+    "name": "Tax Collector",
+    "category": "Government",
+    "description": null,
+    "variants": [
+      {
+        "game": "pharaoh",
+        "name": "Tax Collector",
+        "engineType": "building_tax_collector",
+        "size": 2,
+        "cost": [
+          15,
+          20,
+          40,
+          70,
+          100
+        ],
+        "employees": 6,
+        "requires": [],
+        "produces": [],
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "pharaoh-tax-collector-up",
+    "name": "Tax Collector (upgraded)",
+    "category": "Government",
+    "description": null,
+    "variants": [
+      {
+        "game": "pharaoh",
+        "name": "Tax Collector (upgraded)",
+        "engineType": "building_tax_collector_up",
+        "size": 2,
+        "cost": [
+          15,
+          24,
+          40,
+          80,
+          100
+        ],
+        "employees": 8,
+        "requires": [],
+        "produces": [],
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "pharaoh-town-palace",
+    "name": "Town Palace",
+    "category": "Government",
+    "description": null,
+    "variants": [
+      {
+        "game": "pharaoh",
+        "name": "Town Palace",
+        "engineType": "building_town_palace",
+        "size": 5,
+        "cost": [
+          200,
+          300,
+          400,
+          500,
+          800
+        ],
+        "employees": 30,
+        "requires": [],
+        "produces": [],
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "pharaoh-village-mansion",
+    "name": "Village Mansion",
+    "category": "Government",
+    "description": null,
+    "variants": [
+      {
+        "game": "pharaoh",
+        "name": "Village Mansion",
+        "engineType": "building_village_mansion",
+        "size": 4,
+        "cost": [
+          80,
+          100,
+          150,
+          200,
+          400
+        ],
+        "employees": 0,
+        "requires": [],
+        "produces": [],
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "pharaoh-village-palace",
+    "name": "Village Palace",
+    "category": "Government",
+    "description": null,
+    "variants": [
+      {
+        "game": "pharaoh",
+        "name": "Village Palace",
+        "engineType": "building_village_palace",
+        "size": 4,
+        "cost": [
+          100,
+          200,
+          300,
+          400,
+          500
+        ],
+        "employees": 20,
+        "requires": [],
+        "produces": [],
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "pharaoh-apothecary",
+    "name": "Apothecary",
+    "category": "Health",
+    "description": null,
+    "variants": [
+      {
+        "game": "pharaoh",
+        "name": "Apothecary",
+        "engineType": "building_apothecary",
+        "size": 1,
+        "cost": [
+          6,
+          10,
+          15,
+          30,
+          50
+        ],
+        "employees": 5,
         "requires": [],
         "produces": [],
         "notes": null
@@ -589,6 +1749,31 @@
     ]
   },
   {
+    "id": "pharaoh-dentist",
+    "name": "Dentist",
+    "category": "Health",
+    "description": null,
+    "variants": [
+      {
+        "game": "pharaoh",
+        "name": "Dentist",
+        "engineType": "building_dentist",
+        "size": 1,
+        "cost": [
+          10,
+          15,
+          30,
+          50,
+          80
+        ],
+        "employees": 5,
+        "requires": [],
+        "produces": [],
+        "notes": null
+      }
+    ]
+  },
+  {
     "id": "doctor",
     "name": "Doctor",
     "category": "Health",
@@ -620,6 +1805,81 @@
         "size": 3,
         "cost": null,
         "employees": null,
+        "requires": [],
+        "produces": [],
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "pharaoh-mortuary",
+    "name": "Mortuary",
+    "category": "Health",
+    "description": null,
+    "variants": [
+      {
+        "game": "pharaoh",
+        "name": "Mortuary",
+        "engineType": "building_mortuary",
+        "size": 2,
+        "cost": [
+          20,
+          30,
+          50,
+          100,
+          200
+        ],
+        "employees": 8,
+        "requires": [],
+        "produces": [],
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "pharaoh-physician",
+    "name": "Physician",
+    "category": "Health",
+    "description": null,
+    "variants": [
+      {
+        "game": "pharaoh",
+        "name": "Physician",
+        "engineType": "building_physician",
+        "size": 2,
+        "cost": [
+          10,
+          15,
+          30,
+          50,
+          100
+        ],
+        "employees": 8,
+        "requires": [],
+        "produces": [],
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "pharaoh-water-supply",
+    "name": "Water Supply",
+    "category": "Health",
+    "description": null,
+    "variants": [
+      {
+        "game": "pharaoh",
+        "name": "Water Supply",
+        "engineType": "building_water_supply",
+        "size": 2,
+        "cost": [
+          10,
+          20,
+          40,
+          80,
+          140
+        ],
+        "employees": 5,
         "requires": [],
         "produces": [],
         "notes": null
@@ -1007,6 +2267,531 @@
     ]
   },
   {
+    "id": "pharaoh-bazaar",
+    "name": "Bazaar",
+    "category": "Industry",
+    "description": null,
+    "variants": [
+      {
+        "game": "pharaoh",
+        "name": "Bazaar",
+        "engineType": "building_bazaar",
+        "size": 2,
+        "cost": [
+          8,
+          15,
+          30,
+          50,
+          100
+        ],
+        "employees": 5,
+        "requires": [],
+        "produces": [],
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "pharaoh-brewery",
+    "name": "Brewery",
+    "category": "Industry",
+    "description": null,
+    "variants": [
+      {
+        "game": "pharaoh",
+        "name": "Brewery",
+        "engineType": "building_brewery",
+        "size": 2,
+        "cost": [
+          15,
+          25,
+          50,
+          80,
+          120
+        ],
+        "employees": 12,
+        "requires": [],
+        "produces": [],
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "pharaoh-bricks-workshop",
+    "name": "Bricks Workshop",
+    "category": "Industry",
+    "description": null,
+    "variants": [
+      {
+        "game": "pharaoh",
+        "name": "Bricks Workshop",
+        "engineType": "building_bricks_workshop",
+        "size": 2,
+        "cost": [
+          12,
+          20,
+          30,
+          40,
+          50
+        ],
+        "employees": 12,
+        "requires": [],
+        "produces": [],
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "pharaoh-chariots-workshop",
+    "name": "Chariots Workshop",
+    "category": "Industry",
+    "description": null,
+    "variants": [
+      {
+        "game": "pharaoh",
+        "name": "Chariots Workshop",
+        "engineType": "building_chariots_workshop",
+        "size": 2,
+        "cost": [
+          50,
+          100,
+          150,
+          300,
+          500
+        ],
+        "employees": 30,
+        "requires": [],
+        "produces": [],
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "pharaoh-mine-copper",
+    "name": "Copper Mine",
+    "category": "Industry",
+    "description": null,
+    "variants": [
+      {
+        "game": "pharaoh",
+        "name": "Copper Mine",
+        "engineType": "building_mine_copper",
+        "size": 2,
+        "cost": [
+          50,
+          75,
+          100,
+          150,
+          300
+        ],
+        "employees": 10,
+        "requires": [],
+        "produces": [],
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "pharaoh-mine-gems",
+    "name": "Gems Mine",
+    "category": "Industry",
+    "description": null,
+    "variants": [
+      {
+        "game": "pharaoh",
+        "name": "Gems Mine",
+        "engineType": "building_mine_gems",
+        "size": 2,
+        "cost": [
+          50,
+          75,
+          100,
+          150,
+          300
+        ],
+        "employees": 8,
+        "requires": [],
+        "produces": [],
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "pharaoh-mine-gold",
+    "name": "Gold Mine",
+    "category": "Industry",
+    "description": null,
+    "variants": [
+      {
+        "game": "pharaoh",
+        "name": "Gold Mine",
+        "engineType": "building_mine_gold",
+        "size": 2,
+        "cost": [
+          50,
+          100,
+          150,
+          250,
+          400
+        ],
+        "employees": 12,
+        "requires": [],
+        "produces": [],
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "pharaoh-granite-quarry",
+    "name": "Granite Quarry",
+    "category": "Industry",
+    "description": null,
+    "variants": [
+      {
+        "game": "pharaoh",
+        "name": "Granite Quarry",
+        "engineType": "building_granite_quarry",
+        "size": 2,
+        "cost": [
+          20,
+          40,
+          80,
+          150,
+          200
+        ],
+        "employees": 12,
+        "requires": [],
+        "produces": [],
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "pharaoh-jewels-workshop",
+    "name": "Jewels Workshop",
+    "category": "Industry",
+    "description": null,
+    "variants": [
+      {
+        "game": "pharaoh",
+        "name": "Jewels Workshop",
+        "engineType": "building_jewels_workshop",
+        "size": 2,
+        "cost": [
+          18,
+          30,
+          50,
+          100,
+          200
+        ],
+        "employees": 12,
+        "requires": [],
+        "produces": [],
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "pharaoh-lamp-workshop",
+    "name": "Lamp Workshop",
+    "category": "Industry",
+    "description": null,
+    "variants": [
+      {
+        "game": "pharaoh",
+        "name": "Lamp Workshop",
+        "engineType": "building_lamp_workshop",
+        "size": 2,
+        "cost": [
+          20,
+          30,
+          50,
+          100,
+          150
+        ],
+        "employees": 12,
+        "requires": [],
+        "produces": [],
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "pharaoh-limestone-quarry",
+    "name": "Limestone Quarry",
+    "category": "Industry",
+    "description": null,
+    "variants": [
+      {
+        "game": "pharaoh",
+        "name": "Limestone Quarry",
+        "engineType": "building_limestone_quarry",
+        "size": 2,
+        "cost": [
+          15,
+          30,
+          50,
+          80,
+          150
+        ],
+        "employees": 12,
+        "requires": [],
+        "produces": [],
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "pharaoh-paint-workshop",
+    "name": "Paint Workshop",
+    "category": "Industry",
+    "description": null,
+    "variants": [
+      {
+        "game": "pharaoh",
+        "name": "Paint Workshop",
+        "engineType": "building_paint_workshop",
+        "size": 2,
+        "cost": [
+          20,
+          30,
+          50,
+          100,
+          150
+        ],
+        "employees": 12,
+        "requires": [],
+        "produces": [],
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "pharaoh-papyrus-maker",
+    "name": "Papyrus Maker",
+    "category": "Industry",
+    "description": null,
+    "variants": [
+      {
+        "game": "pharaoh",
+        "name": "Papyrus Maker",
+        "engineType": "building_papyrus_maker",
+        "size": 2,
+        "cost": [
+          20,
+          30,
+          50,
+          100,
+          200
+        ],
+        "employees": 12,
+        "requires": [],
+        "produces": [],
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "pharaoh-pottery",
+    "name": "Pottery",
+    "category": "Industry",
+    "description": null,
+    "variants": [
+      {
+        "game": "pharaoh",
+        "name": "Pottery",
+        "engineType": "building_pottery",
+        "size": 2,
+        "cost": [
+          12,
+          20,
+          30,
+          40,
+          50
+        ],
+        "employees": 12,
+        "requires": [],
+        "produces": [],
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "pharaoh-reed-gatherer",
+    "name": "Reed Gatherer",
+    "category": "Industry",
+    "description": null,
+    "variants": [
+      {
+        "game": "pharaoh",
+        "name": "Reed Gatherer",
+        "engineType": "building_reed_gatherer",
+        "size": 2,
+        "cost": [
+          10,
+          20,
+          40,
+          80,
+          120
+        ],
+        "employees": 8,
+        "requires": [],
+        "produces": [],
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "pharaoh-sandstone-quarry",
+    "name": "Sandstone Quarry",
+    "category": "Industry",
+    "description": null,
+    "variants": [
+      {
+        "game": "pharaoh",
+        "name": "Sandstone Quarry",
+        "engineType": "building_sandstone_quarry",
+        "size": 2,
+        "cost": [
+          15,
+          30,
+          50,
+          80,
+          150
+        ],
+        "employees": 12,
+        "requires": [],
+        "produces": [],
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "pharaoh-stone-quarry",
+    "name": "Stone Quarry",
+    "category": "Industry",
+    "description": null,
+    "variants": [
+      {
+        "game": "pharaoh",
+        "name": "Stone Quarry",
+        "engineType": "building_stone_quarry",
+        "size": 2,
+        "cost": [
+          15,
+          30,
+          50,
+          80,
+          150
+        ],
+        "employees": 12,
+        "requires": [],
+        "produces": [],
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "pharaoh-storage-yard",
+    "name": "Storage Yard",
+    "category": "Industry",
+    "description": null,
+    "variants": [
+      {
+        "game": "pharaoh",
+        "name": "Storage Yard",
+        "engineType": "building_storage_yard",
+        "size": 3,
+        "cost": [
+          14,
+          30,
+          50,
+          100,
+          150
+        ],
+        "employees": 6,
+        "requires": [],
+        "produces": [],
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "pharaoh-weaver",
+    "name": "Weaver",
+    "category": "Industry",
+    "description": null,
+    "variants": [
+      {
+        "game": "pharaoh",
+        "name": "Weaver",
+        "engineType": "building_weaver",
+        "size": 2,
+        "cost": [
+          16,
+          30,
+          50,
+          100,
+          150
+        ],
+        "employees": 12,
+        "requires": [],
+        "produces": [],
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "pharaoh-wood-cutter",
+    "name": "Wood Cutter",
+    "category": "Industry",
+    "description": null,
+    "variants": [
+      {
+        "game": "pharaoh",
+        "name": "Wood Cutter",
+        "engineType": "building_wood_cutter",
+        "size": 2,
+        "cost": [
+          10,
+          20,
+          40,
+          80,
+          140
+        ],
+        "employees": 8,
+        "requires": [],
+        "produces": [],
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "pharaoh-work-camp",
+    "name": "Work Camp",
+    "category": "Industry",
+    "description": null,
+    "variants": [
+      {
+        "game": "pharaoh",
+        "name": "Work Camp",
+        "engineType": "building_work_camp",
+        "size": 2,
+        "cost": [
+          12,
+          20,
+          40,
+          80,
+          120
+        ],
+        "employees": 20,
+        "requires": [],
+        "produces": [],
+        "notes": null
+      }
+    ]
+  },
+  {
     "id": "aqueduct",
     "name": "Aqueduct",
     "category": "Infrastructure",
@@ -1019,6 +2804,156 @@
         "size": 1,
         "cost": null,
         "employees": null,
+        "requires": [],
+        "produces": [],
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "pharaoh-architect-post",
+    "name": "Architect Post",
+    "category": "Infrastructure",
+    "description": null,
+    "variants": [
+      {
+        "game": "pharaoh",
+        "name": "Architect Post",
+        "engineType": "building_architect_post",
+        "size": 1,
+        "cost": [
+          6,
+          12,
+          25,
+          40,
+          60
+        ],
+        "employees": 5,
+        "requires": [],
+        "produces": [],
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "pharaoh-artisans-guild",
+    "name": "Artisans Guild",
+    "category": "Infrastructure",
+    "description": null,
+    "variants": [
+      {
+        "game": "pharaoh",
+        "name": "Artisans Guild",
+        "engineType": "building_artisans_guild",
+        "size": 2,
+        "cost": [
+          30,
+          50,
+          80,
+          100,
+          150
+        ],
+        "employees": 15,
+        "requires": [],
+        "produces": [],
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "pharaoh-bricklayers-guild",
+    "name": "Bricklayers Guild",
+    "category": "Infrastructure",
+    "description": null,
+    "variants": [
+      {
+        "game": "pharaoh",
+        "name": "Bricklayers Guild",
+        "engineType": "building_bricklayers_guild",
+        "size": 2,
+        "cost": [
+          20,
+          40,
+          80,
+          120,
+          200
+        ],
+        "employees": 10,
+        "requires": [],
+        "produces": [],
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "pharaoh-carpenters-guild",
+    "name": "Carpenters Guild",
+    "category": "Infrastructure",
+    "description": null,
+    "variants": [
+      {
+        "game": "pharaoh",
+        "name": "Carpenters Guild",
+        "engineType": "building_carpenters_guild",
+        "size": 2,
+        "cost": [
+          10,
+          15,
+          30,
+          50,
+          100
+        ],
+        "employees": 8,
+        "requires": [],
+        "produces": [],
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "pharaoh-courthouse",
+    "name": "Courthouse",
+    "category": "Infrastructure",
+    "description": null,
+    "variants": [
+      {
+        "game": "pharaoh",
+        "name": "Courthouse",
+        "engineType": "building_courthouse",
+        "size": 3,
+        "cost": [
+          30,
+          50,
+          100,
+          200,
+          400
+        ],
+        "employees": 10,
+        "requires": [],
+        "produces": [],
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "pharaoh-dike",
+    "name": "Dike",
+    "category": "Infrastructure",
+    "description": null,
+    "variants": [
+      {
+        "game": "pharaoh",
+        "name": "Dike",
+        "engineType": "building_dike",
+        "size": 1,
+        "cost": [
+          3,
+          6,
+          10,
+          15,
+          25
+        ],
+        "employees": 0,
         "requires": [],
         "produces": [],
         "notes": null
@@ -1045,6 +2980,31 @@
     ]
   },
   {
+    "id": "pharaoh-firehouse",
+    "name": "Firehouse",
+    "category": "Infrastructure",
+    "description": null,
+    "variants": [
+      {
+        "game": "pharaoh",
+        "name": "Firehouse",
+        "engineType": "building_firehouse",
+        "size": 1,
+        "cost": [
+          6,
+          12,
+          25,
+          40,
+          60
+        ],
+        "employees": 6,
+        "requires": [],
+        "produces": [],
+        "notes": null
+      }
+    ]
+  },
+  {
     "id": "fountain",
     "name": "Fountain",
     "category": "Infrastructure",
@@ -1056,6 +3016,31 @@
         "engineType": "BUILDING_FOUNTAIN",
         "size": 1,
         "cost": null,
+        "employees": null,
+        "requires": [],
+        "produces": [],
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "pharaoh-garden",
+    "name": "Garden",
+    "category": "Infrastructure",
+    "description": null,
+    "variants": [
+      {
+        "game": "pharaoh",
+        "name": "Garden",
+        "engineType": "building_garden",
+        "size": 1,
+        "cost": [
+          3,
+          5,
+          10,
+          15,
+          20
+        ],
         "employees": null,
         "requires": [],
         "produces": [],
@@ -1083,6 +3068,31 @@
     ]
   },
   {
+    "id": "pharaoh-irrigation-ditch",
+    "name": "Irrigation Ditch",
+    "category": "Infrastructure",
+    "description": null,
+    "variants": [
+      {
+        "game": "pharaoh",
+        "name": "Irrigation Ditch",
+        "engineType": "building_irrigation_ditch",
+        "size": 1,
+        "cost": [
+          2,
+          4,
+          7,
+          10,
+          15
+        ],
+        "employees": null,
+        "requires": [],
+        "produces": [],
+        "notes": null
+      }
+    ]
+  },
+  {
     "id": "large-statue",
     "name": "Large Statue",
     "category": "Infrastructure",
@@ -1094,6 +3104,23 @@
         "engineType": "BUILDING_LARGE_STATUE",
         "size": 3,
         "cost": null,
+        "employees": null,
+        "requires": [],
+        "produces": [],
+        "notes": null
+      },
+      {
+        "game": "pharaoh",
+        "name": "Large Statue",
+        "engineType": "building_large_statue",
+        "size": 3,
+        "cost": [
+          30,
+          45,
+          60,
+          90,
+          150
+        ],
         "employees": null,
         "requires": [],
         "produces": [],
@@ -1117,6 +3144,23 @@
         "requires": [],
         "produces": [],
         "notes": null
+      },
+      {
+        "game": "pharaoh",
+        "name": "Low Bridge",
+        "engineType": "building_low_bridge",
+        "size": 1,
+        "cost": [
+          8,
+          32,
+          40,
+          48,
+          60
+        ],
+        "employees": 0,
+        "requires": [],
+        "produces": [],
+        "notes": null
       }
     ]
   },
@@ -1132,6 +3176,23 @@
         "engineType": "BUILDING_MEDIUM_STATUE",
         "size": 2,
         "cost": null,
+        "employees": null,
+        "requires": [],
+        "produces": [],
+        "notes": null
+      },
+      {
+        "game": "pharaoh",
+        "name": "Medium Statue",
+        "engineType": "building_medium_statue",
+        "size": 2,
+        "cost": [
+          12,
+          18,
+          24,
+          30,
+          50
+        ],
         "employees": null,
         "requires": [],
         "produces": [],
@@ -1152,6 +3213,48 @@
         "size": 1,
         "cost": null,
         "employees": null,
+        "requires": [],
+        "produces": [],
+        "notes": null
+      },
+      {
+        "game": "pharaoh",
+        "name": "Plaza",
+        "engineType": "building_plaza",
+        "size": 1,
+        "cost": [
+          3,
+          5,
+          10,
+          15,
+          20
+        ],
+        "employees": null,
+        "requires": [],
+        "produces": [],
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "pharaoh-police-station",
+    "name": "Police Station",
+    "category": "Infrastructure",
+    "description": null,
+    "variants": [
+      {
+        "game": "pharaoh",
+        "name": "Police Station",
+        "engineType": "building_police_station",
+        "size": 1,
+        "cost": [
+          6,
+          12,
+          25,
+          40,
+          60
+        ],
+        "employees": 6,
         "requires": [],
         "produces": [],
         "notes": null
@@ -1212,6 +3315,48 @@
         "requires": [],
         "produces": [],
         "notes": null
+      },
+      {
+        "game": "pharaoh",
+        "name": "Road",
+        "engineType": "building_road",
+        "size": 1,
+        "cost": [
+          1,
+          2,
+          5,
+          10,
+          15
+        ],
+        "employees": null,
+        "requires": [],
+        "produces": [],
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "pharaoh-roadblock",
+    "name": "Roadblock",
+    "category": "Infrastructure",
+    "description": null,
+    "variants": [
+      {
+        "game": "pharaoh",
+        "name": "Roadblock",
+        "engineType": "building_roadblock",
+        "size": 1,
+        "cost": [
+          1,
+          2,
+          5,
+          10,
+          20
+        ],
+        "employees": null,
+        "requires": [],
+        "produces": [],
+        "notes": null
       }
     ]
   },
@@ -1227,6 +3372,23 @@
         "engineType": "BUILDING_SHIP_BRIDGE",
         "size": 1,
         "cost": null,
+        "employees": null,
+        "requires": [],
+        "produces": [],
+        "notes": null
+      },
+      {
+        "game": "pharaoh",
+        "name": "Ship Bridge",
+        "engineType": "building_ship_bridge",
+        "size": 1,
+        "cost": [
+          8,
+          32,
+          40,
+          48,
+          60
+        ],
         "employees": null,
         "requires": [],
         "produces": [],
@@ -1250,6 +3412,73 @@
         "requires": [],
         "produces": [],
         "notes": null
+      },
+      {
+        "game": "pharaoh",
+        "name": "Small Statue",
+        "engineType": "building_small_statue",
+        "size": 1,
+        "cost": [
+          3,
+          5,
+          8,
+          13,
+          21
+        ],
+        "employees": null,
+        "requires": [],
+        "produces": [],
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "pharaoh-stonemason-guild",
+    "name": "Stonemason Guild",
+    "category": "Infrastructure",
+    "description": null,
+    "variants": [
+      {
+        "game": "pharaoh",
+        "name": "Stonemason Guild",
+        "engineType": "building_stonemason_guild",
+        "size": 2,
+        "cost": [
+          30,
+          50,
+          80,
+          100,
+          150
+        ],
+        "employees": 12,
+        "requires": [],
+        "produces": [],
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "pharaoh-water-lift",
+    "name": "Water Lift",
+    "category": "Infrastructure",
+    "description": null,
+    "variants": [
+      {
+        "game": "pharaoh",
+        "name": "Water Lift",
+        "engineType": "building_water_lift",
+        "size": 2,
+        "cost": [
+          6,
+          12,
+          25,
+          50,
+          100
+        ],
+        "employees": 8,
+        "requires": [],
+        "produces": [],
+        "notes": null
       }
     ]
   },
@@ -1266,6 +3495,23 @@
         "size": 1,
         "cost": null,
         "employees": null,
+        "requires": [],
+        "produces": [],
+        "notes": null
+      },
+      {
+        "game": "pharaoh",
+        "name": "Well",
+        "engineType": "building_well",
+        "size": 1,
+        "cost": [
+          1,
+          2,
+          5,
+          10,
+          20
+        ],
+        "employees": 0,
         "requires": [],
         "produces": [],
         "notes": null
@@ -1292,6 +3538,156 @@
     ]
   },
   {
+    "id": "pharaoh-brick-gatehouse",
+    "name": "Brick Gatehouse",
+    "category": "Military",
+    "description": null,
+    "variants": [
+      {
+        "game": "pharaoh",
+        "name": "Brick Gatehouse",
+        "engineType": "building_brick_gatehouse",
+        "size": 1,
+        "cost": [
+          60,
+          90,
+          150,
+          250,
+          300
+        ],
+        "employees": 9,
+        "requires": [],
+        "produces": [],
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "pharaoh-brick-tower",
+    "name": "Brick Tower",
+    "category": "Military",
+    "description": null,
+    "variants": [
+      {
+        "game": "pharaoh",
+        "name": "Brick Tower",
+        "engineType": "building_brick_tower",
+        "size": 2,
+        "cost": [
+          50,
+          100,
+          150,
+          300,
+          500
+        ],
+        "employees": 20,
+        "requires": [],
+        "produces": [],
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "pharaoh-brick-wall",
+    "name": "Brick Wall",
+    "category": "Military",
+    "description": null,
+    "variants": [
+      {
+        "game": "pharaoh",
+        "name": "Brick Wall",
+        "engineType": "building_brick_wall",
+        "size": 1,
+        "cost": [
+          7,
+          12,
+          25,
+          40,
+          70
+        ],
+        "employees": 0,
+        "requires": [],
+        "produces": [],
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "pharaoh-clay-gatehouse",
+    "name": "Clay Gatehouse",
+    "category": "Military",
+    "description": null,
+    "variants": [
+      {
+        "game": "pharaoh",
+        "name": "Clay Gatehouse",
+        "engineType": "building_clay_gatehouse",
+        "size": 1,
+        "cost": [
+          60,
+          90,
+          150,
+          250,
+          300
+        ],
+        "employees": 9,
+        "requires": [],
+        "produces": [],
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "pharaoh-clay-tower",
+    "name": "Clay Tower",
+    "category": "Military",
+    "description": null,
+    "variants": [
+      {
+        "game": "pharaoh",
+        "name": "Clay Tower",
+        "engineType": "building_clay_tower",
+        "size": 2,
+        "cost": [
+          50,
+          80,
+          100,
+          150,
+          300
+        ],
+        "employees": 20,
+        "requires": [],
+        "produces": [],
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "pharaoh-decorative-gatehouse",
+    "name": "Decorative Gatehouse",
+    "category": "Military",
+    "description": null,
+    "variants": [
+      {
+        "game": "pharaoh",
+        "name": "Decorative Gatehouse",
+        "engineType": "building_decorative_gatehouse",
+        "size": 5,
+        "cost": [
+          100,
+          150,
+          200,
+          300,
+          400
+        ],
+        "employees": 3,
+        "requires": [],
+        "produces": [],
+        "notes": null
+      }
+    ]
+  },
+  {
     "id": "fort",
     "name": "Fort",
     "category": "Military",
@@ -1303,6 +3699,81 @@
         "engineType": "BUILDING_FORT",
         "size": 3,
         "cost": null,
+        "employees": null,
+        "requires": [],
+        "produces": [],
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "pharaoh-fort-archers",
+    "name": "Fort — Archers",
+    "category": "Military",
+    "description": null,
+    "variants": [
+      {
+        "game": "pharaoh",
+        "name": "Fort — Archers",
+        "engineType": "building_fort_archers",
+        "size": 3,
+        "cost": [
+          200,
+          300,
+          500,
+          800,
+          1200
+        ],
+        "employees": null,
+        "requires": [],
+        "produces": [],
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "pharaoh-fort-charioteers",
+    "name": "Fort — Charioteers",
+    "category": "Military",
+    "description": null,
+    "variants": [
+      {
+        "game": "pharaoh",
+        "name": "Fort — Charioteers",
+        "engineType": "building_fort_charioteers",
+        "size": 3,
+        "cost": [
+          500,
+          700,
+          900,
+          1300,
+          2000
+        ],
+        "employees": null,
+        "requires": [],
+        "produces": [],
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "pharaoh-fort-infantry",
+    "name": "Fort — Infantry",
+    "category": "Military",
+    "description": null,
+    "variants": [
+      {
+        "game": "pharaoh",
+        "name": "Fort — Infantry",
+        "engineType": "building_fort_infantry",
+        "size": 3,
+        "cost": [
+          200,
+          300,
+          500,
+          800,
+          1200
+        ],
         "employees": null,
         "requires": [],
         "produces": [],
@@ -1402,6 +3873,148 @@
         "requires": [],
         "produces": [],
         "notes": null
+      },
+      {
+        "game": "pharaoh",
+        "name": "Military Academy",
+        "engineType": "building_military_academy",
+        "size": 4,
+        "cost": [
+          240,
+          300,
+          500,
+          1000,
+          1500
+        ],
+        "employees": 25,
+        "requires": [],
+        "produces": [],
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "pharaoh-military-academy-adv",
+    "name": "Military Academy (advanced)",
+    "category": "Military",
+    "description": null,
+    "variants": [
+      {
+        "game": "pharaoh",
+        "name": "Military Academy (advanced)",
+        "engineType": "building_military_academy_adv",
+        "size": 4,
+        "cost": [
+          300,
+          500,
+          1000,
+          1500,
+          2000
+        ],
+        "employees": 30,
+        "requires": [],
+        "produces": [],
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "pharaoh-mud-gatehouse",
+    "name": "Mud Gatehouse",
+    "category": "Military",
+    "description": null,
+    "variants": [
+      {
+        "game": "pharaoh",
+        "name": "Mud Gatehouse",
+        "engineType": "building_mud_gatehouse",
+        "size": 1,
+        "cost": [
+          50,
+          70,
+          100,
+          150,
+          200
+        ],
+        "employees": 3,
+        "requires": [],
+        "produces": [],
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "pharaoh-mud-tower",
+    "name": "Mud Tower",
+    "category": "Military",
+    "description": null,
+    "variants": [
+      {
+        "game": "pharaoh",
+        "name": "Mud Tower",
+        "engineType": "building_mud_tower",
+        "size": 2,
+        "cost": [
+          30,
+          50,
+          100,
+          150,
+          200
+        ],
+        "employees": 6,
+        "requires": [],
+        "produces": [],
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "pharaoh-mud-wall",
+    "name": "Mud Wall",
+    "category": "Military",
+    "description": null,
+    "variants": [
+      {
+        "game": "pharaoh",
+        "name": "Mud Wall",
+        "engineType": "building_mud_wall",
+        "size": 1,
+        "cost": [
+          7,
+          12,
+          25,
+          40,
+          70
+        ],
+        "employees": null,
+        "requires": [],
+        "produces": [],
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "pharaoh-recruiter",
+    "name": "Recruiter",
+    "category": "Military",
+    "description": null,
+    "variants": [
+      {
+        "game": "pharaoh",
+        "name": "Recruiter",
+        "engineType": "building_recruiter",
+        "size": 3,
+        "cost": [
+          30,
+          50,
+          100,
+          200,
+          300
+        ],
+        "employees": 10,
+        "requires": [],
+        "produces": [],
+        "notes": null
       }
     ]
   },
@@ -1418,6 +4031,56 @@
         "size": 2,
         "cost": null,
         "employees": null,
+        "requires": [],
+        "produces": [],
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "pharaoh-tower-gatehouse",
+    "name": "Tower Gatehouse",
+    "category": "Military",
+    "description": null,
+    "variants": [
+      {
+        "game": "pharaoh",
+        "name": "Tower Gatehouse",
+        "engineType": "building_tower_gatehouse",
+        "size": 2,
+        "cost": [
+          200,
+          300,
+          400,
+          500,
+          600
+        ],
+        "employees": 6,
+        "requires": [],
+        "produces": [],
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "pharaoh-transport-wharf",
+    "name": "Transport Wharf",
+    "category": "Military",
+    "description": null,
+    "variants": [
+      {
+        "game": "pharaoh",
+        "name": "Transport Wharf",
+        "engineType": "building_transport_wharf",
+        "size": 2,
+        "cost": [
+          40,
+          70,
+          100,
+          150,
+          300
+        ],
+        "employees": 5,
         "requires": [],
         "produces": [],
         "notes": null
@@ -1456,6 +4119,56 @@
         "size": 1,
         "cost": null,
         "employees": null,
+        "requires": [],
+        "produces": [],
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "pharaoh-warship-wharf",
+    "name": "Warship Wharf",
+    "category": "Military",
+    "description": null,
+    "variants": [
+      {
+        "game": "pharaoh",
+        "name": "Warship Wharf",
+        "engineType": "building_warship_wharf",
+        "size": 3,
+        "cost": [
+          120,
+          150,
+          200,
+          300,
+          400
+        ],
+        "employees": 15,
+        "requires": [],
+        "produces": [],
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "pharaoh-weaponsmith",
+    "name": "Weaponsmith",
+    "category": "Military",
+    "description": null,
+    "variants": [
+      {
+        "game": "pharaoh",
+        "name": "Weaponsmith",
+        "engineType": "building_weaponsmith",
+        "size": 2,
+        "cost": [
+          24,
+          40,
+          80,
+          120,
+          150
+        ],
+        "employees": 12,
         "requires": [],
         "produces": [],
         "notes": null
@@ -1532,6 +4245,23 @@
         "size": 2,
         "cost": null,
         "employees": null,
+        "requires": [],
+        "produces": [],
+        "notes": null
+      },
+      {
+        "game": "pharaoh",
+        "name": "Clay Pit",
+        "engineType": "building_clay_pit",
+        "size": 2,
+        "cost": [
+          8,
+          15,
+          30,
+          50,
+          100
+        ],
+        "employees": 8,
         "requires": [],
         "produces": [],
         "notes": null
@@ -1710,6 +4440,131 @@
     ]
   },
   {
+    "id": "pharaoh-shrine-bast",
+    "name": "Shrine to Bast",
+    "category": "Religion",
+    "description": null,
+    "variants": [
+      {
+        "game": "pharaoh",
+        "name": "Shrine to Bast",
+        "engineType": "building_shrine_bast",
+        "size": 1,
+        "cost": [
+          20,
+          30,
+          50,
+          80,
+          120
+        ],
+        "employees": 0,
+        "requires": [],
+        "produces": [],
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "pharaoh-shrine-osiris",
+    "name": "Shrine to Osiris",
+    "category": "Religion",
+    "description": null,
+    "variants": [
+      {
+        "game": "pharaoh",
+        "name": "Shrine to Osiris",
+        "engineType": "building_shrine_osiris",
+        "size": 1,
+        "cost": [
+          20,
+          30,
+          50,
+          80,
+          120
+        ],
+        "employees": 0,
+        "requires": [],
+        "produces": [],
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "pharaoh-shrine-ptah",
+    "name": "Shrine to Ptah",
+    "category": "Religion",
+    "description": null,
+    "variants": [
+      {
+        "game": "pharaoh",
+        "name": "Shrine to Ptah",
+        "engineType": "building_shrine_ptah",
+        "size": 1,
+        "cost": [
+          20,
+          30,
+          50,
+          80,
+          120
+        ],
+        "employees": 0,
+        "requires": [],
+        "produces": [],
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "pharaoh-shrine-ra",
+    "name": "Shrine to Ra",
+    "category": "Religion",
+    "description": null,
+    "variants": [
+      {
+        "game": "pharaoh",
+        "name": "Shrine to Ra",
+        "engineType": "building_shrine_ra",
+        "size": 1,
+        "cost": [
+          20,
+          30,
+          50,
+          80,
+          120
+        ],
+        "employees": 0,
+        "requires": [],
+        "produces": [],
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "pharaoh-shrine-seth",
+    "name": "Shrine to Seth",
+    "category": "Religion",
+    "description": null,
+    "variants": [
+      {
+        "game": "pharaoh",
+        "name": "Shrine to Seth",
+        "engineType": "building_shrine_seth",
+        "size": 1,
+        "cost": [
+          20,
+          30,
+          50,
+          80,
+          120
+        ],
+        "employees": 0,
+        "requires": [],
+        "produces": [],
+        "notes": null
+      }
+    ]
+  },
+  {
     "id": "small-temple-ceres",
     "name": "Small Temple Ceres",
     "category": "Religion",
@@ -1798,6 +4653,131 @@
         "size": 2,
         "cost": null,
         "employees": null,
+        "requires": [],
+        "produces": [],
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "pharaoh-temple-bast",
+    "name": "Temple of Bast",
+    "category": "Religion",
+    "description": null,
+    "variants": [
+      {
+        "game": "pharaoh",
+        "name": "Temple of Bast",
+        "engineType": "building_temple_bast",
+        "size": 3,
+        "cost": [
+          30,
+          50,
+          80,
+          150,
+          300
+        ],
+        "employees": 8,
+        "requires": [],
+        "produces": [],
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "pharaoh-temple-osiris",
+    "name": "Temple of Osiris",
+    "category": "Religion",
+    "description": null,
+    "variants": [
+      {
+        "game": "pharaoh",
+        "name": "Temple of Osiris",
+        "engineType": "building_temple_osiris",
+        "size": 3,
+        "cost": [
+          30,
+          50,
+          80,
+          150,
+          300
+        ],
+        "employees": 8,
+        "requires": [],
+        "produces": [],
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "pharaoh-temple-ptah",
+    "name": "Temple of Ptah",
+    "category": "Religion",
+    "description": null,
+    "variants": [
+      {
+        "game": "pharaoh",
+        "name": "Temple of Ptah",
+        "engineType": "building_temple_ptah",
+        "size": 3,
+        "cost": [
+          30,
+          50,
+          80,
+          150,
+          300
+        ],
+        "employees": 8,
+        "requires": [],
+        "produces": [],
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "pharaoh-temple-ra",
+    "name": "Temple of Ra",
+    "category": "Religion",
+    "description": null,
+    "variants": [
+      {
+        "game": "pharaoh",
+        "name": "Temple of Ra",
+        "engineType": "building_temple_ra",
+        "size": 3,
+        "cost": [
+          30,
+          50,
+          80,
+          150,
+          300
+        ],
+        "employees": 8,
+        "requires": [],
+        "produces": [],
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "pharaoh-temple-seth",
+    "name": "Temple of Seth",
+    "category": "Religion",
+    "description": null,
+    "variants": [
+      {
+        "game": "pharaoh",
+        "name": "Temple of Seth",
+        "engineType": "building_temple_seth",
+        "size": 3,
+        "cost": [
+          30,
+          50,
+          80,
+          150,
+          300
+        ],
+        "employees": 8,
         "requires": [],
         "produces": [],
         "notes": null

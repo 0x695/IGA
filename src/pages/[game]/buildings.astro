@@ -29,6 +29,16 @@ export async function getStaticPaths() {
 
 const { game, buildings } = Astro.props;
 const g = game.data;
+
+/* Caesar III keeps its costs in c3_model.txt rather than the engine, so that
+   caveat belongs on its page and would be simply untrue on Pharaoh's. */
+const hasCosts = buildings.some((b) =>
+  b.data.variants.some((v) => v.game === game.id && v.cost !== null),
+);
+
+/* Each game's table comes from the reimplementation that covers it, and the
+   page should name the one it actually used. */
+const sourceProject = game.id === 'pharaoh' ? "Akhenaten's building definitions" : "Julius's building type table";
 ---
 
 <Base
@@ -45,14 +55,15 @@ const g = game.data;
       <h1 class="head__title">Buildings</h1>
       <p class="head__summary">
         Every building the engine defines, with its footprint in tiles and the constant that names
-        it in the source. Read out of Julius's building type table rather than transcribed, so the
-        sizes are the ones the game actually uses.
+        it in the source. Read out of {sourceProject} rather than transcribed, so the sizes are the
+        ones the game actually uses.
       </p>
 
       {/*
         The obvious two columns are missing, and saying why is more useful than
         leaving a reader to wonder whether the table is simply unfinished.
       */}
+      {!hasCosts && (
       <aside class="caveat">
         <h2 class="caveat__title">Where cost and labour are</h2>
         <p>
@@ -64,6 +75,20 @@ const g = game.data;
           here instead.
         </p>
       </aside>
+      )}
+
+      {hasCosts && (
+        <aside class="caveat">
+          <h2 class="caveat__title">About these numbers</h2>
+          <p>
+            Read out of Akhenaten's building definitions, which unlike Julius carry cost and labour
+            in the project itself. Each cost is five numbers, one per difficulty level, and the
+            cards show the range. Monuments are not listed: pyramids, the sphinx, obelisks and the
+            temple complexes are built in phases by work camps, and the size the engine records for
+            them is not a footprint.
+          </p>
+        </aside>
+      )}
     </section>
 
     <section class="section grid-section">
