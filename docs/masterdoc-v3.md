@@ -195,6 +195,8 @@ Navigation must make the split obvious immediately without fragmenting the site 
 
 ## 7. Roadmap
 
+> **Superseded by `docs/ROADMAP.md`.** Phases 0-4 below are all done — the site is built. Kept as the record of how it got here; the live plan is the new file.
+
 **Phase 0 — Research** ✅ *complete (2 passes)*
 
 **Phase 1 — Remaining verification** *(small, can run in parallel with design)*

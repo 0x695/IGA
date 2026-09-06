@@ -25,7 +25,10 @@ generously and adds the layer nobody has built.
    researched per-game content, not filler.
 3. **`docs/build-brief.md`** and **`docs/design-brief.md`** — scope, data
    models, and the record of what changed during design.
-4. **`docs/masterdoc-v3.md` §3** — the research. Pull content from it rather
+4. **`docs/ROADMAP.md`** — what is next and what it is blocked on.
+   Supersedes masterdoc §7 and the build brief's v1/v2/v3 order, both
+   of which the design pass invalidated.
+5. **`docs/masterdoc-v3.md` §3** — the research. Pull content from it rather
    than re-researching.
 
 ## The IA is settled: Home + six per-game hubs
