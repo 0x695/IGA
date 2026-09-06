@@ -4,7 +4,9 @@
     "title": "HeavenGames — City Builders Forums",
     "url": "https://caesar3.heavengames.com/cgi-bin/forums/index.cgi",
     "category": "Forums",
-    "games": ["caesar1"],
+    "games": [
+      "caesar1"
+    ],
     "status": "active",
     "note": "Shared forums covering the whole series, including Caesar."
   },
@@ -13,7 +15,9 @@
     "title": "HeavenGames — City Builders Forums",
     "url": "https://caesar3.heavengames.com/cgi-bin/forums/index.cgi",
     "category": "Forums",
-    "games": ["caesar2"],
+    "games": [
+      "caesar2"
+    ],
     "status": "active",
     "note": "Shared forums covering the whole series, including Caesar II."
   },
@@ -22,34 +26,43 @@
     "title": "HeavenGames — City Builders Forums",
     "url": "https://caesar3.heavengames.com/cgi-bin/forums/index.cgi",
     "category": "Forums",
-    "games": ["caesar3"],
+    "games": [
+      "caesar3"
+    ],
     "status": "active",
     "note": "The main hub — news archives back to 2002, downloads, FAQs."
   },
   {
     "id": "augustus-discord",
     "title": "Augustus Discord",
-    "url": null,
+    "url": "https://discord.gg/GamerZakh",
     "category": "Discord",
-    "games": ["caesar3"],
+    "games": [
+      "caesar3"
+    ],
     "status": "active",
-    "note": "Hosted by GamerZakh — the most active live dev/modding community found."
+    "note": "Hosted by GamerZakh — the most active live dev/modding community found. Linked from the Augustus README as the place players, mapmakers and developers gather."
   },
   {
     "id": "caesaralan",
     "title": "caesaralan.co.uk",
-    "url": "https://www.caesaralan.co.uk",
+    "url": null,
     "category": "Single-author",
-    "games": ["caesar3"],
-    "status": "dormant",
-    "note": "Repeatedly cited as the best single-author resource. Still unverified whether it's currently live."
+    "games": [
+      "caesar3"
+    ],
+    "status": "dead",
+    "note": "Long cited by Caesar III veterans as the best single-author resource. The domain no longer resolves — the Wayback Machine's last capture is August 2013, and is the only way to read it now.",
+    "archivedUrl": "http://web.archive.org/web/20130813152721/http://caesaralan.co.uk/"
   },
   {
     "id": "pharaoh-heavengames",
     "title": "pharaoh.heavengames.com",
     "url": "https://pharaoh.heavengames.com",
     "category": "Forums",
-    "games": ["pharaoh"],
+    "games": [
+      "pharaoh"
+    ],
     "status": "active",
     "note": "Per-game HeavenGames site — news, downloads, FAQ."
   },
@@ -58,7 +71,9 @@
     "title": "Impressions Games Wiki (Fandom)",
     "url": "https://impressionsgames.fandom.com",
     "category": "Wiki",
-    "games": ["pharaoh"],
+    "games": [
+      "pharaoh"
+    ],
     "status": "active",
     "note": "Cross-game coverage, uneven and ad-heavy."
   },
@@ -67,7 +82,9 @@
     "title": "zeus.heavengames.com",
     "url": "https://zeus.heavengames.com",
     "category": "Forums",
-    "games": ["zeus"],
+    "games": [
+      "zeus"
+    ],
     "status": "active",
     "note": "Per-game HeavenGames site — news, downloads, FAQ."
   },
@@ -76,7 +93,9 @@
     "title": "emperor.heavengames.com",
     "url": "https://emperor.heavengames.com",
     "category": "Forums",
-    "games": ["emperor"],
+    "games": [
+      "emperor"
+    ],
     "status": "active",
     "note": "Notably documents bugs Impressions never fixed before going under."
   },
@@ -85,7 +104,9 @@
     "title": "Gweilo's Emperor Campaign Compilation",
     "url": null,
     "category": "Single-author",
-    "games": ["emperor"],
+    "games": [
+      "emperor"
+    ],
     "status": "dormant",
     "note": "A maintained collection of community campaigns — worth preserving."
   }

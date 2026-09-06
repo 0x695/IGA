@@ -122,6 +122,14 @@ const communityLinks = defineCollection({
      *  invite we haven't got, say. Rendered as an un-linked card, not a
      *  dead link. */
     url: z.string().url().nullable(),
+    /**
+     * Where to still read something whose own host is gone. Half of what this
+     * site points at is 20+ years old and privately hosted; "preserves what's
+     * at risk of vanishing" is part of the mission, so a dead resource stays
+     * on the page with a route to its archived copy rather than being deleted
+     * as if it never mattered.
+     */
+    archivedUrl: z.string().url().optional(),
     category: z.string(),
     games: z.array(z.string()),
     status,

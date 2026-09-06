@@ -1,6 +1,7 @@
 ---
 import { getCollection } from 'astro:content';
 import Base from '../layouts/Base.astro';
+import { withBase } from '../lib/url';
 
 const games = (await getCollection('games')).sort((a, b) => a.data.order - b.data.order);
 
@@ -60,10 +61,10 @@ const studios = [
                 aria-hidden="true"
               />
               <div class="timeline__row">
-                <a class="timeline__cover-link" href={`/${game.id}/`} tabindex="-1" aria-hidden="true">
+                <a class="timeline__cover-link" href={withBase(`/${game.id}/`)} tabindex="-1" aria-hidden="true">
                   <img
                     class="timeline__cover"
-                    src={game.data.cover}
+                    src={withBase(game.data.cover)}
                     alt=""
                     title={game.data.coverCredit}
                     width="64"
@@ -74,7 +75,7 @@ const studios = [
                 <div>
                   <div class="timeline__head">
                     <span class="timeline__year">{game.data.releaseYear}</span>
-                    <a class="timeline__title" href={`/${game.id}/`}>
+                    <a class="timeline__title" href={withBase(`/${game.id}/`)}>
                       {game.data.title}
                     </a>
                     <span class:list={['pill', { 'pill--accent': game.data.badgeAccent }]}>

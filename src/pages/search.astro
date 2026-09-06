@@ -14,7 +14,7 @@ import Base from '../layouts/Base.astro';
   title="Search — Impressions Games Archive"
   description="Search the Impressions Games Archive: games, file formats, open-source engine projects and community links."
 >
-  <section class="section search">
+  <section class="section search" id="search-root" data-base={import.meta.env.BASE_URL}>
     <h1 class="search__title">Search</h1>
 
     <form class="search__form" role="search" id="search-form">
@@ -41,6 +41,14 @@ import Base from '../layouts/Base.astro';
   const status = document.getElementById('search-status') as HTMLParagraphElement;
   const list = document.getElementById('search-results') as HTMLOListElement;
 
+  // Under a GitHub Pages project site everything is served from "/<repo>/",
+  // so the runtime has to be loaded from there. Result URLs need no prefixing
+  // of their own: Pagefind derives the site root from the URL it was loaded
+  // from, so it hands back URLs that already carry the base. Prefixing them
+  // again produces "/iga/iga/caesar3/".
+  const base = (document.getElementById('search-root') as HTMLElement).dataset.base ?? '/';
+  const withBase = (path: string) => base.replace(/\/$/, '') + '/' + path.replace(/^\//, '');
+
   type PagefindResult = {
     data: () => Promise<{ url: string; meta: { title?: string }; excerpt: string }>;
   };
@@ -57,7 +65,7 @@ import Base from '../layouts/Base.astro';
     try {
       // Computed at runtime so the bundler leaves it alone — the index is
       // generated after the build, and does not exist during `astro dev`.
-      const url = new URL('/pagefind/pagefind.js', window.location.href).href;
+      const url = new URL(withBase('/pagefind/pagefind.js'), window.location.href).href;
       pagefind = (await import(/* @vite-ignore */ url)) as Pagefind;
       await pagefind.init();
     } catch {

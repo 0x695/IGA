@@ -30,6 +30,13 @@ const c = link.data;
   </div>
   <span class="pill">{c.category}</span>
   <p class="community__note">{c.note}</p>
+  {
+    c.archivedUrl && (
+      <a class="community__archive" href={c.archivedUrl} rel="noopener">
+        Archived copy ↗
+      </a>
+    )
+  }
 </article>
 
 <style>
@@ -67,5 +74,18 @@ const c = link.data;
     font-size: 13px;
     line-height: 1.55;
     color: var(--color-text-dim);
+  }
+
+  .community__archive {
+    display: inline-block;
+    margin-top: 8px;
+    font-size: 12.5px;
+    color: var(--color-accent);
+    text-decoration: none;
+  }
+
+  .community__archive:hover {
+    text-decoration: underline;
+    text-underline-offset: 3px;
   }
 </style>
