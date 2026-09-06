@@ -129,3 +129,54 @@ python -m http.server 8787 --directory design
 
 Hosting is GitHub Pages, later — the site builds and runs locally for now,
 and nothing should assume a deploy target beyond static output.
+
+## What the build added, and why
+
+Three things the design does not have are in the site, each because a brief
+requires it. Each is small and each is easy to mistake for drift, so:
+
+- **Search**, in the header's third column. The design's header is a
+  three-column grid with an empty spacer on the right; search goes there, so
+  no part of the design moved to make room.
+- **The homepage scope line**, under the hero lede. Required by masterdoc §8
+  and the build brief; the design's hero doesn't say it.
+- **WebP derivatives** in `public/images`. The originals in `design/images`
+  are untouched and remain the supplied assets; they total 15.2 MB and the
+  site is read on phones.
+
+Two smaller judgement calls, in the same spirit:
+
+- The Home "related, not core" line **wraps on narrow screens** instead of
+  scrolling horizontally as the artboard does.
+- The nav's current-page marker is an **underline under the whole link**. The
+  artboard's version is a zero-width span inside a flex row, which renders as
+  nothing; this is the intent, working.
+
+**`coverCredit` exists in the data but is not displayed.** The design's Home
+timeline shows the box art with no visible credit line, though masterdoc §10
+says both images are credited inline. Rather than invent UI the design
+doesn't have, the credit rides on the image's `title`. If the rights review
+says it must be visible, it is one line to render — the string is already
+there.
+
+## Working on this
+
+```
+npm run dev        # localhost:4321
+npm run build      # astro build + pagefind -> dist/
+npm run images     # regenerate public/images from design/images
+npx astro check    # 0 errors expected
+```
+
+`astro check` warns "No items found in src/data/buildings.json" — that is
+the deliberately empty v2 collection, not a fault.
+
+Two environment notes for this machine:
+
+- **Node came from `winget` mid-session, so a shell that started before that
+  will not see it.** In this session's Bash, prefix with
+  `export PATH="/c/Program Files/nodejs:$PATH"`. A new session picks it up
+  normally.
+- **`astro preview` did not bind a port here.** `python -m http.server 8788
+  --directory dist` serves the built site fine and is what the build was
+  verified against, search included.
