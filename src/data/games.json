@@ -26,6 +26,13 @@
       }
     ],
     "playNote": "GOG only, packaged to run under DOSBox. Caesar has never been sold on Steam.",
+    "compat": [
+      {
+        "title": "PCGamingWiki — Caesar",
+        "url": "https://www.pcgamingwiki.com/wiki/Caesar",
+        "note": "Compatibility notes for the DOS original and the DOSBox re-release."
+      }
+    ],
     "image": "/images/caesar1.webp",
     "imageCredit": "Community screenshot — Caesar (1992) © Activision",
     "cover": "/images/caesar1-cover.webp",
@@ -58,6 +65,13 @@
       }
     ],
     "playNote": "GOG only, packaged to run under DOSBox. Caesar II has never been sold on Steam.",
+    "compat": [
+      {
+        "title": "PCGamingWiki — Caesar II",
+        "url": "https://www.pcgamingwiki.com/wiki/Caesar_II",
+        "note": "Compatibility notes for the DOS/Windows original and the DOSBox re-release."
+      }
+    ],
     "image": "/images/caesar2.webp",
     "imageCredit": "Community screenshot — Caesar II (1995) © Activision",
     "cover": "/images/caesar2-cover.webp",
@@ -96,6 +110,13 @@
       }
     ],
     "playNote": "Sold on both stores. Either copy supplies the original data files Julius and Augustus read.",
+    "compat": [
+      {
+        "title": "PCGamingWiki — Caesar III",
+        "url": "https://www.pcgamingwiki.com/wiki/Caesar_III",
+        "note": "Patches, resolution options and modern-Windows notes."
+      }
+    ],
     "image": "/images/caesar3.webp",
     "imageCredit": "Community screenshot — Caesar III (1998) © Activision",
     "cover": "/images/caesar3-cover.webp",
@@ -133,6 +154,13 @@
       }
     ],
     "playNote": "Both stores sell the bundle with the Cleopatra expansion. Akhenaten requires Pharaoh patched to 1.3 with Cleopatra installed, and does not support the demo.",
+    "compat": [
+      {
+        "title": "PCGamingWiki — Pharaoh",
+        "url": "https://www.pcgamingwiki.com/wiki/Pharaoh",
+        "note": "Patches, resolution options and modern-Windows notes."
+      }
+    ],
     "image": "/images/pharaoh.webp",
     "imageCredit": "Community screenshot — Pharaoh (1999) © Activision",
     "cover": "/images/pharaoh-cover.webp",
@@ -170,6 +198,18 @@
       }
     ],
     "playNote": "Both stores sell the bundle with the Poseidon expansion, which GOG lists under its European name, Acropolis.",
+    "compat": [
+      {
+        "title": "PCGamingWiki — Zeus: Master of Olympus",
+        "url": "https://www.pcgamingwiki.com/wiki/Zeus:_Master_of_Olympus",
+        "note": "Patches, resolution options and modern-Windows notes."
+      },
+      {
+        "title": "Impressions Resolution Customiser",
+        "url": "https://github.com/XJDHDR/impressions-resolution-customiser",
+        "note": "Widescreen resolutions and UI scaling for the Steam and GOG releases. Source here; binaries on Nexus Mods."
+      }
+    ],
     "image": "/images/zeus.webp",
     "imageCredit": "Community screenshot — Zeus: Master of Olympus (2000) © Activision",
     "cover": "/images/zeus-cover.webp",
@@ -202,6 +242,18 @@
       }
     ],
     "playNote": "GOG only. Emperor has never been sold on Steam, and GOG is the one current digital source for it.",
+    "compat": [
+      {
+        "title": "PCGamingWiki — Emperor: Rise of the Middle Kingdom",
+        "url": "https://www.pcgamingwiki.com/wiki/Emperor:_Rise_of_the_Middle_Kingdom",
+        "note": "Patches, resolution options and modern-Windows notes."
+      },
+      {
+        "title": "Emperor Resolution Customiser",
+        "url": "https://xjdhdr.gitlab.io/my_creations/Impressions_Resolution_Customiser/Emperor_Resolution_Customiser.html",
+        "note": "Widescreen resolutions and UI scaling for the GOG release and the English CD. The nearest thing Emperor has to an engine project."
+      }
+    ],
     "image": "/images/emperor.webp",
     "imageCredit": "Community screenshot — Emperor: Rise of the Middle Kingdom (2002) © Activision",
     "cover": "/images/emperor-cover.webp",
