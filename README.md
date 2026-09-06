@@ -43,8 +43,10 @@ git remote add origin git@github.com:<user>/<repo>.git
 git push -u origin master
 ```
 
-Then in the repository's **Settings → Pages**, set **Source** to **GitHub
-Actions**. The workflow does the rest.
+The workflow enables Pages itself on its first run (`configure-pages` with
+`enablement: true`), so there is no manual setup step. If that is ever
+blocked — an organisation policy, say — the fallback is **Settings → Pages**,
+**Source: GitHub Actions**.
 
 One guard worth knowing about: the build step fails if `dist/pagefind` is
 missing. `astro build` on its own produces a perfectly working site whose
