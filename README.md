@@ -15,10 +15,16 @@ It archives knowledge and links, not game files.
 
 ```
 npm install
-npm run dev      # http://localhost:4321
+npm run dev      # http://localhost:4321/IGA/
 npm run build    # astro build + pagefind, into dist/
 npm run preview
 ```
+
+Note the `/IGA/` — the site is deployed as a GitHub Pages *project* site, so it
+lives under a base path, and the config defaults to the deployed values rather
+than pretending the base is `/`. Serving `dist/` by hand therefore needs it
+under a matching directory, not at a server root. CI overrides both the origin
+and the base with whatever Pages reports.
 
 Search is Pagefind, and its index is generated from the built site. Under
 `npm run dev` the index does not exist and `/search` says so rather than
@@ -26,6 +32,12 @@ looking broken — use `npm run build` to exercise search.
 
 `npm run images` regenerates `public/images` from the originals in
 `design/images`. Run it after adding or replacing an original.
+
+`npm run social` regenerates the Open Graph card and the PNG favicons. They are
+committed rather than built in CI, and only change when the wordmark or palette
+does. The card is deliberately typographic: the game screenshots and box art
+illustrate the games they document, and a social preview is a different use of
+that art.
 
 ## Deploying
 

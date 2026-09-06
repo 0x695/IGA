@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" role="img" aria-label="IGA">
+  <!-- The series' identity is the isometric tile; a diamond is the one mark
+       from that language that still reads at 16px. Colours are the site's own
+       tokens, resolved to hex because a favicon has no stylesheet. -->
+  <rect width="32" height="32" rx="6" fill="#0c0b09"/>
+  <path d="M16 6 L28 16 L16 26 L4 16 Z" fill="none" stroke="#d19853" stroke-width="2.5" stroke-linejoin="round"/>
+  <path d="M16 12.5 L21.5 16 L16 19.5 L10.5 16 Z" fill="#d19853"/>
+</svg>

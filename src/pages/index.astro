@@ -89,6 +89,19 @@ const studios = [
           ))
         }
       </ol>
+
+      {/*
+        Masterdoc §10 says both the screenshots and the box art are credited
+        inline. The hub screenshots carry a figcaption; the artboard gives the
+        timeline covers none, and a credit under each of six 64px thumbnails
+        would be louder than the covers themselves. One line closing the
+        section credits all six without touching the rows — and credit is part
+        of what the Phase 0 rights decision rests on.
+      */}
+      <p class="timeline__credit">
+        Cover art for the six titles above © Activision. Community-sourced, shown for
+        identification.
+      </p>
     </section>
 
     <section class="section related">
@@ -265,6 +278,13 @@ const studios = [
     line-height: 1.6;
     color: var(--color-text-dim);
     max-width: 64ch;
+  }
+
+  .timeline__credit {
+    margin: 28px 0 0;
+    font-size: 11px;
+    line-height: 1.6;
+    color: var(--color-text-dim);
   }
 
   .related {

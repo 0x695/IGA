@@ -35,6 +35,32 @@ img {
   border-radius: var(--radius-sm);
 }
 
+/* Visible only once focused — the first tab stop on every page. */
+.skip-link {
+  position: absolute;
+  left: 8px;
+  top: -60px;
+  z-index: 50;
+  background: var(--color-surface-2);
+  color: var(--color-text);
+  border: 1px solid var(--color-divider);
+  border-radius: var(--radius-md);
+  padding: 10px 16px;
+  font-size: 13px;
+  text-decoration: none;
+  transition: top 120ms ease;
+}
+
+.skip-link:focus-visible {
+  top: 8px;
+}
+
+/* The skip target itself should not draw a focus ring when it receives
+   focus programmatically — the ring belongs on things you can act on. */
+main:focus {
+  outline: none;
+}
+
 /* A page section at the reading measure. `--wide` opts into the hero measure. */
 .section {
   max-width: var(--measure);

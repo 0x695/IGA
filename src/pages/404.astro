@@ -1,0 +1,132 @@
+---
+import { getCollection } from 'astro:content';
+import Base from '../layouts/Base.astro';
+import { withBase } from '../lib/url';
+
+/**
+ * GitHub Pages serves /404.html for anything it can't find, so this is the
+ * page every dead inbound link lands on. Most of them will be old forum and
+ * wiki links, which means the reader was looking for something specific — so
+ * it offers the six hubs and search rather than an apology.
+ */
+const games = (await getCollection('games')).sort((a, b) => a.data.order - b.data.order);
+---
+
+<Base
+  title="Not found — Impressions Games Archive"
+  description="That page doesn't exist. The six game hubs and the archive's search are here."
+  noindex
+>
+  <section class="section notfound">
+    <p class="notfound__kicker">404</p>
+    <h1 class="notfound__title">There's nothing at this address</h1>
+    <p class="notfound__lede">
+      The page may have been renamed, or the link that brought you here may have been guessing. The
+      whole archive is six pages deep — one of these is probably what you wanted.
+    </p>
+
+    <ul class="notfound__games">
+      {
+        games.map((game) => (
+          <li>
+            <a href={withBase(`/${game.id}/`)}>
+              <span
+                class="notfound__dot"
+                style={`background:${game.data.accent}`}
+                aria-hidden="true"
+              />
+              {game.data.title}
+              <span class="notfound__year">{game.data.releaseYear}</span>
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+
+    <p class="notfound__more">
+      Or <a href={withBase('/search/')}>search the archive</a> — file formats, engine projects and
+      community links are all indexed.
+    </p>
+  </section>
+</Base>
+
+<style>
+  .notfound {
+    padding-block: 88px 96px;
+    min-height: 60vh;
+  }
+
+  .notfound__kicker {
+    font-family: var(--font-mono);
+    font-size: 12px;
+    letter-spacing: 0.1em;
+    color: var(--color-accent);
+    margin: 0 0 18px;
+  }
+
+  .notfound__title {
+    font-family: var(--font-heading);
+    font-weight: 700;
+    font-size: clamp(32px, 5vw, 52px);
+    line-height: 1.1;
+    margin: 0 0 20px;
+    max-width: 18ch;
+  }
+
+  .notfound__lede {
+    font-size: 16px;
+    line-height: 1.65;
+    color: var(--color-text-dim);
+    max-width: 60ch;
+    margin: 0 0 36px;
+  }
+
+  .notfound__games {
+    list-style: none;
+    margin: 0 0 32px;
+    padding: 0;
+    border-top: 1px solid var(--color-divider);
+  }
+
+  .notfound__games a {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 14px 4px;
+    border-bottom: 1px solid var(--color-divider);
+    text-decoration: none;
+    font-family: var(--font-heading);
+    font-weight: 600;
+    font-size: 17px;
+  }
+
+  .notfound__games a:hover {
+    color: var(--color-accent);
+  }
+
+  .notfound__dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    border: 1px solid var(--color-divider);
+    flex: none;
+  }
+
+  .notfound__year {
+    margin-left: auto;
+    font-family: var(--font-mono);
+    font-size: 12px;
+    font-weight: 400;
+    color: var(--color-text-dim);
+  }
+
+  .notfound__more {
+    font-size: 13.5px;
+    color: var(--color-text-dim);
+    margin: 0;
+  }
+
+  .notfound__more a {
+    color: var(--color-accent);
+  }
+</style>
