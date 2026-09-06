@@ -27,6 +27,29 @@ looking broken — use `npm run build` to exercise search.
 `npm run images` regenerates `public/images` from the originals in
 `design/images`. Run it after adding or replacing an original.
 
+## Deploying
+
+The site publishes to GitHub Pages via `.github/workflows/deploy.yml` on every
+push to `main` or `master`. Nothing in the repo hardcodes a domain: the
+workflow reads the real origin and base path from `actions/configure-pages`
+and passes them to the build as `SITE_URL` and `BASE_PATH`, so the same code
+serves a project site at `user.github.io/repo/` and a custom domain later
+without an edit. Attaching a domain is a Pages setting plus a `CNAME`.
+
+First-time setup, once the repository exists:
+
+```
+git remote add origin git@github.com:<user>/<repo>.git
+git push -u origin master
+```
+
+Then in the repository's **Settings → Pages**, set **Source** to **GitHub
+Actions**. The workflow does the rest.
+
+One guard worth knowing about: the build step fails if `dist/pagefind` is
+missing. `astro build` on its own produces a perfectly working site whose
+search box finds nothing, and that failure is silent otherwise.
+
 ## Layout
 
 ```

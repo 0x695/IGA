@@ -89,19 +89,30 @@ JetBrains Mono for figures, the 3-tier radius and shadow scale.
 - **The homepage states the scope plainly**: an archive of knowledge and
   links, not of game files.
 
-## The images are an open legal question, deliberately
+## The images: decided, with the reasoning kept
 
 Each hub carries one gameplay screenshot and Home carries one box-art cover
 per game, all user-supplied, each credited inline ("Community screenshot —
 [Game] © Activision"). The design brief's original **hard constraint was "no
-game assets"** — the IP is actively held and actively licensed (Dotemu had to
-license Pharaoh from Activision for the 2023 remake).
+game assets"** — the IP is live and actively licensed (Sierra → Vivendi →
+Activision, a Microsoft subsidiary since October 2023; Dotemu had to license
+Pharaoh from Activision for the 2023 remake).
 
-That constraint was relaxed **by explicit request during design**, and the
-briefs flag it in three separate places for a reason: it needs a real
-rights look before public launch. Keep the credit lines. Keep this note.
-Don't quietly drop it because the site looks better with the images, and
-don't quietly remove the images because the rule reads strict.
+That constraint was relaxed by request during design, and three documents
+flagged it as needing a real look before launch. **It has had one, and the
+answer was to keep both** — see `docs/ROADMAP.md`'s Phase 0 for the reasoning
+and its limits. It was a judgement call, not a legal clearance.
+
+What follows from that:
+
+- **Keep the credit lines.** They are the thing the decision rests on.
+- **Don't re-litigate it on every change**, and don't quietly drop the images
+  because the rule reads strict.
+- **A change of *use* is a new question.** Bigger images, more of them, or
+  anything that reads as a gallery rather than illustration is not covered by
+  the call that was made.
+- **The remedy is cheap if it is ever needed.** The images are data-driven;
+  both the hub figure and the timeline row can fall back to type.
 
 ## Search is not optional
 

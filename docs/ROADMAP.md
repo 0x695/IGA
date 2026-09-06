@@ -43,29 +43,56 @@ site**, and everything before it is clearing the runway.
 
 ## Phase 0 — Before this is public
 
-Not features. These gate publishing at all, and none of them is mine to
-decide.
+**Done.** All four resolved, 7 September 2026.
 
-- [ ] **Rights review on the game images.** The design brief's hard constraint
-      was "no game assets"; it was relaxed by explicit request during design,
-      and masterdoc §10, the design brief and the build brief each flag it
-      separately as needing a real look before launch. Six screenshots and six
-      covers, all © Activision, credited inline. This is the one item that
-      can't be deferred by shipping quietly — publishing *is* the thing it
-      gates.
-- [ ] **Domain.** Still open from masterdoc §8. Blocks canonical URLs and Open
-      Graph tags, so it wants deciding before Phase 1's metadata work rather
-      than after.
-- [ ] **Hosting and deploy.** GitHub Pages was the stated intent. Needs a repo
-      and remote (there is none yet), `site` and possibly `base` in
-      `astro.config.mjs`, and a build action that runs `astro build` *and*
-      `pagefind` — search silently ships empty if the second step is missed.
-- [ ] **Two community entries that currently ship unresolved.** The Augustus
-      Discord card has no invite URL and renders unlinked; the
-      caesaralan.co.uk card says in as many words that we haven't checked
-      whether it's live. Both are honest, both are from masterdoc §7's
-      leftover verification list, and both are a few minutes of work. Do them
-      before strangers read them.
+- [x] **Game images — keep both, as designed.** Six gameplay screenshots and
+      six box-art covers stay, with their inline credits, the footer
+      disclaimer, and the homepage line stating the site archives knowledge
+      and links rather than game files.
+
+      This was a judgement call taken with the facts on the table, **not a
+      legal clearance**: the IP is live and actively licensed (Sierra →
+      Vivendi → Activision, a Microsoft subsidiary since October 2023; Dotemu
+      had to license Pharaoh from Activision for the 2023 remake). The
+      reasoning was that the realistic failure mode for a non-commercial fan
+      reference is a DMCA notice to the host rather than litigation, that
+      gameplay screenshots illustrating commentary sit on firmer ground than
+      box art, and that the design leans on the covers for timeline
+      wayfinding. If a notice ever arrives, the remedy is minutes of work:
+      the images are data-driven, `coverCredit`/`imageCredit` already exist,
+      and both the hub figure and the timeline row degrade to type.
+
+      Three documents flagged this as needing a look before launch. It has
+      had one. It does not need re-litigating on every subsequent change —
+      but a *change of use* (larger images, more of them, anything that reads
+      as a gallery rather than illustration) is a new question.
+- [x] **Domain — deferred deliberately, not left open.** The site ships first
+      as a GitHub Pages *project* site, so no purchase gates launch. Because
+      the build takes its origin and base path from what Pages reports, a
+      custom domain later is a Pages setting plus a CNAME, not a code change.
+- [x] **Hosting and deploy — built and tested.** `.github/workflows/deploy.yml`
+      builds and publishes to Pages, and fails the build if `dist/pagefind` is
+      missing, because `astro build` without the pagefind step ships a site
+      whose search silently finds nothing. Verified against a real
+      `BASE_PATH=/iga` build served from that path.
+
+      This turned up a bug worth remembering: Astro rewrites the URLs it
+      generates itself when `base` is set, but **not** paths written by hand
+      in markup or held in the data files. Every internal link and image on
+      this site was one of those, so a project-page deploy would have 404'd on
+      all of them while looking perfectly correct locally. They go through
+      `withBase` now. Search needed the opposite treatment — the Pagefind
+      runtime must be loaded from the base, but its result URLs must *not* be
+      prefixed, since it derives the site root from where it was loaded.
+- [x] **The two unresolved community entries.** The Augustus Discord carries
+      the invite its own README links. caesaralan.co.uk turned out to be dead
+      rather than dormant — the domain no longer resolves and the Wayback
+      Machine's last capture is August 2013 — so it is marked dead and links
+      to the archived copy rather than being deleted.
+
+**The one step left is not code:** the GitHub repository does not exist yet,
+and `gh` is not installed on this machine. Create it, then the remote and the
+first push wire it up and Pages takes over.
 
 ---
 
@@ -185,14 +212,13 @@ actually good.
 
 ## Decisions this roadmap is waiting on
 
-1. **The image rights question.** Phase 0. Blocks going public.
-2. **Domain**, then hosting. Phase 0.
-3. **Cover credits** — render them, or accept the artboard. Phase 1.
-4. **Where a full format spec lives** — per-format pages, or expanded in the
+1. **Cover credits** — render them, or accept the artboard. Phase 1.
+2. **Where a full format spec lives** — per-format pages, or expanded in the
    hub. Phase 2.
 
 *Resolved since this was written: "how to play it today" is in, storefronts
-first.*
+first; the images stay as designed; the site ships on GitHub Pages with a
+custom domain left as a later setting.*
 
 ---
 
