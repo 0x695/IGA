@@ -1,0 +1,214 @@
+---
+import Base from '../layouts/Base.astro';
+
+/**
+ * Search.
+ *
+ * Pagefind builds its index from the built site (`astro build && pagefind
+ * --site dist`), so the index does not exist under `astro dev` — the page says
+ * so plainly there rather than looking broken.
+ */
+---
+
+<Base
+  title="Search — Impressions Games Archive"
+  description="Search the Impressions Games Archive: games, file formats, open-source engine projects and community links."
+>
+  <section class="section search">
+    <h1 class="search__title">Search</h1>
+
+    <form class="search__form" role="search" id="search-form">
+      <label class="search__label" for="q">Search the archive</label>
+      <input
+        class="search__input"
+        id="q"
+        name="q"
+        type="search"
+        placeholder="Formats, engines, a game…"
+        autocomplete="off"
+        autofocus
+      />
+    </form>
+
+    <p class="search__status" id="search-status" role="status" aria-live="polite"></p>
+    <ol class="search__results" id="search-results"></ol>
+  </section>
+</Base>
+
+<script>
+  const form = document.getElementById('search-form') as HTMLFormElement;
+  const input = document.getElementById('q') as HTMLInputElement;
+  const status = document.getElementById('search-status') as HTMLParagraphElement;
+  const list = document.getElementById('search-results') as HTMLOListElement;
+
+  type PagefindResult = {
+    data: () => Promise<{ url: string; meta: { title?: string }; excerpt: string }>;
+  };
+  type Pagefind = {
+    init: () => Promise<void>;
+    search: (q: string) => Promise<{ results: PagefindResult[] }>;
+  };
+
+  let pagefind: Pagefind | null = null;
+  let unavailable = false;
+
+  async function load(): Promise<Pagefind | null> {
+    if (pagefind || unavailable) return pagefind;
+    try {
+      // Computed at runtime so the bundler leaves it alone — the index is
+      // generated after the build, and does not exist during `astro dev`.
+      const url = new URL('/pagefind/pagefind.js', window.location.href).href;
+      pagefind = (await import(/* @vite-ignore */ url)) as Pagefind;
+      await pagefind.init();
+    } catch {
+      unavailable = true;
+      status.textContent =
+        'The search index is only built by `npm run build`, so search is unavailable in dev.';
+    }
+    return pagefind;
+  }
+
+  async function run(query: string) {
+    list.replaceChildren();
+
+    if (!query.trim()) {
+      status.textContent = '';
+      return;
+    }
+
+    const pf = await load();
+    if (!pf) return;
+
+    status.textContent = 'Searching…';
+    const { results } = await pf.search(query);
+
+    if (results.length === 0) {
+      status.textContent = `No results for “${query}”.`;
+      return;
+    }
+
+    const shown = await Promise.all(results.slice(0, 20).map((r) => r.data()));
+    status.textContent = `${results.length} result${results.length === 1 ? '' : 's'} for “${query}”.`;
+
+    for (const result of shown) {
+      const item = document.createElement('li');
+      item.className = 'search__result';
+
+      const link = document.createElement('a');
+      link.href = result.url;
+      link.textContent = result.meta.title ?? result.url;
+      link.className = 'search__result-title';
+
+      const excerpt = document.createElement('p');
+      excerpt.className = 'search__result-excerpt';
+      excerpt.innerHTML = result.excerpt;
+
+      item.append(link, excerpt);
+      list.append(item);
+    }
+  }
+
+  form.addEventListener('submit', (event) => {
+    event.preventDefault();
+    const url = new URL(window.location.href);
+    url.searchParams.set('q', input.value);
+    window.history.replaceState({}, '', url);
+    run(input.value);
+  });
+
+  let timer: number;
+  input.addEventListener('input', () => {
+    window.clearTimeout(timer);
+    timer = window.setTimeout(() => run(input.value), 200);
+  });
+
+  // Arriving from the header's search box, the query is already in the URL.
+  const initial = new URL(window.location.href).searchParams.get('q');
+  if (initial) {
+    input.value = initial;
+    run(initial);
+  }
+</script>
+
+<style>
+  .search {
+    padding-block: 64px 72px;
+    min-height: 60vh;
+  }
+
+  .search__title {
+    font-family: var(--font-heading);
+    font-weight: 700;
+    font-size: clamp(30px, 5vw, 46px);
+    margin: 0 0 24px;
+  }
+
+  .search__label {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip-path: inset(50%);
+    white-space: nowrap;
+  }
+
+  .search__input {
+    width: 100%;
+    background: var(--color-surface);
+    border: 1px solid var(--color-divider);
+    border-radius: var(--radius-md);
+    color: var(--color-text);
+    font-family: var(--font-body);
+    font-size: 16px;
+    padding: 12px 14px;
+  }
+
+  .search__input::placeholder {
+    color: var(--color-text-dim);
+  }
+
+  .search__status {
+    font-size: 13px;
+    color: var(--color-text-dim);
+    margin: 16px 0 0;
+  }
+
+  .search__results {
+    list-style: none;
+    margin: 20px 0 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+
+  .search__result {
+    border-top: 1px solid var(--color-divider);
+    padding: 16px 0;
+  }
+
+  .search__result-title {
+    font-family: var(--font-heading);
+    font-weight: 600;
+    font-size: 18px;
+    color: var(--color-text);
+    text-decoration: none;
+  }
+
+  .search__result-title:hover {
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+
+  .search__result-excerpt {
+    margin: 6px 0 0;
+    font-size: 13.5px;
+    line-height: 1.6;
+    color: var(--color-text-dim);
+  }
+
+  .search__result-excerpt :global(mark) {
+    background: var(--color-accent-dim);
+    color: var(--color-text);
+  }
+</style>

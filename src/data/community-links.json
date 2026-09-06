@@ -1,0 +1,92 @@
+[
+  {
+    "id": "citybuilders-forums-caesar1",
+    "title": "HeavenGames — City Builders Forums",
+    "url": "https://caesar3.heavengames.com/cgi-bin/forums/index.cgi",
+    "category": "Forums",
+    "games": ["caesar1"],
+    "status": "active",
+    "note": "Shared forums covering the whole series, including Caesar."
+  },
+  {
+    "id": "citybuilders-forums-caesar2",
+    "title": "HeavenGames — City Builders Forums",
+    "url": "https://caesar3.heavengames.com/cgi-bin/forums/index.cgi",
+    "category": "Forums",
+    "games": ["caesar2"],
+    "status": "active",
+    "note": "Shared forums covering the whole series, including Caesar II."
+  },
+  {
+    "id": "citybuilders-forums-caesar3",
+    "title": "HeavenGames — City Builders Forums",
+    "url": "https://caesar3.heavengames.com/cgi-bin/forums/index.cgi",
+    "category": "Forums",
+    "games": ["caesar3"],
+    "status": "active",
+    "note": "The main hub — news archives back to 2002, downloads, FAQs."
+  },
+  {
+    "id": "augustus-discord",
+    "title": "Augustus Discord",
+    "url": null,
+    "category": "Discord",
+    "games": ["caesar3"],
+    "status": "active",
+    "note": "Hosted by GamerZakh — the most active live dev/modding community found."
+  },
+  {
+    "id": "caesaralan",
+    "title": "caesaralan.co.uk",
+    "url": "https://www.caesaralan.co.uk",
+    "category": "Single-author",
+    "games": ["caesar3"],
+    "status": "dormant",
+    "note": "Repeatedly cited as the best single-author resource. Still unverified whether it's currently live."
+  },
+  {
+    "id": "pharaoh-heavengames",
+    "title": "pharaoh.heavengames.com",
+    "url": "https://pharaoh.heavengames.com",
+    "category": "Forums",
+    "games": ["pharaoh"],
+    "status": "active",
+    "note": "Per-game HeavenGames site — news, downloads, FAQ."
+  },
+  {
+    "id": "impressions-fandom",
+    "title": "Impressions Games Wiki (Fandom)",
+    "url": "https://impressionsgames.fandom.com",
+    "category": "Wiki",
+    "games": ["pharaoh"],
+    "status": "active",
+    "note": "Cross-game coverage, uneven and ad-heavy."
+  },
+  {
+    "id": "zeus-heavengames",
+    "title": "zeus.heavengames.com",
+    "url": "https://zeus.heavengames.com",
+    "category": "Forums",
+    "games": ["zeus"],
+    "status": "active",
+    "note": "Per-game HeavenGames site — news, downloads, FAQ."
+  },
+  {
+    "id": "emperor-heavengames",
+    "title": "emperor.heavengames.com",
+    "url": "https://emperor.heavengames.com",
+    "category": "Forums",
+    "games": ["emperor"],
+    "status": "active",
+    "note": "Notably documents bugs Impressions never fixed before going under."
+  },
+  {
+    "id": "gweilo-emperor-campaigns",
+    "title": "Gweilo's Emperor Campaign Compilation",
+    "url": null,
+    "category": "Single-author",
+    "games": ["emperor"],
+    "status": "dormant",
+    "note": "A maintained collection of community campaigns — worth preserving."
+  }
+]

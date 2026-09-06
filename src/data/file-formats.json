@@ -1,0 +1,127 @@
+[
+  {
+    "id": "caesar1-assets",
+    "name": "Caesar assets",
+    "games": ["caesar1"],
+    "status": "dead",
+    "documentation": "undocumented",
+    "note": "No public documentation exists for Caesar's asset formats.",
+    "sources": [],
+    "spec": null
+  },
+  {
+    "id": "caesar2-assets",
+    "name": "Caesar II assets",
+    "games": ["caesar2"],
+    "status": "dead",
+    "documentation": "undocumented",
+    "note": "No public documentation exists for Caesar II's asset formats.",
+    "sources": [],
+    "spec": null
+  },
+  {
+    "id": "sg2-555",
+    "name": ".sg2 + .555",
+    "games": ["caesar3"],
+    "status": "active",
+    "documentation": "documented",
+    "note": "Documented — see the citybuilding-tools wiki. SG index: 600B, 300×uint16 group-ID map. Pixel data: 16-bit LE 5-5-5 RGB, 0xF81F transparency key.",
+    "sources": [
+      { "title": "SG file format — citybuilding-tools wiki", "url": "https://github.com/bvschaik/citybuilding-tools/wiki/SG-file-format" },
+      { "title": "SG2/SG3 internals — Julius issue #513", "url": "https://github.com/bvschaik/julius/issues/513" }
+    ],
+    "spec": null
+  },
+  {
+    "id": "caesar3-map",
+    "name": ".map",
+    "games": ["caesar3"],
+    "status": "dormant",
+    "documentation": "partial",
+    "note": "Partial — Julius/Augustus source is the closest thing to a spec.",
+    "sources": [
+      { "title": "Julius", "url": "https://github.com/bvschaik/julius" },
+      { "title": "Augustus", "url": "https://github.com/Keriew/augustus" }
+    ],
+    "spec": null
+  },
+  {
+    "id": "caesar3-sav",
+    "name": ".sav",
+    "games": ["caesar3"],
+    "status": "dormant",
+    "documentation": "partial",
+    "note": "Partial — tacit hex-editing lore on HeavenGames forums.",
+    "sources": [],
+    "spec": null
+  },
+  {
+    "id": "sg3-555-pharaoh",
+    "name": ".sg3 + .555",
+    "games": ["pharaoh"],
+    "status": "active",
+    "documentation": "documented",
+    "note": "Documented — same wiki as Caesar III, plus OpenPharaoh's SG3.bt template.",
+    "sources": [
+      { "title": "SG file format — citybuilding-tools wiki", "url": "https://github.com/bvschaik/citybuilding-tools/wiki/SG-file-format" },
+      { "title": "OpenPharaoh — 010 Editor SG3 template", "url": "https://github.com/gaddas/OpenPharaoh" }
+    ],
+    "spec": null
+  },
+  {
+    "id": "pharaoh-map-sav",
+    "name": ".map / .sav",
+    "games": ["pharaoh"],
+    "status": "dormant",
+    "documentation": "partial",
+    "note": "Partial, inherited from the Caesar III generation.",
+    "sources": [],
+    "spec": null
+  },
+  {
+    "id": "sg3-555-zeus",
+    "name": ".sg3 + .555",
+    "games": ["zeus"],
+    "status": "active",
+    "documentation": "documented",
+    "note": "Documented, same lineage as Pharaoh.",
+    "sources": [
+      { "title": "SG file format — citybuilding-tools wiki", "url": "https://github.com/bvschaik/citybuilding-tools/wiki/SG-file-format" }
+    ],
+    "spec": null
+  },
+  {
+    "id": "zeus-eng",
+    "name": ".eng",
+    "games": ["zeus"],
+    "status": "dormant",
+    "documentation": "partial",
+    "note": "Partial — eZeus ships a working converter, format never formally written up.",
+    "sources": [
+      { "title": "eZeus (bundles engconverter)", "url": "https://github.com/MaurycyLiebner/eZeus" }
+    ],
+    "spec": null
+  },
+  {
+    "id": "sg3-555-emperor",
+    "name": ".sg3 + .555",
+    "games": ["emperor"],
+    "status": "active",
+    "documentation": "documented",
+    "note": "Documented, same lineage as Pharaoh/Zeus.",
+    "sources": [
+      { "title": "SG file format — citybuilding-tools wiki", "url": "https://github.com/bvschaik/citybuilding-tools/wiki/SG-file-format" }
+    ],
+    "spec": null
+  },
+  {
+    "id": "emperor-eng",
+    "name": ".eng",
+    "games": ["emperor"],
+    "status": "dormant",
+    "documentation": "partial",
+    "note": "Partial, same converter situation as Zeus.",
+    "sources": [],
+    "spec": null
+  }
+]

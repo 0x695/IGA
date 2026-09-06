@@ -1,0 +1,48 @@
+---
+/**
+ * The site's status marker: a coloured dot and a word, for engine projects
+ * and community links alike. Three values only — several of these projects
+ * are abandoned, and saying so plainly is a core value of the site, not a
+ * decoration.
+ */
+interface Props {
+  status: 'active' | 'dormant' | 'dead';
+  label?: string;
+}
+
+const { status, label } = Astro.props;
+const defaults = { active: 'Active', dormant: 'Dormant', dead: 'Dead' } as const;
+---
+
+<span class="status">
+  <span class:list={['status__dot', `status__dot--${status}`]} aria-hidden="true"></span>
+  <span>{label ?? defaults[status]}</span>
+</span>
+
+<style>
+  .status {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 12px;
+    color: var(--color-text-dim);
+    white-space: nowrap;
+  }
+
+  .status__dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    flex: none;
+  }
+
+  .status__dot--active {
+    background: var(--status-active);
+  }
+  .status__dot--dormant {
+    background: var(--status-dormant);
+  }
+  .status__dot--dead {
+    background: var(--status-dead);
+  }
+</style>

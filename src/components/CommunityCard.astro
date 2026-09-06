@@ -1,0 +1,71 @@
+---
+import StatusDot from './StatusDot.astro';
+import type { CollectionEntry } from 'astro:content';
+
+interface Props {
+  link: CollectionEntry<'communityLinks'>;
+}
+
+const { link } = Astro.props;
+const c = link.data;
+---
+
+<article class="community">
+  <div class="community__head">
+    <span class="community__title">
+      {
+        /* Some destinations are real but we don't have a URL for them — an
+           invite we haven't got. Those render unlinked rather than as a dead
+           link, which would say the opposite of what the site is for. */
+        c.url ? (
+          <a href={c.url} rel="noopener">
+            {c.title}
+          </a>
+        ) : (
+          c.title
+        )
+      }
+    </span>
+    <StatusDot status={c.status} />
+  </div>
+  <span class="pill">{c.category}</span>
+  <p class="community__note">{c.note}</p>
+</article>
+
+<style>
+  .community {
+    border: 1px solid var(--color-divider);
+    border-radius: var(--radius-md);
+    padding: 16px 18px;
+  }
+
+  .community__head {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 10px;
+    margin-bottom: 6px;
+  }
+
+  .community__title {
+    font-family: var(--font-heading);
+    font-weight: 600;
+    font-size: 15px;
+  }
+
+  .community__title a {
+    text-decoration: none;
+  }
+
+  .community__title a:hover {
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+
+  .community__note {
+    margin: 8px 0 0;
+    font-size: 13px;
+    line-height: 1.55;
+    color: var(--color-text-dim);
+  }
+</style>
