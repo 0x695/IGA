@@ -36,9 +36,15 @@ jobs:
       - name: Install
         run: npm ci
 
+      # `enablement: true` turns Pages on for the repository if it is off,
+      # using the pages:write permission above. Without it the first run of a
+      # fresh repo fails here, and the only fix is a manual visit to
+      # Settings > Pages.
       - name: Configure Pages
         id: pages
         uses: actions/configure-pages@v5
+        with:
+          enablement: true
 
       # `npm run build` is astro build *and* pagefind. Running only the former
       # ships a site whose search box silently finds nothing.
