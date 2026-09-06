@@ -964,6 +964,126 @@
     ]
   },
   {
+    "id": "c3-model",
+    "name": "c3_model.txt",
+    "shortName": "MODEL",
+    "title": "The c3_model.txt balance file",
+    "games": [
+      "caesar3"
+    ],
+    "documentation": "documented",
+    "note": "Documented. The plain-text file holding every building's cost and labour requirement — the one modders edit to rebalance the game.",
+    "summary": "Caesar III keeps none of its balance numbers in the executable. Building costs, labour requirements, desirability and the whole housing evolution ladder live in a plain-text file the game reads at startup, which is why rebalancing the game needs no patching at all.",
+    "sources": [
+      {
+        "title": "Julius — src/game/../building/model.c",
+        "url": "https://github.com/bvschaik/julius/blob/master/src/building/model.c"
+      },
+      {
+        "title": "Julius — src/building/model.h",
+        "url": "https://github.com/bvschaik/julius/blob/master/src/building/model.h"
+      }
+    ],
+    "spec": [
+      {
+        "kind": "prose",
+        "body": [
+          "c3_model.txt ships with the game and sits beside the executable. It is plain text, editable in any editor, and the engine parses it on startup — so changing a building's cost is a text edit rather than a patch. This is the single most useful file in the game for anyone who wants to rebalance it.",
+          "The parser is forgiving about layout and strict about counts. It looks for two section markers, then reads brace-delimited groups of comma-separated integers, skipping anything that is not a digit. Whitespace and formatting between values do not matter; the number of entries does."
+        ]
+      },
+      {
+        "kind": "list",
+        "title": "Sections",
+        "note": "Found by literal string match, in this order.",
+        "items": [
+          {
+            "term": "ALL BUILDINGS",
+            "description": "Followed by exactly 130 brace-delimited entries of 8 values each."
+          },
+          {
+            "term": "ALL HOUSES",
+            "description": "Followed by exactly 20 brace-delimited entries of 20 values each — the housing evolution ladder, one entry per level from small tent to luxury palace."
+          }
+        ]
+      },
+      {
+        "kind": "fields",
+        "title": "A building entry",
+        "note": "Eight comma-separated integers. Position is the only key — nothing in the file is named.",
+        "rows": [
+          {
+            "offset": "1",
+            "size": "int",
+            "type": "int",
+            "name": "cost",
+            "description": "Cost to build. For walls and other draggable structures this is the cost of one tile."
+          },
+          {
+            "offset": "2",
+            "size": "int",
+            "type": "int",
+            "name": "desirability_value",
+            "description": "Desirability contributed at the building's own tiles."
+          },
+          {
+            "offset": "3",
+            "size": "int",
+            "type": "int",
+            "name": "desirability_step",
+            "description": "How far, in tiles, before the value steps."
+          },
+          {
+            "offset": "4",
+            "size": "int",
+            "type": "int",
+            "name": "desirability_step_size",
+            "description": "How much the value changes at each step."
+          },
+          {
+            "offset": "5",
+            "size": "int",
+            "type": "int",
+            "name": "desirability_range",
+            "description": "Maximum distance the effect reaches."
+          },
+          {
+            "offset": "6",
+            "size": "int",
+            "type": "int",
+            "name": "laborers",
+            "description": "How many people the building employs."
+          },
+          {
+            "offset": "7–8",
+            "size": "int",
+            "type": "int",
+            "name": "—",
+            "description": "Read and discarded by Julius."
+          }
+        ]
+      },
+      {
+        "kind": "prose",
+        "title": "House entries",
+        "body": [
+          "Twenty values each, and between them they define the entire housing ladder: the desirability needed to evolve and the level at which a house devolves, then the requirements a house must have met — entertainment, water, religion, education, barber, bathhouse, health, how many food types, pottery, oil, furniture and wine — followed by prosperity, the maximum population of the level, and a tax multiplier.",
+          "That list is the whole of Caesar III's housing model, in twenty numbers per level. Nothing else in the game decides whether an insula becomes a villa."
+        ]
+      },
+      {
+        "kind": "callout",
+        "title": "It fails loudly, which is a gift",
+        "body": "Julius counts what it parsed and refuses to start unless it found exactly 150 entries — 130 buildings and 20 houses. An edited file that drops or gains a brace does not produce a subtly wrong game; it produces a refusal to load. When editing, keep the counts and change only the numbers."
+      },
+      {
+        "kind": "callout",
+        "title": "Why this site does not publish the values",
+        "body": "The numbers in this file are per-installation. They differ between game versions and any mod may rewrite them, so a table of costs frozen here would be right for one copy of the game and quietly wrong for others. The file is on the reader's own disk, it is plain text, and now they know what each column means — which is more durable than a copy of one version's numbers."
+      }
+    ]
+  },
+  {
     "id": "later-map-sav",
     "name": ".map / .sav",
     "shortName": null,

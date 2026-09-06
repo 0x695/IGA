@@ -11,10 +11,15 @@ export const GET: APIRoute = async ({ site }) => {
   const base = import.meta.env.BASE_URL.replace(/\/$/, '');
   const games = (await getCollection('games')).sort((a, b) => a.data.order - b.data.order);
   const formats = (await getCollection('fileFormats')).filter((f) => f.data.spec !== null);
+  const buildings = await getCollection('buildings');
+  const withBuildings = games.filter((game) =>
+    buildings.some((b) => b.data.variants.some((v) => v.game === game.id)),
+  );
 
   const paths = [
     '/',
     ...games.map((game) => `/${game.id}/`),
+    ...withBuildings.map((game) => `/${game.id}/buildings/`),
     ...formats.map((format) => `/formats/${format.id}/`),
   ];
 
