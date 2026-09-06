@@ -1,126 +1,1009 @@
 [
   {
+    "id": "sg",
+    "name": ".sg2 / .sg3 + .555",
+    "shortName": "SG",
+    "title": "The SG asset pipeline",
+    "games": [
+      "caesar3",
+      "pharaoh",
+      "zeus",
+      "emperor"
+    ],
+    "documentation": "documented",
+    "note": "Documented. An .sg2/.sg3 index over pixel data held in sibling .555 files — the shared art pipeline for the whole isometric era.",
+    "summary": "Every sprite in Caesar III, Pharaoh, Zeus and Emperor comes through this pair of files: an .sg2 or .sg3 index describing images, and one or more .555 files holding their pixels. Getting art out of these games, or new art in, means reading both.",
+    "sources": [
+      {
+        "title": "SG file format — citybuilding-tools wiki",
+        "url": "https://github.com/bvschaik/citybuilding-tools/wiki/SG-file-format"
+      },
+      {
+        "title": "SG2/SG3 internals — Julius issue #513",
+        "url": "https://github.com/bvschaik/julius/issues/513"
+      },
+      {
+        "title": "OpenPharaoh — 010 Editor SG3 binary template",
+        "url": "https://github.com/gaddas/OpenPharaoh"
+      }
+    ],
+    "spec": [
+      {
+        "kind": "prose",
+        "body": [
+          "An SG file contains no pixels. It is an index: a fixed header, a lookup table, one record per source bitmap, and one record per image. The pixels live in .555 files, and every image record points into one by byte offset.",
+          "The split is what makes the format tractable. You can read the whole catalogue of a game's art — names, dimensions, animation frames, which building a sprite belongs to — without decoding a single pixel."
+        ]
+      },
+      {
+        "kind": "fields",
+        "title": "Header",
+        "note": "80 bytes, at the start of the file. All integers are little-endian.",
+        "rows": [
+          {
+            "offset": "0",
+            "size": "4",
+            "type": "int32",
+            "name": "file_size",
+            "description": "Size of this SG file."
+          },
+          {
+            "offset": "4",
+            "size": "4",
+            "type": "int32",
+            "name": "version",
+            "description": "Format version. See the table below."
+          },
+          {
+            "offset": "8",
+            "size": "4",
+            "type": "—",
+            "name": "unknown",
+            "description": "Purpose not established."
+          },
+          {
+            "offset": "12",
+            "size": "4",
+            "type": "int32",
+            "name": "num_image_records",
+            "description": "Total image records present."
+          },
+          {
+            "offset": "16",
+            "size": "4",
+            "type": "int32",
+            "name": "num_images",
+            "description": "Image records actually in use."
+          },
+          {
+            "offset": "20",
+            "size": "4",
+            "type": "int32",
+            "name": "num_bitmap_records",
+            "description": "Bitmap records present."
+          },
+          {
+            "offset": "24",
+            "size": "4",
+            "type": "int32",
+            "name": "unknown",
+            "description": "Bitmap-related; purpose not established."
+          },
+          {
+            "offset": "28",
+            "size": "4",
+            "type": "int32",
+            "name": "total_filesize",
+            "description": "Total size of the image data."
+          },
+          {
+            "offset": "32",
+            "size": "4",
+            "type": "int32",
+            "name": "filesize_555",
+            "description": "Size of the internal .555 file."
+          },
+          {
+            "offset": "36",
+            "size": "4",
+            "type": "int32",
+            "name": "filesize_external",
+            "description": "Combined size of the external .555 files."
+          },
+          {
+            "offset": "40",
+            "size": "40",
+            "type": "—",
+            "name": "unknown",
+            "description": "Purpose not established."
+          }
+        ]
+      },
+      {
+        "kind": "list",
+        "title": "Version codes",
+        "note": "Read from offset 4. The version decides the size of an image record, which makes it the first thing a parser needs.",
+        "items": [
+          {
+            "term": "211",
+            "description": "SG2 — Caesar III."
+          },
+          {
+            "term": "213",
+            "description": "SG3 — Pharaoh, Zeus, Emperor."
+          },
+          {
+            "term": "214",
+            "description": "SG3 with an alpha mask. Image records grow from 64 to 72 bytes."
+          }
+        ]
+      },
+      {
+        "kind": "fields",
+        "title": "Index",
+        "note": "600 bytes, immediately after the header.",
+        "rows": [
+          {
+            "offset": "80",
+            "size": "600",
+            "type": "uint16[300]",
+            "name": "image_ids",
+            "description": "Maps a stable game-facing group ID to the position of an image record. The indirection is the point: artists could reorder or re-export images without the game code having to change."
+          }
+        ]
+      },
+      {
+        "kind": "fields",
+        "title": "Bitmap record",
+        "note": "200 bytes each, following the index. One per source bitmap — the artist's original file, which may hold many game images.",
+        "rows": [
+          {
+            "offset": "0",
+            "size": "65",
+            "type": "char[]",
+            "name": "filename",
+            "description": "Null-terminated source filename, e.g. a .bmp name."
+          },
+          {
+            "offset": "65",
+            "size": "51",
+            "type": "char[]",
+            "name": "comment",
+            "description": "Null-terminated description."
+          },
+          {
+            "offset": "116",
+            "size": "4",
+            "type": "int32",
+            "name": "width",
+            "description": "Width of the external bitmap."
+          },
+          {
+            "offset": "120",
+            "size": "4",
+            "type": "int32",
+            "name": "height",
+            "description": "Height of the external bitmap."
+          },
+          {
+            "offset": "124",
+            "size": "4",
+            "type": "int32",
+            "name": "num_images",
+            "description": "How many images come from this bitmap."
+          },
+          {
+            "offset": "128",
+            "size": "4",
+            "type": "int32",
+            "name": "start_index",
+            "description": "First image index belonging to it."
+          },
+          {
+            "offset": "132",
+            "size": "4",
+            "type": "int32",
+            "name": "end_index",
+            "description": "Last image index belonging to it."
+          },
+          {
+            "offset": "136",
+            "size": "64",
+            "type": "int32[16]",
+            "name": "unknown",
+            "description": "Purpose not established."
+          }
+        ]
+      },
+      {
+        "kind": "fields",
+        "title": "Image record",
+        "note": "64 bytes below version 214, 72 bytes at 214 and above. Offsets are relative to the start of the record.",
+        "rows": [
+          {
+            "offset": "0",
+            "size": "4",
+            "type": "int32",
+            "name": "offset_555",
+            "description": "Byte offset of this image's pixel data within its .555 file."
+          },
+          {
+            "offset": "4",
+            "size": "4",
+            "type": "int32",
+            "name": "length",
+            "description": "Length of the stored data."
+          },
+          {
+            "offset": "8",
+            "size": "4",
+            "type": "int32",
+            "name": "uncompressed_length",
+            "description": "Length once expanded."
+          },
+          {
+            "offset": "12",
+            "size": "4",
+            "type": "—",
+            "name": "zero",
+            "description": "Always zero."
+          },
+          {
+            "offset": "16",
+            "size": "4",
+            "type": "int32",
+            "name": "invert_offset",
+            "description": "Offset of the image this one mirrors. SG3 only."
+          },
+          {
+            "offset": "20",
+            "size": "2",
+            "type": "uint16",
+            "name": "width",
+            "description": "Image width in pixels."
+          },
+          {
+            "offset": "22",
+            "size": "2",
+            "type": "uint16",
+            "name": "height",
+            "description": "Image height in pixels."
+          },
+          {
+            "offset": "24",
+            "size": "6",
+            "type": "—",
+            "name": "unknown",
+            "description": "Three shorts; purpose not established."
+          },
+          {
+            "offset": "30",
+            "size": "2",
+            "type": "uint16",
+            "name": "num_animation_sprites",
+            "description": "Frames in this animation."
+          },
+          {
+            "offset": "32",
+            "size": "2",
+            "type": "uint16",
+            "name": "unknown",
+            "description": "Purpose not established."
+          },
+          {
+            "offset": "34",
+            "size": "2",
+            "type": "int16",
+            "name": "sprite_offset_x",
+            "description": "Horizontal animation offset."
+          },
+          {
+            "offset": "36",
+            "size": "2",
+            "type": "int16",
+            "name": "sprite_offset_y",
+            "description": "Vertical animation offset."
+          },
+          {
+            "offset": "38",
+            "size": "10",
+            "type": "—",
+            "name": "unknown",
+            "description": "Purpose not established."
+          },
+          {
+            "offset": "48",
+            "size": "1",
+            "type": "uint8",
+            "name": "can_reverse",
+            "description": "Whether the animation plays back and forth."
+          },
+          {
+            "offset": "49",
+            "size": "1",
+            "type": "—",
+            "name": "unknown",
+            "description": "Purpose not established."
+          },
+          {
+            "offset": "50",
+            "size": "1",
+            "type": "uint8",
+            "name": "type",
+            "description": "Image type. See below."
+          },
+          {
+            "offset": "51",
+            "size": "1",
+            "type": "uint8",
+            "name": "fully_compressed",
+            "description": "The whole image is run-length compressed."
+          },
+          {
+            "offset": "52",
+            "size": "1",
+            "type": "uint8",
+            "name": "external",
+            "description": "Pixels live in an external .555 file rather than the internal one."
+          },
+          {
+            "offset": "53",
+            "size": "1",
+            "type": "uint8",
+            "name": "part_compressed",
+            "description": "Isometric image with a compressed top section."
+          },
+          {
+            "offset": "54",
+            "size": "2",
+            "type": "—",
+            "name": "unknown",
+            "description": "Purpose not established."
+          },
+          {
+            "offset": "56",
+            "size": "1",
+            "type": "uint8",
+            "name": "bitmap_id",
+            "description": "Which bitmap record this image came from."
+          },
+          {
+            "offset": "57",
+            "size": "1",
+            "type": "—",
+            "name": "unknown",
+            "description": "Purpose not established."
+          },
+          {
+            "offset": "58",
+            "size": "1",
+            "type": "uint8",
+            "name": "animation_speed_id",
+            "description": "Playback speed selector."
+          },
+          {
+            "offset": "59",
+            "size": "1",
+            "type": "—",
+            "name": "unknown",
+            "description": "Purpose not established."
+          },
+          {
+            "offset": "60",
+            "size": "4",
+            "type": "—",
+            "name": "zero",
+            "description": "Always zero."
+          },
+          {
+            "offset": "64",
+            "size": "4",
+            "type": "int32",
+            "name": "alpha_offset",
+            "description": "Alpha mask offset. Version 214 only."
+          },
+          {
+            "offset": "68",
+            "size": "4",
+            "type": "int32",
+            "name": "alpha_length",
+            "description": "Alpha mask length. Version 214 only."
+          }
+        ]
+      },
+      {
+        "kind": "list",
+        "title": "Image types",
+        "note": "Read from offset 50 of an image record.",
+        "items": [
+          {
+            "term": "0",
+            "description": "Plain image that may carry transparency."
+          },
+          {
+            "term": "1, 10, 12, 13, 20",
+            "description": "Plain images."
+          },
+          {
+            "term": "30",
+            "description": "Isometric — a building or terrain tile, stored differently. See below."
+          }
+        ]
+      },
+      {
+        "kind": "prose",
+        "title": "How pixels are stored",
+        "body": [
+          "Three storage modes, chosen per image by the flags at offsets 51 to 53.",
+          "Uncompressed images are raw pixels, row by row, top to bottom and left to right.",
+          "Compressed images are run-length encoded, and only for transparency. A control byte of 255 means \"the next byte is a count of transparent pixels\"; any other value is a count of coloured pixels that follow. There is no compression of the colours themselves.",
+          "Isometric images come in two parts. The base is a set of uncompressed diamond tiles — 58×30 pixels in Caesar III, Pharaoh and Zeus, and 78×40 in Emperor — laid out row by row for multi-tile buildings. Anything standing above the ground plane follows as a compressed \"top\" section."
+        ]
+      },
+      {
+        "kind": "prose",
+        "title": "The .555 files and colour",
+        "body": [
+          "Pixels are two bytes each, little-endian, five bits per channel in R-G-B order. The single value 0xF81F is the transparency key rather than a colour, which is why it never appears as magenta in-game.",
+          "Most images live in the internal .555 file, which shares the SG file's name. Some live in external ones, flagged at offset 52 of the image record and named after the bitmap record's filename with the extension changed to .555. Pharaoh in particular spreads its art across several external files."
+        ]
+      },
+      {
+        "kind": "callout",
+        "title": "A useful sanity check",
+        "body": "A frequently reported figure for the fixed prelude of an SG file is 20,680 bytes. That is not a magic number: it is 80 bytes of header, plus the 600-byte index, plus 100 bitmap records of 200 bytes each. If a file you are parsing does not agree, read the bitmap record count at offset 20 rather than assuming 100."
+      }
+    ]
+  },
+  {
+    "id": "eng",
+    "name": ".eng",
+    "shortName": "ENG",
+    "title": "The ENG text format",
+    "games": [
+      "caesar3",
+      "pharaoh",
+      "zeus",
+      "emperor"
+    ],
+    "documentation": "documented",
+    "note": "Documented. Holds every string in the game, plus the layout of the message dialogs — the file any translation has to go through.",
+    "summary": "All of a game's text lives in .eng files: one for strings, one ending _mm.eng for the pop-up messages, which carries dialog geometry alongside the words. Anyone translating one of these games, or reading its text out, works here.",
+    "sources": [
+      {
+        "title": "ENG file format — citybuilding-tools wiki",
+        "url": "https://github.com/bvschaik/citybuilding-tools/wiki/ENG-file-format"
+      },
+      {
+        "title": "citybuilding-tools — engconverter",
+        "url": "https://github.com/bvschaik/citybuilding-tools"
+      }
+    ],
+    "spec": [
+      {
+        "kind": "prose",
+        "body": [
+          "Two related files, both in three parts: a short header, a fixed-size index, and a data section of null-separated strings.",
+          "The wiki documents Caesar III as its worked example — its files identify themselves with a descriptor string like \"C3 textfile.\" — and the later titles use the same structure with their own descriptor and their own quirks."
+        ]
+      },
+      {
+        "kind": "fields",
+        "title": "Text file header",
+        "note": "28 bytes.",
+        "rows": [
+          {
+            "offset": "0",
+            "size": "16",
+            "type": "char[]",
+            "name": "descriptor",
+            "description": "Identifies the file and the game, e.g. \"C3 textfile.\""
+          },
+          {
+            "offset": "16",
+            "size": "4",
+            "type": "int32",
+            "name": "num_groups",
+            "description": "Highest group ID in use, plus one."
+          },
+          {
+            "offset": "20",
+            "size": "4",
+            "type": "int32",
+            "name": "num_strings",
+            "description": "Total strings in the file."
+          },
+          {
+            "offset": "24",
+            "size": "4",
+            "type": "int32",
+            "name": "num_words",
+            "description": "Word count. Not reliable — do not use it to size a buffer."
+          }
+        ]
+      },
+      {
+        "kind": "fields",
+        "title": "Text file index",
+        "note": "1,000 entries of 8 bytes each, following the header.",
+        "rows": [
+          {
+            "offset": "0",
+            "size": "4",
+            "type": "int32",
+            "name": "offset",
+            "description": "Where this group's strings begin in the data section."
+          },
+          {
+            "offset": "4",
+            "size": "4",
+            "type": "int32",
+            "name": "in_use",
+            "description": "In the earlier games a flag, 0 or 1. In the later ones, the number of strings in the group."
+          }
+        ]
+      },
+      {
+        "kind": "prose",
+        "title": "Text data and encoding",
+        "body": [
+          "Strings run consecutively, separated by null bytes, and a string must contain at least one printable character — a byte of 32 or above — to count.",
+          "There is no encoding declared anywhere in the file; it follows from the language of the release. Western European editions use Windows-1252, Polish uses Windows-1250, Russian Windows-1251, and Korean Windows-950. Traditional Chinese uses an encoding of its own."
+        ]
+      },
+      {
+        "kind": "fields",
+        "title": "Message file header",
+        "note": "24 bytes. Message files are the ones whose names end in _mm.eng.",
+        "rows": [
+          {
+            "offset": "0",
+            "size": "16",
+            "type": "char[]",
+            "name": "descriptor",
+            "description": "Identifies the file, e.g. \"C3 MMfile\"."
+          },
+          {
+            "offset": "16",
+            "size": "4",
+            "type": "int32",
+            "name": "num_entries",
+            "description": "Index entries present — typically 1,000."
+          },
+          {
+            "offset": "20",
+            "size": "4",
+            "type": "int32",
+            "name": "num_used",
+            "description": "Highest index in use, plus one."
+          }
+        ]
+      },
+      {
+        "kind": "fields",
+        "title": "Message index entry",
+        "note": "80 bytes each. This is where the format stops being a string table: each entry lays out the dialog the message appears in.",
+        "rows": [
+          {
+            "offset": "0",
+            "size": "2",
+            "type": "int16",
+            "name": "type",
+            "description": "Message type."
+          },
+          {
+            "offset": "2",
+            "size": "2",
+            "type": "int16",
+            "name": "message_type",
+            "description": "Message subtype."
+          },
+          {
+            "offset": "6",
+            "size": "2",
+            "type": "int16",
+            "name": "x",
+            "description": "Dialog X position."
+          },
+          {
+            "offset": "8",
+            "size": "2",
+            "type": "int16",
+            "name": "y",
+            "description": "Dialog Y position."
+          },
+          {
+            "offset": "10",
+            "size": "2",
+            "type": "int16",
+            "name": "width_blocks",
+            "description": "Dialog width, in 16-pixel blocks."
+          },
+          {
+            "offset": "12",
+            "size": "2",
+            "type": "int16",
+            "name": "height_blocks",
+            "description": "Dialog height, in 16-pixel blocks."
+          },
+          {
+            "offset": "14",
+            "size": "2",
+            "type": "int16",
+            "name": "image1_id",
+            "description": "Primary image ID."
+          },
+          {
+            "offset": "16",
+            "size": "2",
+            "type": "int16",
+            "name": "image1_x",
+            "description": "Primary image X."
+          },
+          {
+            "offset": "18",
+            "size": "2",
+            "type": "int16",
+            "name": "image1_y",
+            "description": "Primary image Y."
+          },
+          {
+            "offset": "20",
+            "size": "2",
+            "type": "int16",
+            "name": "image2_id",
+            "description": "Secondary image ID."
+          },
+          {
+            "offset": "22",
+            "size": "2",
+            "type": "int16",
+            "name": "image2_x",
+            "description": "Secondary image X."
+          },
+          {
+            "offset": "24",
+            "size": "2",
+            "type": "int16",
+            "name": "image2_y",
+            "description": "Secondary image Y."
+          },
+          {
+            "offset": "26",
+            "size": "2",
+            "type": "int16",
+            "name": "title_x",
+            "description": "Title X."
+          },
+          {
+            "offset": "28",
+            "size": "2",
+            "type": "int16",
+            "name": "title_y",
+            "description": "Title Y."
+          },
+          {
+            "offset": "30",
+            "size": "2",
+            "type": "int16",
+            "name": "subtitle_x",
+            "description": "Subtitle X."
+          },
+          {
+            "offset": "32",
+            "size": "2",
+            "type": "int16",
+            "name": "subtitle_y",
+            "description": "Subtitle Y."
+          },
+          {
+            "offset": "38",
+            "size": "2",
+            "type": "int16",
+            "name": "video_x",
+            "description": "Video X."
+          },
+          {
+            "offset": "40",
+            "size": "2",
+            "type": "int16",
+            "name": "video_y",
+            "description": "Video Y."
+          },
+          {
+            "offset": "56",
+            "size": "4",
+            "type": "int32",
+            "name": "urgent",
+            "description": "0 for a normal message, 1 for an urgent one."
+          },
+          {
+            "offset": "60",
+            "size": "4",
+            "type": "int32",
+            "name": "video_offset",
+            "description": "Offset of the video filename string."
+          },
+          {
+            "offset": "64",
+            "size": "4",
+            "type": "int32",
+            "name": "unknown_offset",
+            "description": "Offset of a string whose purpose is not established."
+          },
+          {
+            "offset": "68",
+            "size": "4",
+            "type": "int32",
+            "name": "title_offset",
+            "description": "Offset of the title string."
+          },
+          {
+            "offset": "72",
+            "size": "4",
+            "type": "int32",
+            "name": "subtitle_offset",
+            "description": "Offset of the subtitle string."
+          },
+          {
+            "offset": "76",
+            "size": "4",
+            "type": "int32",
+            "name": "content_offset",
+            "description": "Offset of the body text, which may contain formatting."
+          }
+        ]
+      },
+      {
+        "kind": "callout",
+        "title": "Not fully documented",
+        "body": "The wiki's tables for message types and subtypes are marked TODO, and several positioning fields between offsets 34 and 55 have no established meaning. A parser can read every message and lay out every dialog without them; a tool that wants to create new messages cannot."
+      }
+    ]
+  },
+  {
+    "id": "caesar3-map",
+    "name": ".map",
+    "shortName": "MAP",
+    "title": "The Caesar III scenario format",
+    "games": [
+      "caesar3"
+    ],
+    "documentation": "partial",
+    "note": "Structure confirmed: ten uncompressed chunks in a fixed order, 211,692 bytes exactly. The scenario block's own internals are not documented.",
+    "summary": "A Caesar III scenario is not a container with a table of contents. It is ten fixed-size blocks written back to back in a known order, none of them compressed — which makes it the easiest file in the whole series to take apart.",
+    "sources": [
+      {
+        "title": "Julius — src/game/file_io.c",
+        "url": "https://github.com/bvschaik/julius/blob/master/src/game/file_io.c"
+      },
+      {
+        "title": "Augustus",
+        "url": "https://github.com/Keriew/augustus"
+      }
+    ],
+    "spec": [
+      {
+        "kind": "prose",
+        "body": [
+          "Nobody has published a specification for this format. What exists is Julius's reimplementation, which reads and writes the original files exactly, so its loader is the closest thing to one. Everything below is read off that code rather than inferred from files.",
+          "The whole scenario is ten chunks in a fixed order with no headers, no lengths and no markers between them. Every chunk is uncompressed — unlike a savegame, where most are not."
+        ]
+      },
+      {
+        "kind": "fields",
+        "title": "Chunks, in order",
+        "note": "Sizes in bytes. Offsets are cumulative and implied by the order, since nothing in the file records them.",
+        "rows": [
+          {
+            "offset": "0",
+            "size": "52488",
+            "type": "uint16[]",
+            "name": "graphic_ids",
+            "description": "Two bytes per tile."
+          },
+          {
+            "offset": "52488",
+            "size": "26244",
+            "type": "uint8[]",
+            "name": "edge",
+            "description": "One byte per tile."
+          },
+          {
+            "offset": "78732",
+            "size": "52488",
+            "type": "uint16[]",
+            "name": "terrain",
+            "description": "Two bytes per tile."
+          },
+          {
+            "offset": "131220",
+            "size": "26244",
+            "type": "uint8[]",
+            "name": "bitfields",
+            "description": "One byte per tile."
+          },
+          {
+            "offset": "157464",
+            "size": "26244",
+            "type": "uint8[]",
+            "name": "random",
+            "description": "One byte per tile."
+          },
+          {
+            "offset": "183708",
+            "size": "26244",
+            "type": "uint8[]",
+            "name": "elevation",
+            "description": "One byte per tile."
+          },
+          {
+            "offset": "209952",
+            "size": "8",
+            "type": "—",
+            "name": "random_iv",
+            "description": "Seed state for the random number generator."
+          },
+          {
+            "offset": "209960",
+            "size": "8",
+            "type": "—",
+            "name": "camera",
+            "description": "Saved camera position."
+          },
+          {
+            "offset": "209968",
+            "size": "1720",
+            "type": "—",
+            "name": "scenario",
+            "description": "The scenario proper: name, briefing, victory conditions, invasions, requests, prices. Its internal layout is not documented here."
+          },
+          {
+            "offset": "211688",
+            "size": "4",
+            "type": "—",
+            "name": "end_marker",
+            "description": "Closes the file."
+          }
+        ]
+      },
+      {
+        "kind": "callout",
+        "title": "The map is always 162 × 162",
+        "body": "Every per-tile chunk is either 26,244 bytes or twice that, and 26,244 is 162 squared — Julius defines GRID_SIZE as 162. The playable area is smaller; the grid includes an unusable border. This also means the total file size is fixed at 211,692 bytes, which is the quickest way to tell a genuine Caesar III scenario from something else."
+      },
+      {
+        "kind": "callout",
+        "title": "Later titles are a different problem",
+        "body": "This describes Caesar III only. Pharaoh, Zeus and Emperor have their own scenario formats, and Julius does not read them. Akhenaten and the Ozymandias projects are the nearest equivalent for Pharaoh; nobody has written any of them up."
+      }
+    ]
+  },
+  {
+    "id": "caesar3-sav",
+    "name": ".sav",
+    "shortName": "SAV",
+    "title": "The Caesar III savegame format",
+    "games": [
+      "caesar3"
+    ],
+    "documentation": "partial",
+    "note": "Container structure confirmed from Julius: an ordered chunk list, most chunks compressed with PKWARE DCL. What is inside most chunks is not documented.",
+    "summary": "A savegame is the scenario format's larger sibling: the same idea of ordered chunks with nothing to separate them, but many more of them and most compressed. The container is well understood; the contents mostly are not.",
+    "sources": [
+      {
+        "title": "Julius — src/game/file_io.c",
+        "url": "https://github.com/bvschaik/julius/blob/master/src/game/file_io.c"
+      },
+      {
+        "title": "Julius — src/core/zip.c",
+        "url": "https://github.com/bvschaik/julius/blob/master/src/core/zip.c"
+      }
+    ],
+    "spec": [
+      {
+        "kind": "prose",
+        "body": [
+          "As with scenarios, there is no published specification and Julius's loader is the reference. It reads a savegame as an ordered list of up to a hundred chunks, of which it names seventy-two.",
+          "The difference from a scenario is compression. Each chunk carries a flag saying whether it is stored compressed, and the compressed ones are framed."
+        ]
+      },
+      {
+        "kind": "fields",
+        "title": "A compressed chunk",
+        "note": "Uncompressed chunks have no framing at all — the raw bytes simply follow, and you must already know how many.",
+        "rows": [
+          {
+            "offset": "0",
+            "size": "4",
+            "type": "int32",
+            "name": "length",
+            "description": "Length of the compressed data that follows — or the sentinel 0x80000000, meaning compression was not worth it and the raw data follows instead."
+          },
+          {
+            "offset": "4",
+            "size": "length",
+            "type": "bytes",
+            "name": "data",
+            "description": "Compressed, or raw when the sentinel is present."
+          }
+        ]
+      },
+      {
+        "kind": "callout",
+        "title": "It is not ZIP, despite the function names",
+        "body": "Julius calls these zip_compress and zip_decompress, and the file is core/zip.c — but the implementation is pk_implode and pk_explode, the PKWARE Data Compression Library. That is a different algorithm from DEFLATE, so a zlib call on this data will fail. The naming has misled people; the lookup tables and the 516-byte maximum match length are what settle it."
+      },
+      {
+        "kind": "list",
+        "title": "Known constants",
+        "items": [
+          {
+            "term": "0x66",
+            "description": "The save version Julius writes."
+          },
+          {
+            "term": "0x80000000",
+            "description": "Chunk sentinel meaning the data that follows is uncompressed."
+          },
+          {
+            "term": "600000",
+            "description": "Julius's compression buffer size — an upper bound on a single chunk, not a format constant."
+          },
+          {
+            "term": "284",
+            "description": "Size of the end marker: seventy-one four-byte zeroes."
+          }
+        ]
+      },
+      {
+        "kind": "callout",
+        "title": "What is missing",
+        "body": "Knowing the chunk order and how to decompress each one gets you seventy-two byte arrays. Julius names them, so you know which holds buildings and which holds figures, but the record layout inside each is only described by the code that consumes it. Anyone wanting a save editor has to read that code. This is the largest genuinely open documentation gap in the Caesar III lineage."
+      }
+    ]
+  },
+  {
+    "id": "later-map-sav",
+    "name": ".map / .sav",
+    "shortName": null,
+    "title": null,
+    "games": [
+      "pharaoh",
+      "zeus",
+      "emperor"
+    ],
+    "documentation": "partial",
+    "note": "Undocumented. These titles have their own scenario and save formats, and no public write-up exists — Akhenaten and the Ozymandias projects are the closest thing to a spec for Pharaoh.",
+    "summary": null,
+    "sources": [],
+    "spec": null
+  },
+  {
     "id": "caesar1-assets",
     "name": "Caesar assets",
-    "games": ["caesar1"],
-    "status": "dead",
+    "shortName": null,
+    "title": null,
+    "games": [
+      "caesar1"
+    ],
     "documentation": "undocumented",
-    "note": "No public documentation exists for Caesar's asset formats.",
+    "note": "No public documentation exists for Caesar's asset formats. It predates the SG pipeline entirely, so nothing here transfers.",
+    "summary": null,
     "sources": [],
     "spec": null
   },
   {
     "id": "caesar2-assets",
     "name": "Caesar II assets",
-    "games": ["caesar2"],
-    "status": "dead",
+    "shortName": null,
+    "title": null,
+    "games": [
+      "caesar2"
+    ],
     "documentation": "undocumented",
-    "note": "No public documentation exists for Caesar II's asset formats.",
-    "sources": [],
-    "spec": null
-  },
-  {
-    "id": "sg2-555",
-    "name": ".sg2 + .555",
-    "games": ["caesar3"],
-    "status": "active",
-    "documentation": "documented",
-    "note": "Documented — see the citybuilding-tools wiki. SG index: 600B, 300×uint16 group-ID map. Pixel data: 16-bit LE 5-5-5 RGB, 0xF81F transparency key.",
-    "sources": [
-      { "title": "SG file format — citybuilding-tools wiki", "url": "https://github.com/bvschaik/citybuilding-tools/wiki/SG-file-format" },
-      { "title": "SG2/SG3 internals — Julius issue #513", "url": "https://github.com/bvschaik/julius/issues/513" }
-    ],
-    "spec": null
-  },
-  {
-    "id": "caesar3-map",
-    "name": ".map",
-    "games": ["caesar3"],
-    "status": "dormant",
-    "documentation": "partial",
-    "note": "Partial — Julius/Augustus source is the closest thing to a spec.",
-    "sources": [
-      { "title": "Julius", "url": "https://github.com/bvschaik/julius" },
-      { "title": "Augustus", "url": "https://github.com/Keriew/augustus" }
-    ],
-    "spec": null
-  },
-  {
-    "id": "caesar3-sav",
-    "name": ".sav",
-    "games": ["caesar3"],
-    "status": "dormant",
-    "documentation": "partial",
-    "note": "Partial — tacit hex-editing lore on HeavenGames forums.",
-    "sources": [],
-    "spec": null
-  },
-  {
-    "id": "sg3-555-pharaoh",
-    "name": ".sg3 + .555",
-    "games": ["pharaoh"],
-    "status": "active",
-    "documentation": "documented",
-    "note": "Documented — same wiki as Caesar III, plus OpenPharaoh's SG3.bt template.",
-    "sources": [
-      { "title": "SG file format — citybuilding-tools wiki", "url": "https://github.com/bvschaik/citybuilding-tools/wiki/SG-file-format" },
-      { "title": "OpenPharaoh — 010 Editor SG3 template", "url": "https://github.com/gaddas/OpenPharaoh" }
-    ],
-    "spec": null
-  },
-  {
-    "id": "pharaoh-map-sav",
-    "name": ".map / .sav",
-    "games": ["pharaoh"],
-    "status": "dormant",
-    "documentation": "partial",
-    "note": "Partial, inherited from the Caesar III generation.",
-    "sources": [],
-    "spec": null
-  },
-  {
-    "id": "sg3-555-zeus",
-    "name": ".sg3 + .555",
-    "games": ["zeus"],
-    "status": "active",
-    "documentation": "documented",
-    "note": "Documented, same lineage as Pharaoh.",
-    "sources": [
-      { "title": "SG file format — citybuilding-tools wiki", "url": "https://github.com/bvschaik/citybuilding-tools/wiki/SG-file-format" }
-    ],
-    "spec": null
-  },
-  {
-    "id": "zeus-eng",
-    "name": ".eng",
-    "games": ["zeus"],
-    "status": "dormant",
-    "documentation": "partial",
-    "note": "Partial — eZeus ships a working converter, format never formally written up.",
-    "sources": [
-      { "title": "eZeus (bundles engconverter)", "url": "https://github.com/MaurycyLiebner/eZeus" }
-    ],
-    "spec": null
-  },
-  {
-    "id": "sg3-555-emperor",
-    "name": ".sg3 + .555",
-    "games": ["emperor"],
-    "status": "active",
-    "documentation": "documented",
-    "note": "Documented, same lineage as Pharaoh/Zeus.",
-    "sources": [
-      { "title": "SG file format — citybuilding-tools wiki", "url": "https://github.com/bvschaik/citybuilding-tools/wiki/SG-file-format" }
-    ],
-    "spec": null
-  },
-  {
-    "id": "emperor-eng",
-    "name": ".eng",
-    "games": ["emperor"],
-    "status": "dormant",
-    "documentation": "partial",
-    "note": "Partial, same converter situation as Zeus.",
+    "note": "No public documentation exists for Caesar II's asset formats either, and no tool reads them.",
+    "summary": null,
     "sources": [],
     "spec": null
   }

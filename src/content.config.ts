@@ -92,35 +92,75 @@ const engineProjects = defineCollection({
   }),
 });
 
+/**
+ * A spec is a sequence of typed blocks rather than prose or a single table.
+ * The design brief's requirement for this component was that byte offsets and
+ * field tables be "genuinely readable, not a wall of monospace" — which means
+ * the prose that explains a table, the enumerations a field refers to, and the
+ * corrections worth shouting about all need somewhere structured to live.
+ */
+const specBlock = z.discriminatedUnion('kind', [
+  z.object({
+    kind: z.literal('prose'),
+    title: z.string().optional(),
+    body: z.array(z.string()),
+  }),
+  z.object({
+    kind: z.literal('fields'),
+    title: z.string(),
+    note: z.string().optional(),
+    rows: z.array(
+      z.object({
+        offset: z.string(),
+        size: z.string(),
+        type: z.string(),
+        name: z.string(),
+        description: z.string(),
+      }),
+    ),
+  }),
+  z.object({
+    kind: z.literal('list'),
+    title: z.string(),
+    note: z.string().optional(),
+    items: z.array(z.object({ term: z.string(), description: z.string() })),
+  }),
+  z.object({
+    kind: z.literal('callout'),
+    title: z.string(),
+    body: z.string(),
+  }),
+]);
+
 const fileFormats = defineCollection({
   loader: file('src/data/file-formats.json'),
   schema: z.object({
     name: z.string(),
+    /** Compact label for the format's own page and links. Null where the entry
+     *  is an honest placeholder rather than a documented format. */
+    shortName: z.string().nullable(),
+    /** Page heading. Null for entries with no page. */
+    title: z.string().nullable(),
     games: z.array(z.string()),
-    /** Display vocabulary, shared with engine projects. */
-    status,
-    /** The semantic the status renders: what is actually known about it. */
+    /**
+     * What is actually known about this format. The status dot is derived from
+     * it (see src/lib/formats.ts) rather than stored alongside it — when both
+     * were data they disagreed, and a green dot appeared next to the words
+     * "Partially documented".
+     */
     documentation: z.enum(['documented', 'partial', 'undocumented']),
+    /** The one-liner shown on a game hub. */
     note: z.string(),
+    /** The standfirst on the format's own page. Null where there is no page. */
+    summary: z.string().nullable(),
     sources: z.array(z.object({ title: z.string(), url: z.string().url() })),
-    /** Structured field tables (offset/type/description). Nothing carries one
-     *  yet — the consolidated spec write-up is later work, and an empty spec
-     *  is an honest "not written" rather than a guess. */
-    spec: z
-      .array(
-        z.object({
-          section: z.string(),
-          fields: z.array(
-            z.object({
-              offset: z.string(),
-              type: z.string(),
-              name: z.string(),
-              description: z.string(),
-            }),
-          ),
-        }),
-      )
-      .nullable(),
+    /**
+     * The written spec. A format gets its own page if and only if this is
+     * non-null: a page that only repeats "nobody has documented this" is worse
+     * than a hub row saying the same thing in one line, so undocumented
+     * formats stay as rows and link nowhere.
+     */
+    spec: z.array(specBlock).nullable(),
   }),
 });
 

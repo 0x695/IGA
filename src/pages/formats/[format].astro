@@ -1,0 +1,205 @@
+---
+import { getCollection } from 'astro:content';
+import Base from '../../layouts/Base.astro';
+import SpecBlock from '../../components/SpecBlock.astro';
+import StatusDot from '../../components/StatusDot.astro';
+import { withBase } from '../../lib/url';
+import { formatStatus, formatLabel } from '../../lib/formats';
+
+/**
+ * A format's own page.
+ *
+ * These hang off the game hubs: every hub lists the formats its game uses, and
+ * a format with a written spec links here. There is deliberately no /formats/
+ * index — that would rebuild the centralised File Format Reference the design
+ * pass rejected (masterdoc §10). The hub stays the way in; this page carries
+ * the depth the hub row cannot.
+ *
+ * Only formats with a spec get a page. A page whose whole content is "nobody
+ * has documented this" is worse than a hub row saying so in one line.
+ */
+export async function getStaticPaths() {
+  const formats = await getCollection('fileFormats');
+  const games = await getCollection('games');
+
+  return formats
+    .filter((format) => format.data.spec !== null)
+    .map((format) => ({
+      params: { format: format.id },
+      props: {
+        format,
+        usedBy: games
+          .filter((game) => format.data.games.includes(game.id))
+          .sort((a, b) => a.data.order - b.data.order),
+      },
+    }));
+}
+
+const { format, usedBy } = Astro.props;
+const f = format.data;
+const spec = f.spec!;
+
+
+---
+
+<Base title={`${f.title} — Impressions Games Archive`} description={f.summary ?? f.note}>
+  <div data-pagefind-body>
+    <article class="section format">
+      <header class="format__head">
+        <div class="format__meta">
+          <span class="format__name">{f.name}</span>
+          <StatusDot
+            status={formatStatus(f.documentation)}
+            label={formatLabel(f.documentation)}
+          />
+        </div>
+        <h1 class="format__title">{f.title}</h1>
+        <p class="format__summary">{f.summary}</p>
+
+        <p class="format__games">
+          <span class="format__games-label">Used by</span>
+          {
+            usedBy.map((game, index) => (
+              <>
+                {index > 0 && <span aria-hidden="true"> · </span>}
+                <a href={withBase(`/${game.id}/`)}>{game.data.shortTitle}</a>
+              </>
+            ))
+          }
+        </p>
+      </header>
+
+      {spec.map((block) => <SpecBlock block={block} />)}
+
+      <section class="sources">
+        <h2 class="sources__title">Sources</h2>
+        {/*
+          Named rather than merely linked. Several of these are GitHub issues
+          and wiki pages — exactly the kind of thing that disappears — so the
+          page says what it was built from, and the write-up above stands on
+          its own if one of them goes.
+        */}
+        <ul>
+          {
+            f.sources.map((source) => (
+              <li>
+                <a href={source.url} rel="noopener">
+                  {source.title} ↗
+                </a>
+              </li>
+            ))
+          }
+        </ul>
+      </section>
+    </article>
+  </div>
+</Base>
+
+<style>
+  .format {
+    padding-block: 64px 80px;
+  }
+
+  .format__head {
+    margin-bottom: 48px;
+  }
+
+  .format__meta {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    flex-wrap: wrap;
+    margin-bottom: 14px;
+  }
+
+  .format__name {
+    font-family: var(--font-mono);
+    font-size: 13px;
+    letter-spacing: 0.06em;
+    color: var(--color-accent);
+  }
+
+  .format__title {
+    font-family: var(--font-heading);
+    font-weight: 700;
+    font-size: clamp(30px, 5vw, 46px);
+    line-height: 1.1;
+    margin: 0 0 18px;
+    padding-bottom: 16px;
+    border-bottom: 3px solid var(--color-divider);
+    display: inline-block;
+  }
+
+  .format__summary {
+    font-size: 16px;
+    line-height: 1.65;
+    color: var(--color-text-dim);
+    max-width: 68ch;
+    margin: 0 0 20px;
+  }
+
+  .format__games {
+    margin: 0;
+    font-size: 13px;
+    color: var(--color-text-dim);
+  }
+
+  .format__games-label {
+    font-family: var(--font-mono);
+    font-size: 10px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    margin-right: 10px;
+  }
+
+  .format__games a {
+    color: var(--color-text);
+    text-decoration: none;
+    border-bottom: 1px solid var(--color-divider);
+  }
+
+  .format__games a:hover {
+    border-bottom-color: var(--color-accent);
+  }
+
+  .sources {
+    border-top: 1px solid var(--color-divider);
+    padding-top: 24px;
+  }
+
+  .sources__title {
+    font-family: var(--font-heading);
+    font-weight: 600;
+    font-size: 13px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--color-text-dim);
+    margin: 0 0 12px;
+  }
+
+  .sources ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .sources a {
+    font-size: 13px;
+    color: var(--color-accent);
+    text-decoration: none;
+  }
+
+  .sources a:hover {
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+
+  @media (max-width: 640px) {
+    .format {
+      padding-block: 40px 64px;
+    }
+  }
+</style>
