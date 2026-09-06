@@ -106,6 +106,40 @@ const g = game.data;
       }
     </section>
 
+    {/*
+      "How to play it today" — masterdoc §4 lists it as part of the per-game
+      hub and the design pass dropped it. It sits directly under the engines
+      because it answers the question they raise: every one of them ships
+      code and no assets, so a copy of the original is the prerequisite.
+    */}
+    <section class="section block">
+      <h2 class="section-heading">How to play it today</h2>
+
+      {
+        projects.length > 0 && (
+          <p class="play__prereq">
+            Every engine above needs a copy of the original game. They ship code, not assets — none
+            of them is a way to play {g.shortTitle} without owning it.
+          </p>
+        )
+      }
+
+      <ul class="stores">
+        {
+          g.storefronts.map((store) => (
+            <li>
+              <a class="store" href={store.url} rel="noopener">
+                <span class="store__name">{store.store} ↗</span>
+                <span class="store__edition">{store.edition}</span>
+              </a>
+            </li>
+          ))
+        }
+      </ul>
+
+      <p class="play__note">{g.playNote}</p>
+    </section>
+
     <section class="section block block--last">
       <h2 class="section-heading">Community</h2>
       <div class="community-grid">
@@ -271,6 +305,58 @@ const g = game.data;
     display: flex;
     flex-direction: column;
     gap: 12px;
+  }
+
+  .play__prereq {
+    margin: 0 0 14px;
+    font-size: 13.5px;
+    line-height: 1.6;
+    color: var(--color-text-dim);
+    max-width: 70ch;
+  }
+
+  .stores {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+
+  /* Outlined, never filled — the design draws with borders throughout. */
+  .store {
+    display: block;
+    border: 1px solid var(--color-divider);
+    border-radius: var(--radius-md);
+    padding: 10px 16px;
+    text-decoration: none;
+    color: var(--color-text);
+  }
+
+  .store:hover {
+    border-color: var(--color-accent-dim);
+  }
+
+  .store__name {
+    display: block;
+    font-size: 13px;
+    color: var(--color-accent);
+  }
+
+  .store__edition {
+    display: block;
+    font-size: 12px;
+    color: var(--color-text-dim);
+    margin-top: 2px;
+  }
+
+  .play__note {
+    margin: 14px 0 0;
+    font-size: 12.5px;
+    line-height: 1.6;
+    color: var(--color-text-dim);
+    max-width: 70ch;
   }
 
   .community-grid {

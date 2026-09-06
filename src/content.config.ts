@@ -42,6 +42,22 @@ const games = defineCollection({
     timelineNote: z.string(),
     /** Set only where no open-source engine exists — the wanted board. */
     wanted: z.string().nullable(),
+    /**
+     * Where to buy it now. Official storefronts only — masterdoc §3.4 is to
+     * link storefronts and community-hosted material, never to mirror or to
+     * point at a copy of the game itself. Every URL here was checked against
+     * the live store page rather than pattern-guessed from a slug.
+     */
+    storefronts: z.array(
+      z.object({
+        store: z.string(),
+        /** What that store actually sells — the bundles differ per store. */
+        edition: z.string(),
+        url: z.string().url(),
+      }),
+    ),
+    /** One line of compat/availability truth, including why a store is absent. */
+    playNote: z.string(),
     image: z.string(),
     imageCredit: z.string(),
     cover: z.string(),

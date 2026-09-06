@@ -143,6 +143,11 @@ requires it. Each is small and each is easy to mistake for drift, so:
   no part of the design moved to make room.
 - **The homepage scope line**, under the hero lede. Required by masterdoc §8
   and the build brief; the design's hero doesn't say it.
+- **The "how to play it today" section** on each hub. Masterdoc §4 lists it as
+  part of the per-game hub; the design dropped it. It sits under the engines
+  on purpose — every one of them ships code and no assets, so a copy of the
+  original is their prerequisite, and that is the sentence the section opens
+  with wherever a game has engines.
 - **WebP derivatives** in `public/images`. The originals in `design/images`
   are untouched and remain the supplied assets; they total 15.2 MB and the
   site is read on phones.
@@ -154,6 +159,12 @@ Two smaller judgement calls, in the same spirit:
 - The nav's current-page marker is an **underline under the whole link**. The
   artboard's version is a zero-width span inside a flex row, which renders as
   nothing; this is the intent, working.
+
+**Storefront URLs are checked, never guessed.** Every entry in a game's
+`storefronts` was opened and confirmed to sell that title before it went in
+the data — Steam app ids in particular are unguessable, and a wrong one sends
+a reader to another game entirely. Caesar, Caesar II and Emperor are GOG-only
+and their `playNote` says so; an absent store is stated, not left blank.
 
 **`coverCredit` exists in the data but is not displayed.** The design's Home
 timeline shows the box art with no visible credit line, though masterdoc §10

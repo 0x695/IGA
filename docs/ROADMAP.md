@@ -86,12 +86,18 @@ Small, unglamorous, and all of it is the difference between a site that
       The string is in the data (`coverCredit`) and rides on the image's
       `title` today. Either render it or accept the artboard — but decide it
       alongside the Phase 0 rights review, since it's the same question.
-- [ ] **Decide whether "how to play it today" belongs on the hub.** Masterdoc
-      §4 lists it as part of the per-game hub — storefront links, patches,
-      compat notes, the PCGamingWiki/WSGF material from §3.3. The delivered
-      design has no such section, so it isn't in the build. It is genuinely
-      useful to the *player* audience and genuinely absent; adding it is a
-      design change and should be an explicit call, not a drift.
+- [x] **"How to play it today" — decided, and built.** Masterdoc §4 lists it
+      as part of the per-game hub and the design pass dropped it; it is back,
+      sitting under the engines because it answers the question they raise.
+      Every storefront URL was checked against the live store page rather than
+      guessed from a slug: Caesar, Caesar II and Emperor are GOG-only, the
+      other three are on GOG and Steam, and the note on each hub says why a
+      store is missing rather than leaving a gap.
+- [ ] **The rest of §4's "how to play" material.** The section ships
+      storefronts only. Patches and compat notes — PCGamingWiki per game, the
+      WSGF and Jackfuste resolution work for Emperor, the official Caesar III
+      map editor on ModDB — are researched in §3.3 and not yet on any page.
+      They want a `patches`/`compat` shape in the data rather than prose.
 - [ ] **Accessibility and performance pass.** Keyboard path through the nav
       and search, focus visibility on the cards, colour contrast on
       `--color-text-dim` at 12.5px (the smallest text on the site sits on a
@@ -182,10 +188,11 @@ actually good.
 1. **The image rights question.** Phase 0. Blocks going public.
 2. **Domain**, then hosting. Phase 0.
 3. **Cover credits** — render them, or accept the artboard. Phase 1.
-4. **"How to play it today"** — add the section the design dropped, or don't.
-   Phase 1.
-5. **Where a full format spec lives** — per-format pages, or expanded in the
+4. **Where a full format spec lives** — per-format pages, or expanded in the
    hub. Phase 2.
+
+*Resolved since this was written: "how to play it today" is in, storefronts
+first.*
 
 ---
 
