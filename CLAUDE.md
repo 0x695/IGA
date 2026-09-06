@@ -151,7 +151,18 @@ numeric index**, which is precisely the operation that fails silently, so it
 asserts the row count and verifies fourteen sizes known independently. If a
 size ever looks wrong, the assertions are the first thing to read.
 
-**Two fields are deliberately absent, and neither is an oversight:**
+**The two games come from different sources, and it shows in the columns.**
+Caesar III is read from Julius; Pharaoh from Akhenaten, which keeps its
+definitions as JavaScript config in its own repository and therefore carries
+cost and labourers that Julius does not. Pharaoh cost is an array of five --
+one per difficulty level -- so never render it as a single number.
+
+**Pharaoh monuments are excluded on purpose.** Pyramids, the sphinx, obelisks
+and the temple complexes are phased constructions; their `building_size` reads
+2 even for the grand pyramid complex, so it is not a footprint. Don't add them
+without solving that first.
+
+**Two Caesar III fields are deliberately absent, and neither is an oversight:**
 
 - **`cost` and `employees` are not in the engine.** They live in
   `c3_model.txt`, which ships with the game and which mods rewrite. Publishing

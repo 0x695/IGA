@@ -217,7 +217,12 @@ const buildings = defineCollection({
         engineType: z.string(),
         /** Footprint in tiles; buildings are square. Null where not applicable. */
         size: z.number().int().nullable(),
-        cost: z.number().nullable(),
+        /**
+         * Pharaoh states cost as five numbers, one per difficulty level, so
+         * this is an array rather than a scalar. Null for Caesar III, whose
+         * costs are not in the engine at all.
+         */
+        cost: z.array(z.number()).nullable(),
         employees: z.number().nullable(),
         requires: z.array(z.string()),
         produces: z.array(z.string()),

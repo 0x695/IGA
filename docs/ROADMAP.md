@@ -10,8 +10,9 @@ done) and the v1/v2/v3 build order in the build brief.*
 v1 is **live at https://0x695.github.io/IGA/**: Home with the series
 timeline, six self-contained game hubs, Pagefind search, a 404, and the
 metadata a page needs to be found, five written file-format specs, and a
-filterable reference of all 100 Caesar III buildings. Phases 0, 1 and 2 are
-complete; Phase 3 is half done.
+filterable buildings reference for Caesar III and Pharaoh. Phases 0, 1 and 2
+are
+complete; Phase 3 is done but for its prose half.
 
 **The build brief's version plan is already spent, and not in the way it
 expected.** It ordered the work as *v1 = the centralized Engine Hub / Format
@@ -224,8 +225,9 @@ real hours:
 
 ## Phase 3 — The player layer
 
-**Partly done.** 7 September 2026. Buildings shipped for Caesar III; the prose
-half did not, for reasons worth writing down.
+**Buildings done, prose not.** 7 September 2026. Both games the build brief
+asked for are populated; the mechanics and campaign half did not ship, for
+reasons worth writing down.
 
 - [x] **Buildings, populated for Caesar III — 100 of them.** Name, category,
       footprint in tiles, and the engine constant that names each one.
@@ -263,11 +265,24 @@ behind. Size can, so size shipped and the flag did not.
 
 ### Not done
 
-- [ ] **Pharaoh's buildings.** Julius is Caesar III only, so the source that
-      made the Caesar III table verifiable does not cover Pharaoh. The
-      equivalent would be Akhenaten or Ozymandias, and it is a separate
-      reading job rather than a re-run of the same script. The data model
-      already handles it: a building is one concept with per-game variants.
+- [x] **Pharaoh's buildings — done, and richer than Caesar III's.** 124 of
+      them, read out of Akhenaten, which keeps its building definitions as
+      JavaScript config in the repository rather than reading them from a
+      shipped game file. That means Pharaoh's table carries **cost and
+      labourers**, which Caesar III's cannot — and cost is five numbers, one
+      per difficulty level, so the cards show a range rather than pretending
+      there is one figure.
+
+      Fifteen buildings turned out to exist in both games and are now single
+      concepts with two variants each, which is the first real use of the
+      cross-game shape the schema was built for. It immediately earned its
+      keep: a **Granary is 3x3 in Caesar III and 4x4 in Pharaoh**, and the
+      Library and Academy swap sizes between the two.
+
+      **Monuments are excluded.** Pyramids, the sphinx, obelisks and the temple
+      complexes carry an `is_monument` flag and are built in phases by work
+      camps; `building_size` reads 2 even for the grand pyramid complex, so it
+      is not a footprint. Publishing it would have been a confident lie.
 - [ ] **Mechanics deep-dives and campaign/mission lists.** Prose, and blocked
       on the same problem as always — a source that can be checked. One
       structural fact *is* confirmed and is a good starting point for whoever
