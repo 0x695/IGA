@@ -406,6 +406,29 @@ const production = defineCollection({
   }),
 });
 
+/**
+ * Mechanics deep-dives - the one part of the site that is argument rather than
+ * table, and therefore the part that has to be most careful about sourcing.
+ *
+ * Blocks reuse the format spec's shape, so the prose/list/callout rendering is
+ * the same component and a mechanics page cannot drift from a format page.
+ * There is no index route, for the same reason there is no /formats/ index:
+ * hubs are the way in.
+ */
+const mechanics = defineCollection({
+  loader: file('src/data/mechanics.json'),
+  schema: z.object({
+    title: z.string(),
+    /** The label a hub links with. */
+    shortTitle: z.string(),
+    /** Which hubs surface this. */
+    games: z.array(z.string()),
+    summary: z.string(),
+    blocks: z.array(specBlock),
+    sources: z.array(z.object({ title: z.string(), url: z.string().url() })),
+  }),
+});
+
 export const collections = {
   games,
   engineProjects,
@@ -415,4 +438,5 @@ export const collections = {
   campaigns,
   housing,
   production,
+  mechanics,
 };

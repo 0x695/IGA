@@ -1,0 +1,169 @@
+---
+import { getCollection } from 'astro:content';
+import Base from '../../layouts/Base.astro';
+import SpecBlock from '../../components/SpecBlock.astro';
+import { withBase } from '../../lib/url';
+
+/**
+ * A mechanics deep-dive.
+ *
+ * Same arrangement as the format pages, and for the same reason: there is no
+ * /mechanics/ index and there must not be one. A reader arrives from the hub of
+ * the game they care about. The route is top-level only because a page like
+ * this describes a model four games share, and duplicating it under each hub
+ * would be four copies of one argument.
+ *
+ * This is the site's only page that is argument rather than table, so every
+ * number in it names the file it came from and the closing callout says which
+ * games the figures do NOT cover.
+ */
+export async function getStaticPaths() {
+  const topics = await getCollection('mechanics');
+  return topics.map((topic) => ({ params: { topic: topic.id }, props: { topic } }));
+}
+
+const { topic } = Astro.props;
+const t = topic.data;
+
+const games = await getCollection('games');
+const covered = games
+  .filter((game) => t.games.includes(game.id))
+  .sort((a, b) => a.data.order - b.data.order);
+---
+
+<Base title={`${t.title} — Impressions Games Archive`} description={t.summary}>
+  <div data-pagefind-body>
+    <section class="section head">
+      <p class="head__kicker">Mechanics</p>
+      <h1 class="head__title">{t.title}</h1>
+      <p class="head__summary">{t.summary}</p>
+
+      <p class="applies">
+        Applies to{' '}
+        {
+          covered.map((game, index) => (
+            <>
+              {index > 0 && <span aria-hidden="true">, </span>}
+              <a href={withBase(`/${game.id}/`)}>{game.data.shortTitle}</a>
+            </>
+          ))
+        }
+      </p>
+    </section>
+
+    <section class="section body">
+      {t.blocks.map((block) => <SpecBlock block={block} />)}
+
+      <section class="sources">
+        <h2 class="sources__title">Sources</h2>
+        <ul>
+          {
+            t.sources.map((source) => (
+              <li>
+                <a href={source.url} target="_blank" rel="noopener noreferrer">
+                  {source.title} ↗
+                </a>
+              </li>
+            ))
+          }
+        </ul>
+      </section>
+    </section>
+  </div>
+</Base>
+
+<style>
+  .head {
+    padding-block: 56px 0;
+  }
+
+  .head__kicker {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--color-text-dim);
+    margin: 0 0 14px;
+  }
+
+  .head__title {
+    font-family: var(--font-heading);
+    font-weight: 700;
+    font-size: clamp(30px, 5vw, 46px);
+    line-height: 1.12;
+    margin: 0 0 18px;
+    padding-bottom: 16px;
+    border-bottom: 3px solid var(--color-divider);
+    max-width: 22ch;
+  }
+
+  .head__summary {
+    font-size: 16px;
+    line-height: 1.7;
+    color: var(--color-text-dim);
+    max-width: 66ch;
+    margin: 0 0 18px;
+  }
+
+  .applies {
+    font-size: 12.5px;
+    color: var(--color-text-dim);
+    margin: 0;
+  }
+
+  .applies a {
+    color: var(--color-accent);
+    text-decoration: none;
+  }
+
+  .applies a:hover {
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+
+  .body {
+    padding-block: 20px 80px;
+  }
+
+  .sources {
+    margin-top: 40px;
+    padding-top: 20px;
+    border-top: 1px solid var(--color-divider);
+  }
+
+  .sources__title {
+    font-family: var(--font-heading);
+    font-weight: 600;
+    font-size: 13px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--color-text-dim);
+    margin: 0 0 10px;
+  }
+
+  .sources ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  .sources a {
+    color: var(--color-accent);
+    text-decoration: none;
+    font-size: 13px;
+  }
+
+  .sources a:hover {
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+
+  @media (max-width: 640px) {
+    .head {
+      padding-block: 36px 0;
+    }
+  }
+</style>

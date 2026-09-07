@@ -12,9 +12,12 @@ import type { CollectionEntry } from 'astro:content';
  * prose is also monospaced is the wall the brief was warning about.
  */
 type Spec = NonNullable<CollectionEntry<'fileFormats'>['data']['spec']>;
+type MechanicsBlocks = CollectionEntry<'mechanics'>['data']['blocks'];
 
+/* Format specs and mechanics pages share this component on purpose: they use
+   the same block shapes, so the two cannot drift apart visually. */
 interface Props {
-  block: Spec[number];
+  block: Spec[number] | MechanicsBlocks[number];
 }
 
 const { block } = Astro.props;

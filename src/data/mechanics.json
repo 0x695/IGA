@@ -1,0 +1,92 @@
+[
+  {
+    "id": "walkers",
+    "title": "Walkers, and why a city is not a spreadsheet",
+    "shortTitle": "The walker model",
+    "games": ["caesar3", "pharaoh", "zeus", "emperor"],
+    "summary": "Every Impressions city runs two opposite systems at once. Employment is a global pool with no geography in it at all. Services are delivered by a person who walks out of a building and covers whatever they happen to pass. Almost every frustration these games produce comes from expecting one of those to behave like the other.",
+    "blocks": [
+      {
+        "kind": "prose",
+        "title": "Two systems, opposite in kind",
+        "body": [
+          "Ask a Caesar III player why their city is failing and you will usually get an answer about numbers: not enough workers, not enough food, not enough money. Ask the engine and it will more often tell you something about geography. The two halves of the simulation work in opposite ways, and the game never says so.",
+          "Employment is a pool. Julius allocates labour across nine categories - industry and commerce, food production, engineering, water, prefectures, military, entertainment, health and education, governance and religion - and hands out workers by a priority order the player sets. A building's distance from housing does not enter into it. Neither does the road network. If the city has the people and the category has the priority, the building is staffed.",
+          "Service is not a pool. It is a person. A doctor leaves a clinic, walks along a road, and marks the houses they pass. Nothing else marks them. There is no radius from the building, no city-wide check that a clinic exists somewhere, no allowance for a house that is fifteen tiles away with a wall in between. The house is covered if a body went past it, and it is not if one did not."
+        ]
+      },
+      {
+        "kind": "callout",
+        "title": "The sentence that explains most bad cities",
+        "body": "You can employ every doctor in the city and still have a plague, because employment and coverage are different questions. The labour advisor answers the first. Only the map answers the second."
+      },
+      {
+        "kind": "list",
+        "title": "What the walker actually does",
+        "note": "Read out of Julius, which reimplements Caesar III's original behaviour. The figures are the engine's own constants.",
+        "items": [
+          {
+            "term": "Reach: 2 tiles",
+            "description": "A walker services the area within two tiles of wherever it is standing - a five-by-five box that moves with it. This is why a house one tile off the road is usually fine and a house four tiles off it is never covered."
+          },
+          {
+            "term": "Heading: a point 8 tiles away",
+            "description": "On leaving, the walker aims at a spot eight tiles from its building, then walks to the nearest road within six tiles of that spot. It is not choosing a destination that needs serving; it is choosing a direction."
+          },
+          {
+            "term": "Direction: rotating, not random",
+            "description": "Each building keeps a roam direction that advances by two every time it sends someone out, wrapping around after the fourth. Successive walkers from one building therefore fan out through four directions in rotation rather than picking at random - which is why a building on a crossroads eventually covers all four arms, and one on a dead end wastes three trips in four."
+          },
+          {
+            "term": "Turning: whatever road is nearest its heading",
+            "description": "At a junction the walker looks for a road tile closest to the direction it already wants to go, checking each way around in turn and taking the shorter deviation. It re-evaluates on a five-tick timer. It has no map of the city and no memory of where it has been."
+          },
+          {
+            "term": "Coverage is capped",
+            "description": "A house's accumulated service value stops at 96. Sending six doctors past the same house does not make it healthier than sending two; it wastes four doctors."
+          }
+        ]
+      },
+      {
+        "kind": "prose",
+        "title": "Why the layouts look the way they do",
+        "body": [
+          "Every well-known Impressions city layout is a workaround for the paragraph above. The loop exists because a walker that leaves on a circuit comes back, and one that leaves down a straight line has to be lucky to return anywhere useful. The rule against unnecessary intersections exists because each junction is a chance for the walker to take the arm you did not want. Housing blocks are compact because coverage is two tiles wide and every tile beyond that is a house nobody visits.",
+          "None of this is arbitrary player superstition, and none of it is in the manual. It is the visible shape of a pathfinding routine that decides its next step from the road tiles immediately around it.",
+          "It also explains the series' most counterintuitive advice: that a smaller service building placed well beats a larger one placed badly, and that adding a second clinic to a struggling district often helps less than removing a road."
+        ]
+      },
+      {
+        "kind": "prose",
+        "title": "What the series did about it",
+        "body": [
+          "The later games did not abandon the model - they gave the player tools to steer it. Pharaoh's building set includes a roadblock, a tile whose only purpose is to stop a walker leaving a district, which is the design admitting that the roaming rule needs constraining to be usable.",
+          "That is the honest shape of the whole series: a simulation that is physical where players expect it to be abstract, and abstract where they expect it to be physical."
+        ]
+      },
+      {
+        "kind": "callout",
+        "title": "What this page does not tell you",
+        "body": "The figures here are read from Julius, which reimplements Caesar III. Pharaoh, Zeus and Emperor share the model - a walker leaving a building, covering what it passes - but their exact constants have not been checked against their own engines, and Emperor has no open-source engine to check against at all. Where a number is given above, it is Caesar III's."
+      }
+    ],
+    "sources": [
+      {
+        "title": "Julius - src/city/labor.c",
+        "url": "https://github.com/bvschaik/julius/blob/master/src/city/labor.c"
+      },
+      {
+        "title": "Julius - src/figure/service.c",
+        "url": "https://github.com/bvschaik/julius/blob/master/src/figure/service.c"
+      },
+      {
+        "title": "Julius - src/figure/movement.c",
+        "url": "https://github.com/bvschaik/julius/blob/master/src/figure/movement.c"
+      },
+      {
+        "title": "Akhenaten - src/scripts/building/roadblock.js",
+        "url": "https://github.com/dalerank/Akhenaten/blob/master/src/scripts/building/roadblock.js"
+      }
+    ]
+  }
+]
