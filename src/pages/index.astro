@@ -8,6 +8,7 @@ const games = (await getCollection('games')).sort((a, b) => a.data.order - b.dat
 const studios = [
   { years: '1992–2000', developer: 'Impressions Games', publisher: 'Sierra' },
   { years: '2002', developer: 'BreakAway Games', publisher: 'Sierra' },
+  { years: '2003–2026', developer: 'Reverse engineering', publisher: null },
 ];
 ---
 
@@ -35,7 +36,7 @@ const studios = [
             <div class="studios__cell">
               <div class="studios__years">{studio.years}</div>
               <div class="studios__name">{studio.developer}</div>
-              <div class="studios__publisher">Published by {studio.publisher}</div>
+              {studio.publisher && <div class="studios__publisher">Published by {studio.publisher}</div>}
             </div>
           ))
         }
@@ -101,6 +102,10 @@ const studios = [
     padding-block: 88px 56px;
   }
 
+  #timeline {
+    padding-bottom: 56px;
+  }
+
   .hero__kicker {
     font-family: var(--font-mono);
     font-size: 12px;
@@ -140,7 +145,7 @@ const studios = [
 
   .studios {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr;
     border: 1px solid var(--color-divider);
     border-radius: var(--radius-md);
     overflow: hidden;
