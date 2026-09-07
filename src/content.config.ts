@@ -30,6 +30,19 @@ const games = defineCollection({
     developer: z.string(),
     publisher: z.string(),
     credits: z.string().nullable(),
+    /**
+     * The development team, role by role, transcribed from the game's own
+     * manual - which is the primary source, and where the credit databases got
+     * it from too. Null where no manual with a credits section has been found;
+     * the hub then falls back to the one-line `credits` above rather than
+     * showing an empty section.
+     */
+    fullCredits: z
+      .array(z.object({ role: z.string(), names: z.array(z.string()) }))
+      .nullable(),
+    creditsSource: z.object({ title: z.string(), url: z.string().url() }).nullable(),
+    /** Anything the transcription deliberately leaves out. */
+    creditsNote: z.string().nullable(),
     expansions: z.string().nullable(),
     /** Caesar I and II: cruder, pre-isometric, presented as archive entries. */
     archive: z.boolean(),
