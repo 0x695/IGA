@@ -25,38 +25,15 @@
   },
   {
     "id": "citybuilders-forums-caesar3",
-    "title": "HeavenGames — City Builders Forums",
-    "url": "https://caesar3.heavengames.com/cgi-bin/caeforumscgi/index.cgi",
+    "title": "caesar3.heavengames.com",
+    "url": "https://caesar3.heavengames.com/",
     "category": "Forums",
     "games": [
       "caesar3"
     ],
     "status": "active",
-    "note": "The main hub — news archives back to 2002, downloads, FAQs.",
-    "archivedUrl": "https://web.archive.org/web/2/https://caesar3.heavengames.com/cgi-bin/caeforumscgi/index.cgi"
-  },
-  {
-    "id": "augustus-discord",
-    "title": "Augustus Discord",
-    "url": "https://discord.gg/GamerZakh",
-    "category": "Discord",
-    "games": [
-      "caesar3"
-    ],
-    "status": "active",
-    "note": "Hosted by GamerZakh — the most active live dev/modding community found. Linked from the Augustus README as the place players, mapmakers and developers gather."
-  },
-  {
-    "id": "caesaralan",
-    "title": "caesaralan.co.uk",
-    "url": null,
-    "category": "Single-author",
-    "games": [
-      "caesar3"
-    ],
-    "status": "dead",
-    "note": "Long cited by Caesar III veterans as the best single-author resource. The domain no longer resolves — the Wayback Machine's last capture is August 2013, and is the only way to read it now.",
-    "archivedUrl": "http://web.archive.org/web/20130813152721/http://caesaralan.co.uk/"
+    "note": "Per-game HeavenGames site — news, downloads, FAQ, and its own forums.",
+    "archivedUrl": "https://web.archive.org/web/2/https://caesar3.heavengames.com/"
   },
   {
     "id": "pharaoh-heavengames",
@@ -115,5 +92,21 @@
     ],
     "status": "dormant",
     "note": "A maintained collection of community campaigns — worth preserving."
+  },
+  {
+    "id": "reddit-impressionsgames",
+    "title": "r/impressionsgames",
+    "url": "https://www.reddit.com/r/impressionsgames",
+    "category": "Reddit",
+    "games": [
+      "caesar1",
+      "caesar2",
+      "caesar3",
+      "pharaoh",
+      "zeus",
+      "emperor"
+    ],
+    "status": "active",
+    "note": "Covers the whole series in one place. Reddit blocks automated fetches from this machine, so its traffic level wasn't independently checked before adding it — the way MobyGames and a few other sources are handled elsewhere on this site."
   }
 ]
