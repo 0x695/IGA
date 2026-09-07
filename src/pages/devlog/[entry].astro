@@ -1,0 +1,175 @@
+---
+import { getCollection } from 'astro:content';
+import Base from '../../layouts/Base.astro';
+import SpecBlock from '../../components/SpecBlock.astro';
+import { withBase } from '../../lib/url';
+
+/** One devlog entry, rendered through the same blocks as a format spec. */
+export async function getStaticPaths() {
+  const entries = (await getCollection('devlog')).sort((a, b) =>
+    b.data.date.localeCompare(a.data.date),
+  );
+
+  return entries.map((entry, index) => ({
+    params: { entry: entry.id },
+    props: {
+      entry,
+      /* Newest first, so "newer" is the previous element. */
+      newer: entries[index - 1] ?? null,
+      older: entries[index + 1] ?? null,
+    },
+  }));
+}
+
+const { entry, newer, older } = Astro.props;
+const e = entry.data;
+
+const formatted = new Date(e.date).toLocaleDateString('en-GB', {
+  day: 'numeric',
+  month: 'long',
+  year: 'numeric',
+});
+---
+
+<Base title={`${e.title} — Impressions Games Archive`} description={e.summary}>
+  <div data-pagefind-body>
+    <section class="section head">
+      <p class="head__kicker">
+        <a href={withBase('/devlog/')}>Devlog</a>
+        <span aria-hidden="true"> · </span>
+        <time datetime={e.date}>{formatted}</time>
+      </p>
+      <h1 class="head__title">{e.title}</h1>
+      <p class="head__summary">{e.summary}</p>
+    </section>
+
+    <section class="section body">
+      {e.blocks.map((block) => <SpecBlock block={block} />)}
+
+      <nav class="pager" aria-label="More entries">
+        {
+          older ? (
+            <a class="pager__link" href={withBase(`/devlog/${older.id}/`)}>
+              <span class="pager__dir">Earlier</span>
+              <span class="pager__title">{older.data.title}</span>
+            </a>
+          ) : (
+            <span />
+          )
+        }
+        {
+          newer && (
+            <a class="pager__link pager__link--next" href={withBase(`/devlog/${newer.id}/`)}>
+              <span class="pager__dir">Later</span>
+              <span class="pager__title">{newer.data.title}</span>
+            </a>
+          )
+        }
+      </nav>
+    </section>
+  </div>
+</Base>
+
+<style>
+  .head {
+    padding-block: 56px 0;
+  }
+
+  .head__kicker {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--color-text-dim);
+    margin: 0 0 14px;
+  }
+
+  .head__kicker a {
+    color: var(--color-accent);
+    text-decoration: none;
+  }
+
+  .head__kicker a:hover {
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+
+  .head__title {
+    font-family: var(--font-heading);
+    font-weight: 700;
+    font-size: clamp(30px, 5vw, 46px);
+    line-height: 1.12;
+    margin: 0 0 18px;
+    padding-bottom: 16px;
+    border-bottom: 3px solid var(--color-divider);
+    max-width: 24ch;
+  }
+
+  .head__summary {
+    font-size: 16px;
+    line-height: 1.7;
+    color: var(--color-text-dim);
+    max-width: 66ch;
+    margin: 0;
+  }
+
+  .body {
+    padding-block: 20px 80px;
+  }
+
+  .pager {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    margin-top: 44px;
+    padding-top: 20px;
+    border-top: 1px solid var(--color-divider);
+  }
+
+  .pager__link {
+    text-decoration: none;
+    max-width: 34ch;
+  }
+
+  .pager__link--next {
+    text-align: right;
+    margin-left: auto;
+  }
+
+  .pager__dir {
+    display: block;
+    font-family: var(--font-mono);
+    font-size: 10px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--color-text-dim);
+    margin-bottom: 4px;
+  }
+
+  .pager__title {
+    display: block;
+    font-family: var(--font-heading);
+    font-weight: 600;
+    font-size: 14.5px;
+    line-height: 1.35;
+  }
+
+  .pager__link:hover .pager__title {
+    color: var(--color-accent);
+  }
+
+  @media (max-width: 640px) {
+    .head {
+      padding-block: 36px 0;
+    }
+
+    .pager {
+      flex-direction: column;
+    }
+
+    .pager__link--next {
+      text-align: left;
+      margin-left: 0;
+    }
+  }
+</style>

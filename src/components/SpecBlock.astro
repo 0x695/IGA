@@ -13,11 +13,12 @@ import type { CollectionEntry } from 'astro:content';
  */
 type Spec = NonNullable<CollectionEntry<'fileFormats'>['data']['spec']>;
 type MechanicsBlocks = CollectionEntry<'mechanics'>['data']['blocks'];
+type DevlogBlocks = CollectionEntry<'devlog'>['data']['blocks'];
 
 /* Format specs and mechanics pages share this component on purpose: they use
    the same block shapes, so the two cannot drift apart visually. */
 interface Props {
-  block: Spec[number] | MechanicsBlocks[number];
+  block: Spec[number] | MechanicsBlocks[number] | DevlogBlocks[number];
 }
 
 const { block } = Astro.props;

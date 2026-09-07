@@ -1,11 +1,26 @@
 ---
-/** The one disclaimer line, on every page. */
+import { withBase } from '../lib/url';
+
+/**
+ * The one disclaimer line, on every page - plus the way into the devlog.
+ *
+ * The link lives here rather than in the nav on purpose: the design's header is
+ * a fixed three-column grid whose third column already holds search, and adding
+ * a seventh item to a nav built around six games would be redesigning it.
+ */
 ---
 
 <footer class="footer">
   <div class="footer__inner">
-    Impressions Games Archive is a fan-run reference. Not affiliated with
-    Impressions Games, Activision, Sierra, or Tilted Mill.
+    <p class="footer__disclaimer">
+      Impressions Games Archive is a fan-run reference. Not affiliated with
+      Impressions Games, Activision, Sierra, or Tilted Mill.
+    </p>
+    <p class="footer__links">
+      <a href={withBase('/devlog/')}>Devlog</a>
+      <span aria-hidden="true"> · </span>
+      <a href={withBase('/search/')}>Search</a>
+    </p>
   </div>
 </footer>
 
@@ -21,5 +36,27 @@
     text-align: center;
     font-size: 12.5px;
     color: var(--color-text-dim);
+  }
+
+  .footer__disclaimer {
+    margin: 0;
+  }
+
+  .footer__links {
+    margin: 10px 0 0;
+    font-family: var(--font-mono);
+    font-size: 11px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+  }
+
+  .footer__links a {
+    color: var(--color-accent);
+    text-decoration: none;
+  }
+
+  .footer__links a:hover {
+    text-decoration: underline;
+    text-underline-offset: 3px;
   }
 </style>

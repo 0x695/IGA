@@ -429,6 +429,26 @@ const mechanics = defineCollection({
   }),
 });
 
+/**
+ * The devlog - masterdoc §7's stated reason for the site existing: a public
+ * home for the reverse-engineering work rather than only its conclusions.
+ *
+ * Entries reuse the format spec's block shapes, like the mechanics pages, so
+ * all three render through one component. Unlike the reference sections this
+ * one does have an index, because a log with no index is not a log; what §10
+ * rejected was centralised *reference* pages competing with the hubs.
+ */
+const devlog = defineCollection({
+  loader: file('src/data/devlog.json'),
+  schema: z.object({
+    /** ISO date, used for ordering and shown on the entry. */
+    date: z.string(),
+    title: z.string(),
+    summary: z.string(),
+    blocks: z.array(specBlock),
+  }),
+});
+
 export const collections = {
   games,
   engineProjects,
@@ -439,4 +459,5 @@ export const collections = {
   housing,
   production,
   mechanics,
+  devlog,
 };

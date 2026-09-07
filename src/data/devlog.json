@@ -1,0 +1,234 @@
+[
+  {
+    "id": "the-design-was-already-finished",
+    "date": "2026-09-06T22:02",
+    "title": "Starting from a design that was already finished",
+    "summary": "The project began with three briefs and an approved design canvas, which is an unusual place to start and made the first real decision an easy one: build what was drawn, and don't redesign it on the way.",
+    "blocks": [
+      {
+        "kind": "prose",
+        "body": [
+          "Most side projects begin with a blank page. This one began with a masterdoc, a design brief, a build brief and an exported design canvas — six games' worth of researched content, a dark shell, Cormorant Garamond over Lora with JetBrains Mono for figures, and a per-game accent that runs white to grey in release order.",
+          "That made the first decision less about taste than about discipline. The artboards carry exact tokens, so every colour, size and radius in the build is lifted from them; a literal hex or a bare 14px anywhere in a component is drift, not judgement. Three things were added that the design does not have, and each is written down with the brief that required it: search in the header's empty third column, the scope line under the homepage hero, and the \"how to play it today\" section on each hub.",
+          "One reversal was inherited rather than made. The design pass had tried a centralised structure — an engine hub, a file format reference, a community directory — and rejected it for pulling attention away from the game a visitor actually arrived for. Six self-contained game hubs won. That decision has held through everything since, and it is why the format specs, buildings, campaigns and mechanics pages all hang off hubs rather than sitting in an index."
+        ]
+      }
+    ]
+  },
+  {
+    "id": "a-shell-and-a-base-path",
+    "date": "2026-09-07T00:26",
+    "title": "A shell, a search box, and a base path that broke everything",
+    "summary": "Home, six hubs and Pagefind went up in a night. Then the first deploy to GitHub Pages turned every hand-written link into a 404, and the fix was a nine-line helper.",
+    "blocks": [
+      {
+        "kind": "prose",
+        "body": [
+          "The shell came together quickly: a Home with the series timeline, six hubs filtered out of shared content collections, and Pagefind for search. Both briefs called static search non-negotiable for a reference site, and the design pass had dropped the search box for a cleaner header. That was read as a design omission rather than a decision to ship without search, so it went into the header's spare column where nothing had to move.",
+          "Then it went to GitHub Pages as a project site, served from /IGA/, and a good half of the links broke. Astro rewrites the URLs it generates itself, but not the ones written by hand — and the site was full of hand-written ones. The fix is a small helper that prefixes a path with the configured base, applied everywhere a link is authored.",
+          "The over-correction came immediately after. Pagefind's result URLs already carry the base, because it derives its site root from wherever pagefind.js was loaded from. Prefixing those too produced /iga/iga/caesar3/. The rule that came out of it: prefix paths you write, never paths a tool hands you."
+        ]
+      },
+      {
+        "kind": "callout",
+        "title": "The deploy failed before it ran",
+        "body": "The first workflow run died at Configure Pages, because Pages had never been switched on for the repository. Passing enablement: true lets the workflow turn it on itself, rather than requiring a visit to a settings screen that a fresh clone has no way of knowing about."
+      }
+    ]
+  },
+  {
+    "id": "the-format-reference",
+    "date": "2026-09-07T01:00",
+    "title": "The format reference, and four things the research corrected",
+    "summary": "The technical layer is the reason this site exists. Writing it properly meant contradicting the project's own planning document four times.",
+    "blocks": [
+      {
+        "kind": "prose",
+        "body": [
+          "A format gets a page here if and only if there is a written spec behind it. Everything else stays a one-line row on a hub that says so and links nowhere, because the arrow on a linked row is a promise that the click is worth making.",
+          "Writing them turned up four corrections, and the masterdoc was wrong in three of them."
+        ]
+      },
+      {
+        "kind": "list",
+        "title": "What the sources actually said",
+        "items": [
+          {
+            "term": ".eng is documented",
+            "description": "The planning doc listed it as undocumented. It is written up, and it spans Caesar III as well — so it earned a page instead of a row."
+          },
+          {
+            "term": "Caesar III saves are not ZIP",
+            "description": "They use PKWARE DCL compression. The engine's own file is called zip.c and its function zip_compress, which is exactly the sort of name that propagates a wrong assumption for twenty years."
+          },
+          {
+            "term": "A .map is exactly 211,692 bytes",
+            "description": "Fixed size, on a 162×162 grid. A number that specific is worth publishing because it is instantly checkable."
+          },
+          {
+            "term": "Cost and labour are not in the engine",
+            "description": "They live in c3_model.txt, which ships with the game and which any mod may rewrite. That single fact has shaped every table on this site since."
+          }
+        ]
+      },
+      {
+        "kind": "callout",
+        "title": "Derived, never stored",
+        "body": "A format's status dot is computed from its documentation value rather than stored beside it. When both were data they disagreed, and .map shipped a green dot next to the words \"Partially documented\". Two fields that can contradict each other eventually will."
+      }
+    ]
+  },
+  {
+    "id": "buildings-are-generated",
+    "date": "2026-09-07T01:38",
+    "title": "Buildings are generated, not written — and one column was dropped",
+    "summary": "Two hundred-odd buildings read out of two engines by a script that asserts its own work, plus a field that was parsed, understood badly, and deliberately thrown away.",
+    "blocks": [
+      {
+        "kind": "prose",
+        "body": [
+          "The buildings table is output. The script joins Julius's building enum to its properties table by numeric index — which is precisely the operation that fails silently, producing a table that looks perfect and is off by one — so it asserts the row count and checks fourteen footprints known independently before it will write anything.",
+          "Pharaoh came from Akhenaten, which keeps its definitions as configuration in its own repository, and therefore carries cost and labourers that Julius cannot. Pharaoh states cost as five numbers, one per difficulty, so it is never rendered as one. Fifteen buildings turned out to exist in both games and became single entries with two variants each — the first real use of the cross-game shape the schema was built for. It earned its keep immediately: a granary is 3×3 in Caesar III and 4×4 in Pharaoh."
+        ]
+      },
+      {
+        "kind": "callout",
+        "title": "fire_proof was parsed and then dropped",
+        "body": "The column header reads FIRE and the struct field is fire_proof, which are opposite claims about the same byte. The warehouse is flagged in a way that contradicts how the game plays, and no code consuming the field could be found. Publishing it would have meant guessing which way round it went, so it is parsed and not emitted. A reference that quietly omits what nobody knows is worse than one that marks it — but a reference that confidently states a coin flip is worse than both."
+      },
+      {
+        "kind": "prose",
+        "body": [
+          "Pharaoh's monuments are excluded for a related reason. Pyramids, the sphinx, obelisks and the temple complexes are built in phases by work camps, and the size the engine records for them reads 2 even for the grand pyramid complex. That is not a footprint, and printing it as one would be a confident lie."
+        ]
+      }
+    ]
+  },
+  {
+    "id": "campaigns-and-a-misread-array",
+    "date": "2026-09-07T09:30",
+    "title": "Campaigns, a misread array, and ten missions in the wrong game",
+    "summary": "Reading mission lists out of engines rather than walkthroughs produced something no guide has — and caught two errors, one of them mine.",
+    "blocks": [
+      {
+        "kind": "prose",
+        "body": [
+          "A compilation of walkthroughs was offered as source material and declined for the pages themselves: each section had a named author and its own terms, and one said plainly that it may not be placed on any web site. The rule that came out of it is simple, and it is now the site's rule for anything handed over as content — facts can be sourced, prose cannot be copied.",
+          "So Pharaoh's campaign was read out of Akhenaten's per-mission configuration instead, which yields something no walkthrough has: the win criteria the engine actually tests. Caesar III and Emperor had to come from the community, because their mission names are not in any engine, and the pages say which is which rather than presenting both as equally grounded."
+        ]
+      },
+      {
+        "kind": "callout",
+        "title": "Twelve ranks and twenty-two scenarios, except not",
+        "body": "Caesar III's campaign was first reported here as twelve ranks and twenty-two scenarios, read off the size of Julius's MISSION_IDS array. That was array capacity, not campaign content. The game has eleven ranks and twenty missions; Julius simply leaves its twelfth row unused. Reading a fixed-size table as a fact about the game is a mistake worth remembering."
+      },
+      {
+        "kind": "prose",
+        "body": [
+          "The second error survived longer. Ten missions belonging to Cleopatra: Queen of the Nile were being presented as part of the base Pharaoh campaign. A supplied mission list disagreed with the site, and it was right — but rather than take its word, the fix walked the engine's own chains: every Akhenaten mission names the mission it hands off to, and a campaign ends where that pointer reads -1. Those terminators land at 40, 44, 47 and 52, which reproduces Cleopatra's four short campaigns exactly. The engine's own comments back it up, annotating mission 45 as the first Ancient Conquerors mission and 52 as the campaign end.",
+          "The right split is 38 base missions and 15 Cleopatra ones. Two independent sources agreeing is good; a source agreeing with something you can walk yourself is better."
+        ]
+      }
+    ]
+  },
+  {
+    "id": "credits-and-a-blocked-door",
+    "date": "2026-09-07T09:06",
+    "title": "Credits, a blocked door, and the shape of a lie",
+    "summary": "Putting whole development teams on each hub meant working around a source that could not be reached, and changing the data model twice to avoid saying something untrue.",
+    "blocks": [
+      {
+        "kind": "prose",
+        "body": [
+          "The obvious source for credits returned 403 to a fetch and a bot check in a browser. Working around bot detection was not on the table, so the first two games were transcribed from their own manuals instead — which is the primary source those databases work from anyway. The remaining four were supplied directly.",
+          "Two changes to the data model came out of doing it honestly, and both are about avoiding a small lie rather than about tidiness."
+        ]
+      },
+      {
+        "kind": "list",
+        "title": "Two fields that had to change",
+        "items": [
+          {
+            "term": "A credit row can carry a section",
+            "description": "Emperor was built by BreakAway Games for Impressions and Sierra, and credits the two studios separately. Cleopatra and Poseidon credit their own teams. Flattening those into one run of roles would tell a reader something untrue about who made what."
+          },
+          {
+            "term": "A game can name more than one source",
+            "description": "Zeus's base credits came from its manual and its expansion's from a listing. Naming one of two sources is a small lie, so the field became an array and the block names both."
+          }
+        ]
+      },
+      {
+        "kind": "callout",
+        "title": "Eighty names that are not here",
+        "body": "The manuals list roughly eighty external beta testers per game, and they are not reproduced — but each affected game says so, rather than staying quiet about the omission. Emperor's map-contest winners are the exception: their scenarios shipped in patch 1.0.1.0, which is authorship rather than testing, and they are credited for it."
+      }
+    ]
+  },
+  {
+    "id": "dating-the-status-dot",
+    "date": "2026-09-07T09:57",
+    "title": "Dating the status dot",
+    "summary": "Saying an open-source project is dormant is a core value of this site. Until now that word had nothing behind it, and two of the nine claims turned out to be wrong.",
+    "blocks": [
+      {
+        "kind": "prose",
+        "body": [
+          "Every engine project carries a status — active, dormant or dead — and a small coloured dot to match. It is one of the site's more useful features and it was, until now, entirely unsupported: nine assertions with no evidence attached to any of them.",
+          "A script now reads each project's most recent commit from the API and writes the short sha and date into the data, along with the date the lookup happened. The date going stale is the point: a reader can see how old the answer is instead of trusting a word typed once.",
+          "The script deliberately does not write status. A project can be finished rather than abandoned, and deriving that word from a date would turn a considered call into a heuristic. Instead it prints the rows where the two disagree and leaves the decision to a person. Three disagreed, and two were wrong on the page: eZeus was published as dormant while having committed three weeks earlier, and Ozymandias carried the line \"Dormant since ~Sept 2022\" next to a commit from February 2026."
+        ]
+      },
+      {
+        "kind": "callout",
+        "title": "The same bug, twice",
+        "body": "This is the .map green dot again in a different costume — a claim and its evidence sitting side by side, disagreeing, because nothing forced them to be consistent. The fix in both cases was to put the evidence on the page where a disagreement becomes visible."
+      }
+    ]
+  },
+  {
+    "id": "housing-two-sources",
+    "date": "2026-09-07T10:49",
+    "title": "The housing ladder, and the one that took two sources",
+    "summary": "Four games' housing ladders, three of them straightforward. Zeus needed a fansite and an engine together, and the join between them is what makes it trustworthy.",
+    "blocks": [
+      {
+        "kind": "prose",
+        "body": [
+          "The rung a citizen lives on is what half the series' mission goals are written against — five thousand people in a townhouse or better — so it belongs on the site as a table rather than a sentence. Pharaoh's came whole out of Akhenaten: twenty rungs with capacity, prosperity, desirability thresholds and ten requirement columns, each stated five times, once per difficulty.",
+          "Caesar III's is deliberately thinner. Names and footprints only, because its requirements live in c3_model.txt — the same absence as the missing cost column, for the same reason. Reading it also caught a trap: the buildings table stores houses alphabetically, so Grand insula sorts first. The ladder order is the enum order, and only the enum knows it.",
+          "Zeus was the interesting one. A fansite names the eleven rungs and gives each one's population but describes requirements qualitatively — \"oil + appeal\". eZeus, a live reimplementation, carries the exact conditions in its evolution code but reads the names from the game's language file, which does not ship in the repository. Neither source is sufficient alone."
+        ]
+      },
+      {
+        "kind": "callout",
+        "title": "The capacity arrays are the join",
+        "body": "The engine's {8,16,24,32,40,48,60} and {6,6,10,16,20} reproduce the fansite's populations exactly, and the leading 6 turns out to be the unevolved elite plot rather than a rung — the same shape as Caesar III's vacant lot sharing an enum value with the small tent. Both arrays are asserted at build time, so if the pairing ever stops holding the build fails instead of publishing a quiet mismatch. The result carries appeal thresholds that are on neither source alone."
+      }
+    ]
+  },
+  {
+    "id": "production-and-the-walker",
+    "date": "2026-09-07T10:59",
+    "title": "Production chains, and the page that could not be extracted",
+    "summary": "Thirty-nine production chains read from configuration, and then the first page on this site that is an argument rather than a table.",
+    "blocks": [
+      {
+        "kind": "prose",
+        "body": [
+          "Pharaoh's production chains came out of Akhenaten cleanly: what each building takes in, what it puts out, how many labourers it wants, and the rate the engine steps its progress bar with. No other game gets the page, and the reasons differ — Caesar III's rates are in the file mods rewrite, Emperor's exist only as a walkthrough author's estimates (\"about 6-7 per year\", \"I assume the bump is like 15%\"), and the remaining three have no engine carrying them. Reprinting somebody's assumption as a reference figure is worse than an empty column.",
+          "One parser bug is worth recording because it is the buildings join-by-index problem wearing different clothes. The config files indent their nested definitions, and anchoring the block pattern to column zero silently merged each into the block above — producing 25 producers instead of 39, with a fig farm holding a grain farm's numbers. It looked entirely plausible.",
+          "Then the mechanics essay, which is the first thing here that could not be extracted from anything. Its claim is that an Impressions city runs two opposite systems at once: employment is a global pool across nine categories with no geography in it at all, while a service is a person who walks out of a door and covers whatever they pass. You can employ every doctor in the city and still have a plague, because those are different questions, and only the map answers the second."
+        ]
+      },
+      {
+        "kind": "prose",
+        "title": "Writing an argument to the same standard as a table",
+        "body": [
+          "Prose is where a reference site usually gets sloppy, so the essay was held to the tables' standard: every figure in it names the engine file it came from — the two-tile box a walker services around wherever it is standing, the point eight tiles out it heads for, the roam direction that advances by two each time a building sends someone out, the coverage cap of 96 — and the closing callout says plainly that those numbers are Caesar III's and have not been checked against the other three engines.",
+          "That is also the honest summary of the whole project so far. Nearly everything here was read out of something that can be checked, and where it could not be, the page says so instead of rounding the gap up into confidence."
+        ]
+      }
+    ]
+  }
+]

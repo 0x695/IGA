@@ -1,0 +1,140 @@
+---
+import { getCollection } from 'astro:content';
+import Base from '../../layouts/Base.astro';
+import { withBase } from '../../lib/url';
+
+/**
+ * The devlog index.
+ *
+ * This is the one index the IA allows: masterdoc §10 rejected centralised
+ * *reference* pages that compete with the game hubs for a visitor's attention,
+ * and a log of how the work was done competes with nothing. Newest first.
+ */
+const entries = (await getCollection('devlog')).sort((a, b) =>
+  b.data.date.localeCompare(a.data.date),
+);
+
+const formatDate = (iso: string) =>
+  new Date(iso).toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' });
+---
+
+<Base
+  title="Devlog — Impressions Games Archive"
+  description="How this archive was built: what was read out of the engines, what could not be, and the mistakes caught on the way."
+>
+  <div data-pagefind-body>
+    <section class="section head">
+      <p class="head__kicker">Devlog</p>
+      <h1 class="head__title">How this was built</h1>
+      <p class="head__lede">
+        The reference pages carry conclusions. This carries the working — what was read out of which
+        engine, what had to be dropped for being unverifiable, and the errors caught before they
+        shipped, along with the ones that were not.
+      </p>
+    </section>
+
+    <section class="section list">
+      <ol class="entries">
+        {
+          entries.map((entry) => (
+            <li class="entry">
+              <a class="entry__link" href={withBase(`/devlog/${entry.id}/`)}>
+                <time class="entry__date" datetime={entry.data.date}>
+                  {formatDate(entry.data.date)}
+                </time>
+                <h2 class="entry__title">{entry.data.title}</h2>
+                <p class="entry__summary">{entry.data.summary}</p>
+              </a>
+            </li>
+          ))
+        }
+      </ol>
+    </section>
+  </div>
+</Base>
+
+<style>
+  .head {
+    padding-block: 72px 0;
+  }
+
+  .head__kicker {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--color-text-dim);
+    margin: 0 0 14px;
+  }
+
+  .head__title {
+    font-family: var(--font-heading);
+    font-weight: 700;
+    font-size: clamp(32px, 5vw, 50px);
+    margin: 0 0 20px;
+    padding-bottom: 16px;
+    border-bottom: 3px solid var(--color-divider);
+    display: inline-block;
+  }
+
+  .head__lede {
+    font-size: 16px;
+    line-height: 1.7;
+    color: var(--color-text-dim);
+    max-width: 64ch;
+    margin: 0;
+  }
+
+  .list {
+    padding-block: 32px 88px;
+  }
+
+  .entries {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    border-top: 1px solid var(--color-divider);
+  }
+
+  .entry__link {
+    display: block;
+    padding: 20px 4px;
+    border-bottom: 1px solid var(--color-divider);
+    text-decoration: none;
+  }
+
+  .entry__date {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--color-text-dim);
+  }
+
+  .entry__title {
+    font-family: var(--font-heading);
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 1.25;
+    margin: 6px 0 8px;
+    max-width: 40ch;
+  }
+
+  .entry__link:hover .entry__title {
+    color: var(--color-accent);
+  }
+
+  .entry__summary {
+    font-size: 13.5px;
+    line-height: 1.65;
+    color: var(--color-text-dim);
+    max-width: 72ch;
+    margin: 0;
+  }
+
+  @media (max-width: 640px) {
+    .head {
+      padding-block: 40px 0;
+    }
+  }
+</style>

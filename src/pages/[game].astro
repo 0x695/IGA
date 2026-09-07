@@ -244,14 +244,12 @@ for (const row of g.fullCredits ?? []) {
       mechanics.length > 0 && (
         <section class="section block">
           <h2 class="section-heading">Mechanics</h2>
-          <div class="rule-list">
-            {mechanics.map((topic) => (
-              <a class="mechanic" href={withBase(`/mechanics/${topic.id}/`)}>
-                <span class="mechanic__name">{topic.data.shortTitle} -></span>
-                <span class="mechanic__note">{topic.data.summary}</span>
-              </a>
-            ))}
-          </div>
+          {mechanics.map((topic) => (
+            <a class="buildings-link" href={withBase(`/mechanics/${topic.id}/`)}>
+              <span class="buildings-link__count">{topic.data.shortTitle} -></span>
+              <span class="buildings-link__note">{topic.data.summary}</span>
+            </a>
+          ))}
         </section>
       )
     }
@@ -599,33 +597,6 @@ for (const row of g.fullCredits ?? []) {
       grid-template-columns: 1fr;
       gap: 2px;
     }
-  }
-
-  .mechanic {
-    display: block;
-    padding: 14px 0;
-    border-bottom: 1px solid var(--color-divider);
-    text-decoration: none;
-  }
-
-  .mechanic__name {
-    display: block;
-    font-family: var(--font-heading);
-    font-weight: 600;
-    font-size: 16px;
-    margin-bottom: 4px;
-  }
-
-  .mechanic:hover .mechanic__name {
-    color: var(--color-accent);
-  }
-
-  .mechanic__note {
-    display: block;
-    font-size: 13px;
-    line-height: 1.6;
-    color: var(--color-text-dim);
-    max-width: 70ch;
   }
 
   .buildings-link {
