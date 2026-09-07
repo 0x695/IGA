@@ -274,5 +274,64 @@
         ]
       }
     ]
+  },
+  {
+    "id": "manuals-hosted-not-linked",
+    "date": "2026-09-07T15:18",
+    "title": "Manuals, and the site that wouldn't let curl through",
+    "summary": "Every game's own instruction manual, added as a category on its hub - and a lesson in the difference between a dead link and one that just doesn't like scripts.",
+    "blocks": [
+      {
+        "kind": "prose",
+        "body": [
+          "Five of six scans turned up on Internet Archive and one more on a plain file host, all reachable and checkable with a HEAD request and a look at the actual bytes rather than a search snippet. The sixth, Emperor's, kept surfacing on sites that all sat behind the same Cloudflare \"Just a moment...\" challenge this machine already knows not to fight - the identical block this site's own rule cites for MobyGames. A verified copy from the person who asked for the page solved it instead of a workaround.",
+          "Every PDF was opened and read before it went in the data, not trusted from a filename. Two of them were rendered to an image of page one to confirm the cover matched the game before publishing a link that claimed it did."
+        ]
+      },
+      {
+        "kind": "callout",
+        "title": "Hosted, not linked",
+        "body": "The manuals live under public/manuals/ instead of pointing out to the sites that had them. Several of those sites don't answer a script; hosting a verified copy means the link on this page doesn't depend on staying on the right side of somebody else's bot check."
+      }
+    ]
+  },
+  {
+    "id": "cheat-codes-read-not-copied",
+    "date": "2026-09-07T15:38",
+    "title": "Cheat codes, read the same way as everything else",
+    "summary": "A sixth category per hub, and one more case where reading the engine beat trusting a list - this time catching a fan page's own arithmetic not adding up.",
+    "blocks": [
+      {
+        "kind": "prose",
+        "body": [
+          "Caesar III's page doesn't come from a cheat site at all. Julius and Augustus ship a game/cheats.c that runs the actual key combination - arm it on a Well's info panel with Alt+K, then Alt+C or Alt+V - and Augustus's own console adds a further dozen typed commands behind the same arming step. That source also settled a detail every fan page glosses over: the money cheat stops paying out once the treasury passes 5,000 Dn, because the engine checks for it.",
+          "Caesar and Caesar II predate any in-game cheat box, so theirs are save-file byte offsets instead. Two versions of Caesar's circulate online for what turns out to be the same byte - a hex editor's offset 0x3E and DEBUG.COM's memory address 0x13E are 0x100 apart, which is exactly DEBUG's own load offset. Doing that arithmetic by hand confirmed one version's payout (25,000 Dn) and ruled the other one out: its claimed bytes work out to 32,639, not the 29,000 it advertises."
+        ]
+      },
+      {
+        "kind": "callout",
+        "title": "The other three, cross-checked rather than trusted once",
+        "body": "Pharaoh, Zeus and Emperor's Ctrl+Alt+C codes have no open-source engine to read, so each list was checked against its own HeavenGames page rather than a single aggregator. That turned up a detail none of the three manuals states: all three money cheats stop paying out at 15,000 of their currency, a shared ceiling across three separate games."
+      }
+    ]
+  },
+  {
+    "id": "second-link-pass",
+    "date": "2026-09-07T19:14",
+    "title": "A second link pass, after the first one aged",
+    "summary": "Three community links removed, one repointed at a live site instead of an old forum script, one added - the same triage as before, run again because a list of links is never really finished.",
+    "blocks": [
+      {
+        "kind": "prose",
+        "body": [
+          "The first link-rot pass checked that nothing was broken. This one removed things that were never going to un-break, or that didn't belong: the Augustus Discord invite, a single-author site whose domain has been gone since 2013, a Fandom wiki, and a campaign compilation link. Caesar III's HeavenGames entry moved from an old forum CGI script to the site's own root, which is what its Pharaoh, Zeus and Emperor siblings already pointed at."
+        ]
+      },
+      {
+        "kind": "callout",
+        "title": "One addition, one honest gap",
+        "body": "r/impressionsgames now appears on all six hubs. Reddit refuses this machine's fetches outright - the browser pane's own policy blocks the domain, and a plain request gets a 403 - so its traffic couldn't be checked the way every other source on this page is. It's marked active on trust, not verification, and that's written into its own note rather than left implicit."
+      }
+    ]
   }
 ]
