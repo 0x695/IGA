@@ -376,7 +376,7 @@ for (const row of g.fullCredits ?? []) {
         <section class="section block">
           <h2 class="section-heading">Manual</h2>
           {g.manuals.map((manual) => (
-            <a class="buildings-link" href={withBase(manual.url)}>
+            <a class="buildings-link" href={withBase(manual.url)} target="_blank" rel="noopener noreferrer">
               <span class="buildings-link__count">{manual.title} -></span>
               <span class="buildings-link__note">Scanned copy, {manual.source}.</span>
             </a>
