@@ -281,6 +281,24 @@ for (const row of g.fullCredits ?? []) {
       )
     }
 
+    {
+      g.manuals && (
+        <section class="section block">
+          <h2 class="section-heading">Manual</h2>
+          <ul class="compat manual">
+            {
+              g.manuals.map((manual) => (
+                <li class="compat__item">
+                  <a class="compat__link" href={withBase(manual.url)}>{manual.title}</a>
+                  <span class="compat__note">Scanned copy, {manual.source}.</span>
+                </li>
+              ))
+            }
+          </ul>
+        </section>
+      )
+    }
+
     <section class="section block">
       <h2 class="section-heading">Open-source engines</h2>
 

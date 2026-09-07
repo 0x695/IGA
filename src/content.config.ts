@@ -64,6 +64,20 @@ const games = defineCollection({
     /** Anything the transcription deliberately leaves out. */
     creditsNote: z.string().nullable(),
     expansions: z.string().nullable(),
+    /**
+     * Scanned instruction manuals, base game and any expansion, each with its
+     * own PDF - a base game and its expansion were sometimes printed as
+     * separate booklets, so this is an array rather than one link. Hosted
+     * under `public/manuals/`, not linked out - the sources that had them
+     * (archive.org aside) sat behind Cloudflare's bot check from this
+     * machine, so a copy was fetched once it was verified genuine and is
+     * served from here instead of chasing a link that might go dark. `source`
+     * is the credit line for where that copy came from. `null` where no scan
+     * has been found.
+     */
+    manuals: z
+      .array(z.object({ title: z.string(), url: z.string(), source: z.string() }))
+      .nullable(),
     /** Caesar I and II: cruder, pre-isometric, presented as archive entries. */
     archive: z.boolean(),
     badge: z.string(),

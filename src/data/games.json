@@ -84,6 +84,13 @@
     ],
     "creditsNote": null,
     "expansions": null,
+    "manuals": [
+      {
+        "title": "the Caesar manual (Impressions, 1993)",
+        "url": "/manuals/caesar1.pdf",
+        "source": "SierraGamers"
+      }
+    ],
     "archive": true,
     "badge": "Archive entry",
     "accent": "var(--game-caesar1)",
@@ -282,6 +289,13 @@
     ],
     "creditsNote": null,
     "expansions": null,
+    "manuals": [
+      {
+        "title": "the Caesar II manual (Impressions Games / Sierra)",
+        "url": "/manuals/caesar2.pdf",
+        "source": "Internet Archive"
+      }
+    ],
     "archive": true,
     "badge": "Archive entry",
     "accent": "var(--game-caesar2)",
@@ -456,6 +470,13 @@
     ],
     "creditsNote": null,
     "expansions": null,
+    "manuals": [
+      {
+        "title": "the Caesar III manual (Impressions Games / Sierra)",
+        "url": "/manuals/caesar3.pdf",
+        "source": "Internet Archive"
+      }
+    ],
     "archive": false,
     "badge": "The archetype",
     "badgeAccent": true,
@@ -740,6 +761,18 @@
     ],
     "creditsNote": "Cleopatra: Queen of the Nile was built by BreakAway Games and credits its own team; both lists are here. Cleopatra's external beta testers are not reproduced.",
     "expansions": "Cleopatra (2000) · bundled as Pharaoh Gold (2001)",
+    "manuals": [
+      {
+        "title": "the Pharaoh manual (Impressions Games / Sierra)",
+        "url": "/manuals/pharaoh.pdf",
+        "source": "Internet Archive"
+      },
+      {
+        "title": "the Cleopatra manual (Impressions Games / Sierra)",
+        "url": "/manuals/pharaoh-cleopatra.pdf",
+        "source": "Internet Archive"
+      }
+    ],
     "archive": false,
     "badge": "+ Cleopatra, 2000",
     "accent": "var(--game-pharaoh)",
@@ -1127,6 +1160,18 @@
     ],
     "creditsNote": "The base game's roles are transcribed from the manual, which also lists roughly eighty external beta testers by name; they are not reproduced here. Poseidon: Master of Atlantis credits its own team and comes from the credit listings instead.",
     "expansions": "Poseidon (2001)",
+    "manuals": [
+      {
+        "title": "the Zeus: Master of Olympus manual (Impressions Games / Sierra)",
+        "url": "/manuals/zeus.pdf",
+        "source": "Internet Archive"
+      },
+      {
+        "title": "the Poseidon: Master of Atlantis manual (Impressions Games / Sierra)",
+        "url": "/manuals/zeus-poseidon.pdf",
+        "source": "Internet Archive"
+      }
+    ],
     "archive": false,
     "badge": "+ Poseidon, 2001",
     "accent": "var(--game-zeus)",
@@ -1502,6 +1547,13 @@
     ],
     "creditsNote": "Emperor was built by BreakAway Games for Impressions and Sierra, and the two teams are credited separately, as the game credits them. Its external beta testers are not reproduced here, but the map-contest winners among them wrote scenarios that shipped in patch 1.0.1.0 and are credited for those.",
     "expansions": null,
+    "manuals": [
+      {
+        "title": "the Emperor: Rise of the Middle Kingdom manual (Impressions Games / Sierra)",
+        "url": "/manuals/emperor.pdf",
+        "source": "supplied copy"
+      }
+    ],
     "archive": false,
     "badge": "BreakAway Games",
     "accent": "var(--game-emperor)",
