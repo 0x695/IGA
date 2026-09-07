@@ -15,11 +15,14 @@ export const GET: APIRoute = async ({ site }) => {
   const withBuildings = games.filter((game) =>
     buildings.some((b) => b.data.variants.some((v) => v.game === game.id)),
   );
+  const missions = await getCollection('campaigns');
+  const withCampaign = games.filter((game) => missions.some((m) => m.data.game === game.id));
 
   const paths = [
     '/',
     ...games.map((game) => `/${game.id}/`),
     ...withBuildings.map((game) => `/${game.id}/buildings/`),
+    ...withCampaign.map((game) => `/${game.id}/campaign/`),
     ...formats.map((format) => `/formats/${format.id}/`),
   ];
 

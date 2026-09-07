@@ -22,6 +22,7 @@ export async function getStaticPaths() {
   const links = await getCollection('communityLinks');
 
   const buildings = await getCollection('buildings');
+  const missions = await getCollection('campaigns');
 
   return games.map((game) => ({
     params: { game: game.id },
@@ -31,11 +32,12 @@ export async function getStaticPaths() {
       formats: formats.filter((f) => f.data.games.includes(game.id)),
       links: links.filter((l) => l.data.games.includes(game.id)),
       buildingCount: buildings.filter((b) => b.data.variants.some((v) => v.game === game.id)).length,
+      missionCount: missions.filter((m) => m.data.game === game.id).length,
     },
   }));
 }
 
-const { game, projects, formats, links, buildingCount } = Astro.props;
+const { game, projects, formats, links, buildingCount, missionCount } = Astro.props;
 const g = game.data;
 ---
 
@@ -112,6 +114,21 @@ const g = game.data;
             <span class="buildings-link__note">
               Every building the engine defines, with its footprint in tiles and the constant that
               names it in the source. Filterable by name or category.
+            </span>
+          </a>
+        </section>
+      )
+    }
+
+    {
+      missionCount > 0 && (
+        <section class="section block">
+          <h2 class="section-heading">Campaign</h2>
+          <a class="buildings-link" href={withBase(`/${game.id}/campaign/`)}>
+            <span class="buildings-link__count">{missionCount} missions -></span>
+            <span class="buildings-link__note">
+              Every mission in play order, with the rank you hold and the win criteria the engine
+              actually checks.
             </span>
           </a>
         </section>

@@ -174,6 +174,24 @@ without solving that first.
   no consuming code was found. Don't revive it without finding where the
   engine reads it.
 
+## Never republish someone else's guide
+
+A compilation of GameFAQs walkthroughs for the series was offered as source
+material for the mechanics and campaign pages, and declined. Each section had
+a named author and its own terms; one said plainly that it may not be placed
+on any web site.
+
+The rule that follows is simple and applies to anything handed over as
+"content": **facts can be sourced, prose cannot be copied.** Mission names,
+win criteria, building sizes and byte offsets are facts, and this site gets
+them from the engines, where they can be checked. Someone's written
+walkthrough is their work. Link it, read it, verify against it -- never host
+it.
+
+The campaign data is the worked example. Rather than paste a walkthrough's
+mission list, it was read out of Akhenaten's per-mission configuration, which
+yields something no guide has: the win criteria the engine actually tests.
+
 ## Search is not optional
 
 Both briefs call static search non-negotiable for a reference site. The

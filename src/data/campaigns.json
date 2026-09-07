@@ -1,0 +1,1962 @@
+[
+  {
+    "id": "pharaoh-000",
+    "game": "pharaoh",
+    "order": 0,
+    "name": "Nubt",
+    "campaign": "Pharaoh",
+    "rank": 0,
+    "goals": [
+      {
+        "type": "housing_count",
+        "label": "Houses",
+        "value": 6
+      },
+      {
+        "type": "housing_level",
+        "label": "Housing level",
+        "value": 2
+      }
+    ]
+  },
+  {
+    "id": "pharaoh-001",
+    "game": "pharaoh",
+    "order": 1,
+    "name": "Thinis",
+    "campaign": "Pharaoh",
+    "rank": 0,
+    "goals": [
+      {
+        "type": "housing_count",
+        "label": "Houses",
+        "value": 10
+      },
+      {
+        "type": "housing_level",
+        "label": "Housing level",
+        "value": 5
+      }
+    ]
+  },
+  {
+    "id": "pharaoh-002",
+    "game": "pharaoh",
+    "order": 2,
+    "name": "Perwadjyt",
+    "campaign": "Pharaoh",
+    "rank": 0,
+    "goals": [
+      {
+        "type": "population",
+        "label": "Population",
+        "value": 600
+      },
+      {
+        "type": "housing_count",
+        "label": "Houses",
+        "value": 10
+      },
+      {
+        "type": "housing_level",
+        "label": "Housing level",
+        "value": 6
+      }
+    ]
+  },
+  {
+    "id": "pharaoh-003",
+    "game": "pharaoh",
+    "order": 3,
+    "name": "Nekhen",
+    "campaign": "Pharaoh",
+    "rank": 0,
+    "goals": [
+      {
+        "type": "population",
+        "label": "Population",
+        "value": 1000
+      },
+      {
+        "type": "housing_count",
+        "label": "Houses",
+        "value": 10
+      }
+    ]
+  },
+  {
+    "id": "pharaoh-004",
+    "game": "pharaoh",
+    "order": 4,
+    "name": "Mennefer",
+    "campaign": "Pharaoh",
+    "rank": 1,
+    "goals": [
+      {
+        "type": "population",
+        "label": "Population",
+        "value": 1500
+      },
+      {
+        "type": "culture",
+        "label": "Culture",
+        "value": 15
+      },
+      {
+        "type": "prosperity",
+        "label": "Prosperity",
+        "value": 20
+      },
+      {
+        "type": "monuments",
+        "label": "Monuments",
+        "value": 9
+      },
+      {
+        "type": "kingdom",
+        "label": "Kingdom",
+        "value": 40
+      },
+      {
+        "type": "housing_level",
+        "label": "Housing level",
+        "value": 10
+      }
+    ]
+  },
+  {
+    "id": "pharaoh-005",
+    "game": "pharaoh",
+    "order": 5,
+    "name": "Timna",
+    "campaign": "Pharaoh",
+    "rank": 2,
+    "goals": [
+      {
+        "type": "population",
+        "label": "Population",
+        "value": 2000
+      },
+      {
+        "type": "prosperity",
+        "label": "Prosperity",
+        "value": 15
+      },
+      {
+        "type": "kingdom",
+        "label": "Kingdom",
+        "value": 70
+      },
+      {
+        "type": "housing_level",
+        "label": "Housing level",
+        "value": 10
+      }
+    ]
+  },
+  {
+    "id": "pharaoh-006",
+    "game": "pharaoh",
+    "order": 6,
+    "name": "Behdet",
+    "campaign": "Pharaoh",
+    "rank": 2,
+    "goals": [
+      {
+        "type": "population",
+        "label": "Population",
+        "value": 2500
+      },
+      {
+        "type": "culture",
+        "label": "Culture",
+        "value": 15
+      },
+      {
+        "type": "prosperity",
+        "label": "Prosperity",
+        "value": 20
+      },
+      {
+        "type": "monuments",
+        "label": "Monuments",
+        "value": 11
+      },
+      {
+        "type": "kingdom",
+        "label": "Kingdom",
+        "value": 45
+      },
+      {
+        "type": "housing_level",
+        "label": "Housing level",
+        "value": 10
+      }
+    ]
+  },
+  {
+    "id": "pharaoh-007",
+    "game": "pharaoh",
+    "order": 7,
+    "name": "Abydos",
+    "campaign": "Pharaoh",
+    "rank": 3,
+    "goals": [
+      {
+        "type": "population",
+        "label": "Population",
+        "value": 2500
+      },
+      {
+        "type": "culture",
+        "label": "Culture",
+        "value": 25
+      },
+      {
+        "type": "prosperity",
+        "label": "Prosperity",
+        "value": 25
+      },
+      {
+        "type": "monuments",
+        "label": "Monuments",
+        "value": 17
+      },
+      {
+        "type": "kingdom",
+        "label": "Kingdom",
+        "value": 60
+      },
+      {
+        "type": "housing_level",
+        "label": "Housing level",
+        "value": 10
+      }
+    ]
+  },
+  {
+    "id": "pharaoh-008",
+    "game": "pharaoh",
+    "order": 8,
+    "name": "Selima",
+    "campaign": "Pharaoh",
+    "rank": 3,
+    "goals": [
+      {
+        "type": "population",
+        "label": "Population",
+        "value": 3000
+      },
+      {
+        "type": "culture",
+        "label": "Culture",
+        "value": 20
+      },
+      {
+        "type": "prosperity",
+        "label": "Prosperity",
+        "value": 20
+      },
+      {
+        "type": "kingdom",
+        "label": "Kingdom",
+        "value": 55
+      },
+      {
+        "type": "housing_level",
+        "label": "Housing level",
+        "value": 10
+      }
+    ]
+  },
+  {
+    "id": "pharaoh-009",
+    "game": "pharaoh",
+    "order": 9,
+    "name": "Abu",
+    "campaign": "Pharaoh",
+    "rank": 6,
+    "goals": [
+      {
+        "type": "population",
+        "label": "Population",
+        "value": 4000
+      },
+      {
+        "type": "culture",
+        "label": "Culture",
+        "value": 30
+      },
+      {
+        "type": "prosperity",
+        "label": "Prosperity",
+        "value": 30
+      },
+      {
+        "type": "kingdom",
+        "label": "Kingdom",
+        "value": 50
+      },
+      {
+        "type": "housing_level",
+        "label": "Housing level",
+        "value": 10
+      }
+    ]
+  },
+  {
+    "id": "pharaoh-010",
+    "game": "pharaoh",
+    "order": 10,
+    "name": "Saqqara",
+    "campaign": "Pharaoh",
+    "rank": 1,
+    "goals": [
+      {
+        "type": "population",
+        "label": "Population",
+        "value": 3500
+      },
+      {
+        "type": "prosperity",
+        "label": "Prosperity",
+        "value": 15
+      },
+      {
+        "type": "monuments",
+        "label": "Monuments",
+        "value": 19
+      },
+      {
+        "type": "kingdom",
+        "label": "Kingdom",
+        "value": 50
+      },
+      {
+        "type": "housing_level",
+        "label": "Housing level",
+        "value": 10
+      }
+    ]
+  },
+  {
+    "id": "pharaoh-011",
+    "game": "pharaoh",
+    "order": 11,
+    "name": "Serabit Khadim",
+    "campaign": "Pharaoh",
+    "rank": 5,
+    "goals": [
+      {
+        "type": "population",
+        "label": "Population",
+        "value": 2000
+      },
+      {
+        "type": "kingdom",
+        "label": "Kingdom",
+        "value": 80
+      },
+      {
+        "type": "housing_level",
+        "label": "Housing level",
+        "value": 4
+      }
+    ]
+  },
+  {
+    "id": "pharaoh-012",
+    "game": "pharaoh",
+    "order": 12,
+    "name": "Meidum",
+    "campaign": "Pharaoh",
+    "rank": 4,
+    "goals": [
+      {
+        "type": "population",
+        "label": "Population",
+        "value": 3000
+      },
+      {
+        "type": "culture",
+        "label": "Culture",
+        "value": 25
+      },
+      {
+        "type": "prosperity",
+        "label": "Prosperity",
+        "value": 25
+      },
+      {
+        "type": "monuments",
+        "label": "Monuments",
+        "value": 76
+      },
+      {
+        "type": "kingdom",
+        "label": "Kingdom",
+        "value": 40
+      },
+      {
+        "type": "housing_level",
+        "label": "Housing level",
+        "value": 11
+      }
+    ]
+  },
+  {
+    "id": "pharaoh-013",
+    "game": "pharaoh",
+    "order": 13,
+    "name": "Buhen",
+    "campaign": "Pharaoh",
+    "rank": 5,
+    "goals": [
+      {
+        "type": "population",
+        "label": "Population",
+        "value": 3000
+      },
+      {
+        "type": "culture",
+        "label": "Culture",
+        "value": 25
+      },
+      {
+        "type": "prosperity",
+        "label": "Prosperity",
+        "value": 25
+      },
+      {
+        "type": "monuments",
+        "label": "Monuments",
+        "value": 9
+      },
+      {
+        "type": "kingdom",
+        "label": "Kingdom",
+        "value": 75
+      },
+      {
+        "type": "housing_level",
+        "label": "Housing level",
+        "value": 10
+      }
+    ]
+  },
+  {
+    "id": "pharaoh-014",
+    "game": "pharaoh",
+    "order": 14,
+    "name": "South Dahshur",
+    "campaign": "Pharaoh",
+    "rank": 5,
+    "goals": [
+      {
+        "type": "population",
+        "label": "Population",
+        "value": 3500
+      },
+      {
+        "type": "prosperity",
+        "label": "Prosperity",
+        "value": 25
+      },
+      {
+        "type": "monuments",
+        "label": "Monuments",
+        "value": 21
+      },
+      {
+        "type": "kingdom",
+        "label": "Kingdom",
+        "value": 50
+      },
+      {
+        "type": "housing_level",
+        "label": "Housing level",
+        "value": 19
+      }
+    ]
+  },
+  {
+    "id": "pharaoh-015",
+    "game": "pharaoh",
+    "order": 15,
+    "name": "North Dahshur",
+    "campaign": "Pharaoh",
+    "rank": 6,
+    "goals": [
+      {
+        "type": "population",
+        "label": "Population",
+        "value": 3000
+      },
+      {
+        "type": "culture",
+        "label": "Culture",
+        "value": 20
+      },
+      {
+        "type": "prosperity",
+        "label": "Prosperity",
+        "value": 30
+      },
+      {
+        "type": "monuments",
+        "label": "Monuments",
+        "value": 32
+      },
+      {
+        "type": "kingdom",
+        "label": "Kingdom",
+        "value": 55
+      },
+      {
+        "type": "housing_level",
+        "label": "Housing level",
+        "value": 10
+      }
+    ]
+  },
+  {
+    "id": "pharaoh-016",
+    "game": "pharaoh",
+    "order": 16,
+    "name": "Iunet",
+    "campaign": "Pharaoh",
+    "rank": 6,
+    "goals": [
+      {
+        "type": "population",
+        "label": "Population",
+        "value": 4000
+      },
+      {
+        "type": "culture",
+        "label": "Culture",
+        "value": 30
+      },
+      {
+        "type": "prosperity",
+        "label": "Prosperity",
+        "value": 30
+      },
+      {
+        "type": "monuments",
+        "label": "Monuments",
+        "value": 9
+      },
+      {
+        "type": "kingdom",
+        "label": "Kingdom",
+        "value": 65
+      },
+      {
+        "type": "housing_level",
+        "label": "Housing level",
+        "value": 16
+      }
+    ]
+  },
+  {
+    "id": "pharaoh-017",
+    "game": "pharaoh",
+    "order": 17,
+    "name": "On",
+    "campaign": "Pharaoh",
+    "rank": 6,
+    "goals": [
+      {
+        "type": "population",
+        "label": "Population",
+        "value": 4000
+      },
+      {
+        "type": "culture",
+        "label": "Culture",
+        "value": 40
+      },
+      {
+        "type": "prosperity",
+        "label": "Prosperity",
+        "value": 35
+      },
+      {
+        "type": "monuments",
+        "label": "Monuments",
+        "value": 18
+      },
+      {
+        "type": "kingdom",
+        "label": "Kingdom",
+        "value": 60
+      },
+      {
+        "type": "housing_level",
+        "label": "Housing level",
+        "value": 10
+      }
+    ]
+  },
+  {
+    "id": "pharaoh-018",
+    "game": "pharaoh",
+    "order": 18,
+    "name": "Rostja",
+    "campaign": "Pharaoh",
+    "rank": 6,
+    "goals": [
+      {
+        "type": "monuments",
+        "label": "Monuments",
+        "value": 53
+      },
+      {
+        "type": "kingdom",
+        "label": "Kingdom",
+        "value": 50
+      },
+      {
+        "type": "housing_level",
+        "label": "Housing level",
+        "value": 10
+      }
+    ]
+  },
+  {
+    "id": "pharaoh-019",
+    "game": "pharaoh",
+    "order": 19,
+    "name": "Bahariya",
+    "campaign": "Pharaoh",
+    "rank": 6,
+    "goals": [
+      {
+        "type": "population",
+        "label": "Population",
+        "value": 3000
+      },
+      {
+        "type": "culture",
+        "label": "Culture",
+        "value": 15
+      },
+      {
+        "type": "prosperity",
+        "label": "Prosperity",
+        "value": 25
+      },
+      {
+        "type": "monuments",
+        "label": "Monuments",
+        "value": 13
+      },
+      {
+        "type": "kingdom",
+        "label": "Kingdom",
+        "value": 40
+      },
+      {
+        "type": "housing_level",
+        "label": "Housing level",
+        "value": 10
+      }
+    ]
+  },
+  {
+    "id": "pharaoh-020",
+    "game": "pharaoh",
+    "order": 20,
+    "name": "Djedu",
+    "campaign": "Pharaoh",
+    "rank": 7,
+    "goals": [
+      {
+        "type": "population",
+        "label": "Population",
+        "value": 4500
+      },
+      {
+        "type": "culture",
+        "label": "Culture",
+        "value": 45
+      },
+      {
+        "type": "prosperity",
+        "label": "Prosperity",
+        "value": 40
+      },
+      {
+        "type": "monuments",
+        "label": "Monuments",
+        "value": 13
+      },
+      {
+        "type": "kingdom",
+        "label": "Kingdom",
+        "value": 50
+      },
+      {
+        "type": "housing_level",
+        "label": "Housing level",
+        "value": 10
+      }
+    ]
+  },
+  {
+    "id": "pharaoh-021",
+    "game": "pharaoh",
+    "order": 21,
+    "name": "Dunqul",
+    "campaign": "Pharaoh",
+    "rank": 8,
+    "goals": [
+      {
+        "type": "population",
+        "label": "Population",
+        "value": 3500
+      },
+      {
+        "type": "culture",
+        "label": "Culture",
+        "value": 20
+      },
+      {
+        "type": "prosperity",
+        "label": "Prosperity",
+        "value": 20
+      },
+      {
+        "type": "monuments",
+        "label": "Monuments",
+        "value": 9
+      },
+      {
+        "type": "kingdom",
+        "label": "Kingdom",
+        "value": 80
+      },
+      {
+        "type": "housing_level",
+        "label": "Housing level",
+        "value": 14
+      }
+    ]
+  },
+  {
+    "id": "pharaoh-022",
+    "game": "pharaoh",
+    "order": 22,
+    "name": "Dakhla",
+    "campaign": "Pharaoh",
+    "rank": 8,
+    "goals": [
+      {
+        "type": "population",
+        "label": "Population",
+        "value": 5000
+      },
+      {
+        "type": "culture",
+        "label": "Culture",
+        "value": 50
+      },
+      {
+        "type": "prosperity",
+        "label": "Prosperity",
+        "value": 45
+      },
+      {
+        "type": "monuments",
+        "label": "Monuments",
+        "value": 9
+      },
+      {
+        "type": "kingdom",
+        "label": "Kingdom",
+        "value": 65
+      },
+      {
+        "type": "housing_level",
+        "label": "Housing level",
+        "value": 11
+      }
+    ]
+  },
+  {
+    "id": "pharaoh-023",
+    "game": "pharaoh",
+    "order": 23,
+    "name": "Thinis",
+    "campaign": "Pharaoh",
+    "rank": 9,
+    "goals": [
+      {
+        "type": "population",
+        "label": "Population",
+        "value": 4500
+      },
+      {
+        "type": "culture",
+        "label": "Culture",
+        "value": 25
+      },
+      {
+        "type": "prosperity",
+        "label": "Prosperity",
+        "value": 35
+      },
+      {
+        "type": "kingdom",
+        "label": "Kingdom",
+        "value": 90
+      },
+      {
+        "type": "housing_count",
+        "label": "Houses",
+        "value": 10
+      },
+      {
+        "type": "housing_level",
+        "label": "Housing level",
+        "value": 10
+      }
+    ]
+  },
+  {
+    "id": "pharaoh-024",
+    "game": "pharaoh",
+    "order": 24,
+    "name": "Waset",
+    "campaign": "Pharaoh",
+    "rank": 8,
+    "goals": [
+      {
+        "type": "population",
+        "label": "Population",
+        "value": 6000
+      },
+      {
+        "type": "culture",
+        "label": "Culture",
+        "value": 55
+      },
+      {
+        "type": "prosperity",
+        "label": "Prosperity",
+        "value": 45
+      },
+      {
+        "type": "monuments",
+        "label": "Monuments",
+        "value": 20
+      },
+      {
+        "type": "kingdom",
+        "label": "Kingdom",
+        "value": 70
+      },
+      {
+        "type": "housing_level",
+        "label": "Housing level",
+        "value": 10
+      }
+    ]
+  },
+  {
+    "id": "pharaoh-025",
+    "game": "pharaoh",
+    "order": 25,
+    "name": "Kebet",
+    "campaign": "Pharaoh",
+    "rank": 9,
+    "goals": [
+      {
+        "type": "population",
+        "label": "Population",
+        "value": 7000
+      },
+      {
+        "type": "culture",
+        "label": "Culture",
+        "value": 40
+      },
+      {
+        "type": "prosperity",
+        "label": "Prosperity",
+        "value": 45
+      },
+      {
+        "type": "monuments",
+        "label": "Monuments",
+        "value": 14
+      },
+      {
+        "type": "kingdom",
+        "label": "Kingdom",
+        "value": 85
+      },
+      {
+        "type": "housing_level",
+        "label": "Housing level",
+        "value": 13
+      }
+    ]
+  },
+  {
+    "id": "pharaoh-026",
+    "game": "pharaoh",
+    "order": 26,
+    "name": "Menat Khufu",
+    "campaign": "Pharaoh",
+    "rank": 9,
+    "goals": [
+      {
+        "type": "population",
+        "label": "Population",
+        "value": 7000
+      },
+      {
+        "type": "culture",
+        "label": "Culture",
+        "value": 60
+      },
+      {
+        "type": "prosperity",
+        "label": "Prosperity",
+        "value": 50
+      },
+      {
+        "type": "monuments",
+        "label": "Monuments",
+        "value": 21
+      },
+      {
+        "type": "kingdom",
+        "label": "Kingdom",
+        "value": 75
+      },
+      {
+        "type": "housing_level",
+        "label": "Housing level",
+        "value": 10
+      }
+    ]
+  },
+  {
+    "id": "pharaoh-027",
+    "game": "pharaoh",
+    "order": 27,
+    "name": "Itjtawy",
+    "campaign": "Pharaoh",
+    "rank": 10,
+    "goals": [
+      {
+        "type": "population",
+        "label": "Population",
+        "value": 7500
+      },
+      {
+        "type": "culture",
+        "label": "Culture",
+        "value": 60
+      },
+      {
+        "type": "prosperity",
+        "label": "Prosperity",
+        "value": 60
+      },
+      {
+        "type": "monuments",
+        "label": "Monuments",
+        "value": 33
+      },
+      {
+        "type": "kingdom",
+        "label": "Kingdom",
+        "value": 85
+      },
+      {
+        "type": "housing_count",
+        "label": "Houses",
+        "value": 6
+      },
+      {
+        "type": "housing_level",
+        "label": "Housing level",
+        "value": 17
+      }
+    ]
+  },
+  {
+    "id": "pharaoh-028",
+    "game": "pharaoh",
+    "order": 28,
+    "name": "Iken",
+    "campaign": "Pharaoh",
+    "rank": 10,
+    "goals": [
+      {
+        "type": "population",
+        "label": "Population",
+        "value": 6000
+      },
+      {
+        "type": "culture",
+        "label": "Culture",
+        "value": 45
+      },
+      {
+        "type": "prosperity",
+        "label": "Prosperity",
+        "value": 40
+      },
+      {
+        "type": "monuments",
+        "label": "Monuments",
+        "value": 11
+      },
+      {
+        "type": "kingdom",
+        "label": "Kingdom",
+        "value": 80
+      },
+      {
+        "type": "housing_level",
+        "label": "Housing level",
+        "value": 10
+      }
+    ]
+  },
+  {
+    "id": "pharaoh-029",
+    "game": "pharaoh",
+    "order": 29,
+    "name": "Sawu",
+    "campaign": "Pharaoh",
+    "rank": 10,
+    "goals": [
+      {
+        "type": "population",
+        "label": "Population",
+        "value": 8000
+      },
+      {
+        "type": "culture",
+        "label": "Culture",
+        "value": 65
+      },
+      {
+        "type": "prosperity",
+        "label": "Prosperity",
+        "value": 65
+      },
+      {
+        "type": "monuments",
+        "label": "Monuments",
+        "value": 20
+      },
+      {
+        "type": "kingdom",
+        "label": "Kingdom",
+        "value": 75
+      },
+      {
+        "type": "housing_level",
+        "label": "Housing level",
+        "value": 17
+      }
+    ]
+  },
+  {
+    "id": "pharaoh-030",
+    "game": "pharaoh",
+    "order": 30,
+    "name": "Heh",
+    "campaign": "Pharaoh",
+    "rank": 10,
+    "goals": [
+      {
+        "type": "population",
+        "label": "Population",
+        "value": 6000
+      },
+      {
+        "type": "culture",
+        "label": "Culture",
+        "value": 50
+      },
+      {
+        "type": "prosperity",
+        "label": "Prosperity",
+        "value": 45
+      },
+      {
+        "type": "monuments",
+        "label": "Monuments",
+        "value": 15
+      },
+      {
+        "type": "kingdom",
+        "label": "Kingdom",
+        "value": 60
+      },
+      {
+        "type": "housing_level",
+        "label": "Housing level",
+        "value": 10
+      }
+    ]
+  },
+  {
+    "id": "pharaoh-031",
+    "game": "pharaoh",
+    "order": 31,
+    "name": "Bubastis",
+    "campaign": "Pharaoh",
+    "rank": 10,
+    "goals": [
+      {
+        "type": "culture",
+        "label": "Culture",
+        "value": 85
+      },
+      {
+        "type": "prosperity",
+        "label": "Prosperity",
+        "value": 85
+      },
+      {
+        "type": "monuments",
+        "label": "Monuments",
+        "value": 15
+      },
+      {
+        "type": "kingdom",
+        "label": "Kingdom",
+        "value": 65
+      },
+      {
+        "type": "housing_count",
+        "label": "Houses",
+        "value": 4
+      },
+      {
+        "type": "housing_level",
+        "label": "Housing level",
+        "value": 19
+      }
+    ]
+  },
+  {
+    "id": "pharaoh-032",
+    "game": "pharaoh",
+    "order": 32,
+    "name": "Khmun",
+    "campaign": "Pharaoh",
+    "rank": 10,
+    "goals": [
+      {
+        "type": "population",
+        "label": "Population",
+        "value": 6000
+      },
+      {
+        "type": "culture",
+        "label": "Culture",
+        "value": 55
+      },
+      {
+        "type": "prosperity",
+        "label": "Prosperity",
+        "value": 50
+      },
+      {
+        "type": "monuments",
+        "label": "Monuments",
+        "value": 13
+      },
+      {
+        "type": "kingdom",
+        "label": "Kingdom",
+        "value": 75
+      },
+      {
+        "type": "housing_level",
+        "label": "Housing level",
+        "value": 14
+      }
+    ]
+  },
+  {
+    "id": "pharaoh-033",
+    "game": "pharaoh",
+    "order": 33,
+    "name": "Sauty",
+    "campaign": "Pharaoh",
+    "rank": 10,
+    "goals": [
+      {
+        "type": "population",
+        "label": "Population",
+        "value": 6500
+      },
+      {
+        "type": "culture",
+        "label": "Culture",
+        "value": 70
+      },
+      {
+        "type": "prosperity",
+        "label": "Prosperity",
+        "value": 75
+      },
+      {
+        "type": "monuments",
+        "label": "Monuments",
+        "value": 40
+      },
+      {
+        "type": "kingdom",
+        "label": "Kingdom",
+        "value": 60
+      },
+      {
+        "type": "housing_level",
+        "label": "Housing level",
+        "value": 14
+      }
+    ]
+  },
+  {
+    "id": "pharaoh-034",
+    "game": "pharaoh",
+    "order": 34,
+    "name": "Byblos",
+    "campaign": "Pharaoh",
+    "rank": 10,
+    "goals": [
+      {
+        "type": "population",
+        "label": "Population",
+        "value": 6000
+      },
+      {
+        "type": "culture",
+        "label": "Culture",
+        "value": 60
+      },
+      {
+        "type": "prosperity",
+        "label": "Prosperity",
+        "value": 40
+      },
+      {
+        "type": "monuments",
+        "label": "Monuments",
+        "value": 14
+      },
+      {
+        "type": "kingdom",
+        "label": "Kingdom",
+        "value": 75
+      },
+      {
+        "type": "housing_level",
+        "label": "Housing level",
+        "value": 10
+      }
+    ]
+  },
+  {
+    "id": "pharaoh-035",
+    "game": "pharaoh",
+    "order": 35,
+    "name": "Baki",
+    "campaign": "Pharaoh",
+    "rank": 10,
+    "goals": [
+      {
+        "type": "population",
+        "label": "Population",
+        "value": 10000
+      },
+      {
+        "type": "culture",
+        "label": "Culture",
+        "value": 70
+      },
+      {
+        "type": "prosperity",
+        "label": "Prosperity",
+        "value": 70
+      },
+      {
+        "type": "monuments",
+        "label": "Monuments",
+        "value": 35
+      },
+      {
+        "type": "kingdom",
+        "label": "Kingdom",
+        "value": 85
+      },
+      {
+        "type": "housing_level",
+        "label": "Housing level",
+        "value": 19
+      }
+    ]
+  },
+  {
+    "id": "pharaoh-036",
+    "game": "pharaoh",
+    "order": 36,
+    "name": "Rowarty",
+    "campaign": "Pharaoh",
+    "rank": 10,
+    "goals": [
+      {
+        "type": "population",
+        "label": "Population",
+        "value": 7000
+      },
+      {
+        "type": "culture",
+        "label": "Culture",
+        "value": 65
+      },
+      {
+        "type": "prosperity",
+        "label": "Prosperity",
+        "value": 50
+      },
+      {
+        "type": "monuments",
+        "label": "Monuments",
+        "value": 29
+      },
+      {
+        "type": "kingdom",
+        "label": "Kingdom",
+        "value": 80
+      },
+      {
+        "type": "housing_level",
+        "label": "Housing level",
+        "value": 10
+      }
+    ]
+  },
+  {
+    "id": "pharaoh-037",
+    "game": "pharaoh",
+    "order": 37,
+    "name": "Hetepsensusret",
+    "campaign": "Pharaoh",
+    "rank": 10,
+    "goals": [
+      {
+        "type": "population",
+        "label": "Population",
+        "value": 12000
+      },
+      {
+        "type": "culture",
+        "label": "Culture",
+        "value": 80
+      },
+      {
+        "type": "prosperity",
+        "label": "Prosperity",
+        "value": 80
+      },
+      {
+        "type": "monuments",
+        "label": "Monuments",
+        "value": 70
+      },
+      {
+        "type": "kingdom",
+        "label": "Kingdom",
+        "value": 75
+      },
+      {
+        "type": "housing_level",
+        "label": "Housing level",
+        "value": 14
+      }
+    ]
+  },
+  {
+    "id": "pharaoh-038",
+    "game": "pharaoh",
+    "order": 38,
+    "name": "Thutmose in the Valley",
+    "campaign": "Pharaoh",
+    "rank": 5,
+    "goals": [
+      {
+        "type": "culture",
+        "label": "Culture",
+        "value": 35
+      },
+      {
+        "type": "prosperity",
+        "label": "Prosperity",
+        "value": 40
+      },
+      {
+        "type": "monuments",
+        "label": "Monuments",
+        "value": 13
+      },
+      {
+        "type": "kingdom",
+        "label": "Kingdom",
+        "value": 65
+      },
+      {
+        "type": "housing_level",
+        "label": "Housing level",
+        "value": 14
+      }
+    ]
+  },
+  {
+    "id": "pharaoh-039",
+    "game": "pharaoh",
+    "order": 39,
+    "name": "Tut in the Valley",
+    "campaign": "Pharaoh",
+    "rank": 6,
+    "goals": [
+      {
+        "type": "population",
+        "label": "Population",
+        "value": 1500
+      },
+      {
+        "type": "monuments",
+        "label": "Monuments",
+        "value": 22
+      },
+      {
+        "type": "kingdom",
+        "label": "Kingdom",
+        "value": 45
+      },
+      {
+        "type": "housing_level",
+        "label": "Housing level",
+        "value": 14
+      }
+    ]
+  },
+  {
+    "id": "pharaoh-040",
+    "game": "pharaoh",
+    "order": 40,
+    "name": "Seti in the Valley",
+    "campaign": "Pharaoh",
+    "rank": 6,
+    "goals": [
+      {
+        "type": "population",
+        "label": "Population",
+        "value": 3000
+      },
+      {
+        "type": "culture",
+        "label": "Culture",
+        "value": 40
+      },
+      {
+        "type": "prosperity",
+        "label": "Prosperity",
+        "value": 70
+      },
+      {
+        "type": "monuments",
+        "label": "Monuments",
+        "value": 33
+      },
+      {
+        "type": "kingdom",
+        "label": "Kingdom",
+        "value": 80
+      },
+      {
+        "type": "housing_count",
+        "label": "Houses",
+        "value": 12
+      },
+      {
+        "type": "housing_level",
+        "label": "Housing level",
+        "value": 15
+      }
+    ]
+  },
+  {
+    "id": "pharaoh-041",
+    "game": "pharaoh",
+    "order": 41,
+    "name": "Sumur",
+    "campaign": "Pharaoh",
+    "rank": 6,
+    "goals": [
+      {
+        "type": "population",
+        "label": "Population",
+        "value": 3000
+      },
+      {
+        "type": "culture",
+        "label": "Culture",
+        "value": 35
+      },
+      {
+        "type": "prosperity",
+        "label": "Prosperity",
+        "value": 40
+      },
+      {
+        "type": "monuments",
+        "label": "Monuments",
+        "value": 9
+      },
+      {
+        "type": "kingdom",
+        "label": "Kingdom",
+        "value": 90
+      },
+      {
+        "type": "housing_level",
+        "label": "Housing level",
+        "value": 14
+      }
+    ]
+  },
+  {
+    "id": "pharaoh-042",
+    "game": "pharaoh",
+    "order": 42,
+    "name": "Qadesh",
+    "campaign": "Pharaoh",
+    "rank": 10,
+    "goals": [
+      {
+        "type": "population",
+        "label": "Population",
+        "value": 1800
+      },
+      {
+        "type": "prosperity",
+        "label": "Prosperity",
+        "value": 20
+      },
+      {
+        "type": "kingdom",
+        "label": "Kingdom",
+        "value": 50
+      },
+      {
+        "type": "housing_level",
+        "label": "Housing level",
+        "value": 14
+      }
+    ]
+  },
+  {
+    "id": "pharaoh-043",
+    "game": "pharaoh",
+    "order": 43,
+    "name": "Abu Simbel",
+    "campaign": "Pharaoh",
+    "rank": 5,
+    "goals": [
+      {
+        "type": "population",
+        "label": "Population",
+        "value": 2200
+      },
+      {
+        "type": "culture",
+        "label": "Culture",
+        "value": 35
+      },
+      {
+        "type": "prosperity",
+        "label": "Prosperity",
+        "value": 35
+      },
+      {
+        "type": "monuments",
+        "label": "Monuments",
+        "value": 44
+      },
+      {
+        "type": "kingdom",
+        "label": "Kingdom",
+        "value": 80
+      },
+      {
+        "type": "housing_level",
+        "label": "Housing level",
+        "value": 10
+      }
+    ]
+  },
+  {
+    "id": "pharaoh-044",
+    "game": "pharaoh",
+    "order": 44,
+    "name": "Ramses in the Valley",
+    "campaign": "Pharaoh",
+    "rank": 6,
+    "goals": [
+      {
+        "type": "population",
+        "label": "Population",
+        "value": 3000
+      },
+      {
+        "type": "culture",
+        "label": "Culture",
+        "value": 50
+      },
+      {
+        "type": "prosperity",
+        "label": "Prosperity",
+        "value": 55
+      },
+      {
+        "type": "monuments",
+        "label": "Monuments",
+        "value": 45
+      },
+      {
+        "type": "kingdom",
+        "label": "Kingdom",
+        "value": 100
+      },
+      {
+        "type": "housing_count",
+        "label": "Houses",
+        "value": 6
+      },
+      {
+        "type": "housing_level",
+        "label": "Housing level",
+        "value": 17
+      }
+    ]
+  },
+  {
+    "id": "pharaoh-045",
+    "game": "pharaoh",
+    "order": 45,
+    "name": "Pi-Yer",
+    "campaign": "Pharaoh",
+    "rank": 4,
+    "goals": [
+      {
+        "type": "population",
+        "label": "Population",
+        "value": 2500
+      },
+      {
+        "type": "culture",
+        "label": "Culture",
+        "value": 25
+      },
+      {
+        "type": "prosperity",
+        "label": "Prosperity",
+        "value": 30
+      },
+      {
+        "type": "kingdom",
+        "label": "Kingdom",
+        "value": 45
+      },
+      {
+        "type": "housing_count",
+        "label": "Houses",
+        "value": 5
+      },
+      {
+        "type": "housing_level",
+        "label": "Housing level",
+        "value": 8
+      }
+    ]
+  },
+  {
+    "id": "pharaoh-046",
+    "game": "pharaoh",
+    "order": 46,
+    "name": "Migdol",
+    "campaign": "Pharaoh",
+    "rank": 5,
+    "goals": [
+      {
+        "type": "population",
+        "label": "Population",
+        "value": 1000
+      },
+      {
+        "type": "culture",
+        "label": "Culture",
+        "value": 10
+      },
+      {
+        "type": "prosperity",
+        "label": "Prosperity",
+        "value": 15
+      },
+      {
+        "type": "housing_level",
+        "label": "Housing level",
+        "value": 10
+      }
+    ]
+  },
+  {
+    "id": "pharaoh-047",
+    "game": "pharaoh",
+    "order": 47,
+    "name": "Tanis",
+    "campaign": "Pharaoh",
+    "rank": 6,
+    "goals": [
+      {
+        "type": "population",
+        "label": "Population",
+        "value": 2500
+      },
+      {
+        "type": "culture",
+        "label": "Culture",
+        "value": 30
+      },
+      {
+        "type": "prosperity",
+        "label": "Prosperity",
+        "value": 40
+      },
+      {
+        "type": "kingdom",
+        "label": "Kingdom",
+        "value": 45
+      },
+      {
+        "type": "housing_level",
+        "label": "Housing level",
+        "value": 10
+      }
+    ]
+  },
+  {
+    "id": "pharaoh-048",
+    "game": "pharaoh",
+    "order": 48,
+    "name": "Alexandria",
+    "campaign": "Cleopatra",
+    "rank": 5,
+    "goals": [
+      {
+        "type": "population",
+        "label": "Population",
+        "value": 4000
+      },
+      {
+        "type": "culture",
+        "label": "Culture",
+        "value": 45
+      },
+      {
+        "type": "prosperity",
+        "label": "Prosperity",
+        "value": 55
+      },
+      {
+        "type": "monuments",
+        "label": "Monuments",
+        "value": 14
+      },
+      {
+        "type": "kingdom",
+        "label": "Kingdom",
+        "value": 60
+      },
+      {
+        "type": "housing_count",
+        "label": "Houses",
+        "value": 12
+      },
+      {
+        "type": "housing_level",
+        "label": "Housing level",
+        "value": 10
+      }
+    ]
+  },
+  {
+    "id": "pharaoh-049",
+    "game": "pharaoh",
+    "order": 49,
+    "name": "Ptolemy's Alexandria",
+    "campaign": "Cleopatra",
+    "rank": 10,
+    "goals": [
+      {
+        "type": "population",
+        "label": "Population",
+        "value": 7000
+      },
+      {
+        "type": "culture",
+        "label": "Culture",
+        "value": 75
+      },
+      {
+        "type": "prosperity",
+        "label": "Prosperity",
+        "value": 75
+      },
+      {
+        "type": "monuments",
+        "label": "Monuments",
+        "value": 28
+      },
+      {
+        "type": "kingdom",
+        "label": "Kingdom",
+        "value": 75
+      },
+      {
+        "type": "housing_count",
+        "label": "Houses",
+        "value": 6
+      },
+      {
+        "type": "housing_level",
+        "label": "Housing level",
+        "value": 16
+      }
+    ]
+  },
+  {
+    "id": "pharaoh-050",
+    "game": "pharaoh",
+    "order": 50,
+    "name": "Maritis",
+    "campaign": "Cleopatra",
+    "rank": 1,
+    "goals": [
+      {
+        "type": "population",
+        "label": "Population",
+        "value": 1000
+      },
+      {
+        "type": "culture",
+        "label": "Culture",
+        "value": 10
+      },
+      {
+        "type": "prosperity",
+        "label": "Prosperity",
+        "value": 25
+      },
+      {
+        "type": "kingdom",
+        "label": "Kingdom",
+        "value": 35
+      },
+      {
+        "type": "housing_count",
+        "label": "Houses",
+        "value": 15
+      },
+      {
+        "type": "housing_level",
+        "label": "Housing level",
+        "value": 4
+      }
+    ]
+  },
+  {
+    "id": "pharaoh-051",
+    "game": "pharaoh",
+    "order": 51,
+    "name": "Cleopatra's Alexandria",
+    "campaign": "Cleopatra",
+    "rank": 10,
+    "goals": [
+      {
+        "type": "population",
+        "label": "Population",
+        "value": 10000
+      },
+      {
+        "type": "culture",
+        "label": "Culture",
+        "value": 80
+      },
+      {
+        "type": "prosperity",
+        "label": "Prosperity",
+        "value": 70
+      },
+      {
+        "type": "monuments",
+        "label": "Monuments",
+        "value": 24
+      },
+      {
+        "type": "kingdom",
+        "label": "Kingdom",
+        "value": 80
+      },
+      {
+        "type": "housing_count",
+        "label": "Houses",
+        "value": 6
+      },
+      {
+        "type": "housing_level",
+        "label": "Housing level",
+        "value": 19
+      }
+    ]
+  },
+  {
+    "id": "pharaoh-052",
+    "game": "pharaoh",
+    "order": 52,
+    "name": "Actium",
+    "campaign": "Cleopatra",
+    "rank": 10,
+    "goals": [
+      {
+        "type": "population",
+        "label": "Population",
+        "value": 1000
+      },
+      {
+        "type": "kingdom",
+        "label": "Kingdom",
+        "value": 50
+      },
+      {
+        "type": "housing_level",
+        "label": "Housing level",
+        "value": 5
+      }
+    ]
+  }
+]

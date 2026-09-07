@@ -225,9 +225,9 @@ real hours:
 
 ## Phase 3 — The player layer
 
-**Buildings done, prose not.** 7 September 2026. Both games the build brief
-asked for are populated; the mechanics and campaign half did not ship, for
-reasons worth writing down.
+**Buildings and campaigns done; mechanics not.** 7 September 2026. Both games
+the build brief asked for have buildings, Pharaoh has its full campaign, and
+the mechanics prose is the one part still outstanding.
 
 - [x] **Buildings, populated for Caesar III — 100 of them.** Name, category,
       footprint in tiles, and the engine constant that names each one.
@@ -283,7 +283,18 @@ behind. Size can, so size shipped and the flag did not.
       complexes carry an `is_monument` flag and are built in phases by work
       camps; `building_size` reads 2 even for the grand pyramid complex, so it
       is not a footprint. Publishing it would have been a confident lie.
-- [ ] **Mechanics deep-dives and campaign/mission lists.** Prose, and blocked
+- [x] **Campaign lists — done for Pharaoh.** All 53 missions in play order,
+      each with the rank the player holds and the win criteria the engine
+      actually checks: population, culture, prosperity, monuments, kingdom
+      rating, house count and housing level. Read out of Akhenaten's
+      per-mission configuration files rather than from a walkthrough, so the
+      thresholds are the ones the code tests.
+
+      Caesar III cannot follow the same route: its mission *names* are not in
+      Julius at all, they live in the game's own text files. Its campaign
+      structure is confirmed and recorded below; the names are a `.eng`
+      problem.
+- [ ] **Mechanics deep-dives.** Prose, and blocked
       on the same problem as always — a source that can be checked. One
       structural fact *is* confirmed and is a good starting point for whoever
       picks this up: `src/game/mission.c` shows the Caesar III campaign as
@@ -327,6 +338,13 @@ on GitHub Pages with a custom domain left as a later setting.*
 
 ## Not doing
 
+- **Republishing other people's guides.** A compilation of GameFAQs
+  walkthroughs for the series was offered as source material and declined.
+  Each carries a named author and its own terms, and one states outright that
+  it may not be placed on any web site. Beyond the copyright, it is the
+  opposite of what this site is for: masterdoc §3.4 says link out and write
+  original summaries. Guides are a fine thing to *read* while sourcing facts
+  from the engines, and a fine thing to link. They are not content to host.
 - **A CMS.** Git and Markdown, per the build brief. Revisit only if outside
   contributors actually materialize.
 - **Hosting game files.** Not ever — it is the line the whole scope statement
