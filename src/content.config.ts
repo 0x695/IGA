@@ -115,6 +115,23 @@ const games = defineCollection({
     compat: z.array(
       z.object({ title: z.string(), url: z.string().url(), note: z.string() }),
     ),
+    /**
+     * Fan-made tools and mods — a resolution patcher, a save editor, a
+     * gameplay mod. Distinct from `compat` above: compat is patches and
+     * compatibility notes for running the original as shipped, this is
+     * something a third party built on top of it. Null where none is known;
+     * an empty section is worse than no section.
+     */
+    tools: z
+      .array(
+        z.object({
+          title: z.string(),
+          url: z.string().url(),
+          kind: z.enum(['tool', 'mod']),
+          note: z.string(),
+        }),
+      )
+      .nullable(),
     image: z.string(),
     imageCredit: z.string(),
     cover: z.string(),

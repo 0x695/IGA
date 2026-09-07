@@ -72,6 +72,85 @@
     "archivedUrl": "https://web.archive.org/web/2/https://emperor.heavengames.com/"
   },
   {
+    "id": "gog-forum-caesar-series",
+    "title": "GOG forum — Caesar series",
+    "url": "https://www.gog.com/forum/caesar_series",
+    "category": "GOG",
+    "games": [
+      "caesar1",
+      "caesar2",
+      "caesar3"
+    ],
+    "status": "active",
+    "note": "GOG's own discussion board, shared across all three Caesar titles since GOG sells them as one series listing."
+  },
+  {
+    "id": "gog-forum-pharaoh",
+    "title": "GOG forum — Pharaoh + Cleopatra",
+    "url": "https://www.gog.com/forum/pharaoh_cleopatra",
+    "category": "GOG",
+    "games": [
+      "pharaoh"
+    ],
+    "status": "active",
+    "note": "GOG's own discussion board for the Pharaoh + Cleopatra bundle."
+  },
+  {
+    "id": "gog-forum-zeus-poseidon",
+    "title": "GOG forum — Zeus + Poseidon",
+    "url": "https://www.gog.com/forum/zeus_poseidon_acropolis",
+    "category": "GOG",
+    "games": [
+      "zeus"
+    ],
+    "status": "active",
+    "note": "GOG's own discussion board, filed under Acropolis — the name GOG lists the bundle under in Europe."
+  },
+  {
+    "id": "gog-forum-emperor",
+    "title": "GOG forum — Emperor",
+    "url": "https://www.gog.com/forum/emperor_rise_of_the_middle_kingdom",
+    "category": "GOG",
+    "games": [
+      "emperor"
+    ],
+    "status": "active",
+    "note": "GOG's own discussion board for Emperor: Rise of the Middle Kingdom."
+  },
+  {
+    "id": "steam-discussions-caesar3",
+    "title": "Steam Community discussions",
+    "url": "https://steamcommunity.com/app/517790/discussions/",
+    "category": "Steam",
+    "games": [
+      "caesar3"
+    ],
+    "status": "active",
+    "note": "The store page's discussion board — the first place most Steam buyers land with a question."
+  },
+  {
+    "id": "steam-discussions-pharaoh",
+    "title": "Steam Community discussions",
+    "url": "https://steamcommunity.com/app/564530/discussions/",
+    "category": "Steam",
+    "games": [
+      "pharaoh"
+    ],
+    "status": "active",
+    "note": "The store page's discussion board — the first place most Steam buyers land with a question."
+  },
+  {
+    "id": "steam-discussions-zeus",
+    "title": "Steam Community discussions",
+    "url": "https://steamcommunity.com/app/566050/discussions/",
+    "category": "Steam",
+    "games": [
+      "zeus"
+    ],
+    "status": "active",
+    "note": "The store page's discussion board — the first place most Steam buyers land with a question."
+  },
+  {
     "id": "reddit-impressionsgames",
     "title": "r/impressionsgames",
     "url": "https://www.reddit.com/r/impressionsgames",

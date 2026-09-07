@@ -112,6 +112,7 @@
         "note": "Compatibility notes for the DOS original and the DOSBox re-release."
       }
     ],
+    "tools": null,
     "image": "/images/caesar1.webp",
     "imageCredit": "Community screenshot — Caesar (1992) © Activision",
     "cover": "/images/caesar1-cover.webp",
@@ -317,6 +318,7 @@
         "note": "Compatibility notes for the DOS/Windows original and the DOSBox re-release."
       }
     ],
+    "tools": null,
     "image": "/images/caesar2.webp",
     "imageCredit": "Community screenshot — Caesar II (1995) © Activision",
     "cover": "/images/caesar2-cover.webp",
@@ -504,6 +506,7 @@
         "note": "Patches, resolution options and modern-Windows notes."
       }
     ],
+    "tools": null,
     "image": "/images/caesar3.webp",
     "imageCredit": "Community screenshot — Caesar III (1998) © Activision",
     "cover": "/images/caesar3-cover.webp",
@@ -799,6 +802,7 @@
         "note": "Patches, resolution options and modern-Windows notes."
       }
     ],
+    "tools": null,
     "image": "/images/pharaoh.webp",
     "imageCredit": "Community screenshot — Pharaoh (1999) © Activision",
     "cover": "/images/pharaoh-cover.webp",
@@ -1196,10 +1200,13 @@
         "title": "PCGamingWiki — Zeus: Master of Olympus",
         "url": "https://www.pcgamingwiki.com/wiki/Zeus:_Master_of_Olympus",
         "note": "Patches, resolution options and modern-Windows notes."
-      },
+      }
+    ],
+    "tools": [
       {
         "title": "Impressions Resolution Customiser",
         "url": "https://github.com/XJDHDR/impressions-resolution-customiser",
+        "kind": "tool",
         "note": "Widescreen resolutions and UI scaling for the Steam and GOG releases. Source here; binaries on Nexus Mods."
       }
     ],
@@ -1573,10 +1580,13 @@
         "title": "PCGamingWiki — Emperor: Rise of the Middle Kingdom",
         "url": "https://www.pcgamingwiki.com/wiki/Emperor:_Rise_of_the_Middle_Kingdom",
         "note": "Patches, resolution options and modern-Windows notes."
-      },
+      }
+    ],
+    "tools": [
       {
         "title": "Emperor Resolution Customiser",
         "url": "https://xjdhdr.gitlab.io/my_creations/Impressions_Resolution_Customiser/Emperor_Resolution_Customiser.html",
+        "kind": "tool",
         "note": "Widescreen resolutions and UI scaling for the GOG release and the English CD. The nearest thing Emperor has to an engine project."
       }
     ],

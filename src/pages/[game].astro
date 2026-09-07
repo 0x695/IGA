@@ -372,6 +372,27 @@ for (const row of g.fullCredits ?? []) {
     </section>
 
     {
+      g.tools && (
+        <section class="section block">
+          <h2 class="section-heading">Tools &amp; mods</h2>
+          <ul class="compat">
+            {
+              g.tools.map((tool) => (
+                <li class="compat__item">
+                  <a class="compat__link" href={tool.url} target="_blank" rel="noopener noreferrer">
+                    {tool.title} ↗
+                  </a>
+                  <span class="tag">{tool.kind}</span>
+                  <span class="compat__note">{tool.note}</span>
+                </li>
+              ))
+            }
+          </ul>
+        </section>
+      )
+    }
+
+    {
       g.manuals && (
         <section class="section block">
           <h2 class="section-heading">Manual</h2>
@@ -743,6 +764,19 @@ for (const row of g.fullCredits ?? []) {
   .compat__note {
     font-size: 12.5px;
     color: var(--color-text-dim);
+  }
+
+  .tag {
+    display: inline-block;
+    font-family: var(--font-mono);
+    font-size: 10px;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: var(--color-text-dim);
+    border: 1px solid var(--color-divider);
+    border-radius: var(--radius-sm);
+    padding: 1px 6px;
+    flex: none;
   }
 
   .community-grid {
