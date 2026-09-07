@@ -25,16 +25,6 @@ const studios = [
         Emperor — the games, their file formats, and the open-source engines keeping them running
         today.
       </p>
-      {/*
-        Required by the build brief and by masterdoc §8, and absent from the
-        design's hero. "Archive" sets an expectation of hosted files; the IP is
-        actively held and actively licensed, so the scope is stated on the
-        homepage rather than left to be discovered.
-      */}
-      <p class="hero__scope">
-        An archive of knowledge and links — not of game files. Nothing here is a download of the
-        games themselves.
-      </p>
     </section>
 
     <section id="timeline" class="section">
@@ -103,13 +93,6 @@ const studios = [
         identification.
       </p>
     </section>
-
-    <section class="section related">
-      <p class="related__line">
-        <span class="related__label">Related, not core</span> — Caesar IV (2006) · Children of the
-        Nile (2004) · Pharaoh: A New Era (2023) · Nebuchadnezzar (2021, spiritual successor)
-      </p>
-    </section>
   </div>
 </Base>
 
@@ -143,16 +126,6 @@ const studios = [
     color: var(--color-text-dim);
     max-width: 640px;
     margin: 0 0 14px;
-  }
-
-  .hero__scope {
-    font-size: 14px;
-    line-height: 1.6;
-    color: var(--color-text-dim);
-    max-width: 640px;
-    margin: 0;
-    padding-top: 14px;
-    border-top: 1px solid var(--color-divider);
   }
 
   .timeline__heading {
@@ -285,26 +258,6 @@ const studios = [
     font-size: 11px;
     line-height: 1.6;
     color: var(--color-text-dim);
-  }
-
-  .related {
-    padding-bottom: 72px;
-  }
-
-  .related__line {
-    border-top: 1px solid var(--color-divider);
-    padding-top: 20px;
-    margin: 0;
-    font-style: italic;
-    font-size: 13px;
-    color: var(--color-text-dim);
-  }
-
-  .related__label {
-    text-transform: uppercase;
-    letter-spacing: 0.08em;
-    font-style: normal;
-    font-size: 12px;
   }
 
   @media (max-width: 640px) {
