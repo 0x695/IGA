@@ -227,6 +227,12 @@ const studios = [
     object-fit: cover;
     border-radius: 3px;
     border: 1px solid var(--color-divider);
+    filter: grayscale(1);
+    transition: filter 0.2s ease;
+  }
+
+  .timeline__item:hover .timeline__cover {
+    filter: grayscale(0);
   }
 
   .timeline__head {
