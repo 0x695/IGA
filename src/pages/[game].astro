@@ -72,6 +72,33 @@ const g = game.data;
       </figure>
     </section>
 
+    {
+      g.fullCredits && (
+        <section class="section block">
+          <h2 class="section-heading">Credits</h2>
+          <dl class="credits">
+            {g.fullCredits.map((entry) => (
+              <div class="credits__row">
+                <dt>{entry.role}</dt>
+                <dd>{entry.names.join(', ')}</dd>
+              </div>
+            ))}
+          </dl>
+          <p class="credits__meta">
+            {g.creditsNote && <span>{g.creditsNote} </span>}
+            {g.creditsSource && (
+              <>
+                Transcribed from the{' '}
+                <a href={g.creditsSource.url} rel="noopener">
+                  {g.creditsSource.title} ↗
+                </a>
+              </>
+            )}
+          </p>
+        </section>
+      )
+    }
+
     <section class="section block">
       <h2 class="section-heading">File formats</h2>
       <div class="rule-list">
@@ -385,6 +412,62 @@ const g = game.data;
     display: flex;
     flex-direction: column;
     gap: 12px;
+  }
+
+  /* A long two-column list: role on the left, names running on the right.
+     Roles are mono because they are labels being scanned, names are body
+     text because they are read. */
+  .credits {
+    margin: 0;
+    border-top: 1px solid var(--color-divider);
+  }
+
+  .credits__row {
+    display: grid;
+    grid-template-columns: minmax(150px, 230px) 1fr;
+    gap: 4px 24px;
+    padding: 9px 0;
+    border-bottom: 1px solid var(--color-divider);
+  }
+
+  .credits dt {
+    font-family: var(--font-mono);
+    font-size: 10px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--color-text-dim);
+    padding-top: 2px;
+  }
+
+  .credits dd {
+    margin: 0;
+    font-size: 13.5px;
+    line-height: 1.6;
+  }
+
+  .credits__meta {
+    margin: 14px 0 0;
+    font-size: 12px;
+    line-height: 1.6;
+    color: var(--color-text-dim);
+    max-width: 70ch;
+  }
+
+  .credits__meta a {
+    color: var(--color-accent);
+    text-decoration: none;
+  }
+
+  .credits__meta a:hover {
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+
+  @media (max-width: 640px) {
+    .credits__row {
+      grid-template-columns: 1fr;
+      gap: 2px;
+    }
   }
 
   .buildings-link {

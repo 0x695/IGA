@@ -11,6 +11,9 @@
     "developer": "Impressions Games",
     "publisher": "Self-published (Impressions Games); Sierra On-Line acquired the studio in 1995",
     "credits": "David Lester (design) · Simon Bradbury (programming)",
+    "fullCredits": null,
+    "creditsSource": null,
+    "creditsNote": null,
     "expansions": null,
     "archive": true,
     "badge": "Archive entry",
@@ -50,6 +53,9 @@
     "developer": "Impressions Games",
     "publisher": "Sierra On-Line",
     "credits": "David Lester (design) · Simon Bradbury (programming) · Chris Beatrice (art)",
+    "fullCredits": null,
+    "creditsSource": null,
+    "creditsNote": null,
     "expansions": null,
     "archive": true,
     "badge": "Archive entry",
@@ -89,6 +95,124 @@
     "developer": "Impressions Games",
     "publisher": "Sierra Studios",
     "credits": null,
+    "fullCredits": [
+      {
+        "role": "Designer",
+        "names": [
+          "David Lester"
+        ]
+      },
+      {
+        "role": "Programming",
+        "names": [
+          "Simon Bradbury"
+        ]
+      },
+      {
+        "role": "Producer",
+        "names": [
+          "Eric Ouellette"
+        ]
+      },
+      {
+        "role": "Art Director (US)",
+        "names": [
+          "Darrin Horbal"
+        ]
+      },
+      {
+        "role": "Artists (US)",
+        "names": [
+          "Ron Alpert",
+          "Adam Carriuolo",
+          "Bob Curtis",
+          "Mike Malone",
+          "Heidi Mann",
+          "Andrea Muzeroll",
+          "Dennis Rose"
+        ]
+      },
+      {
+        "role": "Artists (UK)",
+        "names": [
+          "Gary Bendilow",
+          "Michael Best",
+          "Martin Povey",
+          "Daniel Shutt"
+        ]
+      },
+      {
+        "role": "Map & Assignment Designers",
+        "names": [
+          "Doug Gonya",
+          "Eric Ouellette",
+          "Ken Parker",
+          "Greg Sheppard"
+        ]
+      },
+      {
+        "role": "Manual & Research",
+        "names": [
+          "David Lester",
+          "Ken Parker",
+          "Wayne McCaul"
+        ]
+      },
+      {
+        "role": "Music",
+        "names": [
+          "Rob Euvino"
+        ]
+      },
+      {
+        "role": "Sound Effects",
+        "names": [
+          "Edward Saltzman"
+        ]
+      },
+      {
+        "role": "QA Manager",
+        "names": [
+          "Jon Payne"
+        ]
+      },
+      {
+        "role": "Lead Tester",
+        "names": [
+          "Greg Sheppard"
+        ]
+      },
+      {
+        "role": "Quality Assurance (US)",
+        "names": [
+          "Brian Coons",
+          "Frank Lavoie",
+          "Tony Leier",
+          "Wayne McCaul",
+          "Tom Rogers"
+        ]
+      },
+      {
+        "role": "Quality Assurance (UK)",
+        "names": [
+          "Neal Sumsion",
+          "Niall Callaghan",
+          "Austin Parsons"
+        ]
+      },
+      {
+        "role": "Special Thanks",
+        "names": [
+          "Chris Beatrice",
+          "Doug Gonya"
+        ]
+      }
+    ],
+    "creditsSource": {
+      "title": "Caesar III manual (Impressions Games / Sierra)",
+      "url": "https://archive.org/details/Caesar_III_Manual"
+    },
+    "creditsNote": null,
     "expansions": null,
     "archive": false,
     "badge": "The archetype",
@@ -134,6 +258,9 @@
     "developer": "Impressions Games",
     "publisher": "Sierra Studios",
     "credits": "Chris Beatrice (design) · Gingerich (programming)",
+    "fullCredits": null,
+    "creditsSource": null,
+    "creditsNote": null,
     "expansions": "Cleopatra (2000) · bundled as Pharaoh Gold (2001)",
     "archive": false,
     "badge": "+ Cleopatra, 2000",
@@ -178,6 +305,176 @@
     "developer": "Impressions Games",
     "publisher": "Sierra Studios",
     "credits": "Chris Beatrice (design) · Gingerich (programming)",
+    "fullCredits": [
+      {
+        "role": "Designer",
+        "names": [
+          "Chris Beatrice"
+        ]
+      },
+      {
+        "role": "Programming Director",
+        "names": [
+          "Mike Gingerich"
+        ]
+      },
+      {
+        "role": "Producer",
+        "names": [
+          "Ken Parker"
+        ]
+      },
+      {
+        "role": "Programmers",
+        "names": [
+          "Jason Benham",
+          "Jim Solomon",
+          "Gabe Farris",
+          "Chris Gurski",
+          "Thanh Pham"
+        ]
+      },
+      {
+        "role": "Art Director",
+        "names": [
+          "Darrin Horbal"
+        ]
+      },
+      {
+        "role": "Artists",
+        "names": [
+          "Adam Carriuolo",
+          "Bob Curtis",
+          "Brian Despain",
+          "Mike Malone",
+          "Heidi Mann",
+          "Andrea Muzeroll",
+          "Dennis Rose",
+          "Abraham Wiley"
+        ]
+      },
+      {
+        "role": "Additional Design",
+        "names": [
+          "Tony Leier"
+        ]
+      },
+      {
+        "role": "Adventure Production",
+        "names": [
+          "Clay Heaton",
+          "Chris Bold",
+          "Brett Levin",
+          "Albert Meranda"
+        ]
+      },
+      {
+        "role": "Writer",
+        "names": [
+          "Lisa Gagnon"
+        ]
+      },
+      {
+        "role": "Audio Director",
+        "names": [
+          "Keith Zizza"
+        ]
+      },
+      {
+        "role": "Music",
+        "names": [
+          "Henry Beckett",
+          "Keith Zizza"
+        ]
+      },
+      {
+        "role": "Sound Design",
+        "names": [
+          "Keith Zizza"
+        ]
+      },
+      {
+        "role": "Voiceover Editing & Additional Sound Programming",
+        "names": [
+          "Ed Saltzman"
+        ]
+      },
+      {
+        "role": "Voice Recording",
+        "names": [
+          "The Troupe"
+        ]
+      },
+      {
+        "role": "Voices",
+        "names": [
+          "Gil Andrews",
+          "Meredith Boston",
+          "Bob Burchette",
+          "M.C. Danner",
+          "Sonny Dufault",
+          "Bob Feldman",
+          "David Fielding",
+          "Pam Good",
+          "George Hastenstab",
+          "Mark Kimball",
+          "Steve Liquori",
+          "Vicki Lorraine",
+          "Mike McNally",
+          "Kent Ohlman",
+          "George Piehl",
+          "Rick Rumble",
+          "Scott Severance",
+          "Mike Verrette",
+          "Keith Zizza"
+        ]
+      },
+      {
+        "role": "Localization Producer",
+        "names": [
+          "Jon Payne"
+        ]
+      },
+      {
+        "role": "Quality Assurance Manager",
+        "names": [
+          "Greg Sheppard"
+        ]
+      },
+      {
+        "role": "Lead Tester",
+        "names": [
+          "Tony Leier"
+        ]
+      },
+      {
+        "role": "Beta Testing Supervisor",
+        "names": [
+          "Juancho Martinez"
+        ]
+      },
+      {
+        "role": "Testers",
+        "names": [
+          "Chris Bold",
+          "John McAuley",
+          "Juancho Martinez",
+          "Clay Heaton",
+          "Hans Wang",
+          "James E. Lewis",
+          "Jesse J. Nunes",
+          "Alexx Kay",
+          "John Everly",
+          "Albert Meranda",
+          "Brett Levin"
+        ]
+      }
+    ],
+    "creditsSource": {
+      "title": "Zeus: Master of Olympus user's manual (Impressions Games / Sierra)",
+      "url": "https://archive.org/details/zeus-master-of-olympus-users-manual"
+    },
+    "creditsNote": "The manual also lists roughly eighty external beta testers by name; they are not reproduced here.",
     "expansions": "Poseidon (2001)",
     "archive": false,
     "badge": "+ Poseidon, 2001",
@@ -227,6 +524,9 @@
     "developer": "BreakAway Games",
     "publisher": "Sierra",
     "credits": null,
+    "fullCredits": null,
+    "creditsSource": null,
+    "creditsNote": null,
     "expansions": null,
     "archive": false,
     "badge": "BreakAway Games",

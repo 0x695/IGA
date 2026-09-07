@@ -327,6 +327,27 @@ behind. Size can, so size shipped and the flag did not.
 
 ---
 
+## Credits — two of six
+
+Added to the game hubs, not a sub-page. Caesar III (15 roles, 36 credits) and
+Zeus (20 roles, 63) are complete; the other four are not sourced yet and the
+hubs fall back to their one-line designer/programmer note rather than showing
+an empty section.
+
+**MobyGames could not be used.** It is the obvious source and it is blocked
+both ways — 403 to a plain fetch, and a Cloudflare bot check in the browser.
+Working around bot detection is off the table, so the credits come from the
+**games' own manuals**, which is the primary source those databases transcribe
+in the first place, and each block links the manual it came from.
+
+Still to source: **Pharaoh, Emperor, Caesar and Caesar II.** Archive.org has
+no text manual for Pharaoh or Emperor (only disc images), sierrahelp's PDFs
+fail TLS, and the Caesar II manual scan is truncated before its credits. The
+data shape is in place, so each is a fill rather than a rebuild:
+`fullCredits`, `creditsSource` and `creditsNote` in `src/data/games.json`.
+
+---
+
 ## Phase 4 — The long game
 
 - [ ] **The devlog.** The masterdoc's stated reason for the site existing:
