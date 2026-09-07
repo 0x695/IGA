@@ -81,6 +81,17 @@ const PROVENANCE: Record<string, { summary: string; caveat: string; sources: { t
       { title: 'Julius - src/building/type.h', url: 'https://github.com/bvschaik/julius/blob/master/src/building/type.h' },
     ],
   },
+  zeus: {
+    summary:
+      'Two ladders. Common housing runs seven rungs from a hut to a townhouse and holds sixty people at the top; elite housing runs four more, from a residence to an estate, on a four-by-four plot. Zeus is the one game here whose ladder took two sources to assemble, and they check each other.',
+    caveat:
+      "Names from a fansite, thresholds from an engine, joined on capacity. Zeus Heaven names the rungs and gives each one's population but states the requirements qualitatively - \"oil + appeal\". eZeus, a live C++ reimplementation, carries the exact conditions in its evolution code but reads the NAMES from the game's own language file, which does not ship in the repository. The two agree on every population, which is what makes the pairing safe: 8, 16, 24, 32, 40, 48, 60 for common housing and 6, 10, 16, 20 for elite. The build fails if that ever stops being true. \"Venue\" is the engine's count of the four culture walkers - philosophers, actors, athletes and competitors - which is what the fansite calls culture and science. Appeal figures are the engine's, and are not on the fansite at all.",
+    sources: [
+      { title: 'Zeus Heaven - housing levels', url: 'https://zeus.heavengames.com/gameinfo/housinglevels/' },
+      { title: 'eZeus - buildings/esmallhouse.cpp', url: 'https://github.com/MaurycyLiebner/eZeus/blob/main/buildings/esmallhouse.cpp' },
+      { title: 'eZeus - buildings/eelitehousing.cpp', url: 'https://github.com/MaurycyLiebner/eZeus/blob/main/buildings/eelitehousing.cpp' },
+    ],
+  },
   emperor: {
     summary:
       'Two ladders rather than one. Common housing runs eight rungs from a shelter to a luxurious apartment; elite housing runs five more, from a modest siheyuan to a heavenly compound, and a citizen never moves between the two.',

@@ -211,6 +211,100 @@ function emperorRows(list, tier, offset) {
 rows.push(...emperorRows(EMPEROR_COMMON, 'common', 0));
 rows.push(...emperorRows(EMPEROR_ELITE, 'elite', 0));
 
+/*
+ * ZEUS: names from Zeus Heaven, thresholds from eZeus.
+ *
+ * Neither source is sufficient alone and together they check each other. The
+ * fansite names the rungs and gives each one's population but describes the
+ * requirements qualitatively ("oil + appeal"); eZeus carries the exact
+ * conditions in eSmallHouse::updateLevel and eEliteHousing::updateLevel but
+ * takes its NAMES from the game's own language file, which is not in the
+ * repository. The capacity arrays are the join: if they ever stop matching the
+ * fansite's populations, the pairing below is wrong and the build fails.
+ *
+ * "Venues" are the four culture walkers the engine counts - philosophers,
+ * actors, athletes and competitors - which is what the fansite means by
+ * "culture/science".
+ */
+const ZEUS_COMMON = [
+  ['Hut', 'Nothing. An empty plot with people on it.'],
+  ['Shack', 'Food.'],
+  ['Hovel', 'Water, and one kind of venue.'],
+  ['Homestead', 'Fleece, and appeal above 2.'],
+  ['Tenement', 'A second kind of venue.'],
+  ['Apartment', 'Olive oil, and appeal above 5.'],
+  ['Townhouse', 'A third kind of venue, and appeal above 8.'],
+];
+const ZEUS_ELITE = [
+  ['Residence', 'Food, fleece, oil, three kinds of venue, and appeal above 5.'],
+  ['Mansion', 'Armour, and appeal above 7.'],
+  ['Manor', 'Wine, and appeal above 9.'],
+  ['Estate', 'Horses, a fourth kind of venue, and appeal above 10.'],
+];
+
+async function eZeusCapacities(file) {
+  const res = await fetch(
+    `https://raw.githubusercontent.com/MaurycyLiebner/eZeus/main/buildings/${file}`,
+  );
+  if (!res.ok) throw new Error(`eZeus ${file}: ${res.status}`);
+  const text = await res.text();
+  const m = /eHouseBase\([\s\S]*?\{([\d,\s]+)\}/.exec(text);
+  if (!m) throw new Error(`no capacity array in ${file}`);
+  return m[1].split(',').map((v) => Number(v.trim()));
+}
+
+const zeusCommonCap = await eZeusCapacities('esmallhouse.cpp');
+const zeusEliteCap = await eZeusCapacities('eelitehousing.cpp');
+
+if (zeusCommonCap.join() !== '8,16,24,32,40,48,60') {
+  throw new Error(`eZeus common capacities changed: ${zeusCommonCap.join()}`);
+}
+/* The first entry is the unevolved plot, not a rung - the same shape as
+   Caesar III's vacant lot sharing a value with the small tent. The four rungs
+   the fansite names are the remaining four. */
+if (zeusEliteCap.join() !== '6,6,10,16,20') {
+  throw new Error(`eZeus elite capacities changed: ${zeusEliteCap.join()}`);
+}
+const zeusEliteRungs = zeusEliteCap.slice(1);
+
+ZEUS_COMMON.forEach(([name, requirements], index) => {
+  rows.push({
+    id: `zeus-common-${String(index).padStart(2, '0')}`,
+    game: 'zeus',
+    tier: 'common',
+    level: index,
+    name,
+    engineType: null,
+    size: 2,
+    maxPeople: zeusCommonCap[index],
+    prosperity: null,
+    evolveDesirability: null,
+    devolveDesirability: null,
+    needs: null,
+    requirements,
+    note: null,
+  });
+});
+
+ZEUS_ELITE.forEach(([name, requirements], index) => {
+  rows.push({
+    id: `zeus-elite-${String(index).padStart(2, '0')}`,
+    game: 'zeus',
+    tier: 'elite',
+    level: index,
+    name,
+    engineType: null,
+    size: 4,
+    maxPeople: zeusEliteRungs[index],
+    prosperity: null,
+    evolveDesirability: null,
+    devolveDesirability: null,
+    needs: null,
+    requirements,
+    note: null,
+  });
+});
+
 for (const row of rows) if (!('tier' in row)) row.tier = null;
 
 await writeFile(OUT, `${JSON.stringify(rows, null, 2)}\n`, 'utf8');
