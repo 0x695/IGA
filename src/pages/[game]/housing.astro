@@ -1,0 +1,388 @@
+---
+import { getCollection } from 'astro:content';
+import Base from '../../layouts/Base.astro';
+import { withBase } from '../../lib/url';
+
+/**
+ * A game's housing ladder.
+ *
+ * The rung a citizen lives on is the number half the series' mission goals are
+ * written against - "5000 people in Townhouse or better" - so it belongs on the
+ * site as a table rather than as a sentence in a mechanics essay.
+ *
+ * Three games have one and they are not equally grounded, which the page says
+ * rather than hides: Pharaoh's is read from Akhenaten and carries the model the
+ * engine tests, Caesar III's is names and footprints because its numbers live
+ * in a file mods rewrite, and Emperor's is a walkthrough's observations.
+ */
+export async function getStaticPaths() {
+  /* Declared in here rather than at module scope: Astro hoists getStaticPaths
+     above the frontmatter's consts, so a module-level array is still in its
+     temporal dead zone when this runs. */
+  const TIER_ORDER = [null, 'common', 'elite'];
+
+  const games = await getCollection('games');
+  const housing = await getCollection('housing');
+
+  return games
+    .map((game) => ({
+      game,
+      /*
+       * Sort by tier first, then by rung. Emperor's common and elite ladders
+       * both start at level 0 - they are separate ladders, not one sequence -
+       * so ordering on level alone interleaves them into nonsense.
+       */
+      rungs: housing
+        .filter((h) => h.data.game === game.id)
+        .sort(
+          (a, b) =>
+            TIER_ORDER.indexOf(a.data.tier) - TIER_ORDER.indexOf(b.data.tier) ||
+            a.data.level - b.data.level,
+        ),
+    }))
+    .filter(({ rungs }) => rungs.length > 0)
+    .map(({ game, rungs }) => ({ params: { game: game.id }, props: { game, rungs } }));
+}
+
+const { game, rungs } = Astro.props;
+const g = game.data;
+
+/* Emperor runs a common and an elite ladder side by side, and a citizen never
+   moves between them - so they are two tables, not one list. */
+const tiers: { name: string | null; rungs: typeof rungs }[] = [];
+for (const rung of rungs) {
+  const tier = rung.data.tier;
+  const last = tiers.at(-1);
+  if (last && last.name === tier) last.rungs.push(rung);
+  else tiers.push({ name: tier, rungs: [rung] });
+}
+
+const TIER_LABEL: Record<string, string> = {
+  common: 'Common housing',
+  elite: 'Elite housing',
+};
+
+const PROVENANCE: Record<string, { summary: string; caveat: string; sources: { title: string; url: string | null }[] }> = {
+  pharaoh: {
+    summary:
+      'Twenty rungs, from a crude hut to a palatial estate, with what each one demands before it will evolve and how many people it then holds. Read out of Akhenaten rather than observed in play, so these are the thresholds the engine tests.',
+    caveat:
+      'Every value is five values. Like building cost, the housing model is stated once per difficulty level, and where the five differ they are all shown rather than averaged into a figure that is true nowhere - the palatial estate wants two food types on the gentlest setting and three on the rest. A rung also inherits everything the rungs below it asked for. Desirability is the figure a house needs from its surroundings to climb, and the lower one is where it falls back.',
+    sources: [
+      { title: 'Akhenaten - src/scripts/houses.js', url: 'https://github.com/dalerank/Akhenaten/blob/master/src/scripts/houses.js' },
+    ],
+  },
+  caesar3: {
+    summary:
+      "Twenty rungs, from a small tent to a luxury palace, in the order Julius's building enum gives them, with the footprint each occupies.",
+    caveat:
+      "What each rung requires is not here, and that is the same absence as the buildings table's missing cost column. Caesar III keeps its housing model in c3_model.txt - a plain-text file that ships with the game and that any mod may rewrite - so a table of requirements frozen on this page would be right for one copy of the game and quietly wrong for others. The file is on your own disk, and what its columns mean is documented here instead. The vacant lot is not a rung: it shares its enum value with the small tent because it is the empty plot, not a house.",
+    sources: [
+      { title: 'Julius - src/building/type.h', url: 'https://github.com/bvschaik/julius/blob/master/src/building/type.h' },
+    ],
+  },
+  emperor: {
+    summary:
+      'Two ladders rather than one. Common housing runs eight rungs from a shelter to a luxurious apartment; elite housing runs five more, from a modest siheyuan to a heavenly compound, and a citizen never moves between the two.',
+    caveat:
+      'Observed, not read. Emperor is the one game in the series with no open-source engine, so this comes from a community walkthrough and carries what a player saw rather than what the code checks. Each rung needs everything the rung below it needed. Elite housing is the odd one: its residents do not work, but they pay the taxes that can cover a whole city’s wages.',
+    sources: [
+      { title: "Mike Jenista's Emperor: Rise of the Middle Kingdom FAQ/Walkthrough, v1.00", url: null },
+    ],
+  },
+};
+
+const provenance = PROVENANCE[game.id];
+
+/** A single number, or the five-per-difficulty range written out. */
+function scale(value: number | number[] | null): string {
+  if (value === null) return '—';
+  if (typeof value === 'number') return String(value);
+  return value.join(' · ');
+}
+
+const hasModel = rungs.some((r) => r.data.needs !== null);
+const hasSize = rungs.some((r) => r.data.size !== null);
+const hasRequirements = rungs.some((r) => r.data.requirements !== null);
+
+/* Only the columns this game actually has. A table of dashes says nothing. */
+const NEEDS: { key: keyof NonNullable<typeof rungs[number]['data']['needs']>; label: string }[] = [
+  { key: 'water', label: 'Water' },
+  { key: 'foodTypes', label: 'Foods' },
+  { key: 'religion', label: 'Gods' },
+  { key: 'education', label: 'Educ' },
+  { key: 'entertainment', label: 'Entmt' },
+  { key: 'health', label: 'Health' },
+  { key: 'pottery', label: 'Pottery' },
+  { key: 'linen', label: 'Linen' },
+  { key: 'beer', label: 'Beer' },
+  { key: 'jewelry', label: 'Jewels' },
+];
+---
+
+<Base
+  title={`${g.title} housing ladder — Impressions Games Archive`}
+  description={`Every rung of the ${g.title} housing ladder, and what each one demands.`}
+  current={game.id}
+>
+  <div data-pagefind-body>
+    <section class="section head">
+      <p class="head__kicker">
+        <a href={withBase(`/${game.id}/`)}>{g.title}</a>
+        <span aria-hidden="true"> · </span>Housing
+      </p>
+      <h1 class="head__title">Housing ladder</h1>
+      <p class="head__summary">{provenance.summary}</p>
+
+      <aside class="caveat">
+        <h2 class="caveat__title">Where this comes from</h2>
+        <p>{provenance.caveat}</p>
+        <p class="caveat__sources">
+          {
+            provenance.sources.map((source, index) => (
+              <>
+                {index > 0 && <span aria-hidden="true"> · </span>}
+                {source.url ? (
+                  <a href={source.url} target="_blank" rel="noopener noreferrer">{source.title} ↗</a>
+                ) : (
+                  <span>{source.title}</span>
+                )}
+              </>
+            ))
+          }
+          {game.id === 'caesar3' && (
+            <>
+              <span aria-hidden="true"> · </span>
+              <a href={withBase('/formats/c3-model/')}>What c3_model.txt holds</a>
+            </>
+          )}
+        </p>
+      </aside>
+    </section>
+
+    <section class="section list">
+      {
+        tiers.map((tier) => (
+          <>
+            {tier.name && <h2 class="tier">{TIER_LABEL[tier.name]}</h2>}
+            <div class="scroller">
+              <table class="ladder">
+                <thead>
+                  <tr>
+                    <th class="num">#</th>
+                    <th>Rung</th>
+                    {hasSize && <th class="num">Size</th>}
+                    <th class="num">People</th>
+                    {hasModel && NEEDS.map((need) => <th class="num">{need.label}</th>)}
+                    {hasModel && <th class="num">Desirability</th>}
+                    {hasRequirements && <th>Needs</th>}
+                  </tr>
+                </thead>
+                <tbody>
+                  {tier.rungs.map((rung) => (
+                    <tr>
+                      <td class="num dim">{rung.data.level}</td>
+                      <th scope="row" class="rung">
+                        {rung.data.name}
+                        {rung.data.engineType && <code>{rung.data.engineType}</code>}
+                      </th>
+                      {hasSize && (
+                        <td class="num">
+                          {rung.data.size ? `${rung.data.size}×${rung.data.size}` : '—'}
+                        </td>
+                      )}
+                      <td class="num">{scale(rung.data.maxPeople)}</td>
+                      {hasModel &&
+                        NEEDS.map((need) => (
+                          <td class="num">{scale(rung.data.needs?.[need.key] ?? null)}</td>
+                        ))}
+                      {hasModel && (
+                        <td class="num">{scale(rung.data.evolveDesirability)}</td>
+                      )}
+                      {hasRequirements && (
+                        <td class="needs">
+                          {rung.data.requirements}
+                          {rung.data.note && <span class="dim"> {rung.data.note}</span>}
+                        </td>
+                      )}
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          </>
+        ))
+      }
+    </section>
+  </div>
+</Base>
+
+<style>
+  .head {
+    padding-block: 56px 0;
+  }
+
+  .head__kicker {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--color-text-dim);
+    margin: 0 0 14px;
+  }
+
+  .head__kicker a {
+    color: var(--color-accent);
+    text-decoration: none;
+  }
+
+  .head__kicker a:hover {
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+
+  .head__title {
+    font-family: var(--font-heading);
+    font-weight: 700;
+    font-size: clamp(30px, 5vw, 46px);
+    margin: 0 0 18px;
+    padding-bottom: 16px;
+    border-bottom: 3px solid var(--color-divider);
+    display: inline-block;
+  }
+
+  .head__summary {
+    font-size: 15px;
+    line-height: 1.65;
+    color: var(--color-text-dim);
+    max-width: 70ch;
+    margin: 0 0 24px;
+  }
+
+  .caveat {
+    border: 1px solid var(--color-divider);
+    border-left: 3px solid var(--color-accent);
+    border-radius: var(--radius-md);
+    background: var(--color-surface);
+    padding: 16px 20px;
+  }
+
+  .caveat__title {
+    font-family: var(--font-heading);
+    font-weight: 600;
+    font-size: 15px;
+    margin: 0 0 6px;
+  }
+
+  .caveat p {
+    margin: 0;
+    font-size: 13.5px;
+    line-height: 1.65;
+    color: var(--color-text-dim);
+    max-width: 70ch;
+  }
+
+  .caveat__sources {
+    margin-top: 10px !important;
+    font-size: 12.5px;
+  }
+
+  .caveat__sources a {
+    color: var(--color-accent);
+    text-decoration: none;
+  }
+
+  .caveat__sources a:hover {
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+
+  .list {
+    padding-block: 36px 80px;
+  }
+
+  .tier {
+    font-family: var(--font-heading);
+    font-weight: 600;
+    font-size: 13px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--color-text-dim);
+    margin: 34px 0 12px;
+  }
+
+  .tier:first-child {
+    margin-top: 0;
+  }
+
+  /* A wide table scrolls inside its own box rather than pushing the page. */
+  .scroller {
+    overflow-x: auto;
+  }
+
+  .ladder {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 13px;
+  }
+
+  .ladder th,
+  .ladder td {
+    text-align: left;
+    padding: 9px 10px;
+    border-bottom: 1px solid var(--color-divider);
+    vertical-align: baseline;
+  }
+
+  .ladder thead th {
+    font-family: var(--font-mono);
+    font-size: 10px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--color-text-dim);
+    font-weight: 400;
+    white-space: nowrap;
+    border-bottom-color: var(--color-text-dim);
+  }
+
+  /* Mono only where a value is compared character by character. */
+  .num {
+    font-family: var(--font-mono);
+    font-variant-numeric: tabular-nums;
+    text-align: right !important;
+    white-space: nowrap;
+  }
+
+  .dim {
+    color: var(--color-text-dim);
+  }
+
+  .rung {
+    font-family: var(--font-heading);
+    font-weight: 600;
+    font-size: 14px;
+    white-space: nowrap;
+  }
+
+  .rung code {
+    display: block;
+    font-family: var(--font-mono);
+    font-size: 10px;
+    font-weight: 400;
+    color: var(--color-text-dim);
+    opacity: 0.75;
+    margin-top: 2px;
+  }
+
+  .needs {
+    font-size: 12.5px;
+    color: var(--color-text-dim);
+    min-width: 28ch;
+  }
+
+  @media (max-width: 640px) {
+    .head {
+      padding-block: 36px 0;
+    }
+  }
+</style>
