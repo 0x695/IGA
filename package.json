@@ -13,7 +13,10 @@
     "images": "node scripts/optimize-images.mjs",
     "social": "node scripts/make-social-images.mjs",
     "buildings": "node scripts/build-buildings.mjs",
-    "links": "node scripts/check-links.mjs"
+    "links": "node scripts/check-links.mjs",
+    "housing": "node scripts/build-housing.mjs",
+    "production": "node scripts/build-production.mjs",
+    "engines": "node scripts/update-engine-activity.mjs"
   },
   "dependencies": {
     "astro": "^5.0.0"
