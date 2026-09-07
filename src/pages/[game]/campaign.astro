@@ -6,10 +6,12 @@ import { withBase } from '../../lib/url';
 /**
  * A game's campaign, mission by mission.
  *
- * The win criteria are the engine's own: each of Akhenaten's per-mission config
- * files states the rank and the goals the game actually checks, so this is the
- * campaign as the code runs it rather than as a guide describes it. Only games
- * with data get a route.
+ * Only games with data get a route, and each page states where its data came
+ * from, because that differs: Pharaoh is read from Akhenaten's own per-mission
+ * config and therefore carries the win criteria the code checks, while Caesar
+ * III and Emperor are community documentation and carry names and order only.
+ * Presenting the two as if they were equally grounded would be the dishonest
+ * part.
  */
 export async function getStaticPaths() {
   const games = await getCollection('games');
@@ -38,11 +40,51 @@ for (const mission of missions) {
 }
 
 const total = missions.length;
+
+/*
+ * Where each list comes from. Pharaoh's is read from the engine and carries
+ * the criteria the code tests; the other two are community documentation,
+ * because mission names are not in those engines at all. Saying which is
+ * which is the difference between a reference and a list of words.
+ */
+const PROVENANCE: Record<string, { summary: string; caveat: string; sources: { title: string; url: string }[] }> = {
+  pharaoh: {
+    summary:
+      "All 53 missions in play order, with the rank you hold and the goals the game checks to end them. Read out of Akhenaten's per-mission configuration rather than from a walkthrough, so these are the thresholds the engine actually tests.",
+    caveat:
+      'Win criteria, not advice. The table says what the game requires; it does not say how to get there, and a mission with modest-looking goals can still be the hard one. Housing level is the rung on the twenty-step housing ladder, not a count of houses - those are listed separately where a mission demands them.',
+    sources: [
+      { title: 'Akhenaten - src/scripts/mission/', url: 'https://github.com/dalerank/Akhenaten/tree/master/src/scripts/mission' },
+    ],
+  },
+  caesar3: {
+    summary:
+      'Twenty missions across eleven ranks. From the third rank onward the emperor offers two provinces - one peaceful, one under military threat - and you play one of them, so a single run sees twelve of these twenty maps.',
+    caveat:
+      "No win criteria here. Caesar III's mission names are not in the engine at all - they live in the game's own text files - so this list is community documentation rather than something read from code. The rank-and-branch pairing below is agreed independently by two sources, and the count reconciles with Julius, which uses eleven of the twelve rows in its mission table.",
+    sources: [
+      { title: 'Caesar 3 Heaven - military walkthroughs index', url: 'https://caesar3.heavengames.com/strategy/militarywalk/index.shtml' },
+      { title: 'Impressions Games Wiki - Caesar 3 missions', url: 'https://impressionsgames.fandom.com/wiki/Category:Caesar_3:_Missions' },
+    ],
+  },
+  emperor: {
+    summary:
+      'Forty-eight missions in play order, running from the Xia dynasty to the Song-Jin. Emperor has no engine reimplementation, so unlike the others this list could only come from the community.',
+    caveat:
+      'Names and order only. Emperor is the one game in the series with no open-source engine to read, which is exactly why its wanted callout exists - so there is no code to check these against, and no win criteria to publish. The dynasty each mission belongs to is not marked here because the boundaries are not stated by the source, and guessing them would be inventing structure.',
+    sources: [
+      { title: 'Impressions Games Wiki - Emperor missions', url: 'https://impressionsgames.fandom.com/wiki/Category:Emperor:_Missions' },
+    ],
+  },
+};
+
+const provenance = PROVENANCE[game.id];
+const showRank = missions.some((m) => m.data.rank !== null);
 ---
 
 <Base
   title={`${g.title} campaign — Impressions Games Archive`}
-  description={`All ${total} missions of the ${g.title} campaign, with the rank and the win criteria the engine actually checks.`}
+  description={`All ${total} missions of the ${g.title} campaign, in play order.`}
   current={game.id}
 >
   <div data-pagefind-body>
@@ -52,19 +94,22 @@ const total = missions.length;
         <span aria-hidden="true"> · </span>Campaign
       </p>
       <h1 class="head__title">Campaign</h1>
-      <p class="head__summary">
-        All {total} missions in play order, with the rank you hold and the goals the game checks to
-        end them. Read out of Akhenaten's per-mission configuration rather than from a walkthrough,
-        so these are the thresholds the engine actually tests.
-      </p>
+      <p class="head__summary">{provenance.summary}</p>
 
       <aside class="caveat">
-        <h2 class="caveat__title">What these numbers are, and are not</h2>
-        <p>
-          Win criteria, not advice. The table says what the game requires; it does not say how to
-          get there, and a mission with modest-looking goals can still be the hard one. Housing
-          level is the rung on the twenty-step housing ladder, not a count of houses — those are
-          listed separately where a mission demands them.
+        <h2 class="caveat__title">Where this comes from</h2>
+        <p>{provenance.caveat}</p>
+        <p class="caveat__sources">
+          {
+            provenance.sources.map((source, index) => (
+              <>
+                {index > 0 && <span aria-hidden="true"> · </span>}
+                <a href={source.url} rel="noopener">
+                  {source.title} ↗
+                </a>
+              </>
+            ))
+          }
         </p>
       </aside>
     </section>
@@ -80,7 +125,17 @@ const total = missions.length;
                   <div class="mission__head">
                     <span class="mission__num">{String(mission.data.order).padStart(2, '0')}</span>
                     <span class="mission__name">{mission.data.name}</span>
-                    <span class="mission__rank">Rank {mission.data.rank}</span>
+                    {mission.data.rankName && (
+                      <span class="mission__rank">{mission.data.rankName}</span>
+                    )}
+                    {mission.data.branch && (
+                      <span class:list={['mission__branch', `mission__branch--${mission.data.branch}`]}>
+                        {mission.data.branch}
+                      </span>
+                    )}
+                    {!mission.data.rankName && showRank && mission.data.rank !== null && (
+                      <span class="mission__rank">Rank {mission.data.rank}</span>
+                    )}
                   </div>
                   <ul class="goals">
                     {mission.data.goals.map((goal) => (
@@ -229,6 +284,40 @@ const total = missions.length;
     border-radius: 3px;
     padding: 1px 6px;
     white-space: nowrap;
+  }
+
+  .mission__branch {
+    font-family: var(--font-mono);
+    font-size: 10px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    border-radius: 3px;
+    padding: 1px 6px;
+    white-space: nowrap;
+    border: 1px solid var(--color-divider);
+    color: var(--color-text-dim);
+  }
+
+  /* The two branches are a real fork in the campaign, so they are marked -
+     but with the site's own vocabulary, not a fifth colour. */
+  .mission__branch--military {
+    color: var(--accent-rome);
+    border-color: var(--accent-rome-dim);
+  }
+
+  .caveat__sources {
+    margin-top: 10px !important;
+    font-size: 12.5px;
+  }
+
+  .caveat__sources a {
+    color: var(--color-accent);
+    text-decoration: none;
+  }
+
+  .caveat__sources a:hover {
+    text-decoration: underline;
+    text-underline-offset: 3px;
   }
 
   .goals {

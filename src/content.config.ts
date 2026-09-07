@@ -235,14 +235,21 @@ const buildings = defineCollection({
 /**
  * Campaign missions, in play order.
  *
- * Read out of Akhenaten's per-mission config files (src/scripts/mission/), one
- * per mission, which carry the city name, the player rank and the actual win
- * criteria the engine checks. Mission *names* are not in Julius at all - for
- * Caesar III they live in the game's own text files - which is why only
- * Pharaoh is populated.
+ * Provenance differs by game, and the pages say so:
  *
- * Goals with a value of zero are dropped rather than shown: the engine marks
- * some criteria enabled with a goal of 0, which is not a requirement.
+ * - Pharaoh is read out of Akhenaten's per-mission config files, one per
+ *   mission, so it carries the win criteria the engine actually checks. Goals
+ *   with a value of zero are dropped - the engine marks some criteria enabled
+ *   with a goal of 0, which is not a requirement.
+ * - Caesar III and Emperor come from community documentation, because mission
+ *   names are not in the engines at all: they live in the games' own text
+ *   files. Caesar III's rank-and-branch pairing is agreed independently by
+ *   Caesar 3 Heaven's walkthrough index and NamuWiki's scenario page, and the
+ *   count reconciles with Julius, which uses 11 of the 12 rows in its mission
+ *   table. Emperor's order is stated by the Impressions Games Wiki.
+ *
+ * Which means these lists carry no win criteria: nobody has published them and
+ * this site will not invent them.
  */
 const campaigns = defineCollection({
   loader: file('src/data/campaigns.json'),
@@ -253,8 +260,16 @@ const campaigns = defineCollection({
     name: z.string(),
     /** Which release the mission shipped with. */
     campaign: z.string(),
-    /** The rank the player holds for this mission. */
-    rank: z.number().int(),
+    /** The rank the player holds, where the game has ranks. */
+    rank: z.number().int().nullable(),
+    /** The rank's name, where a source gives one. */
+    rankName: z.string().nullable(),
+    /**
+     * Caesar III offers two provinces at most ranks: one peaceful, one under
+     * military threat. Null where a mission has no choice, or the game has no
+     * such split.
+     */
+    branch: z.enum(['peaceful', 'military']).nullable(),
     goals: z.array(
       z.object({
         type: z.string(),

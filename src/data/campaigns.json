@@ -17,7 +17,9 @@
         "label": "Housing level",
         "value": 2
       }
-    ]
+    ],
+    "rankName": null,
+    "branch": null
   },
   {
     "id": "pharaoh-001",
@@ -37,7 +39,9 @@
         "label": "Housing level",
         "value": 5
       }
-    ]
+    ],
+    "rankName": null,
+    "branch": null
   },
   {
     "id": "pharaoh-002",
@@ -62,7 +66,9 @@
         "label": "Housing level",
         "value": 6
       }
-    ]
+    ],
+    "rankName": null,
+    "branch": null
   },
   {
     "id": "pharaoh-003",
@@ -82,7 +88,9 @@
         "label": "Houses",
         "value": 10
       }
-    ]
+    ],
+    "rankName": null,
+    "branch": null
   },
   {
     "id": "pharaoh-004",
@@ -122,7 +130,9 @@
         "label": "Housing level",
         "value": 10
       }
-    ]
+    ],
+    "rankName": null,
+    "branch": null
   },
   {
     "id": "pharaoh-005",
@@ -152,7 +162,9 @@
         "label": "Housing level",
         "value": 10
       }
-    ]
+    ],
+    "rankName": null,
+    "branch": null
   },
   {
     "id": "pharaoh-006",
@@ -192,7 +204,9 @@
         "label": "Housing level",
         "value": 10
       }
-    ]
+    ],
+    "rankName": null,
+    "branch": null
   },
   {
     "id": "pharaoh-007",
@@ -232,7 +246,9 @@
         "label": "Housing level",
         "value": 10
       }
-    ]
+    ],
+    "rankName": null,
+    "branch": null
   },
   {
     "id": "pharaoh-008",
@@ -267,7 +283,9 @@
         "label": "Housing level",
         "value": 10
       }
-    ]
+    ],
+    "rankName": null,
+    "branch": null
   },
   {
     "id": "pharaoh-009",
@@ -302,7 +320,9 @@
         "label": "Housing level",
         "value": 10
       }
-    ]
+    ],
+    "rankName": null,
+    "branch": null
   },
   {
     "id": "pharaoh-010",
@@ -337,7 +357,9 @@
         "label": "Housing level",
         "value": 10
       }
-    ]
+    ],
+    "rankName": null,
+    "branch": null
   },
   {
     "id": "pharaoh-011",
@@ -362,7 +384,9 @@
         "label": "Housing level",
         "value": 4
       }
-    ]
+    ],
+    "rankName": null,
+    "branch": null
   },
   {
     "id": "pharaoh-012",
@@ -402,7 +426,9 @@
         "label": "Housing level",
         "value": 11
       }
-    ]
+    ],
+    "rankName": null,
+    "branch": null
   },
   {
     "id": "pharaoh-013",
@@ -442,7 +468,9 @@
         "label": "Housing level",
         "value": 10
       }
-    ]
+    ],
+    "rankName": null,
+    "branch": null
   },
   {
     "id": "pharaoh-014",
@@ -477,7 +505,9 @@
         "label": "Housing level",
         "value": 19
       }
-    ]
+    ],
+    "rankName": null,
+    "branch": null
   },
   {
     "id": "pharaoh-015",
@@ -517,7 +547,9 @@
         "label": "Housing level",
         "value": 10
       }
-    ]
+    ],
+    "rankName": null,
+    "branch": null
   },
   {
     "id": "pharaoh-016",
@@ -557,7 +589,9 @@
         "label": "Housing level",
         "value": 16
       }
-    ]
+    ],
+    "rankName": null,
+    "branch": null
   },
   {
     "id": "pharaoh-017",
@@ -597,7 +631,9 @@
         "label": "Housing level",
         "value": 10
       }
-    ]
+    ],
+    "rankName": null,
+    "branch": null
   },
   {
     "id": "pharaoh-018",
@@ -622,7 +658,9 @@
         "label": "Housing level",
         "value": 10
       }
-    ]
+    ],
+    "rankName": null,
+    "branch": null
   },
   {
     "id": "pharaoh-019",
@@ -662,7 +700,9 @@
         "label": "Housing level",
         "value": 10
       }
-    ]
+    ],
+    "rankName": null,
+    "branch": null
   },
   {
     "id": "pharaoh-020",
@@ -702,7 +742,9 @@
         "label": "Housing level",
         "value": 10
       }
-    ]
+    ],
+    "rankName": null,
+    "branch": null
   },
   {
     "id": "pharaoh-021",
@@ -742,7 +784,9 @@
         "label": "Housing level",
         "value": 14
       }
-    ]
+    ],
+    "rankName": null,
+    "branch": null
   },
   {
     "id": "pharaoh-022",
@@ -782,7 +826,9 @@
         "label": "Housing level",
         "value": 11
       }
-    ]
+    ],
+    "rankName": null,
+    "branch": null
   },
   {
     "id": "pharaoh-023",
@@ -822,7 +868,9 @@
         "label": "Housing level",
         "value": 10
       }
-    ]
+    ],
+    "rankName": null,
+    "branch": null
   },
   {
     "id": "pharaoh-024",
@@ -862,7 +910,9 @@
         "label": "Housing level",
         "value": 10
       }
-    ]
+    ],
+    "rankName": null,
+    "branch": null
   },
   {
     "id": "pharaoh-025",
@@ -902,7 +952,9 @@
         "label": "Housing level",
         "value": 13
       }
-    ]
+    ],
+    "rankName": null,
+    "branch": null
   },
   {
     "id": "pharaoh-026",
@@ -942,7 +994,9 @@
         "label": "Housing level",
         "value": 10
       }
-    ]
+    ],
+    "rankName": null,
+    "branch": null
   },
   {
     "id": "pharaoh-027",
@@ -987,7 +1041,9 @@
         "label": "Housing level",
         "value": 17
       }
-    ]
+    ],
+    "rankName": null,
+    "branch": null
   },
   {
     "id": "pharaoh-028",
@@ -1027,7 +1083,9 @@
         "label": "Housing level",
         "value": 10
       }
-    ]
+    ],
+    "rankName": null,
+    "branch": null
   },
   {
     "id": "pharaoh-029",
@@ -1067,7 +1125,9 @@
         "label": "Housing level",
         "value": 17
       }
-    ]
+    ],
+    "rankName": null,
+    "branch": null
   },
   {
     "id": "pharaoh-030",
@@ -1107,7 +1167,9 @@
         "label": "Housing level",
         "value": 10
       }
-    ]
+    ],
+    "rankName": null,
+    "branch": null
   },
   {
     "id": "pharaoh-031",
@@ -1147,7 +1209,9 @@
         "label": "Housing level",
         "value": 19
       }
-    ]
+    ],
+    "rankName": null,
+    "branch": null
   },
   {
     "id": "pharaoh-032",
@@ -1187,7 +1251,9 @@
         "label": "Housing level",
         "value": 14
       }
-    ]
+    ],
+    "rankName": null,
+    "branch": null
   },
   {
     "id": "pharaoh-033",
@@ -1227,7 +1293,9 @@
         "label": "Housing level",
         "value": 14
       }
-    ]
+    ],
+    "rankName": null,
+    "branch": null
   },
   {
     "id": "pharaoh-034",
@@ -1267,7 +1335,9 @@
         "label": "Housing level",
         "value": 10
       }
-    ]
+    ],
+    "rankName": null,
+    "branch": null
   },
   {
     "id": "pharaoh-035",
@@ -1307,7 +1377,9 @@
         "label": "Housing level",
         "value": 19
       }
-    ]
+    ],
+    "rankName": null,
+    "branch": null
   },
   {
     "id": "pharaoh-036",
@@ -1347,7 +1419,9 @@
         "label": "Housing level",
         "value": 10
       }
-    ]
+    ],
+    "rankName": null,
+    "branch": null
   },
   {
     "id": "pharaoh-037",
@@ -1387,7 +1461,9 @@
         "label": "Housing level",
         "value": 14
       }
-    ]
+    ],
+    "rankName": null,
+    "branch": null
   },
   {
     "id": "pharaoh-038",
@@ -1422,7 +1498,9 @@
         "label": "Housing level",
         "value": 14
       }
-    ]
+    ],
+    "rankName": null,
+    "branch": null
   },
   {
     "id": "pharaoh-039",
@@ -1452,7 +1530,9 @@
         "label": "Housing level",
         "value": 14
       }
-    ]
+    ],
+    "rankName": null,
+    "branch": null
   },
   {
     "id": "pharaoh-040",
@@ -1497,7 +1577,9 @@
         "label": "Housing level",
         "value": 15
       }
-    ]
+    ],
+    "rankName": null,
+    "branch": null
   },
   {
     "id": "pharaoh-041",
@@ -1537,7 +1619,9 @@
         "label": "Housing level",
         "value": 14
       }
-    ]
+    ],
+    "rankName": null,
+    "branch": null
   },
   {
     "id": "pharaoh-042",
@@ -1567,7 +1651,9 @@
         "label": "Housing level",
         "value": 14
       }
-    ]
+    ],
+    "rankName": null,
+    "branch": null
   },
   {
     "id": "pharaoh-043",
@@ -1607,7 +1693,9 @@
         "label": "Housing level",
         "value": 10
       }
-    ]
+    ],
+    "rankName": null,
+    "branch": null
   },
   {
     "id": "pharaoh-044",
@@ -1652,7 +1740,9 @@
         "label": "Housing level",
         "value": 17
       }
-    ]
+    ],
+    "rankName": null,
+    "branch": null
   },
   {
     "id": "pharaoh-045",
@@ -1692,7 +1782,9 @@
         "label": "Housing level",
         "value": 8
       }
-    ]
+    ],
+    "rankName": null,
+    "branch": null
   },
   {
     "id": "pharaoh-046",
@@ -1722,7 +1814,9 @@
         "label": "Housing level",
         "value": 10
       }
-    ]
+    ],
+    "rankName": null,
+    "branch": null
   },
   {
     "id": "pharaoh-047",
@@ -1757,7 +1851,9 @@
         "label": "Housing level",
         "value": 10
       }
-    ]
+    ],
+    "rankName": null,
+    "branch": null
   },
   {
     "id": "pharaoh-048",
@@ -1802,7 +1898,9 @@
         "label": "Housing level",
         "value": 10
       }
-    ]
+    ],
+    "rankName": null,
+    "branch": null
   },
   {
     "id": "pharaoh-049",
@@ -1847,7 +1945,9 @@
         "label": "Housing level",
         "value": 16
       }
-    ]
+    ],
+    "rankName": null,
+    "branch": null
   },
   {
     "id": "pharaoh-050",
@@ -1887,7 +1987,9 @@
         "label": "Housing level",
         "value": 4
       }
-    ]
+    ],
+    "rankName": null,
+    "branch": null
   },
   {
     "id": "pharaoh-051",
@@ -1932,7 +2034,9 @@
         "label": "Housing level",
         "value": 19
       }
-    ]
+    ],
+    "rankName": null,
+    "branch": null
   },
   {
     "id": "pharaoh-052",
@@ -1957,6 +2061,756 @@
         "label": "Housing level",
         "value": 5
       }
-    ]
+    ],
+    "rankName": null,
+    "branch": null
+  },
+  {
+    "id": "caesar3-00",
+    "game": "caesar3",
+    "order": 0,
+    "name": "A Village Is Born",
+    "campaign": "Caesar III",
+    "rank": 1,
+    "rankName": "Citizen",
+    "branch": null,
+    "goals": []
+  },
+  {
+    "id": "caesar3-01",
+    "game": "caesar3",
+    "order": 1,
+    "name": "Brundisium",
+    "campaign": "Caesar III",
+    "rank": 2,
+    "rankName": "Clerk",
+    "branch": null,
+    "goals": []
+  },
+  {
+    "id": "caesar3-02",
+    "game": "caesar3",
+    "order": 2,
+    "name": "Capua",
+    "campaign": "Caesar III",
+    "rank": 3,
+    "rankName": "Engineer",
+    "branch": "peaceful",
+    "goals": []
+  },
+  {
+    "id": "caesar3-03",
+    "game": "caesar3",
+    "order": 3,
+    "name": "Tarentum",
+    "campaign": "Caesar III",
+    "rank": 3,
+    "rankName": "Engineer",
+    "branch": "military",
+    "goals": []
+  },
+  {
+    "id": "caesar3-04",
+    "game": "caesar3",
+    "order": 4,
+    "name": "Tarraco",
+    "campaign": "Caesar III",
+    "rank": 4,
+    "rankName": "Architect",
+    "branch": "peaceful",
+    "goals": []
+  },
+  {
+    "id": "caesar3-05",
+    "game": "caesar3",
+    "order": 5,
+    "name": "Syracusae",
+    "campaign": "Caesar III",
+    "rank": 4,
+    "rankName": "Architect",
+    "branch": "military",
+    "goals": []
+  },
+  {
+    "id": "caesar3-06",
+    "game": "caesar3",
+    "order": 6,
+    "name": "Miletus",
+    "campaign": "Caesar III",
+    "rank": 5,
+    "rankName": "Quaestor",
+    "branch": "peaceful",
+    "goals": []
+  },
+  {
+    "id": "caesar3-07",
+    "game": "caesar3",
+    "order": 7,
+    "name": "Mediolanum",
+    "campaign": "Caesar III",
+    "rank": 5,
+    "rankName": "Quaestor",
+    "branch": "military",
+    "goals": []
+  },
+  {
+    "id": "caesar3-08",
+    "game": "caesar3",
+    "order": 8,
+    "name": "Lugdunum",
+    "campaign": "Caesar III",
+    "rank": 6,
+    "rankName": "Procurator",
+    "branch": "peaceful",
+    "goals": []
+  },
+  {
+    "id": "caesar3-09",
+    "game": "caesar3",
+    "order": 9,
+    "name": "Carthago",
+    "campaign": "Caesar III",
+    "rank": 6,
+    "rankName": "Procurator",
+    "branch": "military",
+    "goals": []
+  },
+  {
+    "id": "caesar3-10",
+    "game": "caesar3",
+    "order": 10,
+    "name": "Tarsus",
+    "campaign": "Caesar III",
+    "rank": 7,
+    "rankName": "Aedile",
+    "branch": "peaceful",
+    "goals": []
+  },
+  {
+    "id": "caesar3-11",
+    "game": "caesar3",
+    "order": 11,
+    "name": "Tingis",
+    "campaign": "Caesar III",
+    "rank": 7,
+    "rankName": "Aedile",
+    "branch": "military",
+    "goals": []
+  },
+  {
+    "id": "caesar3-12",
+    "game": "caesar3",
+    "order": 12,
+    "name": "Valentia",
+    "campaign": "Caesar III",
+    "rank": 8,
+    "rankName": "Praetor",
+    "branch": "peaceful",
+    "goals": []
+  },
+  {
+    "id": "caesar3-13",
+    "game": "caesar3",
+    "order": 13,
+    "name": "Lutetia",
+    "campaign": "Caesar III",
+    "rank": 8,
+    "rankName": "Praetor",
+    "branch": "military",
+    "goals": []
+  },
+  {
+    "id": "caesar3-14",
+    "game": "caesar3",
+    "order": 14,
+    "name": "Caesarea",
+    "campaign": "Caesar III",
+    "rank": 9,
+    "rankName": "Consul",
+    "branch": "peaceful",
+    "goals": []
+  },
+  {
+    "id": "caesar3-15",
+    "game": "caesar3",
+    "order": 15,
+    "name": "Damascus",
+    "campaign": "Caesar III",
+    "rank": 9,
+    "rankName": "Consul",
+    "branch": "military",
+    "goals": []
+  },
+  {
+    "id": "caesar3-16",
+    "game": "caesar3",
+    "order": 16,
+    "name": "Londinium",
+    "campaign": "Caesar III",
+    "rank": 10,
+    "rankName": "Proconsul",
+    "branch": "peaceful",
+    "goals": []
+  },
+  {
+    "id": "caesar3-17",
+    "game": "caesar3",
+    "order": 17,
+    "name": "Sarmizegetusa",
+    "campaign": "Caesar III",
+    "rank": 10,
+    "rankName": "Proconsul",
+    "branch": "military",
+    "goals": []
+  },
+  {
+    "id": "caesar3-18",
+    "game": "caesar3",
+    "order": 18,
+    "name": "Massilia",
+    "campaign": "Caesar III",
+    "rank": 11,
+    "rankName": "Caesar",
+    "branch": "peaceful",
+    "goals": []
+  },
+  {
+    "id": "caesar3-19",
+    "game": "caesar3",
+    "order": 19,
+    "name": "Lindum",
+    "campaign": "Caesar III",
+    "rank": 11,
+    "rankName": "Caesar",
+    "branch": "military",
+    "goals": []
+  },
+  {
+    "id": "emperor-00",
+    "game": "emperor",
+    "order": 0,
+    "name": "Banpo (first)",
+    "campaign": "Emperor",
+    "rank": null,
+    "rankName": null,
+    "branch": null,
+    "goals": []
+  },
+  {
+    "id": "emperor-01",
+    "game": "emperor",
+    "order": 1,
+    "name": "Banpo (second)",
+    "campaign": "Emperor",
+    "rank": null,
+    "rankName": null,
+    "branch": null,
+    "goals": []
+  },
+  {
+    "id": "emperor-02",
+    "game": "emperor",
+    "order": 2,
+    "name": "Banpo (third)",
+    "campaign": "Emperor",
+    "rank": null,
+    "rankName": null,
+    "branch": null,
+    "goals": []
+  },
+  {
+    "id": "emperor-03",
+    "game": "emperor",
+    "order": 3,
+    "name": "Banpo (fourth)",
+    "campaign": "Emperor",
+    "rank": null,
+    "rankName": null,
+    "branch": null,
+    "goals": []
+  },
+  {
+    "id": "emperor-04",
+    "game": "emperor",
+    "order": 4,
+    "name": "Erlitou (first)",
+    "campaign": "Emperor",
+    "rank": null,
+    "rankName": null,
+    "branch": null,
+    "goals": []
+  },
+  {
+    "id": "emperor-05",
+    "game": "emperor",
+    "order": 5,
+    "name": "Erlitou (second)",
+    "campaign": "Emperor",
+    "rank": null,
+    "rankName": null,
+    "branch": null,
+    "goals": []
+  },
+  {
+    "id": "emperor-06",
+    "game": "emperor",
+    "order": 6,
+    "name": "Bo (first)",
+    "campaign": "Emperor",
+    "rank": null,
+    "rankName": null,
+    "branch": null,
+    "goals": []
+  },
+  {
+    "id": "emperor-07",
+    "game": "emperor",
+    "order": 7,
+    "name": "Baoji",
+    "campaign": "Emperor",
+    "rank": null,
+    "rankName": null,
+    "branch": null,
+    "goals": []
+  },
+  {
+    "id": "emperor-08",
+    "game": "emperor",
+    "order": 8,
+    "name": "Bo (second)",
+    "campaign": "Emperor",
+    "rank": null,
+    "rankName": null,
+    "branch": null,
+    "goals": []
+  },
+  {
+    "id": "emperor-09",
+    "game": "emperor",
+    "order": 9,
+    "name": "Zhengzhou",
+    "campaign": "Emperor",
+    "rank": null,
+    "rankName": null,
+    "branch": null,
+    "goals": []
+  },
+  {
+    "id": "emperor-10",
+    "game": "emperor",
+    "order": 10,
+    "name": "Yin (first)",
+    "campaign": "Emperor",
+    "rank": null,
+    "rankName": null,
+    "branch": null,
+    "goals": []
+  },
+  {
+    "id": "emperor-11",
+    "game": "emperor",
+    "order": 11,
+    "name": "Panlongcheng",
+    "campaign": "Emperor",
+    "rank": null,
+    "rankName": null,
+    "branch": null,
+    "goals": []
+  },
+  {
+    "id": "emperor-12",
+    "game": "emperor",
+    "order": 12,
+    "name": "Yin (second)",
+    "campaign": "Emperor",
+    "rank": null,
+    "rankName": null,
+    "branch": null,
+    "goals": []
+  },
+  {
+    "id": "emperor-13",
+    "game": "emperor",
+    "order": 13,
+    "name": "Hao",
+    "campaign": "Emperor",
+    "rank": null,
+    "rankName": null,
+    "branch": null,
+    "goals": []
+  },
+  {
+    "id": "emperor-14",
+    "game": "emperor",
+    "order": 14,
+    "name": "Anyi",
+    "campaign": "Emperor",
+    "rank": null,
+    "rankName": null,
+    "branch": null,
+    "goals": []
+  },
+  {
+    "id": "emperor-15",
+    "game": "emperor",
+    "order": 15,
+    "name": "Yulin",
+    "campaign": "Emperor",
+    "rank": null,
+    "rankName": null,
+    "branch": null,
+    "goals": []
+  },
+  {
+    "id": "emperor-16",
+    "game": "emperor",
+    "order": 16,
+    "name": "Loyi",
+    "campaign": "Emperor",
+    "rank": null,
+    "rankName": null,
+    "branch": null,
+    "goals": []
+  },
+  {
+    "id": "emperor-17",
+    "game": "emperor",
+    "order": 17,
+    "name": "Ying",
+    "campaign": "Emperor",
+    "rank": null,
+    "rankName": null,
+    "branch": null,
+    "goals": []
+  },
+  {
+    "id": "emperor-18",
+    "game": "emperor",
+    "order": 18,
+    "name": "Handan",
+    "campaign": "Emperor",
+    "rank": null,
+    "rankName": null,
+    "branch": null,
+    "goals": []
+  },
+  {
+    "id": "emperor-19",
+    "game": "emperor",
+    "order": 19,
+    "name": "Lingshou",
+    "campaign": "Emperor",
+    "rank": null,
+    "rankName": null,
+    "branch": null,
+    "goals": []
+  },
+  {
+    "id": "emperor-20",
+    "game": "emperor",
+    "order": 20,
+    "name": "Huanxian",
+    "campaign": "Emperor",
+    "rank": null,
+    "rankName": null,
+    "branch": null,
+    "goals": []
+  },
+  {
+    "id": "emperor-21",
+    "game": "emperor",
+    "order": 21,
+    "name": "Xianyang (first)",
+    "campaign": "Emperor",
+    "rank": null,
+    "rankName": null,
+    "branch": null,
+    "goals": []
+  },
+  {
+    "id": "emperor-22",
+    "game": "emperor",
+    "order": 22,
+    "name": "Xiangjun",
+    "campaign": "Emperor",
+    "rank": null,
+    "rankName": null,
+    "branch": null,
+    "goals": []
+  },
+  {
+    "id": "emperor-23",
+    "game": "emperor",
+    "order": 23,
+    "name": "Badaling",
+    "campaign": "Emperor",
+    "rank": null,
+    "rankName": null,
+    "branch": null,
+    "goals": []
+  },
+  {
+    "id": "emperor-24",
+    "game": "emperor",
+    "order": 24,
+    "name": "Xianyang (second)",
+    "campaign": "Emperor",
+    "rank": null,
+    "rankName": null,
+    "branch": null,
+    "goals": []
+  },
+  {
+    "id": "emperor-25",
+    "game": "emperor",
+    "order": 25,
+    "name": "Chang-an (Han first)",
+    "campaign": "Emperor",
+    "rank": null,
+    "rankName": null,
+    "branch": null,
+    "goals": []
+  },
+  {
+    "id": "emperor-26",
+    "game": "emperor",
+    "order": 26,
+    "name": "Jiaozhou",
+    "campaign": "Emperor",
+    "rank": null,
+    "rankName": null,
+    "branch": null,
+    "goals": []
+  },
+  {
+    "id": "emperor-27",
+    "game": "emperor",
+    "order": 27,
+    "name": "Chang-an (Han second)",
+    "campaign": "Emperor",
+    "rank": null,
+    "rankName": null,
+    "branch": null,
+    "goals": []
+  },
+  {
+    "id": "emperor-28",
+    "game": "emperor",
+    "order": 28,
+    "name": "Lo-lang",
+    "campaign": "Emperor",
+    "rank": null,
+    "rankName": null,
+    "branch": null,
+    "goals": []
+  },
+  {
+    "id": "emperor-29",
+    "game": "emperor",
+    "order": 29,
+    "name": "Loulan",
+    "campaign": "Emperor",
+    "rank": null,
+    "rankName": null,
+    "branch": null,
+    "goals": []
+  },
+  {
+    "id": "emperor-30",
+    "game": "emperor",
+    "order": 30,
+    "name": "Luoyang (Han first)",
+    "campaign": "Emperor",
+    "rank": null,
+    "rankName": null,
+    "branch": null,
+    "goals": []
+  },
+  {
+    "id": "emperor-31",
+    "game": "emperor",
+    "order": 31,
+    "name": "Jiayuguan",
+    "campaign": "Emperor",
+    "rank": null,
+    "rankName": null,
+    "branch": null,
+    "goals": []
+  },
+  {
+    "id": "emperor-32",
+    "game": "emperor",
+    "order": 32,
+    "name": "Luoyang (Han second)",
+    "campaign": "Emperor",
+    "rank": null,
+    "rankName": null,
+    "branch": null,
+    "goals": []
+  },
+  {
+    "id": "emperor-33",
+    "game": "emperor",
+    "order": 33,
+    "name": "Chang-an (Sui-Tang first)",
+    "campaign": "Emperor",
+    "rank": null,
+    "rankName": null,
+    "branch": null,
+    "goals": []
+  },
+  {
+    "id": "emperor-34",
+    "game": "emperor",
+    "order": 34,
+    "name": "Lanzhou",
+    "campaign": "Emperor",
+    "rank": null,
+    "rankName": null,
+    "branch": null,
+    "goals": []
+  },
+  {
+    "id": "emperor-35",
+    "game": "emperor",
+    "order": 35,
+    "name": "Yangzhou",
+    "campaign": "Emperor",
+    "rank": null,
+    "rankName": null,
+    "branch": null,
+    "goals": []
+  },
+  {
+    "id": "emperor-36",
+    "game": "emperor",
+    "order": 36,
+    "name": "Liangzhou",
+    "campaign": "Emperor",
+    "rank": null,
+    "rankName": null,
+    "branch": null,
+    "goals": []
+  },
+  {
+    "id": "emperor-37",
+    "game": "emperor",
+    "order": 37,
+    "name": "Niya",
+    "campaign": "Emperor",
+    "rank": null,
+    "rankName": null,
+    "branch": null,
+    "goals": []
+  },
+  {
+    "id": "emperor-38",
+    "game": "emperor",
+    "order": 38,
+    "name": "Luoyang (Sui-Tang)",
+    "campaign": "Emperor",
+    "rank": null,
+    "rankName": null,
+    "branch": null,
+    "goals": []
+  },
+  {
+    "id": "emperor-39",
+    "game": "emperor",
+    "order": 39,
+    "name": "Chang-an (Sui-Tang second)",
+    "campaign": "Emperor",
+    "rank": null,
+    "rankName": null,
+    "branch": null,
+    "goals": []
+  },
+  {
+    "id": "emperor-40",
+    "game": "emperor",
+    "order": 40,
+    "name": "Dunhuang",
+    "campaign": "Emperor",
+    "rank": null,
+    "rankName": null,
+    "branch": null,
+    "goals": []
+  },
+  {
+    "id": "emperor-41",
+    "game": "emperor",
+    "order": 41,
+    "name": "Kaifeng (first)",
+    "campaign": "Emperor",
+    "rank": null,
+    "rankName": null,
+    "branch": null,
+    "goals": []
+  },
+  {
+    "id": "emperor-42",
+    "game": "emperor",
+    "order": 42,
+    "name": "Pingyao",
+    "campaign": "Emperor",
+    "rank": null,
+    "rankName": null,
+    "branch": null,
+    "goals": []
+  },
+  {
+    "id": "emperor-43",
+    "game": "emperor",
+    "order": 43,
+    "name": "Chengdu",
+    "campaign": "Emperor",
+    "rank": null,
+    "rankName": null,
+    "branch": null,
+    "goals": []
+  },
+  {
+    "id": "emperor-44",
+    "game": "emperor",
+    "order": 44,
+    "name": "Kaifeng (second)",
+    "campaign": "Emperor",
+    "rank": null,
+    "rankName": null,
+    "branch": null,
+    "goals": []
+  },
+  {
+    "id": "emperor-45",
+    "game": "emperor",
+    "order": 45,
+    "name": "Zhongdu (first)",
+    "campaign": "Emperor",
+    "rank": null,
+    "rankName": null,
+    "branch": null,
+    "goals": []
+  },
+  {
+    "id": "emperor-46",
+    "game": "emperor",
+    "order": 46,
+    "name": "Juyongguan",
+    "campaign": "Emperor",
+    "rank": null,
+    "rankName": null,
+    "branch": null,
+    "goals": []
+  },
+  {
+    "id": "emperor-47",
+    "game": "emperor",
+    "order": 47,
+    "name": "Zhongdu (second)",
+    "campaign": "Emperor",
+    "rank": null,
+    "rankName": null,
+    "branch": null,
+    "goals": []
   }
 ]
