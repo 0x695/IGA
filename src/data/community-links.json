@@ -48,17 +48,6 @@
     "archivedUrl": "https://web.archive.org/web/2/https://pharaoh.heavengames.com/"
   },
   {
-    "id": "impressions-fandom",
-    "title": "Impressions Games Wiki (Fandom)",
-    "url": "https://impressionsgames.fandom.com",
-    "category": "Wiki",
-    "games": [
-      "pharaoh"
-    ],
-    "status": "active",
-    "note": "Cross-game coverage, uneven and ad-heavy."
-  },
-  {
     "id": "zeus-heavengames",
     "title": "zeus.heavengames.com",
     "url": "https://zeus.heavengames.com/",
@@ -81,17 +70,6 @@
     "status": "active",
     "note": "Notably documents bugs Impressions never fixed before going under.",
     "archivedUrl": "https://web.archive.org/web/2/https://emperor.heavengames.com/"
-  },
-  {
-    "id": "gweilo-emperor-campaigns",
-    "title": "Gweilo's Emperor Campaign Compilation",
-    "url": null,
-    "category": "Single-author",
-    "games": [
-      "emperor"
-    ],
-    "status": "dormant",
-    "note": "A maintained collection of community campaigns — worth preserving."
   },
   {
     "id": "reddit-impressionsgames",
