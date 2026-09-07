@@ -1470,7 +1470,7 @@
     "game": "pharaoh",
     "order": 38,
     "name": "Thutmose in the Valley",
-    "campaign": "Pharaoh",
+    "campaign": "Cleopatra: Valley of the Kings",
     "rank": 5,
     "goals": [
       {
@@ -1507,7 +1507,7 @@
     "game": "pharaoh",
     "order": 39,
     "name": "Tut in the Valley",
-    "campaign": "Pharaoh",
+    "campaign": "Cleopatra: Valley of the Kings",
     "rank": 6,
     "goals": [
       {
@@ -1539,7 +1539,7 @@
     "game": "pharaoh",
     "order": 40,
     "name": "Seti in the Valley",
-    "campaign": "Pharaoh",
+    "campaign": "Cleopatra: Valley of the Kings",
     "rank": 6,
     "goals": [
       {
@@ -1586,7 +1586,7 @@
     "game": "pharaoh",
     "order": 41,
     "name": "Sumur",
-    "campaign": "Pharaoh",
+    "campaign": "Cleopatra: Ramses II",
     "rank": 6,
     "goals": [
       {
@@ -1628,7 +1628,7 @@
     "game": "pharaoh",
     "order": 42,
     "name": "Qadesh",
-    "campaign": "Pharaoh",
+    "campaign": "Cleopatra: Ramses II",
     "rank": 10,
     "goals": [
       {
@@ -1660,7 +1660,7 @@
     "game": "pharaoh",
     "order": 43,
     "name": "Abu Simbel",
-    "campaign": "Pharaoh",
+    "campaign": "Cleopatra: Ramses II",
     "rank": 5,
     "goals": [
       {
@@ -1702,7 +1702,7 @@
     "game": "pharaoh",
     "order": 44,
     "name": "Ramses in the Valley",
-    "campaign": "Pharaoh",
+    "campaign": "Cleopatra: Ramses II",
     "rank": 6,
     "goals": [
       {
@@ -1749,7 +1749,7 @@
     "game": "pharaoh",
     "order": 45,
     "name": "Pi-Yer",
-    "campaign": "Pharaoh",
+    "campaign": "Cleopatra: Ancient Conquerors",
     "rank": 4,
     "goals": [
       {
@@ -1791,7 +1791,7 @@
     "game": "pharaoh",
     "order": 46,
     "name": "Migdol",
-    "campaign": "Pharaoh",
+    "campaign": "Cleopatra: Ancient Conquerors",
     "rank": 5,
     "goals": [
       {
@@ -1823,7 +1823,7 @@
     "game": "pharaoh",
     "order": 47,
     "name": "Tanis",
-    "campaign": "Pharaoh",
+    "campaign": "Cleopatra: Ancient Conquerors",
     "rank": 6,
     "goals": [
       {
@@ -1860,7 +1860,7 @@
     "game": "pharaoh",
     "order": 48,
     "name": "Alexandria",
-    "campaign": "Cleopatra",
+    "campaign": "Cleopatra: Cleopatra's Capitol",
     "rank": 5,
     "goals": [
       {
@@ -1907,7 +1907,7 @@
     "game": "pharaoh",
     "order": 49,
     "name": "Ptolemy's Alexandria",
-    "campaign": "Cleopatra",
+    "campaign": "Cleopatra: Cleopatra's Capitol",
     "rank": 10,
     "goals": [
       {
@@ -1954,7 +1954,7 @@
     "game": "pharaoh",
     "order": 50,
     "name": "Maritis",
-    "campaign": "Cleopatra",
+    "campaign": "Cleopatra: Cleopatra's Capitol",
     "rank": 1,
     "goals": [
       {
@@ -1996,7 +1996,7 @@
     "game": "pharaoh",
     "order": 51,
     "name": "Cleopatra's Alexandria",
-    "campaign": "Cleopatra",
+    "campaign": "Cleopatra: Cleopatra's Capitol",
     "rank": 10,
     "goals": [
       {
@@ -2043,7 +2043,7 @@
     "game": "pharaoh",
     "order": 52,
     "name": "Actium",
-    "campaign": "Cleopatra",
+    "campaign": "Cleopatra: Cleopatra's Capitol",
     "rank": 10,
     "goals": [
       {

@@ -50,9 +50,9 @@ const total = missions.length;
 const PROVENANCE: Record<string, { summary: string; caveat: string; sources: { title: string; url: string }[] }> = {
   pharaoh: {
     summary:
-      "All 53 missions in play order, with the rank you hold and the goals the game checks to end them. Read out of Akhenaten's per-mission configuration rather than from a walkthrough, so these are the thresholds the engine actually tests.",
+      "All 53 missions in play order, with the rank you hold and the goals the game checks to end them. Thirty-eight are the base campaign; the remaining fifteen are Cleopatra: Queen of the Nile, which is four short campaigns rather than one. Read out of Akhenaten's per-mission configuration rather than from a walkthrough, so these are the thresholds the engine actually tests.",
     caveat:
-      'Win criteria, not advice. The table says what the game requires; it does not say how to get there, and a mission with modest-looking goals can still be the hard one. Housing level is the rung on the twenty-step housing ladder, not a count of houses - those are listed separately where a mission demands them.',
+      'Win criteria, not advice. The table says what the game requires; it does not say how to get there, and a mission with modest-looking goals can still be the hard one. Housing level is the rung on the twenty-step housing ladder, not a count of houses - those are listed separately where a mission demands them. The campaign each mission belongs to is not guessed either: every mission names the one it hands off to, and a campaign ends where that pointer does, which is what separates the four Cleopatra campaigns from each other and from the base game.',
     sources: [
       { title: 'Akhenaten - src/scripts/mission/', url: 'https://github.com/dalerank/Akhenaten/tree/master/src/scripts/mission' },
     ],
