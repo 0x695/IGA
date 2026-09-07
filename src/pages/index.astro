@@ -6,9 +6,9 @@ import { withBase } from '../lib/url';
 const games = (await getCollection('games')).sort((a, b) => a.data.order - b.data.order);
 
 const studios = [
-  { years: '1992–2000', developer: 'Impressions Games', publisher: 'Sierra' },
-  { years: '2002', developer: 'BreakAway Games', publisher: 'Sierra' },
-  { years: '2003–2026', developer: 'Reverse engineering', publisher: null },
+  { years: '1992–2000', developer: 'Impressions Games', line: 'Published by Sierra' },
+  { years: '2002', developer: 'BreakAway Games', line: 'Published by Sierra' },
+  { years: '2003–2026', developer: 'Reverse engineering', line: 'Made by the Community' },
 ];
 ---
 
@@ -36,7 +36,7 @@ const studios = [
             <div class="studios__cell">
               <div class="studios__years">{studio.years}</div>
               <div class="studios__name">{studio.developer}</div>
-              {studio.publisher && <div class="studios__publisher">Published by {studio.publisher}</div>}
+              <div class="studios__publisher">{studio.line}</div>
             </div>
           ))
         }
