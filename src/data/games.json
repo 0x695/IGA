@@ -112,7 +112,7 @@
         "note": "Compatibility notes for the DOS original and the DOSBox re-release."
       }
     ],
-    "tools": null,
+    "tools": [],
     "image": "/images/caesar1.webp",
     "imageCredit": "Community screenshot — Caesar (1992) © Activision",
     "cover": "/images/caesar1-cover.webp",
@@ -318,7 +318,7 @@
         "note": "Compatibility notes for the DOS/Windows original and the DOSBox re-release."
       }
     ],
-    "tools": null,
+    "tools": [],
     "image": "/images/caesar2.webp",
     "imageCredit": "Community screenshot — Caesar II (1995) © Activision",
     "cover": "/images/caesar2-cover.webp",
@@ -506,7 +506,7 @@
         "note": "Patches, resolution options and modern-Windows notes."
       }
     ],
-    "tools": null,
+    "tools": [],
     "image": "/images/caesar3.webp",
     "imageCredit": "Community screenshot — Caesar III (1998) © Activision",
     "cover": "/images/caesar3-cover.webp",
@@ -802,7 +802,7 @@
         "note": "Patches, resolution options and modern-Windows notes."
       }
     ],
-    "tools": null,
+    "tools": [],
     "image": "/images/pharaoh.webp",
     "imageCredit": "Community screenshot — Pharaoh (1999) © Activision",
     "cover": "/images/pharaoh-cover.webp",

@@ -119,19 +119,21 @@ const games = defineCollection({
      * Fan-made tools and mods — a resolution patcher, a save editor, a
      * gameplay mod. Distinct from `compat` above: compat is patches and
      * compatibility notes for running the original as shipped, this is
-     * something a third party built on top of it. Null where none is known;
-     * an empty section is worse than no section.
+     * something a third party built on top of it.
+     *
+     * `kind` splits the hub into two sections, Tools and Mods, and both are
+     * shown for every game even when empty — the same honesty the `wanted`
+     * callout applies to engines. An empty Tools section for Caesar III says
+     * something true (nobody has built one) that hiding the section would not.
      */
-    tools: z
-      .array(
-        z.object({
-          title: z.string(),
-          url: z.string().url(),
-          kind: z.enum(['tool', 'mod']),
-          note: z.string(),
-        }),
-      )
-      .nullable(),
+    tools: z.array(
+      z.object({
+        title: z.string(),
+        url: z.string().url(),
+        kind: z.enum(['tool', 'mod']),
+        note: z.string(),
+      }),
+    ),
     image: z.string(),
     imageCredit: z.string(),
     cover: z.string(),
