@@ -7,3 +7,11 @@ dist/
 .env.*
 .vercel/
 .netlify/
+
+# Working documents. These stay on disk and out of the published repository:
+# the briefs, the roadmap, the agent instructions, and the design canvas the
+# site was built from. None of them are needed to build or run the site.
+docs/
+CLAUDE.md
+design/
+.claude/

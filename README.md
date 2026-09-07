@@ -30,8 +30,10 @@ Search is Pagefind, and its index is generated from the built site. Under
 `npm run dev` the index does not exist and `/search` says so rather than
 looking broken — use `npm run build` to exercise search.
 
-`npm run images` regenerates `public/images` from the originals in
-`design/images`. Run it after adding or replacing an original.
+`npm run images` regenerates `public/images` from the original screenshots and
+box art. Those originals are not in the repository — the committed WebP
+derivatives under `public/images` are what the site serves, so a clone builds
+without them.
 
 `npm run social` regenerates the Open Graph card and the PNG favicons. They are
 committed rather than built in CI, and only change when the wordmark or palette
@@ -67,25 +69,40 @@ search box finds nothing, and that failure is silent otherwise.
 ## Layout
 
 ```
-docs/          the planning and design briefs — masterdoc §10 is the IA
-design/        the approved Claude Design canvas, exactly as exported
-src/data/      the content: games, engine projects, file formats, community
+src/data/      the content: games, engines, formats, buildings, campaigns,
+               housing, production, mechanics, community links, devlog
 src/content.config.ts   the schemas those files are validated against
-src/pages/     index (Home + timeline), [game] (the six hubs), search
-public/images/ WebP derivatives of design/images, at render size
-scripts/       one-off tooling
+src/pages/     Home, the six hubs and their sub-pages, formats, mechanics,
+               devlog, search
+public/images/ the screenshots and box art the site serves, as WebP
+scripts/       the generators — buildings, housing, production, engine
+               activity, images, social cards, and the link checker
 ```
 
-Content is data, not markup: adding an engine project or a format means
-adding an entry to `src/data/`, and the hub for each game it names picks it
-up. See `CLAUDE.md` for the decisions behind the structure.
+Content is data, not markup: adding an engine project or a format means adding
+an entry to `src/data/`, and the hub for each game it names picks it up.
 
-## Status
+Several of those files are **generated and should not be hand-edited** —
+`buildings.json`, `housing.json` and `production.json` are written by the
+scripts of the same name, which read the open-source engines directly and
+assert their own output before writing. Edit the script and re-run it.
 
-v1 is built: Home and all six game hubs, with search. What comes next,
-and the decisions it is waiting on, is in [docs/ROADMAP.md](docs/ROADMAP.md).
+## What is on it
 
-Not built yet, and deliberately: the buildings reference (the schema is
-defined and the data file is empty), a devlog, and a cross-game engine
-comparison view. The domain and hosting are not chosen — the site builds to
-static output and assumes nothing about where it lands.
+**v1.0.** Home with the series timeline and six self-contained game hubs, each
+carrying that game's engines, file formats, community links, full credits and
+where to buy it now. Hung off the hubs: five written file-format specs, a
+filterable buildings reference for Caesar III and Pharaoh, a campaign page for
+every game, housing ladders for four of them, Pharaoh's production chains, and
+a mechanics essay on the walker model. Plus a devlog, and Pagefind search.
+
+The principle throughout is that a figure should be checkable. Where something
+was read out of an engine the page says which file; where it could not be, the
+page says that instead of rounding the gap up into confidence — Caesar III has
+no cost column because those numbers live in a file that mods rewrite, and
+Emperor has no production table because the only figures available are a
+walkthrough author's estimates.
+
+Two things are deliberately absent rather than pending: `fire_proof` in the
+buildings table, whose meaning could not be confirmed, and Pharaoh's
+peaceful/military branch labels, which the engine does not record.
