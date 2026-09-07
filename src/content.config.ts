@@ -31,16 +31,33 @@ const games = defineCollection({
     publisher: z.string(),
     credits: z.string().nullable(),
     /**
-     * The development team, role by role, transcribed from the game's own
-     * manual - which is the primary source, and where the credit databases got
-     * it from too. Null where no manual with a credits section has been found;
-     * the hub then falls back to the one-line `credits` above rather than
-     * showing an empty section.
+     * The development team, role by role. Null where no credit list has been
+     * found; the hub then falls back to the one-line `credits` above rather
+     * than showing an empty section.
+     *
+     * `section` groups rows under a subheading and exists because a credit list
+     * is not always one flat team: Emperor was built by two studios and lists
+     * them separately, and an expansion ships its own credits which belong on
+     * the base game's hub but not mixed into its roles.
      */
     fullCredits: z
-      .array(z.object({ role: z.string(), names: z.array(z.string()) }))
+      .array(
+        z.object({
+          section: z.string().nullable().optional(),
+          role: z.string(),
+          names: z.array(z.string()),
+        }),
+      )
       .nullable(),
-    creditsSource: z.object({ title: z.string(), url: z.string().url() }).nullable(),
+    /**
+     * Where the list came from - an array, because a game whose base credits
+     * were read from its manual and whose expansion credits came from a credit
+     * database has two, and naming only one of them would be wrong. `url` is
+     * null where the source is nameable but has no link that was verified.
+     */
+    creditsSources: z
+      .array(z.object({ title: z.string(), url: z.string().url().nullable() }))
+      .nullable(),
     /** Anything the transcription deliberately leaves out. */
     creditsNote: z.string().nullable(),
     expansions: z.string().nullable(),

@@ -39,6 +39,22 @@ export async function getStaticPaths() {
 
 const { game, projects, formats, links, buildingCount, missionCount } = Astro.props;
 const g = game.data;
+
+/*
+ * Credits arrive as one flat list of roles carrying an optional section, and
+ * are grouped here in the order they appear. A credit list is not always one
+ * team: Emperor was built by BreakAway Games for Impressions and credits the
+ * two studios separately, and an expansion ships credits of its own. Flatten
+ * those into a single run of roles and the reader is told, wrongly, that one
+ * team did all of it.
+ */
+const creditGroups: { section: string | null; rows: { role: string; names: string[] }[] }[] = [];
+for (const row of g.fullCredits ?? []) {
+  const section = row.section ?? null;
+  const last = creditGroups.at(-1);
+  if (last && last.section === section) last.rows.push(row);
+  else creditGroups.push({ section, rows: [row] });
+}
 ---
 
 <Base title={`${g.title} — Impressions Games Archive`} description={g.engineNote} current={game.id}>
@@ -76,22 +92,34 @@ const g = game.data;
       g.fullCredits && (
         <section class="section block">
           <h2 class="section-heading">Credits</h2>
-          <dl class="credits">
-            {g.fullCredits.map((entry) => (
-              <div class="credits__row">
-                <dt>{entry.role}</dt>
-                <dd>{entry.names.join(', ')}</dd>
-              </div>
-            ))}
-          </dl>
+          {creditGroups.map((group) => (
+            <>
+              {group.section && <h3 class="credits__section">{group.section}</h3>}
+              <dl class="credits">
+                {group.rows.map((entry) => (
+                  <div class="credits__row">
+                    <dt>{entry.role}</dt>
+                    <dd>{entry.names.join(', ')}</dd>
+                  </div>
+                ))}
+              </dl>
+            </>
+          ))}
           <p class="credits__meta">
             {g.creditsNote && <span>{g.creditsNote} </span>}
-            {g.creditsSource && (
+            {g.creditsSources && (
               <>
-                Transcribed from the{' '}
-                <a href={g.creditsSource.url} rel="noopener">
-                  {g.creditsSource.title} ↗
-                </a>
+                Transcribed from{' '}
+                {g.creditsSources.map((source, index) => (
+                  <>
+                    {index > 0 && <span> and </span>}
+                    {source.url ? (
+                      <a href={source.url} rel="noopener">{source.title} ↗</a>
+                    ) : (
+                      <span>{source.title}</span>
+                    )}
+                  </>
+                ))}.
               </>
             )}
           </p>
@@ -420,6 +448,16 @@ const g = game.data;
   .credits {
     margin: 0;
     border-top: 1px solid var(--color-divider);
+  }
+
+  /* A studio or an expansion, heading the run of roles that belongs to it.
+     Set in the heading face rather than mono: it names a team, not a field. */
+  .credits__section {
+    font-family: var(--font-heading);
+    font-weight: 600;
+    font-size: 14px;
+    margin: 26px 0 10px;
+    color: var(--color-text);
   }
 
   .credits__row {

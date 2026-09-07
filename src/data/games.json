@@ -11,8 +11,77 @@
     "developer": "Impressions Games",
     "publisher": "Self-published (Impressions Games); Sierra On-Line acquired the studio in 1995",
     "credits": "David Lester (design) · Simon Bradbury (programming)",
-    "fullCredits": null,
-    "creditsSource": null,
+    "fullCredits": [
+      {
+        "section": null,
+        "role": "Design",
+        "names": [
+          "David Lester"
+        ]
+      },
+      {
+        "section": null,
+        "role": "Programming",
+        "names": [
+          "Simon Bradbury"
+        ]
+      },
+      {
+        "section": null,
+        "role": "Additional design assistance",
+        "names": [
+          "Simon Bradbury"
+        ]
+      },
+      {
+        "section": null,
+        "role": "Graphics",
+        "names": [
+          "Jon Baker",
+          "Erik Casey"
+        ]
+      },
+      {
+        "section": null,
+        "role": "Sound and music",
+        "names": [
+          "Christopher J. Denman"
+        ]
+      },
+      {
+        "section": null,
+        "role": "Research",
+        "names": [
+          "Mark Saunders"
+        ]
+      },
+      {
+        "section": null,
+        "role": "Manual",
+        "names": [
+          "Christopher Bamford",
+          "Christopher J. Foster"
+        ]
+      },
+      {
+        "section": null,
+        "role": "Game testing",
+        "names": [
+          "Christopher Bamford",
+          "Hosea Battles Jr.",
+          "Christopher J. Foster",
+          "Mark Genovese",
+          "Arlon Harris",
+          "James Hunter",
+          "Lori Kipperman",
+          "David Lester",
+          "Haywood Nichols",
+          "Eric Ouellette",
+          "Jennifer Schlickbernd",
+          "Scott Woodrick"
+        ]
+      }
+    ],
     "creditsNote": null,
     "expansions": null,
     "archive": true,
@@ -39,7 +108,13 @@
     "image": "/images/caesar1.webp",
     "imageCredit": "Community screenshot — Caesar (1992) © Activision",
     "cover": "/images/caesar1-cover.webp",
-    "coverCredit": "Cover art — Caesar (1992) © Activision"
+    "coverCredit": "Cover art — Caesar (1992) © Activision",
+    "creditsSources": [
+      {
+        "title": "the MobyGames credit listings",
+        "url": null
+      }
+    ]
   },
   {
     "id": "caesar2",
@@ -53,8 +128,158 @@
     "developer": "Impressions Games",
     "publisher": "Sierra On-Line",
     "credits": "David Lester (design) · Simon Bradbury (programming) · Chris Beatrice (art)",
-    "fullCredits": null,
-    "creditsSource": null,
+    "fullCredits": [
+      {
+        "section": null,
+        "role": "Design",
+        "names": [
+          "David Lester",
+          "Christopher J. Foster"
+        ]
+      },
+      {
+        "section": null,
+        "role": "Additional design",
+        "names": [
+          "Simon Bradbury"
+        ]
+      },
+      {
+        "section": null,
+        "role": "Programming",
+        "names": [
+          "Simon Bradbury"
+        ]
+      },
+      {
+        "section": null,
+        "role": "Production",
+        "names": [
+          "Christopher J. Foster"
+        ]
+      },
+      {
+        "section": null,
+        "role": "Art direction",
+        "names": [
+          "Chris Beatrice"
+        ]
+      },
+      {
+        "section": null,
+        "role": "Graphics and animation",
+        "names": [
+          "Heidi Mann",
+          "Scot B. Forbes",
+          "Andrea Muzeroll",
+          "Chris Beatrice"
+        ]
+      },
+      {
+        "section": null,
+        "role": "Sound and music",
+        "names": [
+          "Jason P. Rinaldi",
+          "Jeremy A. Bell"
+        ]
+      },
+      {
+        "section": null,
+        "role": "Speech recording and production",
+        "names": [
+          "PolyLang Multimedia Ltd."
+        ]
+      },
+      {
+        "section": null,
+        "role": "Translation and re-recording",
+        "names": [
+          "Coktel Vision"
+        ]
+      },
+      {
+        "section": null,
+        "role": "Voice talent (English)",
+        "names": [
+          "Christopher Wilkinson",
+          "Mike Broadbent Jones",
+          "Krysia Campbell",
+          "Raymond Greenoaken"
+        ]
+      },
+      {
+        "section": null,
+        "role": "Video compression",
+        "names": [
+          "Steven Serafino"
+        ]
+      },
+      {
+        "section": null,
+        "role": "Documentation and research",
+        "names": [
+          "Todd Capute",
+          "Jennifer Hawthorne"
+        ]
+      },
+      {
+        "section": null,
+        "role": "Director of technology",
+        "names": [
+          "David Mitton"
+        ]
+      },
+      {
+        "section": null,
+        "role": "Quality assurance manager",
+        "names": [
+          "Steven Serafino"
+        ]
+      },
+      {
+        "section": null,
+        "role": "Lead tester",
+        "names": [
+          "Edward Pugsley"
+        ]
+      },
+      {
+        "section": null,
+        "role": "Quality assurance",
+        "names": [
+          "Ken Ford",
+          "Michael Lescault",
+          "Joseph McGuire"
+        ]
+      },
+      {
+        "section": null,
+        "role": "Additional testing",
+        "names": [
+          "Christopher Bamford",
+          "Louis Ely",
+          "Jeffrey Fiske",
+          "Gregor Koomey",
+          "Larry Mangum",
+          "Phillip Conrad"
+        ]
+      },
+      {
+        "section": null,
+        "role": "Based on Caesar by",
+        "names": [
+          "Simon Bradbury",
+          "David Lester"
+        ]
+      },
+      {
+        "section": null,
+        "role": "Smacker video technology by",
+        "names": [
+          "Invisible Inc. (d.b.a. RAD Software)"
+        ]
+      }
+    ],
     "creditsNote": null,
     "expansions": null,
     "archive": true,
@@ -81,7 +306,13 @@
     "image": "/images/caesar2.webp",
     "imageCredit": "Community screenshot — Caesar II (1995) © Activision",
     "cover": "/images/caesar2-cover.webp",
-    "coverCredit": "Cover art — Caesar II (1995) © Activision"
+    "coverCredit": "Cover art — Caesar II (1995) © Activision",
+    "creditsSources": [
+      {
+        "title": "the MobyGames credit listings",
+        "url": null
+      }
+    ]
   },
   {
     "id": "caesar3",
@@ -100,25 +331,29 @@
         "role": "Designer",
         "names": [
           "David Lester"
-        ]
+        ],
+        "section": null
       },
       {
         "role": "Programming",
         "names": [
           "Simon Bradbury"
-        ]
+        ],
+        "section": null
       },
       {
         "role": "Producer",
         "names": [
           "Eric Ouellette"
-        ]
+        ],
+        "section": null
       },
       {
         "role": "Art Director (US)",
         "names": [
           "Darrin Horbal"
-        ]
+        ],
+        "section": null
       },
       {
         "role": "Artists (US)",
@@ -130,7 +365,8 @@
           "Heidi Mann",
           "Andrea Muzeroll",
           "Dennis Rose"
-        ]
+        ],
+        "section": null
       },
       {
         "role": "Artists (UK)",
@@ -139,7 +375,8 @@
           "Michael Best",
           "Martin Povey",
           "Daniel Shutt"
-        ]
+        ],
+        "section": null
       },
       {
         "role": "Map & Assignment Designers",
@@ -148,7 +385,8 @@
           "Eric Ouellette",
           "Ken Parker",
           "Greg Sheppard"
-        ]
+        ],
+        "section": null
       },
       {
         "role": "Manual & Research",
@@ -156,31 +394,36 @@
           "David Lester",
           "Ken Parker",
           "Wayne McCaul"
-        ]
+        ],
+        "section": null
       },
       {
         "role": "Music",
         "names": [
           "Rob Euvino"
-        ]
+        ],
+        "section": null
       },
       {
         "role": "Sound Effects",
         "names": [
           "Edward Saltzman"
-        ]
+        ],
+        "section": null
       },
       {
         "role": "QA Manager",
         "names": [
           "Jon Payne"
-        ]
+        ],
+        "section": null
       },
       {
         "role": "Lead Tester",
         "names": [
           "Greg Sheppard"
-        ]
+        ],
+        "section": null
       },
       {
         "role": "Quality Assurance (US)",
@@ -190,7 +433,8 @@
           "Tony Leier",
           "Wayne McCaul",
           "Tom Rogers"
-        ]
+        ],
+        "section": null
       },
       {
         "role": "Quality Assurance (UK)",
@@ -198,20 +442,18 @@
           "Neal Sumsion",
           "Niall Callaghan",
           "Austin Parsons"
-        ]
+        ],
+        "section": null
       },
       {
         "role": "Special Thanks",
         "names": [
           "Chris Beatrice",
           "Doug Gonya"
-        ]
+        ],
+        "section": null
       }
     ],
-    "creditsSource": {
-      "title": "Caesar III manual (Impressions Games / Sierra)",
-      "url": "https://archive.org/details/Caesar_III_Manual"
-    },
     "creditsNote": null,
     "expansions": null,
     "archive": false,
@@ -244,7 +486,13 @@
     "image": "/images/caesar3.webp",
     "imageCredit": "Community screenshot — Caesar III (1998) © Activision",
     "cover": "/images/caesar3-cover.webp",
-    "coverCredit": "Cover art — Caesar III (1998) © Activision"
+    "coverCredit": "Cover art — Caesar III (1998) © Activision",
+    "creditsSources": [
+      {
+        "title": "the Caesar III manual (Impressions Games / Sierra)",
+        "url": "https://archive.org/details/Caesar_III_Manual"
+      }
+    ]
   },
   {
     "id": "pharaoh",
@@ -258,9 +506,239 @@
     "developer": "Impressions Games",
     "publisher": "Sierra Studios",
     "credits": "Chris Beatrice (design) · Gingerich (programming)",
-    "fullCredits": null,
-    "creditsSource": null,
-    "creditsNote": null,
+    "fullCredits": [
+      {
+        "section": null,
+        "role": "Lead designer",
+        "names": [
+          "Chris Beatrice"
+        ]
+      },
+      {
+        "section": null,
+        "role": "Producers",
+        "names": [
+          "Ken Parker",
+          "Greg Sheppard"
+        ]
+      },
+      {
+        "section": null,
+        "role": "Director of technology",
+        "names": [
+          "Mike Gingerich"
+        ]
+      },
+      {
+        "section": null,
+        "role": "Art director",
+        "names": [
+          "Darrin Horbal"
+        ]
+      },
+      {
+        "section": null,
+        "role": "Programming",
+        "names": [
+          "Jason Benham",
+          "Scott Delekta",
+          "Gabriel Farris",
+          "Chris Gurski",
+          "Jim Solomon"
+        ]
+      },
+      {
+        "section": null,
+        "role": "Lead artist",
+        "names": [
+          "Heidi Mann"
+        ]
+      },
+      {
+        "section": null,
+        "role": "Artists",
+        "names": [
+          "Ron Alpert",
+          "Adam Carriuolo",
+          "Bob Curtis",
+          "Brian Despain",
+          "Andrea Muzeroll",
+          "Dennis Rose",
+          "Kate Saparoff"
+        ]
+      },
+      {
+        "section": null,
+        "role": "Music",
+        "names": [
+          "Henry Beckett",
+          "Keith Zizza"
+        ]
+      },
+      {
+        "section": null,
+        "role": "Sound",
+        "names": [
+          "Edward Saltzman"
+        ]
+      },
+      {
+        "section": null,
+        "role": "Writer",
+        "names": [
+          "Lisa Gagnon"
+        ]
+      },
+      {
+        "section": null,
+        "role": "Additional design",
+        "names": [
+          "Douglas Gonya",
+          "Tony Leier"
+        ]
+      },
+      {
+        "section": null,
+        "role": "Animation lead",
+        "names": [
+          "Mike Malone"
+        ]
+      },
+      {
+        "section": null,
+        "role": "Quality assurance manager",
+        "names": [
+          "Jon Payne"
+        ]
+      },
+      {
+        "section": null,
+        "role": "Lead tester",
+        "names": [
+          "Tony Leier"
+        ]
+      },
+      {
+        "section": null,
+        "role": "Testers",
+        "names": [
+          "Chris Bold",
+          "Chris Dixon",
+          "Clay Heaton",
+          "Brett Levin",
+          "John Curst McAuley",
+          "Wayne McCaul",
+          "Hans Wang"
+        ]
+      },
+      {
+        "section": null,
+        "role": "Scenario creators",
+        "names": [
+          "Clay Heaton",
+          "Tony Leier",
+          "Brett Levin",
+          "John Curst McAuley",
+          "Wayne McCaul",
+          "Ken Parker",
+          "Jon Payne",
+          "Greg Sheppard"
+        ]
+      },
+      {
+        "section": "Cleopatra: Queen of the Nile - BreakAway Games",
+        "role": "Producer",
+        "names": [
+          "Ed Beach"
+        ]
+      },
+      {
+        "section": "Cleopatra: Queen of the Nile - BreakAway Games",
+        "role": "Designer",
+        "names": [
+          "Charles Kibler"
+        ]
+      },
+      {
+        "section": "Cleopatra: Queen of the Nile - BreakAway Games",
+        "role": "Programming",
+        "names": [
+          "Natalya Abramova",
+          "Ed Beach",
+          "Peter Giancola",
+          "Andy House",
+          "Jeff Ullman"
+        ]
+      },
+      {
+        "section": "Cleopatra: Queen of the Nile - BreakAway Games",
+        "role": "Art",
+        "names": [
+          "Billy Ahlswede",
+          "Michelle DiPaula",
+          "Dwight Eppinger",
+          "Tim Kipp",
+          "Stephen Langmead",
+          "Bob Rickert"
+        ]
+      },
+      {
+        "section": "Cleopatra: Queen of the Nile - BreakAway Games",
+        "role": "Sound",
+        "names": [
+          "Eric Heberling"
+        ]
+      },
+      {
+        "section": "Cleopatra: Queen of the Nile - BreakAway Games",
+        "role": "Quality assurance lead",
+        "names": [
+          "Melissa Sawicki"
+        ]
+      },
+      {
+        "section": "Cleopatra: Queen of the Nile - BreakAway Games",
+        "role": "Testing",
+        "names": [
+          "Natalya Abramova",
+          "Steven Cole",
+          "Vincent Kerner",
+          "Ben Knight",
+          "Don Vecchione"
+        ]
+      },
+      {
+        "section": "Cleopatra: Queen of the Nile - Impressions Studio",
+        "role": "Quality assurance manager",
+        "names": [
+          "Greg Sheppard"
+        ]
+      },
+      {
+        "section": "Cleopatra: Queen of the Nile - Impressions Studio",
+        "role": "Lead tester",
+        "names": [
+          "John Curst McAuley"
+        ]
+      },
+      {
+        "section": "Cleopatra: Queen of the Nile - Impressions Studio",
+        "role": "Senior tester, beta test manager",
+        "names": [
+          "Juancho Martinez"
+        ]
+      },
+      {
+        "section": "Cleopatra: Queen of the Nile - Impressions Studio",
+        "role": "Testing",
+        "names": [
+          "James E. Lewis",
+          "Jesse J. Nunes",
+          "Hans Wang"
+        ]
+      }
+    ],
+    "creditsNote": "Cleopatra: Queen of the Nile was built by BreakAway Games and credits its own team; both lists are here. Cleopatra's external beta testers are not reproduced.",
     "expansions": "Cleopatra (2000) · bundled as Pharaoh Gold (2001)",
     "archive": false,
     "badge": "+ Cleopatra, 2000",
@@ -291,7 +769,13 @@
     "image": "/images/pharaoh.webp",
     "imageCredit": "Community screenshot — Pharaoh (1999) © Activision",
     "cover": "/images/pharaoh-cover.webp",
-    "coverCredit": "Cover art — Pharaoh (1999) © Activision"
+    "coverCredit": "Cover art — Pharaoh (1999) © Activision",
+    "creditsSources": [
+      {
+        "title": "MobyGames' Pharaoh credits",
+        "url": "https://www.mobygames.com/game/538/pharaoh/credits/windows/"
+      }
+    ]
   },
   {
     "id": "zeus",
@@ -310,19 +794,22 @@
         "role": "Designer",
         "names": [
           "Chris Beatrice"
-        ]
+        ],
+        "section": null
       },
       {
         "role": "Programming Director",
         "names": [
           "Mike Gingerich"
-        ]
+        ],
+        "section": null
       },
       {
         "role": "Producer",
         "names": [
           "Ken Parker"
-        ]
+        ],
+        "section": null
       },
       {
         "role": "Programmers",
@@ -332,13 +819,15 @@
           "Gabe Farris",
           "Chris Gurski",
           "Thanh Pham"
-        ]
+        ],
+        "section": null
       },
       {
         "role": "Art Director",
         "names": [
           "Darrin Horbal"
-        ]
+        ],
+        "section": null
       },
       {
         "role": "Artists",
@@ -351,13 +840,15 @@
           "Andrea Muzeroll",
           "Dennis Rose",
           "Abraham Wiley"
-        ]
+        ],
+        "section": null
       },
       {
         "role": "Additional Design",
         "names": [
           "Tony Leier"
-        ]
+        ],
+        "section": null
       },
       {
         "role": "Adventure Production",
@@ -366,44 +857,51 @@
           "Chris Bold",
           "Brett Levin",
           "Albert Meranda"
-        ]
+        ],
+        "section": null
       },
       {
         "role": "Writer",
         "names": [
           "Lisa Gagnon"
-        ]
+        ],
+        "section": null
       },
       {
         "role": "Audio Director",
         "names": [
           "Keith Zizza"
-        ]
+        ],
+        "section": null
       },
       {
         "role": "Music",
         "names": [
           "Henry Beckett",
           "Keith Zizza"
-        ]
+        ],
+        "section": null
       },
       {
         "role": "Sound Design",
         "names": [
           "Keith Zizza"
-        ]
+        ],
+        "section": null
       },
       {
         "role": "Voiceover Editing & Additional Sound Programming",
         "names": [
           "Ed Saltzman"
-        ]
+        ],
+        "section": null
       },
       {
         "role": "Voice Recording",
         "names": [
           "The Troupe"
-        ]
+        ],
+        "section": null
       },
       {
         "role": "Voices",
@@ -427,31 +925,36 @@
           "Scott Severance",
           "Mike Verrette",
           "Keith Zizza"
-        ]
+        ],
+        "section": null
       },
       {
         "role": "Localization Producer",
         "names": [
           "Jon Payne"
-        ]
+        ],
+        "section": null
       },
       {
         "role": "Quality Assurance Manager",
         "names": [
           "Greg Sheppard"
-        ]
+        ],
+        "section": null
       },
       {
         "role": "Lead Tester",
         "names": [
           "Tony Leier"
-        ]
+        ],
+        "section": null
       },
       {
         "role": "Beta Testing Supervisor",
         "names": [
           "Juancho Martinez"
-        ]
+        ],
+        "section": null
       },
       {
         "role": "Testers",
@@ -467,14 +970,162 @@
           "John Everly",
           "Albert Meranda",
           "Brett Levin"
+        ],
+        "section": null
+      },
+      {
+        "section": "Poseidon: Master of Atlantis",
+        "role": "Designer",
+        "names": [
+          "Tony Leier"
+        ]
+      },
+      {
+        "section": "Poseidon: Master of Atlantis",
+        "role": "Producer",
+        "names": [
+          "Ken Parker"
+        ]
+      },
+      {
+        "section": "Poseidon: Master of Atlantis",
+        "role": "Programming",
+        "names": [
+          "Jim Solomon"
+        ]
+      },
+      {
+        "section": "Poseidon: Master of Atlantis",
+        "role": "Director of technology",
+        "names": [
+          "Mike Gingerich"
+        ]
+      },
+      {
+        "section": "Poseidon: Master of Atlantis",
+        "role": "Director of design and development",
+        "names": [
+          "Chris Beatrice"
+        ]
+      },
+      {
+        "section": "Poseidon: Master of Atlantis",
+        "role": "Art director",
+        "names": [
+          "Darrin Horbal"
+        ]
+      },
+      {
+        "section": "Poseidon: Master of Atlantis",
+        "role": "Lead artist",
+        "names": [
+          "Andrea Muzeroll"
+        ]
+      },
+      {
+        "section": "Poseidon: Master of Atlantis",
+        "role": "Artists",
+        "names": [
+          "Adam Carriuolo",
+          "Bob Curtis",
+          "Brian Despain",
+          "Mike Malone",
+          "Heidi Mann",
+          "Dennis Rose",
+          "Abraham Wiley"
+        ]
+      },
+      {
+        "section": "Poseidon: Master of Atlantis",
+        "role": "Audio director",
+        "names": [
+          "Keith Zizza"
+        ]
+      },
+      {
+        "section": "Poseidon: Master of Atlantis",
+        "role": "Music",
+        "names": [
+          "Henry Beckett"
+        ]
+      },
+      {
+        "section": "Poseidon: Master of Atlantis",
+        "role": "Writer",
+        "names": [
+          "Lisa Gagnon"
+        ]
+      },
+      {
+        "section": "Poseidon: Master of Atlantis",
+        "role": "Quality assurance manager",
+        "names": [
+          "Greg Sheppard"
+        ]
+      },
+      {
+        "section": "Poseidon: Master of Atlantis",
+        "role": "Lead tester",
+        "names": [
+          "Chris Bold"
+        ]
+      },
+      {
+        "section": "Poseidon: Master of Atlantis",
+        "role": "Adventure production",
+        "names": [
+          "Chris Bold",
+          "John Everly",
+          "Clay Heaton",
+          "Brett Levin",
+          "John Curst McAuley",
+          "Albert Meranda"
+        ]
+      },
+      {
+        "section": "Poseidon: Master of Atlantis",
+        "role": "Testers",
+        "names": [
+          "John Everly",
+          "Clay Heaton",
+          "John Curst McAuley",
+          "Albert Meranda",
+          "Ted Assur"
+        ]
+      },
+      {
+        "section": "Poseidon: Master of Atlantis",
+        "role": "Beta test supervisor",
+        "names": [
+          "John Curst McAuley"
+        ]
+      },
+      {
+        "section": "Poseidon: Master of Atlantis",
+        "role": "Voices",
+        "names": [
+          "Gil Andrews",
+          "Bob Burchette",
+          "Pam Good",
+          "George Hastenstab",
+          "David J. Fielding",
+          "Steve Liquori",
+          "Michael McNally",
+          "Katherine Palmer",
+          "George Piehl",
+          "Rick Rumble",
+          "Scott Severance"
+        ]
+      },
+      {
+        "section": "Poseidon: Master of Atlantis",
+        "role": "Voice recording",
+        "names": [
+          "The Troupe Sonics"
         ]
       }
     ],
-    "creditsSource": {
-      "title": "Zeus: Master of Olympus user's manual (Impressions Games / Sierra)",
-      "url": "https://archive.org/details/zeus-master-of-olympus-users-manual"
-    },
-    "creditsNote": "The manual also lists roughly eighty external beta testers by name; they are not reproduced here.",
+    "creditsNote": "The base game's roles are transcribed from the manual, which also lists roughly eighty external beta testers by name; they are not reproduced here. Poseidon: Master of Atlantis credits its own team and comes from the credit listings instead.",
     "expansions": "Poseidon (2001)",
     "archive": false,
     "badge": "+ Poseidon, 2001",
@@ -510,7 +1161,17 @@
     "image": "/images/zeus.webp",
     "imageCredit": "Community screenshot — Zeus: Master of Olympus (2000) © Activision",
     "cover": "/images/zeus-cover.webp",
-    "coverCredit": "Cover art — Zeus: Master of Olympus (2000) © Activision"
+    "coverCredit": "Cover art — Zeus: Master of Olympus (2000) © Activision",
+    "creditsSources": [
+      {
+        "title": "the Zeus: Master of Olympus user's manual (Impressions Games / Sierra)",
+        "url": "https://archive.org/details/zeus-master-of-olympus-users-manual"
+      },
+      {
+        "title": "the MobyGames credit listings",
+        "url": null
+      }
+    ]
   },
   {
     "id": "emperor",
@@ -524,9 +1185,322 @@
     "developer": "BreakAway Games",
     "publisher": "Sierra",
     "credits": null,
-    "fullCredits": null,
-    "creditsSource": null,
-    "creditsNote": null,
+    "fullCredits": [
+      {
+        "section": "BreakAway Games",
+        "role": "President",
+        "names": [
+          "Douglas Whatley"
+        ]
+      },
+      {
+        "section": "BreakAway Games",
+        "role": "Producer",
+        "names": [
+          "Ed Beach"
+        ]
+      },
+      {
+        "section": "BreakAway Games",
+        "role": "Game design",
+        "names": [
+          "Charles Kibler",
+          "Ben Knight",
+          "Melissa Sawicki",
+          "Ed Beach"
+        ]
+      },
+      {
+        "section": "BreakAway Games",
+        "role": "Campaign design",
+        "names": [
+          "Charles Kibler",
+          "Ed Beach"
+        ]
+      },
+      {
+        "section": "BreakAway Games",
+        "role": "Documentation",
+        "names": [
+          "Robert E. Waters",
+          "Ben Knight",
+          "Charles Kibler",
+          "Beth Waters and the beta testers (additional editing and proofing)"
+        ]
+      },
+      {
+        "section": "BreakAway Games",
+        "role": "Art director",
+        "names": [
+          "Stephen Langmead"
+        ]
+      },
+      {
+        "section": "BreakAway Games",
+        "role": "Lead artist",
+        "names": [
+          "Mike Phillips"
+        ]
+      },
+      {
+        "section": "BreakAway Games",
+        "role": "Video animation",
+        "names": [
+          "Nathan Heazlett",
+          "Russell Vaccaro III",
+          "Jesse Brophy",
+          "Billy Ahlswede",
+          "Erroll Roberts",
+          "Todd Brizzi"
+        ]
+      },
+      {
+        "section": "BreakAway Games",
+        "role": "In-game art",
+        "names": [
+          "Stephen Langmead",
+          "Mike Phillips",
+          "Nathan Heazlett",
+          "Russell Vaccaro III",
+          "Dwight Eppinger",
+          "Jesse Brophy",
+          "Bill Dugan",
+          "Billy Ahlswede",
+          "Amy Brown",
+          "Erroll Roberts",
+          "Todd Brizzi",
+          "Max Remington"
+        ]
+      },
+      {
+        "section": "BreakAway Games",
+        "role": "Web site",
+        "names": [
+          "Bill Dugan"
+        ]
+      },
+      {
+        "section": "BreakAway Games",
+        "role": "Lead programmer",
+        "names": [
+          "Andy House"
+        ]
+      },
+      {
+        "section": "BreakAway Games",
+        "role": "Programming",
+        "names": [
+          "Jeff Ullman",
+          "Peter Giancola",
+          "Norb Timpko",
+          "Jeff Curley",
+          "Jim Perry",
+          "Natalya Abramova",
+          "Ed Beach",
+          "Robert Rybzynski",
+          "Bill Becker"
+        ]
+      },
+      {
+        "section": "BreakAway Games",
+        "role": "Quality assurance lead",
+        "names": [
+          "Melissa Sawicki"
+        ]
+      },
+      {
+        "section": "BreakAway Games",
+        "role": "Quality assurance",
+        "names": [
+          "Rex Martin",
+          "Daniel Blaine Hinks",
+          "Adam Bryant",
+          "Michael Rea",
+          "Steven Cole",
+          "Eleanor Ross"
+        ]
+      },
+      {
+        "section": "BreakAway Games",
+        "role": "Networking support",
+        "names": [
+          "Daniel Blaine Hinks"
+        ]
+      },
+      {
+        "section": "BreakAway Games",
+        "role": "Sound effects",
+        "names": [
+          "Rob Ross (Sound endeavourS)"
+        ]
+      },
+      {
+        "section": "BreakAway Games",
+        "role": "Music",
+        "names": [
+          "Jeff van Dyck (DNA Multimedia Studios)"
+        ]
+      },
+      {
+        "section": "Impressions Games / Sierra Entertainment",
+        "role": "Producer",
+        "names": [
+          "Jon Payne"
+        ]
+      },
+      {
+        "section": "Impressions Games / Sierra Entertainment",
+        "role": "Executive producer",
+        "names": [
+          "Eric Hayashi"
+        ]
+      },
+      {
+        "section": "Impressions Games / Sierra Entertainment",
+        "role": "Vice president, development",
+        "names": [
+          "Rodney Nakamoto"
+        ]
+      },
+      {
+        "section": "Impressions Games / Sierra Entertainment",
+        "role": "Development support manager",
+        "names": [
+          "Greg Sheppard"
+        ]
+      },
+      {
+        "section": "Impressions Games / Sierra Entertainment",
+        "role": "Design lead",
+        "names": [
+          "Tony Leier"
+        ]
+      },
+      {
+        "section": "Impressions Games / Sierra Entertainment",
+        "role": "Art lead",
+        "names": [
+          "Andrea Muzeroll"
+        ]
+      },
+      {
+        "section": "Impressions Games / Sierra Entertainment",
+        "role": "QA director",
+        "names": [
+          "Gary Stevens"
+        ]
+      },
+      {
+        "section": "Impressions Games / Sierra Entertainment",
+        "role": "QA lead",
+        "names": [
+          "Darren Cannon"
+        ]
+      },
+      {
+        "section": "Impressions Games / Sierra Entertainment",
+        "role": "QA testers",
+        "names": [
+          "Patrick Orr",
+          "Ed Miller",
+          "Kristine Bryan",
+          "Tony Case"
+        ]
+      },
+      {
+        "section": "Impressions Games / Sierra Entertainment",
+        "role": "Technology group engineering manager",
+        "names": [
+          "Mike Nicolino"
+        ]
+      },
+      {
+        "section": "Impressions Games / Sierra Entertainment",
+        "role": "Technology group engineers",
+        "names": [
+          "William Dewey",
+          "Brent LaPoint",
+          "Brian Rothstein",
+          "Brendan Vanous",
+          "Dean Webster"
+        ]
+      },
+      {
+        "section": "Impressions Games / Sierra Entertainment",
+        "role": "VP marketing",
+        "names": [
+          "Barbara Schwabe"
+        ]
+      },
+      {
+        "section": "Impressions Games / Sierra Entertainment",
+        "role": "Brand manager (North America)",
+        "names": [
+          "Alex Rodberg"
+        ]
+      },
+      {
+        "section": "Impressions Games / Sierra Entertainment",
+        "role": "Brand manager (Europe)",
+        "names": [
+          "Beatrice Henrion"
+        ]
+      },
+      {
+        "section": "Impressions Games / Sierra Entertainment",
+        "role": "PR manager",
+        "names": [
+          "Adam Kahn"
+        ]
+      },
+      {
+        "section": "Impressions Games / Sierra Entertainment",
+        "role": "Senior director, PR",
+        "names": [
+          "Kathy Miller"
+        ]
+      },
+      {
+        "section": "Impressions Games / Sierra Entertainment",
+        "role": "Administrative support",
+        "names": [
+          "Beth Adams"
+        ]
+      },
+      {
+        "section": "Impressions Games / Sierra Entertainment",
+        "role": "Special thanks",
+        "names": [
+          "Michael Ryder",
+          "Julie Pitt",
+          "Cathy Johnson"
+        ]
+      },
+      {
+        "section": "Impressions Games / Sierra Entertainment",
+        "role": "Special testing support",
+        "names": [
+          "Matthew Beach",
+          "Natalie Beach"
+        ]
+      },
+      {
+        "section": "Patch 1.0.1.0 - new multiplayer scenarios",
+        "role": "Scenario design",
+        "names": [
+          "Anthony Theodorakakos - Supporting the Great Wall",
+          "Dalton Hollan Baptista - Securing the Silk Road",
+          "David Stringwell - A Tale of Two Cities",
+          "Gloria Carson - Spring and Autumn",
+          "Vladimir Urazov - Spring and Autumn, Naval Trade",
+          "Justin Berka - Strength Against Oppression",
+          "Kenneth E. Finkel - Chenghuang",
+          "Marvin Lynn Roberts - Hexi Corridor",
+          "Robert Taylor - Eight Elite Kingdoms, Eight Prosperous Kingdoms, The Strongest Dynasty, The Usurper"
+        ]
+      }
+    ],
+    "creditsNote": "Emperor was built by BreakAway Games for Impressions and Sierra, and the two teams are credited separately, as the game credits them. Its external beta testers are not reproduced here, but the map-contest winners among them wrote scenarios that shipped in patch 1.0.1.0 and are credited for those.",
     "expansions": null,
     "archive": false,
     "badge": "BreakAway Games",
@@ -557,6 +1531,12 @@
     "image": "/images/emperor.webp",
     "imageCredit": "Community screenshot — Emperor: Rise of the Middle Kingdom (2002) © Activision",
     "cover": "/images/emperor-cover.webp",
-    "coverCredit": "Cover art — Emperor: Rise of the Middle Kingdom (2002) © Activision"
+    "coverCredit": "Cover art — Emperor: Rise of the Middle Kingdom (2002) © Activision",
+    "creditsSources": [
+      {
+        "title": "the MobyGames credit listings",
+        "url": null
+      }
+    ]
   }
 ]
