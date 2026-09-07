@@ -1,0 +1,271 @@
+---
+import { getCollection } from 'astro:content';
+import Base from '../../layouts/Base.astro';
+import { withBase } from '../../lib/url';
+
+/**
+ * A game's campaign, mission by mission.
+ *
+ * The win criteria are the engine's own: each of Akhenaten's per-mission config
+ * files states the rank and the goals the game actually checks, so this is the
+ * campaign as the code runs it rather than as a guide describes it. Only games
+ * with data get a route.
+ */
+export async function getStaticPaths() {
+  const games = await getCollection('games');
+  const missions = await getCollection('campaigns');
+
+  return games
+    .map((game) => ({
+      game,
+      missions: missions
+        .filter((m) => m.data.game === game.id)
+        .sort((a, b) => a.data.order - b.data.order),
+    }))
+    .filter(({ missions }) => missions.length > 0)
+    .map(({ game, missions }) => ({ params: { game: game.id }, props: { game, missions } }));
+}
+
+const { game, missions } = Astro.props;
+const g = game.data;
+
+// Missions are grouped by the release they shipped with, in campaign order.
+const groups: { name: string; missions: typeof missions }[] = [];
+for (const mission of missions) {
+  const last = groups.at(-1);
+  if (last && last.name === mission.data.campaign) last.missions.push(mission);
+  else groups.push({ name: mission.data.campaign, missions: [mission] });
+}
+
+const total = missions.length;
+---
+
+<Base
+  title={`${g.title} campaign — Impressions Games Archive`}
+  description={`All ${total} missions of the ${g.title} campaign, with the rank and the win criteria the engine actually checks.`}
+  current={game.id}
+>
+  <div data-pagefind-body>
+    <section class="section head">
+      <p class="head__kicker">
+        <a href={withBase(`/${game.id}/`)}>{g.title}</a>
+        <span aria-hidden="true"> · </span>Campaign
+      </p>
+      <h1 class="head__title">Campaign</h1>
+      <p class="head__summary">
+        All {total} missions in play order, with the rank you hold and the goals the game checks to
+        end them. Read out of Akhenaten's per-mission configuration rather than from a walkthrough,
+        so these are the thresholds the engine actually tests.
+      </p>
+
+      <aside class="caveat">
+        <h2 class="caveat__title">What these numbers are, and are not</h2>
+        <p>
+          Win criteria, not advice. The table says what the game requires; it does not say how to
+          get there, and a mission with modest-looking goals can still be the hard one. Housing
+          level is the rung on the twenty-step housing ladder, not a count of houses — those are
+          listed separately where a mission demands them.
+        </p>
+      </aside>
+    </section>
+
+    <section class="section list">
+      {
+        groups.map((group) => (
+          <>
+            <h2 class="group">{group.name}</h2>
+            <ol class="missions">
+              {group.missions.map((mission) => (
+                <li class="mission">
+                  <div class="mission__head">
+                    <span class="mission__num">{String(mission.data.order).padStart(2, '0')}</span>
+                    <span class="mission__name">{mission.data.name}</span>
+                    <span class="mission__rank">Rank {mission.data.rank}</span>
+                  </div>
+                  <ul class="goals">
+                    {mission.data.goals.map((goal) => (
+                      <li class="goal">
+                        <span class="goal__label">{goal.label}</span>
+                        <span class="goal__value">{goal.value.toLocaleString('en-GB')}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </li>
+              ))}
+            </ol>
+          </>
+        ))
+      }
+    </section>
+  </div>
+</Base>
+
+<style>
+  .head {
+    padding-block: 56px 0;
+  }
+
+  .head__kicker {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--color-text-dim);
+    margin: 0 0 14px;
+  }
+
+  .head__kicker a {
+    color: var(--color-accent);
+    text-decoration: none;
+  }
+
+  .head__kicker a:hover {
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+
+  .head__title {
+    font-family: var(--font-heading);
+    font-weight: 700;
+    font-size: clamp(30px, 5vw, 46px);
+    margin: 0 0 18px;
+    padding-bottom: 16px;
+    border-bottom: 3px solid var(--color-divider);
+    display: inline-block;
+  }
+
+  .head__summary {
+    font-size: 15px;
+    line-height: 1.65;
+    color: var(--color-text-dim);
+    max-width: 70ch;
+    margin: 0 0 24px;
+  }
+
+  .caveat {
+    border: 1px solid var(--color-divider);
+    border-left: 3px solid var(--color-accent);
+    border-radius: var(--radius-md);
+    background: var(--color-surface);
+    padding: 16px 20px;
+  }
+
+  .caveat__title {
+    font-family: var(--font-heading);
+    font-weight: 600;
+    font-size: 15px;
+    margin: 0 0 6px;
+  }
+
+  .caveat p {
+    margin: 0;
+    font-size: 13.5px;
+    line-height: 1.65;
+    color: var(--color-text-dim);
+    max-width: 70ch;
+  }
+
+  .list {
+    padding-block: 36px 80px;
+  }
+
+  .group {
+    font-family: var(--font-heading);
+    font-weight: 600;
+    font-size: 13px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--color-text-dim);
+    margin: 32px 0 14px;
+  }
+
+  .group:first-child {
+    margin-top: 0;
+  }
+
+  .missions {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    border-top: 1px solid var(--color-divider);
+  }
+
+  .mission {
+    padding: 14px 0;
+    border-bottom: 1px solid var(--color-divider);
+    display: grid;
+    grid-template-columns: minmax(220px, 300px) 1fr;
+    gap: 8px 24px;
+    align-items: baseline;
+  }
+
+  .mission__head {
+    display: flex;
+    align-items: baseline;
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+
+  .mission__num {
+    font-family: var(--font-mono);
+    font-size: 12px;
+    color: var(--color-accent);
+    font-variant-numeric: tabular-nums;
+  }
+
+  .mission__name {
+    font-family: var(--font-heading);
+    font-weight: 600;
+    font-size: 16px;
+  }
+
+  .mission__rank {
+    font-family: var(--font-mono);
+    font-size: 10px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--color-text-dim);
+    border: 1px solid var(--color-divider);
+    border-radius: 3px;
+    padding: 1px 6px;
+    white-space: nowrap;
+  }
+
+  .goals {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px 16px;
+  }
+
+  .goal {
+    display: flex;
+    align-items: baseline;
+    gap: 6px;
+    font-size: 12.5px;
+  }
+
+  .goal__label {
+    color: var(--color-text-dim);
+  }
+
+  .goal__value {
+    font-family: var(--font-mono);
+    color: var(--color-text);
+    font-variant-numeric: tabular-nums;
+  }
+
+  @media (max-width: 720px) {
+    .mission {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  @media (max-width: 640px) {
+    .head {
+      padding-block: 36px 0;
+    }
+  }
+</style>

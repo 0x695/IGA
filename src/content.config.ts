@@ -232,4 +232,44 @@ const buildings = defineCollection({
   }),
 });
 
-export const collections = { games, engineProjects, fileFormats, communityLinks, buildings };
+/**
+ * Campaign missions, in play order.
+ *
+ * Read out of Akhenaten's per-mission config files (src/scripts/mission/), one
+ * per mission, which carry the city name, the player rank and the actual win
+ * criteria the engine checks. Mission *names* are not in Julius at all - for
+ * Caesar III they live in the game's own text files - which is why only
+ * Pharaoh is populated.
+ *
+ * Goals with a value of zero are dropped rather than shown: the engine marks
+ * some criteria enabled with a goal of 0, which is not a requirement.
+ */
+const campaigns = defineCollection({
+  loader: file('src/data/campaigns.json'),
+  schema: z.object({
+    game: z.string(),
+    /** Position in the campaign, from 0. */
+    order: z.number().int(),
+    name: z.string(),
+    /** Which release the mission shipped with. */
+    campaign: z.string(),
+    /** The rank the player holds for this mission. */
+    rank: z.number().int(),
+    goals: z.array(
+      z.object({
+        type: z.string(),
+        label: z.string(),
+        value: z.number(),
+      }),
+    ),
+  }),
+});
+
+export const collections = {
+  games,
+  engineProjects,
+  fileFormats,
+  communityLinks,
+  buildings,
+  campaigns,
+};
