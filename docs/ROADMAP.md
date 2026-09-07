@@ -283,25 +283,47 @@ behind. Size can, so size shipped and the flag did not.
       complexes carry an `is_monument` flag and are built in phases by work
       camps; `building_size` reads 2 even for the grand pyramid complex, so it
       is not a footprint. Publishing it would have been a confident lie.
-- [x] **Campaign lists — done for Pharaoh.** All 53 missions in play order,
-      each with the rank the player holds and the win criteria the engine
-      actually checks: population, culture, prosperity, monuments, kingdom
-      rating, house count and housing level. Read out of Akhenaten's
-      per-mission configuration files rather than from a walkthrough, so the
-      thresholds are the ones the code tests.
+- [x] **Campaign lists — done for Pharaoh, Caesar III and Emperor.** 121
+      missions across three routes, and the pages say plainly which came from
+      where, because the grounding is not the same:
 
-      Caesar III cannot follow the same route: its mission *names* are not in
-      Julius at all, they live in the game's own text files. Its campaign
-      structure is confirmed and recorded below; the names are a `.eng`
-      problem.
-- [ ] **Mechanics deep-dives.** Prose, and blocked
-      on the same problem as always — a source that can be checked. One
-      structural fact *is* confirmed and is a good starting point for whoever
-      picks this up: `src/game/mission.c` shows the Caesar III campaign as
-      twelve ranks, each offering a peaceful and a military scenario — 22 in
-      all — with the choice unlocking from rank 2. The mission *names* are not
-      in the engine; they live in the game's own text files, which is a
-      `.eng` problem and therefore already documented.
+      - **Pharaoh, 53 missions**, read out of Akhenaten's per-mission
+        configuration. Carries the rank and the win criteria the engine
+        actually checks — population, culture, prosperity, monuments, kingdom
+        rating, house count, housing level.
+      - **Caesar III, 20 missions across 11 ranks**, with the peaceful /
+        military branch each rank offers. Community-documented, because the
+        mission names are not in Julius at all; agreed independently by Caesar
+        3 Heaven's walkthrough index and NamuWiki's scenario page.
+      - **Emperor, 48 missions** in play order, from the Impressions Games
+        Wiki. Names and order only — Emperor is the one game with no engine to
+        check against, which is the same reason its wanted callout exists.
+
+      **A correction this turned up.** The note below previously said Caesar
+      III's campaign was *twelve ranks and 22 scenarios*, read off the size of
+      Julius's `MISSION_IDS` array. That was array capacity, not campaign
+      content: the game has **11 ranks and 20 missions**, and Julius simply
+      leaves its twelfth row unused. Two community sources and the mission
+      count agree, and they reconcile with the engine once the spare row is
+      accounted for. Reading a fixed-size table as a fact about the game is a
+      mistake worth remembering.
+- [ ] **Mechanics deep-dives.** The one part of Phase 3 still outstanding,
+      and the one that is prose rather than data. Some of it is reachable the
+      same way everything else was: the housing evolution ladder is twenty
+      numbers per level in `c3_model.txt`, already documented, and Pharaoh's
+      production rates sit in the same Akhenaten configs the buildings came
+      from. What is *not* reachable that way is the part worth reading — why
+      a walker-based labour model plays differently from a global pool — and
+      that is writing, not extraction.
+- [ ] **Zeus and Caesar I/II campaigns.** Zeus's seven adventures are known
+      and named (Zeus and Europa, Perseus and Medusa, Athens Through the Ages,
+      Hercules' Labors, The Peloponnesian War, The Trojan War, The Voyages of
+      Jason), but the Impressions Games Wiki documents only about 25 of its
+      episodes, so a mission list would be visibly partial. Caesar and Caesar
+      II are a different matter entirely: **neither has a fixed campaign to
+      list.** Caesar generates its provinces randomly, and Caesar II is
+      province-unlock rather than a linear mission order. That is a fact about
+      those games, not a gap in this site.
 
 ---
 
