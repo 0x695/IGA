@@ -1,0 +1,576 @@
+[
+  {
+    "id": "pharaoh-brewery",
+    "game": "pharaoh",
+    "name": "Brewery",
+    "engineType": "building_brewery",
+    "size": 2,
+    "laborers": 12,
+    "inputs": [
+      "Barley"
+    ],
+    "output": "Beer",
+    "productionRate": 50,
+    "progressMax": 400,
+    "rateByDifficulty": [
+      100,
+      80,
+      70,
+      60,
+      50
+    ]
+  },
+  {
+    "id": "pharaoh-bricks_workshop",
+    "game": "pharaoh",
+    "name": "Bricks workshop",
+    "engineType": "building_bricks_workshop",
+    "size": 2,
+    "laborers": 12,
+    "inputs": [
+      "Clay",
+      "Straw"
+    ],
+    "output": "Bricks",
+    "productionRate": 20,
+    "progressMax": 400,
+    "rateByDifficulty": [
+      100,
+      80,
+      70,
+      60,
+      50
+    ]
+  },
+  {
+    "id": "pharaoh-cattle_ranch",
+    "game": "pharaoh",
+    "name": "Cattle ranch",
+    "engineType": "building_cattle_ranch",
+    "size": 3,
+    "laborers": 12,
+    "inputs": [
+      "Straw"
+    ],
+    "output": "Meat",
+    "productionRate": null,
+    "progressMax": null,
+    "rateByDifficulty": null
+  },
+  {
+    "id": "pharaoh-chariots_workshop",
+    "game": "pharaoh",
+    "name": "Chariots workshop",
+    "engineType": "building_chariots_workshop",
+    "size": 2,
+    "laborers": 30,
+    "inputs": [
+      "Timber",
+      "Weapons"
+    ],
+    "output": "Chariots",
+    "productionRate": 20,
+    "progressMax": null,
+    "rateByDifficulty": [
+      100,
+      80,
+      70,
+      60,
+      50
+    ]
+  },
+  {
+    "id": "pharaoh-clay_pit",
+    "game": "pharaoh",
+    "name": "Clay pit",
+    "engineType": "building_clay_pit",
+    "size": 2,
+    "laborers": 8,
+    "inputs": [],
+    "output": "Clay",
+    "productionRate": 100,
+    "progressMax": 200,
+    "rateByDifficulty": null
+  },
+  {
+    "id": "pharaoh-farm_barley",
+    "game": "pharaoh",
+    "name": "Farm barley",
+    "engineType": "building_farm_barley",
+    "size": 3,
+    "laborers": 10,
+    "inputs": [],
+    "output": "Barley",
+    "productionRate": null,
+    "progressMax": 2000,
+    "rateByDifficulty": null
+  },
+  {
+    "id": "pharaoh-farm_chickpeas",
+    "game": "pharaoh",
+    "name": "Farm chickpeas",
+    "engineType": "building_farm_chickpeas",
+    "size": 3,
+    "laborers": 10,
+    "inputs": [],
+    "output": "Chickpeas",
+    "productionRate": null,
+    "progressMax": 2000,
+    "rateByDifficulty": null
+  },
+  {
+    "id": "pharaoh-farm_figs",
+    "game": "pharaoh",
+    "name": "Farm figs",
+    "engineType": "building_farm_figs",
+    "size": 3,
+    "laborers": 10,
+    "inputs": [],
+    "output": "Figs",
+    "productionRate": null,
+    "progressMax": 2000,
+    "rateByDifficulty": null
+  },
+  {
+    "id": "pharaoh-farm_flax",
+    "game": "pharaoh",
+    "name": "Farm flax",
+    "engineType": "building_farm_flax",
+    "size": 3,
+    "laborers": 10,
+    "inputs": [],
+    "output": "Flax",
+    "productionRate": null,
+    "progressMax": 2000,
+    "rateByDifficulty": null
+  },
+  {
+    "id": "pharaoh-farm_grain",
+    "game": "pharaoh",
+    "name": "Farm grain",
+    "engineType": "building_farm_grain",
+    "size": 3,
+    "laborers": 10,
+    "inputs": [],
+    "output": "Grain",
+    "productionRate": null,
+    "progressMax": 2000,
+    "rateByDifficulty": null
+  },
+  {
+    "id": "pharaoh-farm_henna",
+    "game": "pharaoh",
+    "name": "Farm henna",
+    "engineType": "building_farm_henna",
+    "size": 3,
+    "laborers": 10,
+    "inputs": [],
+    "output": "Henna",
+    "productionRate": null,
+    "progressMax": 2000,
+    "rateByDifficulty": null
+  },
+  {
+    "id": "pharaoh-farm_lettuce",
+    "game": "pharaoh",
+    "name": "Farm lettuce",
+    "engineType": "building_farm_lettuce",
+    "size": 3,
+    "laborers": 10,
+    "inputs": [],
+    "output": "Lettuce",
+    "productionRate": null,
+    "progressMax": 2000,
+    "rateByDifficulty": null
+  },
+  {
+    "id": "pharaoh-farm_pomegranates",
+    "game": "pharaoh",
+    "name": "Farm pomegranates",
+    "engineType": "building_farm_pomegranates",
+    "size": 3,
+    "laborers": 12,
+    "inputs": [],
+    "output": "Pomegranates",
+    "productionRate": null,
+    "progressMax": 2000,
+    "rateByDifficulty": null
+  },
+  {
+    "id": "pharaoh-fishing_wharf",
+    "game": "pharaoh",
+    "name": "Fishing wharf",
+    "engineType": "building_fishing_wharf",
+    "size": 2,
+    "laborers": 6,
+    "inputs": [],
+    "output": "Fish",
+    "productionRate": null,
+    "progressMax": null,
+    "rateByDifficulty": null
+  },
+  {
+    "id": "pharaoh-granite_quarry",
+    "game": "pharaoh",
+    "name": "Granite quarry",
+    "engineType": "building_granite_quarry",
+    "size": 2,
+    "laborers": 12,
+    "inputs": [],
+    "output": "Granite",
+    "productionRate": 100,
+    "progressMax": 200,
+    "rateByDifficulty": null
+  },
+  {
+    "id": "pharaoh-hunting_lodge",
+    "game": "pharaoh",
+    "name": "Hunting lodge",
+    "engineType": "building_hunting_lodge",
+    "size": 2,
+    "laborers": 6,
+    "inputs": [],
+    "output": "Gamemeat",
+    "productionRate": null,
+    "progressMax": null,
+    "rateByDifficulty": null
+  },
+  {
+    "id": "pharaoh-jewels_workshop",
+    "game": "pharaoh",
+    "name": "Jewels workshop",
+    "engineType": "building_jewels_workshop",
+    "size": 2,
+    "laborers": 12,
+    "inputs": [
+      "Gems"
+    ],
+    "output": "Luxury goods",
+    "productionRate": null,
+    "progressMax": null,
+    "rateByDifficulty": null
+  },
+  {
+    "id": "pharaoh-lamp_workshop",
+    "game": "pharaoh",
+    "name": "Lamp workshop",
+    "engineType": "building_lamp_workshop",
+    "size": 2,
+    "laborers": 12,
+    "inputs": [
+      "Oil",
+      "Pottery"
+    ],
+    "output": "Lamps",
+    "productionRate": 20,
+    "progressMax": null,
+    "rateByDifficulty": [
+      100,
+      80,
+      70,
+      60,
+      50
+    ]
+  },
+  {
+    "id": "pharaoh-limestone_quarry",
+    "game": "pharaoh",
+    "name": "Limestone quarry",
+    "engineType": "building_limestone_quarry",
+    "size": 2,
+    "laborers": 12,
+    "inputs": [],
+    "output": "Limestone",
+    "productionRate": 100,
+    "progressMax": 200,
+    "rateByDifficulty": null
+  },
+  {
+    "id": "pharaoh-meadow_farm_barley",
+    "game": "pharaoh",
+    "name": "Meadow farm barley",
+    "engineType": "building_meadow_farm_barley",
+    "size": 3,
+    "laborers": 10,
+    "inputs": [],
+    "output": "Barley",
+    "productionRate": null,
+    "progressMax": 2000,
+    "rateByDifficulty": null
+  },
+  {
+    "id": "pharaoh-meadow_farm_chickpeas",
+    "game": "pharaoh",
+    "name": "Meadow farm chickpeas",
+    "engineType": "building_meadow_farm_chickpeas",
+    "size": 3,
+    "laborers": 10,
+    "inputs": [],
+    "output": "Chickpeas",
+    "productionRate": null,
+    "progressMax": 2000,
+    "rateByDifficulty": null
+  },
+  {
+    "id": "pharaoh-meadow_farm_figs",
+    "game": "pharaoh",
+    "name": "Meadow farm figs",
+    "engineType": "building_meadow_farm_figs",
+    "size": 3,
+    "laborers": 10,
+    "inputs": [],
+    "output": "Figs",
+    "productionRate": null,
+    "progressMax": 2000,
+    "rateByDifficulty": null
+  },
+  {
+    "id": "pharaoh-meadow_farm_flax",
+    "game": "pharaoh",
+    "name": "Meadow farm flax",
+    "engineType": "building_meadow_farm_flax",
+    "size": 3,
+    "laborers": 10,
+    "inputs": [],
+    "output": "Flax",
+    "productionRate": null,
+    "progressMax": 2000,
+    "rateByDifficulty": null
+  },
+  {
+    "id": "pharaoh-meadow_farm_grain",
+    "game": "pharaoh",
+    "name": "Meadow farm grain",
+    "engineType": "building_meadow_farm_grain",
+    "size": 3,
+    "laborers": 10,
+    "inputs": [],
+    "output": "Grain",
+    "productionRate": null,
+    "progressMax": 2000,
+    "rateByDifficulty": null
+  },
+  {
+    "id": "pharaoh-meadow_farm_henna",
+    "game": "pharaoh",
+    "name": "Meadow farm henna",
+    "engineType": "building_meadow_farm_henna",
+    "size": 3,
+    "laborers": 10,
+    "inputs": [],
+    "output": "Henna",
+    "productionRate": null,
+    "progressMax": 2000,
+    "rateByDifficulty": null
+  },
+  {
+    "id": "pharaoh-meadow_farm_lettuce",
+    "game": "pharaoh",
+    "name": "Meadow farm lettuce",
+    "engineType": "building_meadow_farm_lettuce",
+    "size": 3,
+    "laborers": 10,
+    "inputs": [],
+    "output": "Lettuce",
+    "productionRate": null,
+    "progressMax": 2000,
+    "rateByDifficulty": null
+  },
+  {
+    "id": "pharaoh-meadow_farm_pomegranates",
+    "game": "pharaoh",
+    "name": "Meadow farm pomegranates",
+    "engineType": "building_meadow_farm_pomegranates",
+    "size": 3,
+    "laborers": 10,
+    "inputs": [],
+    "output": "Pomegranates",
+    "productionRate": null,
+    "progressMax": 2000,
+    "rateByDifficulty": null
+  },
+  {
+    "id": "pharaoh-mine_copper",
+    "game": "pharaoh",
+    "name": "Mine copper",
+    "engineType": "building_mine_copper",
+    "size": 2,
+    "laborers": 10,
+    "inputs": [],
+    "output": "Copper",
+    "productionRate": 100,
+    "progressMax": 200,
+    "rateByDifficulty": null
+  },
+  {
+    "id": "pharaoh-mine_gems",
+    "game": "pharaoh",
+    "name": "Mine gems",
+    "engineType": "building_mine_gems",
+    "size": 2,
+    "laborers": 8,
+    "inputs": [],
+    "output": "Gems",
+    "productionRate": 100,
+    "progressMax": 200,
+    "rateByDifficulty": null
+  },
+  {
+    "id": "pharaoh-mine_gold",
+    "game": "pharaoh",
+    "name": "Mine gold",
+    "engineType": "building_mine_gold",
+    "size": 2,
+    "laborers": 12,
+    "inputs": [],
+    "output": "Gold",
+    "productionRate": 100,
+    "progressMax": 200,
+    "rateByDifficulty": null
+  },
+  {
+    "id": "pharaoh-paint_workshop",
+    "game": "pharaoh",
+    "name": "Paint workshop",
+    "engineType": "building_paint_workshop",
+    "size": 2,
+    "laborers": 12,
+    "inputs": [
+      "Henna"
+    ],
+    "output": "Paint",
+    "productionRate": 20,
+    "progressMax": null,
+    "rateByDifficulty": [
+      100,
+      80,
+      70,
+      60,
+      50
+    ]
+  },
+  {
+    "id": "pharaoh-papyrus_maker",
+    "game": "pharaoh",
+    "name": "Papyrus maker",
+    "engineType": "building_papyrus_maker",
+    "size": 2,
+    "laborers": 12,
+    "inputs": [
+      "Reeds"
+    ],
+    "output": "Papyrus",
+    "productionRate": 50,
+    "progressMax": null,
+    "rateByDifficulty": [
+      100,
+      80,
+      70,
+      60,
+      50
+    ]
+  },
+  {
+    "id": "pharaoh-pottery",
+    "game": "pharaoh",
+    "name": "Pottery",
+    "engineType": "building_pottery",
+    "size": 2,
+    "laborers": 12,
+    "inputs": [
+      "Clay"
+    ],
+    "output": "Pottery",
+    "productionRate": 20,
+    "progressMax": null,
+    "rateByDifficulty": [
+      100,
+      80,
+      70,
+      60,
+      50
+    ]
+  },
+  {
+    "id": "pharaoh-reed_gatherer",
+    "game": "pharaoh",
+    "name": "Reed gatherer",
+    "engineType": "building_reed_gatherer",
+    "size": 2,
+    "laborers": 8,
+    "inputs": [],
+    "output": "Reeds",
+    "productionRate": null,
+    "progressMax": null,
+    "rateByDifficulty": null
+  },
+  {
+    "id": "pharaoh-sandstone_quarry",
+    "game": "pharaoh",
+    "name": "Sandstone quarry",
+    "engineType": "building_sandstone_quarry",
+    "size": 2,
+    "laborers": 12,
+    "inputs": [],
+    "output": "Sandstone",
+    "productionRate": 100,
+    "progressMax": 200,
+    "rateByDifficulty": null
+  },
+  {
+    "id": "pharaoh-stone_quarry",
+    "game": "pharaoh",
+    "name": "Stone quarry",
+    "engineType": "building_stone_quarry",
+    "size": 2,
+    "laborers": 12,
+    "inputs": [],
+    "output": "Stone",
+    "productionRate": 100,
+    "progressMax": 200,
+    "rateByDifficulty": null
+  },
+  {
+    "id": "pharaoh-weaponsmith",
+    "game": "pharaoh",
+    "name": "Weaponsmith",
+    "engineType": "building_weaponsmith",
+    "size": 2,
+    "laborers": 12,
+    "inputs": [
+      "Copper"
+    ],
+    "output": "Weapons",
+    "productionRate": null,
+    "progressMax": null,
+    "rateByDifficulty": null
+  },
+  {
+    "id": "pharaoh-weaver",
+    "game": "pharaoh",
+    "name": "Weaver",
+    "engineType": "building_weaver",
+    "size": 2,
+    "laborers": 12,
+    "inputs": [
+      "Flax"
+    ],
+    "output": "Linen",
+    "productionRate": null,
+    "progressMax": null,
+    "rateByDifficulty": null
+  },
+  {
+    "id": "pharaoh-wood_cutter",
+    "game": "pharaoh",
+    "name": "Wood cutter",
+    "engineType": "building_wood_cutter",
+    "size": 2,
+    "laborers": 8,
+    "inputs": [],
+    "output": "Timber",
+    "productionRate": null,
+    "progressMax": null,
+    "rateByDifficulty": null
+  }
+]

@@ -1,0 +1,314 @@
+---
+import { getCollection } from 'astro:content';
+import Base from '../../layouts/Base.astro';
+import { withBase } from '../../lib/url';
+
+/**
+ * A game's production chains.
+ *
+ * What goes in, what comes out, and how fast - read out of the engine rather
+ * than timed in play, which matters because every published figure for this
+ * elsewhere is somebody's stopwatch.
+ */
+export async function getStaticPaths() {
+  const games = await getCollection('games');
+  const production = await getCollection('production');
+
+  return games
+    .map((game) => ({
+      game,
+      rows: production
+        .filter((p) => p.data.game === game.id)
+        .sort((a, b) => a.data.name.localeCompare(b.data.name)),
+    }))
+    .filter(({ rows }) => rows.length > 0)
+    .map(({ game, rows }) => ({ params: { game: game.id }, props: { game, rows } }));
+}
+
+const { game, rows } = Astro.props;
+const g = game.data;
+
+/* Raw producers and workshops are different things and the difference is the
+   whole shape of a city's economy, so they are separate tables. */
+const raw = rows.filter((r) => r.data.inputs.length === 0);
+const workshops = rows.filter((r) => r.data.inputs.length > 0);
+const groups = [
+  { name: 'Raw materials', rows: raw },
+  { name: 'Workshops', rows: workshops },
+].filter((group) => group.rows.length > 0);
+---
+
+<Base
+  title={`${g.title} production chains — Impressions Games Archive`}
+  description={`What every ${g.title} industry building consumes and produces, and how fast.`}
+  current={game.id}
+>
+  <div data-pagefind-body>
+    <section class="section head">
+      <p class="head__kicker">
+        <a href={withBase(`/${game.id}/`)}>{g.title}</a>
+        <span aria-hidden="true"> · </span>Production
+      </p>
+      <h1 class="head__title">Production chains</h1>
+      <p class="head__summary">
+        Every building that makes something: what it takes in, what it puts out, how many labourers
+        it wants, and the rate the engine steps its progress bar with. Read out of Akhenaten's
+        building configuration rather than timed in play.
+      </p>
+
+      <aside class="caveat">
+        <h2 class="caveat__title">How to read the rate</h2>
+        <p>
+          A building adds its <strong>rate</strong> to a progress counter each step, and finishes one
+          load when that counter reaches <strong>full</strong>. The brickworks is the clearest case:
+          20 per step against 400, so twenty steps a load. The two columns only mean something
+          together — a rate of 100 against 200 is five times quicker than 20 against 400, though the
+          bigger number belongs to the slower building. <strong>Difficulty</strong> is the percentage
+          of that rate actually applied, and it is the same five-value shape as building cost: full
+          speed on the gentlest setting, half on the hardest.
+        </p>
+        <p>
+          A dash means the config does not state that field — some buildings take their timing from
+          engine defaults rather than from their own file, and inventing a number for them would be
+          worse than the gap.
+        </p>
+        <p class="caveat__sources">
+          <a
+            href="https://github.com/dalerank/Akhenaten/tree/master/src/scripts/building"
+            target="_blank"
+            rel="noopener noreferrer">Akhenaten — src/scripts/building/ ↗</a
+          >
+        </p>
+      </aside>
+    </section>
+
+    <section class="section list">
+      {
+        groups.map((group) => (
+          <>
+            <h2 class="group">{group.name}</h2>
+            <div class="scroller">
+              <table class="chains">
+                <thead>
+                  <tr>
+                    <th>Building</th>
+                    <th>Takes</th>
+                    <th>Makes</th>
+                    <th class="num">Size</th>
+                    <th class="num">Workers</th>
+                    <th class="num">Rate</th>
+                    <th class="num">Full</th>
+                    <th class="num">Difficulty %</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {group.rows.map((row) => (
+                    <tr>
+                      <th scope="row" class="name">
+                        {row.data.name}
+                        <code>{row.data.engineType}</code>
+                      </th>
+                      <td class="res">
+                        {row.data.inputs.length ? row.data.inputs.join(' + ') : '—'}
+                      </td>
+                      <td class="res out">{row.data.output}</td>
+                      <td class="num">
+                        {row.data.size ? `${row.data.size}×${row.data.size}` : '—'}
+                      </td>
+                      <td class="num">{row.data.laborers ?? '—'}</td>
+                      <td class="num">{row.data.productionRate ?? '—'}</td>
+                      <td class="num">{row.data.progressMax ?? '—'}</td>
+                      <td class="num dim">{row.data.rateByDifficulty?.join(' · ') ?? '—'}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          </>
+        ))
+      }
+    </section>
+  </div>
+</Base>
+
+<style>
+  .head {
+    padding-block: 56px 0;
+  }
+
+  .head__kicker {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--color-text-dim);
+    margin: 0 0 14px;
+  }
+
+  .head__kicker a {
+    color: var(--color-accent);
+    text-decoration: none;
+  }
+
+  .head__kicker a:hover {
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+
+  .head__title {
+    font-family: var(--font-heading);
+    font-weight: 700;
+    font-size: clamp(30px, 5vw, 46px);
+    margin: 0 0 18px;
+    padding-bottom: 16px;
+    border-bottom: 3px solid var(--color-divider);
+    display: inline-block;
+  }
+
+  .head__summary {
+    font-size: 15px;
+    line-height: 1.65;
+    color: var(--color-text-dim);
+    max-width: 70ch;
+    margin: 0 0 24px;
+  }
+
+  .caveat {
+    border: 1px solid var(--color-divider);
+    border-left: 3px solid var(--color-accent);
+    border-radius: var(--radius-md);
+    background: var(--color-surface);
+    padding: 16px 20px;
+  }
+
+  .caveat__title {
+    font-family: var(--font-heading);
+    font-weight: 600;
+    font-size: 15px;
+    margin: 0 0 6px;
+  }
+
+  .caveat p {
+    margin: 0 0 8px;
+    font-size: 13.5px;
+    line-height: 1.65;
+    color: var(--color-text-dim);
+    max-width: 70ch;
+  }
+
+  .caveat p:last-child {
+    margin-bottom: 0;
+  }
+
+  .caveat strong {
+    color: var(--color-text);
+    font-weight: 600;
+  }
+
+  .caveat__sources {
+    margin-top: 10px !important;
+    font-size: 12.5px;
+  }
+
+  .caveat__sources a {
+    color: var(--color-accent);
+    text-decoration: none;
+  }
+
+  .caveat__sources a:hover {
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+
+  .list {
+    padding-block: 36px 80px;
+  }
+
+  .group {
+    font-family: var(--font-heading);
+    font-weight: 600;
+    font-size: 13px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--color-text-dim);
+    margin: 34px 0 12px;
+  }
+
+  .group:first-child {
+    margin-top: 0;
+  }
+
+  .scroller {
+    overflow-x: auto;
+  }
+
+  .chains {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 13px;
+  }
+
+  .chains th,
+  .chains td {
+    text-align: left;
+    padding: 9px 10px;
+    border-bottom: 1px solid var(--color-divider);
+    vertical-align: baseline;
+  }
+
+  .chains thead th {
+    font-family: var(--font-mono);
+    font-size: 10px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--color-text-dim);
+    font-weight: 400;
+    white-space: nowrap;
+    border-bottom-color: var(--color-text-dim);
+  }
+
+  .name {
+    font-family: var(--font-heading);
+    font-weight: 600;
+    font-size: 14px;
+    white-space: nowrap;
+  }
+
+  .name code {
+    display: block;
+    font-family: var(--font-mono);
+    font-size: 10px;
+    font-weight: 400;
+    color: var(--color-text-dim);
+    opacity: 0.75;
+    margin-top: 2px;
+  }
+
+  .res {
+    font-size: 12.5px;
+    color: var(--color-text-dim);
+    white-space: nowrap;
+  }
+
+  .out {
+    color: var(--color-text);
+  }
+
+  /* Mono only where a value is compared character by character. */
+  .num {
+    font-family: var(--font-mono);
+    font-variant-numeric: tabular-nums;
+    text-align: right !important;
+    white-space: nowrap;
+  }
+
+  .dim {
+    color: var(--color-text-dim);
+  }
+
+  @media (max-width: 640px) {
+    .head {
+      padding-block: 36px 0;
+    }
+  }
+</style>

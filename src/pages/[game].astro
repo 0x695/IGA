@@ -24,6 +24,7 @@ export async function getStaticPaths() {
   const buildings = await getCollection('buildings');
   const missions = await getCollection('campaigns');
   const housing = await getCollection('housing');
+  const production = await getCollection('production');
 
   return games.map((game) => ({
     params: { game: game.id },
@@ -35,12 +36,21 @@ export async function getStaticPaths() {
       buildingCount: buildings.filter((b) => b.data.variants.some((v) => v.game === game.id)).length,
       missionCount: missions.filter((m) => m.data.game === game.id).length,
       housingCount: housing.filter((h) => h.data.game === game.id).length,
+      productionCount: production.filter((p) => p.data.game === game.id).length,
     },
   }));
 }
 
-const { game, projects, formats, links, buildingCount, missionCount, housingCount } =
-  Astro.props;
+const {
+  game,
+  projects,
+  formats,
+  links,
+  buildingCount,
+  missionCount,
+  housingCount,
+  productionCount,
+} = Astro.props;
 const g = game.data;
 
 /*
@@ -221,6 +231,21 @@ for (const row of g.fullCredits ?? []) {
             <span class="buildings-link__note">
               The ladder a citizen climbs, rung by rung, and what each one demands before it will
               evolve - the number half this game's mission goals are written against.
+            </span>
+          </a>
+        </section>
+      )
+    }
+
+    {
+      productionCount > 0 && (
+        <section class="section block">
+          <h2 class="section-heading">Production</h2>
+          <a class="buildings-link" href={withBase(`/${game.id}/production/`)}>
+            <span class="buildings-link__count">{productionCount} producers -></span>
+            <span class="buildings-link__note">
+              Every chain from raw material to finished good, with the rate the engine steps each
+              workshop's progress bar with - not a figure somebody timed with a stopwatch.
             </span>
           </a>
         </section>
