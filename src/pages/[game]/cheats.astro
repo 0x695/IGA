@@ -1,0 +1,236 @@
+---
+import { getCollection } from 'astro:content';
+import Base from '../../layouts/Base.astro';
+import { withBase } from '../../lib/url';
+
+/**
+ * A game's cheat codes.
+ *
+ * None of these are documented in the manuals hosted on this site - they are
+ * either save-file byte offsets (Caesar I and II, which predate any in-game
+ * cheat box) or the Ctrl+Alt+C text codes the later titles hide. Caesar III's
+ * come straight out of Julius/Augustus's own source rather than a fan list,
+ * which is the one case here where "cheat code" also means "read the engine",
+ * same as the rest of the site.
+ */
+export async function getStaticPaths() {
+  const games = await getCollection('games');
+  const cheats = await getCollection('cheats');
+
+  return games
+    .map((game) => ({ game, entry: cheats.find((c) => c.data.game === game.id) }))
+    .filter((x): x is { game: (typeof games)[number]; entry: NonNullable<typeof x.entry> } => !!x.entry)
+    .map(({ game, entry }) => ({ params: { game: game.id }, props: { game, entry } }));
+}
+
+const { game, entry } = Astro.props;
+const g = game.data;
+const { activation, codes, note, sources } = entry.data;
+
+const hasRequires = codes.some((c) => c.requires !== null);
+---
+
+<Base
+  title={`${g.title} cheat codes — Impressions Games Archive`}
+  description={`Every documented cheat code for ${g.title}, and how to trigger it.`}
+  current={game.id}
+>
+  <div data-pagefind-body>
+    <section class="section head">
+      <p class="head__kicker">
+        <a href={withBase(`/${game.id}/`)}>{g.title}</a>
+        <span aria-hidden="true"> · </span>Cheats
+      </p>
+      <h1 class="head__title">Cheat codes</h1>
+      <p class="head__summary">{activation}</p>
+
+      <aside class="caveat">
+        <h2 class="caveat__title">Where this comes from</h2>
+        <p>{note}</p>
+        <p class="caveat__sources">
+          {
+            sources.map((source, index) => (
+              <>
+                {index > 0 && <span aria-hidden="true"> · </span>}
+                {source.url ? (
+                  <a href={source.url} target="_blank" rel="noopener noreferrer">{source.title} ↗</a>
+                ) : (
+                  <span>{source.title}</span>
+                )}
+              </>
+            ))
+          }
+        </p>
+      </aside>
+    </section>
+
+    <section class="section list">
+      <div class="scroller">
+        <table class="ladder">
+          <thead>
+            <tr>
+              <th>Code</th>
+              <th>Effect</th>
+              {hasRequires && <th>Requires</th>}
+            </tr>
+          </thead>
+          <tbody>
+            {
+              codes.map((c) => (
+                <tr>
+                  <th scope="row" class="code">
+                    <code>{c.code}</code>
+                    {c.expansion && <span class="tag">{c.expansion}</span>}
+                  </th>
+                  <td>{c.effect}</td>
+                  {hasRequires && <td class="dim">{c.requires ?? '—'}</td>}
+                </tr>
+              ))
+            }
+          </tbody>
+        </table>
+      </div>
+    </section>
+  </div>
+</Base>
+
+<style>
+  .head {
+    padding-block: 56px 0;
+  }
+
+  .head__kicker {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--color-text-dim);
+    margin: 0 0 14px;
+  }
+
+  .head__kicker a {
+    color: var(--color-accent);
+    text-decoration: none;
+  }
+
+  .head__kicker a:hover {
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+
+  .head__title {
+    font-family: var(--font-heading);
+    font-weight: 700;
+    font-size: clamp(30px, 5vw, 46px);
+    margin: 0 0 18px;
+    padding-bottom: 16px;
+    border-bottom: 3px solid var(--color-divider);
+    display: inline-block;
+  }
+
+  .head__summary {
+    font-size: 15px;
+    line-height: 1.65;
+    color: var(--color-text-dim);
+    max-width: 70ch;
+    margin: 0 0 24px;
+  }
+
+  .caveat {
+    border: 1px solid var(--color-divider);
+    border-left: 3px solid var(--color-accent);
+    border-radius: var(--radius-md);
+    background: var(--color-surface);
+    padding: 16px 20px;
+  }
+
+  .caveat__title {
+    font-family: var(--font-heading);
+    font-weight: 600;
+    font-size: 15px;
+    margin: 0 0 6px;
+  }
+
+  .caveat p {
+    margin: 0;
+    font-size: 13.5px;
+    line-height: 1.65;
+    color: var(--color-text-dim);
+    max-width: 70ch;
+  }
+
+  .caveat__sources {
+    margin-top: 10px !important;
+    font-size: 12.5px;
+  }
+
+  .caveat__sources a {
+    color: var(--color-accent);
+    text-decoration: none;
+  }
+
+  .caveat__sources a:hover {
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+
+  .list {
+    padding-block: 36px 80px;
+  }
+
+  .scroller {
+    overflow-x: auto;
+  }
+
+  .ladder {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 13px;
+  }
+
+  .ladder th,
+  .ladder td {
+    text-align: left;
+    padding: 9px 10px;
+    border-bottom: 1px solid var(--color-divider);
+    vertical-align: baseline;
+  }
+
+  .ladder thead th {
+    font-family: var(--font-mono);
+    font-size: 10px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--color-text-dim);
+    font-weight: 400;
+    white-space: nowrap;
+    border-bottom-color: var(--color-text-dim);
+  }
+
+  .code {
+    font-weight: 400;
+    white-space: nowrap;
+  }
+
+  .code code {
+    font-family: var(--font-mono);
+    font-size: 12.5px;
+  }
+
+  .tag {
+    display: inline-block;
+    margin-left: 8px;
+    font-family: var(--font-mono);
+    font-size: 10px;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: var(--color-text-dim);
+    border: 1px solid var(--color-divider);
+    border-radius: var(--radius-sm);
+    padding: 1px 6px;
+  }
+
+  .dim {
+    color: var(--color-text-dim);
+  }
+</style>

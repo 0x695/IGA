@@ -1,0 +1,236 @@
+[
+  {
+    "id": "caesar1",
+    "game": "caesar1",
+    "activation": "No in-game cheat box. The treasury value is changed directly in the save file (default name CAESARXX.SAV), either with a hex editor or DOS's DEBUG.COM.",
+    "codes": [
+      {
+        "code": "File offset 0x3E, write bytes A8 61 - or in DEBUG.COM, -e 13E A8 61",
+        "effect": "Sets the treasury to exactly 25,000 denarii.",
+        "requires": null,
+        "expansion": null
+      }
+    ],
+    "note": "Two versions of this cheat circulate under different tools for what turns out to be the same byte: DEBUG.COM loads a file starting at its default segment offset 0100h, so its memory address 013E is file offset 013E minus 0100h - 0x3E, the hex editor's own answer. The bytes A8 61 read little-endian as 0x61A8, which is 25,000 exactly. A commonly copied variant claims the same offset set to 7F,7F pays out 29,000 denarii, but 0x7F7F is 32,639 - the arithmetic doesn't hold, so only the value that checks out is published here.",
+    "sources": [
+      { "title": "SierraHelp's cheat-utilities page names the offset; the DEBUG.COM bytes were cross-checked by hand", "url": null }
+    ]
+  },
+  {
+    "id": "caesar2",
+    "game": "caesar2",
+    "activation": "No in-game cheat box either - the same save-editing approach as Caesar I, at different offsets.",
+    "codes": [
+      {
+        "code": "Offset 0x35FC0 or 0x329E0 (byte order reversed)",
+        "effect": "The treasury total. The amount can appear at either or both locations, so check both before saving.",
+        "requires": null,
+        "expansion": null
+      },
+      {
+        "code": "Offset 0x35FE8-0x35FE9",
+        "effect": "Personal wealth - what the emperor's gifts draw from.",
+        "requires": null,
+        "expansion": null
+      },
+      {
+        "code": "Offset 0x32C24-0x32C25, set to 00 00",
+        "effect": "Removes a building's annual maintenance cost.",
+        "requires": null,
+        "expansion": null
+      }
+    ],
+    "note": "Values are stored byte-reversed: 10,000 denarii (0x2710) is written into the file as 10 27.",
+    "sources": [
+      { "title": "Caesar II - The Ultimate Site, \"Cheating in Caesar II\"", "url": "https://www.caesar2.com/cheating-in-caesar-ii/" }
+    ]
+  },
+  {
+    "id": "caesar3",
+    "game": "caesar3",
+    "activation": "Open a Well's building-info panel (a Fountain works too in Augustus) and press Alt+K to arm cheat mode - a feature of the Julius and Augustus reimplementations, not the original 1998 executable, which shipped with none of this.",
+    "codes": [
+      {
+        "code": "Alt+C",
+        "effect": "Adds 1,000 Dn to the treasury. Repeatable, but only while the treasury holds under 5,000 Dn - the engine silently ignores it above that.",
+        "requires": null,
+        "expansion": null
+      },
+      {
+        "code": "Alt+V",
+        "effect": "Wins the current mission immediately.",
+        "requires": null,
+        "expansion": null
+      },
+      {
+        "code": "Alt+K again, with the well's \"?\" info window open",
+        "effect": "Triggers an invasion, sized by how many extra times Alt+K is pressed.",
+        "requires": null,
+        "expansion": null
+      },
+      {
+        "code": "Alt+X",
+        "effect": "Opens a text console for typed commands - the ones below still need the well armed first.",
+        "requires": null,
+        "expansion": "Augustus"
+      },
+      {
+        "code": "addmoney <amount>",
+        "effect": "Adds any amount to the treasury, unlike Alt+C's fixed 1,000 and 5,000 cap.",
+        "requires": null,
+        "expansion": "Augustus"
+      },
+      {
+        "code": "nextyear",
+        "effect": "Advances the game clock a full year.",
+        "requires": null,
+        "expansion": "Augustus"
+      },
+      {
+        "code": "killall",
+        "effect": "Kills every walker on the map.",
+        "requires": null,
+        "expansion": "Augustus"
+      },
+      {
+        "code": "finishmonuments",
+        "effect": "Completes every monument currently under construction.",
+        "requires": null,
+        "expansion": "Augustus"
+      },
+      {
+        "code": "whathaveromansdoneforus",
+        "effect": "Unlocks every building and resource, bypassing the scenario's own building menu.",
+        "requires": null,
+        "expansion": "Augustus"
+      },
+      {
+        "code": "ihaveanarmy",
+        "effect": "Unlocks the game's extra legion slots.",
+        "requires": null,
+        "expansion": "Augustus"
+      },
+      {
+        "code": "breadandfish",
+        "effect": "Legions stop consuming food.",
+        "requires": null,
+        "expansion": "Augustus"
+      },
+      {
+        "code": "leavemealone",
+        "effect": "Disables invasions for the rest of the session.",
+        "requires": null,
+        "expansion": "Augustus"
+      },
+      {
+        "code": "romanconcrete",
+        "effect": "Makes buildings immune to collapse, fire and earthquake.",
+        "requires": null,
+        "expansion": "Augustus"
+      }
+    ],
+    "note": "Julius implements only the well/Alt-K/Alt-C/Alt-V sequence; Augustus adds the console and everything after it. Both rows come straight from the source linked below rather than a fan list - the treasury cap and the well-arming step are details most cheat pages online get wrong or leave out. Augustus's console has a longer command set than shown here; these are the ones a player is likeliest to reach for.",
+    "sources": [
+      { "title": "Julius - src/game/cheats.c", "url": "https://github.com/bvschaik/julius/blob/master/src/game/cheats.c" },
+      { "title": "Augustus - src/game/cheats.c", "url": "https://github.com/Keriew/augustus/blob/master/src/game/cheats.c" },
+      { "title": "Caesar III Heaven - Cheats", "url": "https://caesar3.heavengames.com/info/cheats/" }
+    ]
+  },
+  {
+    "id": "pharaoh",
+    "game": "pharaoh",
+    "activation": "Hold Ctrl+Alt+C to open a text box, type the code exactly as shown - it's case-sensitive - and press Enter.",
+    "codes": [
+      { "code": "Pharaohs Tomb", "effect": "Wins the current scenario and advances.", "requires": null, "expansion": null },
+      { "code": "Fury of Seth", "effect": "Destroys every ship at sea.", "requires": null, "expansion": null },
+      { "code": "Treasure Chest", "effect": "Adds 1,000 deben. Only pays out while the treasury holds under 15,000 db.", "requires": null, "expansion": null },
+      { "code": "Bounty", "effect": "Improves the next flood.", "requires": "Osiris", "expansion": null },
+      { "code": "Mummys Curse", "effect": "Worsens the next flood.", "requires": "Osiris", "expansion": null },
+      { "code": "Birds of Prey", "effect": "Trading partners pay less for a year.", "requires": "Ra", "expansion": null },
+      { "code": "Pharaohs Glory", "effect": "Export capacity rises 50%.", "requires": "Ra", "expansion": null },
+      { "code": "Supreme Craftsman", "effect": "Fills a storage yard with gems, clay, pottery, flax, linen or jewellery.", "requires": "Ptah", "expansion": null },
+      { "code": "Noble Djed", "effect": "Stocks a shipwright, weaver or jeweller with raw materials.", "requires": "Ptah", "expansion": null },
+      { "code": "Typhonian Relief", "effect": "Protects soldiers in a distant battle.", "requires": "Seth", "expansion": null },
+      { "code": "Seth Strikes", "effect": "Destroys the best rival trading company and its fort.", "requires": "Seth", "expansion": null },
+      { "code": "Cat Nip", "effect": "Bazaars and houses receive extra goods.", "requires": "Bast", "expansion": null },
+      { "code": "Kitty Litter", "effect": "Starts a plague.", "requires": "Bast", "expansion": null },
+      { "code": "Hippo Stomp", "effect": "Sends hippos charging through the city.", "requires": null, "expansion": null },
+      { "code": "Side Show", "effect": "Makes any hippos already present perform.", "requires": null, "expansion": null },
+      { "code": "Life from Death", "effect": "Doubles the floodplain farm harvest after the next flood.", "requires": "Osiris", "expansion": null },
+      { "code": "Underworld", "effect": "Destroys the floodplain farms during the next flood.", "requires": "Osiris", "expansion": null },
+      { "code": "Sun Disk", "effect": "Raises the kingdom rating.", "requires": "Ra", "expansion": null },
+      { "code": "Mesektet", "effect": "Lowers the kingdom rating.", "requires": "Ra", "expansion": null },
+      { "code": "Meow", "effect": "Bast throws a festival for every god.", "requires": "Bast", "expansion": null },
+      { "code": "Cat Fight", "effect": "Destroys some of the city's best houses.", "requires": "Bast", "expansion": null },
+      { "code": "Big Dave", "effect": "Destroys some industrial buildings.", "requires": "Ptah", "expansion": null },
+      { "code": "Grenow", "effect": "Destroys one storage yard.", "requires": null, "expansion": null },
+      { "code": "Spirit of Typhon", "effect": "Seth strikes down invaders.", "requires": "Seth", "expansion": null },
+      { "code": "Jail Break", "effect": "Tomb robbers appear and steal burial provisions.", "requires": null, "expansion": "Cleopatra" },
+      { "code": "Amphibious Assault", "effect": "A plague of frogs.", "requires": null, "expansion": "Cleopatra" },
+      { "code": "Crimson Tide", "effect": "Turns the river to blood.", "requires": null, "expansion": "Cleopatra" },
+      { "code": "Crop Busters", "effect": "A locust swarm.", "requires": null, "expansion": "Cleopatra" },
+      { "code": "Hail to the Chief", "effect": "A hailstorm.", "requires": null, "expansion": "Cleopatra" },
+      { "code": "Ancient Astronauts", "effect": "Speeds up pyramid construction.", "requires": null, "expansion": "Cleopatra" },
+      { "code": "Mummys Revenge", "effect": "A mummy horde attacks the city.", "requires": null, "expansion": "Cleopatra" }
+    ],
+    "note": "Treasure Chest only pays out below 15,000 deben - the same ceiling Zeus and Emperor use for their own money cheats, which the manuals never mention but which lines up across all three as one more sign the engines share a lineage.",
+    "sources": [
+      { "title": "Pharaoh Heaven - Cheats", "url": "https://pharaoh.heavengames.com/strategy/cheats/" }
+    ]
+  },
+  {
+    "id": "zeus",
+    "game": "zeus",
+    "activation": "Ctrl+Alt+C opens a text box; type the code exactly and press Enter.",
+    "codes": [
+      { "code": "Delian Treasury", "effect": "Adds 1,000 drachmae. Only pays out below 15,000 dr.", "requires": null, "expansion": null },
+      { "code": "Ambrosia", "effect": "Wins the current level and advances.", "requires": null, "expansion": null },
+      { "code": "Bowvine and Arrows", "effect": "Towers shoot cows instead of arrows.", "requires": null, "expansion": null },
+      { "code": "Cheese Puff", "effect": "Dairy workers put on cheese-wheel suits and wobble around.", "requires": null, "expansion": null },
+      { "code": "Fireballs from Heaven", "effect": "Left-click a tile to drop a fireball on it.", "requires": null, "expansion": null },
+      { "code": "SoundFrags", "effect": "Killed animals make joke sound effects.", "requires": null, "expansion": null },
+      { "code": "Atlasthegreat", "effect": "Speeds major-project construction (sanctuaries and similar) to a quarter of its normal time.", "requires": null, "expansion": null },
+      { "code": "Seasick", "effect": "Grants ten times the usual fish yield into granaries.", "requires": null, "expansion": null },
+      { "code": "Hatchet", "effect": "Harvests run faster and stop depending on season.", "requires": null, "expansion": null },
+      { "code": "Hotlava", "effect": "Left-click a tile to strike it with a meteor.", "requires": null, "expansion": null },
+      { "code": "Mammaldrome", "effect": "A completed hippodrome's horses turn into a boar, a bull, a wolf and a deer, sound effects included.", "requires": null, "expansion": "Poseidon" }
+    ],
+    "note": "Delian Treasury's 15,000-drachma ceiling matches Pharaoh's Treasure Chest and Emperor's money cheat almost exactly - the same limit, three different currencies.",
+    "sources": [
+      { "title": "Zeus Heaven - Cheats", "url": "https://zeus.heavengames.com/gameinfo/cheats/" },
+      { "title": "Master of Olympus - Cheat codes", "url": "https://masterofolympus.com/en/cheat" }
+    ]
+  },
+  {
+    "id": "emperor",
+    "game": "emperor",
+    "activation": "Ctrl+Alt+C opens a text box; type the code exactly and press Enter.",
+    "codes": [
+      { "code": "Shutime", "effect": "Adds 5,000 cash.", "requires": null, "expansion": null },
+      { "code": "Gimme Goods", "effect": "Fills a warehouse or mill with free goods.", "requires": null, "expansion": null },
+      { "code": "IgnoreDesire", "effect": "Houses evolve without needing desirability.", "requires": null, "expansion": null },
+      { "code": "I win again", "effect": "Wins the mission at the end of the month.", "requires": null, "expansion": null },
+      { "code": "Uncle Sam", "effect": "Tax collectors dress as Uncle Sam.", "requires": null, "expansion": null },
+      { "code": "Glub Glub", "effect": "Triggers a flood.", "requires": null, "expansion": null },
+      { "code": "Great Heat", "effect": "Triggers a drought.", "requires": null, "expansion": null },
+      { "code": "Shake Shake", "effect": "Triggers an earthquake.", "requires": null, "expansion": null },
+      { "code": "Black Death", "effect": "Kills every one of your military units.", "requires": null, "expansion": null },
+      { "code": "Kill Enemy Units", "effect": "Kills every enemy military unit.", "requires": null, "expansion": null },
+      { "code": "Kill Loan Units", "effect": "Kills every loaned military unit.", "requires": null, "expansion": null },
+      { "code": "CeramicsForElite", "effect": "Gives every Elite house 100 units of ceramics.", "requires": null, "expansion": null },
+      { "code": "FunForElite", "effect": "Elite houses evolve without needing entertainment.", "requires": null, "expansion": null },
+      { "code": "HempForElite", "effect": "Gives every Elite house 100 units of hemp.", "requires": null, "expansion": null },
+      { "code": "SilkForElite", "effect": "Gives every Elite house 100 units of silk.", "requires": null, "expansion": null },
+      { "code": "TeaForElite", "effect": "Gives every Elite house 100 units of tea.", "requires": null, "expansion": null },
+      { "code": "WaresForElite", "effect": "Gives every Elite house 100 units of bronzeware or lacquerware.", "requires": null, "expansion": null },
+      { "code": "Bad Wallpaper", "effect": "Makes every building inauspicious under feng shui.", "requires": null, "expansion": null },
+      { "code": "Chinese Flu", "effect": "Infects one house with disease.", "requires": null, "expansion": null },
+      { "code": "SpawnMugger", "effect": "Spawns one mugger.", "requires": null, "expansion": null },
+      { "code": "SpawnBandit", "effect": "Spawns one bandit.", "requires": null, "expansion": null }
+    ],
+    "note": "Some older cheat lists call the money code \"Delian Treasury\", the same name Zeus uses; the released game's code is Shutime, and no ceiling is documented for it the way the two cheats above have one.",
+    "sources": [
+      { "title": "Emperor Heaven - Cheats", "url": "https://emperor.heavengames.com/gameinfo/cheats/" }
+    ]
+  }
+]

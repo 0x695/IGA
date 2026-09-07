@@ -26,6 +26,7 @@ export async function getStaticPaths() {
   const housing = await getCollection('housing');
   const production = await getCollection('production');
   const mechanics = await getCollection('mechanics');
+  const cheats = await getCollection('cheats');
 
   return games.map((game) => ({
     params: { game: game.id },
@@ -39,6 +40,7 @@ export async function getStaticPaths() {
       housingCount: housing.filter((h) => h.data.game === game.id).length,
       productionCount: production.filter((p) => p.data.game === game.id).length,
       mechanics: mechanics.filter((m) => m.data.games.includes(game.id)),
+      cheatCount: cheats.find((c) => c.data.game === game.id)?.data.codes.length ?? 0,
     },
   }));
 }
@@ -53,6 +55,7 @@ const {
   housingCount,
   productionCount,
   mechanics,
+  cheatCount,
 } = Astro.props;
 const g = game.data;
 
@@ -276,6 +279,22 @@ for (const row of g.fullCredits ?? []) {
           <a class="buildings-link" href={withBase(`/${game.id}/campaign/`)}>
             <span class="buildings-link__count">{campaignLink.label} -></span>
             <span class="buildings-link__note">{campaignLink.note}</span>
+          </a>
+        </section>
+      )
+    }
+
+    {
+      cheatCount > 0 && (
+        <section class="section block">
+          <h2 class="section-heading">Cheats</h2>
+          <a class="buildings-link" href={withBase(`/${game.id}/cheats/`)}>
+            <span class="buildings-link__count">{cheatCount} codes -></span>
+            <span class="buildings-link__note">
+              Every documented cheat code, and how to trigger it - save-file byte offsets for the two
+              games that predate any cheat box, and the Ctrl+Alt+C codes the later manuals never
+              mention for the rest.
+            </span>
           </a>
         </section>
       )

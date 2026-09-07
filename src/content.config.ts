@@ -463,6 +463,37 @@ const devlog = defineCollection({
   }),
 });
 
+/**
+ * Cheat codes, one row per game. Real ones: Caesar I and II predate any
+ * in-game cheat box, so theirs are save-file byte offsets; Caesar III's come
+ * straight out of Julius/Augustus's own source, which is the most reliable
+ * account there is since it's the code that runs them; Pharaoh, Zeus and
+ * Emperor's are the Ctrl+Alt+C text-box codes their manuals never document,
+ * cross-checked against the relevant HeavenGames site rather than taken from
+ * a single fan list.
+ */
+const cheats = defineCollection({
+  loader: file('src/data/cheats.json'),
+  schema: z.object({
+    game: z.string(),
+    /** How to arm or open the cheat itself, common to every code below. */
+    activation: z.string(),
+    codes: z.array(
+      z.object({
+        code: z.string(),
+        effect: z.string(),
+        /** A god that must be worshipped for the code to do anything. */
+        requires: z.string().nullable(),
+        /** Which expansion adds this code; null means the base game. */
+        expansion: z.string().nullable(),
+      }),
+    ),
+    /** A caveat on the whole set - a shared quirk, or how confident the page is. */
+    note: z.string().nullable(),
+    sources: z.array(z.object({ title: z.string(), url: z.string().url().nullable() })),
+  }),
+});
+
 export const collections = {
   games,
   engineProjects,
@@ -474,4 +505,5 @@ export const collections = {
   production,
   mechanics,
   devlog,
+  cheats,
 };
