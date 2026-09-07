@@ -9,9 +9,9 @@ import { withBase } from '../../lib/url';
  * Only games with data get a route, and each page states where its data came
  * from, because that differs: Pharaoh is read from Akhenaten's own per-mission
  * config and therefore carries the win criteria the code checks, while Caesar
- * III and Emperor are community documentation and carry names and order only.
- * Presenting the two as if they were equally grounded would be the dishonest
- * part.
+ * III, Emperor and Zeus are community documentation and carry names and order
+ * only. Presenting the two as if they were equally grounded would be the
+ * dishonest part.
  */
 export async function getStaticPaths() {
   const games = await getCollection('games');
@@ -31,7 +31,17 @@ export async function getStaticPaths() {
 const { game, missions } = Astro.props;
 const g = game.data;
 
-// Missions are grouped by the release they shipped with, in campaign order.
+/*
+ * Missions are grouped by the campaign they belong to, in play order.
+ *
+ * Zeus is numbered inside its group rather than across the whole list: its
+ * thirteen adventures are independent runs, not one sequence, so a counter
+ * that ran from 1 to 93 across them would assert an order the game does not
+ * have.
+ */
+const numberWithinGroup = game.id === 'zeus';
+/* Caesar II's provinces have no play order to number - you choose. */
+const numbered = game.id !== 'caesar2';
 const groups: { name: string; missions: typeof missions }[] = [];
 for (const mission of missions) {
   const last = groups.at(-1);
@@ -47,7 +57,10 @@ const total = missions.length;
  * because mission names are not in those engines at all. Saying which is
  * which is the difference between a reference and a list of words.
  */
-const PROVENANCE: Record<string, { summary: string; caveat: string; sources: { title: string; url: string }[] }> = {
+const PROVENANCE: Record<
+  string,
+  { summary: string; caveat: string; sources: { title: string; url: string | null }[] }
+> = {
   pharaoh: {
     summary:
       "All 53 missions in play order, with the rank you hold and the goals the game checks to end them. Thirty-eight are the base campaign; the remaining fifteen are Cleopatra: Queen of the Nile, which is four short campaigns rather than one. Read out of Akhenaten's per-mission configuration rather than from a walkthrough, so these are the thresholds the engine actually tests.",
@@ -55,6 +68,24 @@ const PROVENANCE: Record<string, { summary: string; caveat: string; sources: { t
       'Win criteria, not advice. The table says what the game requires; it does not say how to get there, and a mission with modest-looking goals can still be the hard one. Housing level is the rung on the twenty-step housing ladder, not a count of houses - those are listed separately where a mission demands them. The campaign each mission belongs to is not guessed either: every mission names the one it hands off to, and a campaign ends where that pointer does, which is what separates the four Cleopatra campaigns from each other and from the base game.',
     sources: [
       { title: 'Akhenaten - src/scripts/mission/', url: 'https://github.com/dalerank/Akhenaten/tree/master/src/scripts/mission' },
+    ],
+  },
+  caesar1: {
+    summary:
+      'Nineteen ranks, and the ratings each one demands before Rome promotes you. Caesar has no mission list - it assigns you a province at random, nineteen times in a row, and generates the map - so the campaign is the ladder rather than the places.',
+    caveat:
+      "Ratings, not maps. Each rank names the minimum any single rating may fall to and the average all of them must reach, and both climb the whole way up; the provinces themselves are generated, so no two runs govern the same places. The twentieth title, Caesar, is the win rather than another province. This is community documentation of the US DOS release, which differs from the EU one in mechanics and balance.",
+    sources: [
+      { title: "A player's tutorial for the US DOS release of Caesar", url: null },
+    ],
+  },
+  caesar2: {
+    summary:
+      'Thirty-two provinces. Caesar II is not a mission list either: you start in Latium and civilize provinces outward, each one unlocking its neighbours, and how far you must get before you are made Caesar depends on the difficulty you chose.',
+    caveat:
+      "Not an order. These are the provinces the game can give you, not a sequence to play through - which you take, and when, is for you and your rival Pompous Maximus to settle between you, so they are listed unnumbered. The four Exterior provinces are separated because they belong to the higher difficulties. Names only: there is no open-source Caesar II engine, and no format documentation for the game at all.",
+    sources: [
+      { title: "A community FAQ/guide for Caesar II, version 1.0", url: null },
     ],
   },
   caesar3: {
@@ -69,11 +100,21 @@ const PROVENANCE: Record<string, { summary: string; caveat: string; sources: { t
   },
   emperor: {
     summary:
-      'Forty-eight missions in play order, running from the Xia dynasty to the Song-Jin. Emperor has no engine reimplementation, so unlike the others this list could only come from the community.',
+      'Forty-eight missions in play order, grouped by the dynasty each belongs to, from the Xia tutorials to the Song-Jin. Emperor has no engine reimplementation, so unlike the others this list could only come from the community.',
     caveat:
-      'Names and order only. Emperor is the one game in the series with no open-source engine to read, which is exactly why its wanted callout exists - so there is no code to check these against, and no win criteria to publish. The dynasty each mission belongs to is not marked here because the boundaries are not stated by the source, and guessing them would be inventing structure.',
+      "Names and order only. Emperor is the one game in the series with no open-source engine to read, which is exactly why its wanted callout exists - so there is no code to check these against, and no win criteria to publish. The dynasty grouping is no longer guesswork: a second source lists the same forty-eight missions in the same order under its own dynasty headings, and the two agree at every position. They differ on two spellings, where this list keeps the wiki's - Xianyang was the Qin capital, and Zhengzhou the Shang city.",
     sources: [
       { title: 'Impressions Games Wiki - Emperor missions', url: 'https://impressionsgames.fandom.com/wiki/Category:Emperor:_Missions' },
+      { title: "Mike Jenista's Emperor: Rise of the Middle Kingdom FAQ/Walkthrough, v1.00", url: null },
+    ],
+  },
+  zeus: {
+    summary:
+      'Thirteen adventures - seven in the base game, six added by Poseidon: Master of Atlantis - and the episodes inside each, in play order. Zeus does not have a mission list the way Caesar III and Pharaoh do: it has adventures, and an adventure is a run of episodes that carries your treasury forward from one to the next.',
+    caveat:
+      "Names and order only, and from a single walkthrough rather than from code - there is no open-source Zeus engine to read. Two adventures list one episode more than you will play, because each offers a choice of colony and you take one of the two; those four are marked as a choice rather than as peaceful or military, which is Caesar III's split and not this game's. Where two episodes in an adventure share a title they are numbered here, and no win criteria are published, because a walkthrough's stated goals are its author's reading rather than something checkable.",
+    sources: [
+      { title: "Red Phoenix's Zeus: Master of Olympus and Poseidon walkthrough", url: null },
     ],
   },
 };
@@ -104,9 +145,11 @@ const showRank = missions.some((m) => m.data.rank !== null);
             provenance.sources.map((source, index) => (
               <>
                 {index > 0 && <span aria-hidden="true"> · </span>}
-                <a href={source.url} rel="noopener">
-                  {source.title} ↗
-                </a>
+                {source.url ? (
+                  <a href={source.url} rel="noopener">{source.title} ↗</a>
+                ) : (
+                  <span>{source.title}</span>
+                )}
               </>
             ))
           }
@@ -123,7 +166,15 @@ const showRank = missions.some((m) => m.data.rank !== null);
               {group.missions.map((mission) => (
                 <li class="mission">
                   <div class="mission__head">
-                    <span class="mission__num">{String(mission.data.order).padStart(2, '0')}</span>
+                    {numbered && (
+                      <span class="mission__num">
+                        {String(
+                          numberWithinGroup
+                            ? group.missions.indexOf(mission) + 1
+                            : mission.data.order,
+                        ).padStart(2, '0')}
+                      </span>
+                    )}
                     <span class="mission__name">{mission.data.name}</span>
                     {mission.data.rankName && (
                       <span class="mission__rank">{mission.data.rankName}</span>

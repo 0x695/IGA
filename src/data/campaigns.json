@@ -6,6 +6,8 @@
     "name": "Nubt",
     "campaign": "Pharaoh",
     "rank": 0,
+    "rankName": null,
+    "branch": null,
     "goals": [
       {
         "type": "housing_count",
@@ -17,9 +19,7 @@
         "label": "Housing level",
         "value": 2
       }
-    ],
-    "rankName": null,
-    "branch": null
+    ]
   },
   {
     "id": "pharaoh-001",
@@ -28,6 +28,8 @@
     "name": "Thinis",
     "campaign": "Pharaoh",
     "rank": 0,
+    "rankName": null,
+    "branch": null,
     "goals": [
       {
         "type": "housing_count",
@@ -39,9 +41,7 @@
         "label": "Housing level",
         "value": 5
       }
-    ],
-    "rankName": null,
-    "branch": null
+    ]
   },
   {
     "id": "pharaoh-002",
@@ -50,6 +50,8 @@
     "name": "Perwadjyt",
     "campaign": "Pharaoh",
     "rank": 0,
+    "rankName": null,
+    "branch": null,
     "goals": [
       {
         "type": "population",
@@ -66,9 +68,7 @@
         "label": "Housing level",
         "value": 6
       }
-    ],
-    "rankName": null,
-    "branch": null
+    ]
   },
   {
     "id": "pharaoh-003",
@@ -77,6 +77,8 @@
     "name": "Nekhen",
     "campaign": "Pharaoh",
     "rank": 0,
+    "rankName": null,
+    "branch": null,
     "goals": [
       {
         "type": "population",
@@ -88,9 +90,7 @@
         "label": "Houses",
         "value": 10
       }
-    ],
-    "rankName": null,
-    "branch": null
+    ]
   },
   {
     "id": "pharaoh-004",
@@ -99,6 +99,8 @@
     "name": "Mennefer",
     "campaign": "Pharaoh",
     "rank": 1,
+    "rankName": null,
+    "branch": null,
     "goals": [
       {
         "type": "population",
@@ -130,9 +132,7 @@
         "label": "Housing level",
         "value": 10
       }
-    ],
-    "rankName": null,
-    "branch": null
+    ]
   },
   {
     "id": "pharaoh-005",
@@ -141,6 +141,8 @@
     "name": "Timna",
     "campaign": "Pharaoh",
     "rank": 2,
+    "rankName": null,
+    "branch": null,
     "goals": [
       {
         "type": "population",
@@ -162,9 +164,7 @@
         "label": "Housing level",
         "value": 10
       }
-    ],
-    "rankName": null,
-    "branch": null
+    ]
   },
   {
     "id": "pharaoh-006",
@@ -173,6 +173,8 @@
     "name": "Behdet",
     "campaign": "Pharaoh",
     "rank": 2,
+    "rankName": null,
+    "branch": null,
     "goals": [
       {
         "type": "population",
@@ -204,9 +206,7 @@
         "label": "Housing level",
         "value": 10
       }
-    ],
-    "rankName": null,
-    "branch": null
+    ]
   },
   {
     "id": "pharaoh-007",
@@ -215,6 +215,8 @@
     "name": "Abydos",
     "campaign": "Pharaoh",
     "rank": 3,
+    "rankName": null,
+    "branch": null,
     "goals": [
       {
         "type": "population",
@@ -246,9 +248,7 @@
         "label": "Housing level",
         "value": 10
       }
-    ],
-    "rankName": null,
-    "branch": null
+    ]
   },
   {
     "id": "pharaoh-008",
@@ -257,6 +257,8 @@
     "name": "Selima",
     "campaign": "Pharaoh",
     "rank": 3,
+    "rankName": null,
+    "branch": null,
     "goals": [
       {
         "type": "population",
@@ -283,9 +285,7 @@
         "label": "Housing level",
         "value": 10
       }
-    ],
-    "rankName": null,
-    "branch": null
+    ]
   },
   {
     "id": "pharaoh-009",
@@ -294,6 +294,8 @@
     "name": "Abu",
     "campaign": "Pharaoh",
     "rank": 6,
+    "rankName": null,
+    "branch": null,
     "goals": [
       {
         "type": "population",
@@ -320,9 +322,7 @@
         "label": "Housing level",
         "value": 10
       }
-    ],
-    "rankName": null,
-    "branch": null
+    ]
   },
   {
     "id": "pharaoh-010",
@@ -331,6 +331,8 @@
     "name": "Saqqara",
     "campaign": "Pharaoh",
     "rank": 1,
+    "rankName": null,
+    "branch": null,
     "goals": [
       {
         "type": "population",
@@ -357,9 +359,7 @@
         "label": "Housing level",
         "value": 10
       }
-    ],
-    "rankName": null,
-    "branch": null
+    ]
   },
   {
     "id": "pharaoh-011",
@@ -368,6 +368,8 @@
     "name": "Serabit Khadim",
     "campaign": "Pharaoh",
     "rank": 5,
+    "rankName": null,
+    "branch": null,
     "goals": [
       {
         "type": "population",
@@ -384,9 +386,7 @@
         "label": "Housing level",
         "value": 4
       }
-    ],
-    "rankName": null,
-    "branch": null
+    ]
   },
   {
     "id": "pharaoh-012",
@@ -395,6 +395,8 @@
     "name": "Meidum",
     "campaign": "Pharaoh",
     "rank": 4,
+    "rankName": null,
+    "branch": null,
     "goals": [
       {
         "type": "population",
@@ -426,9 +428,7 @@
         "label": "Housing level",
         "value": 11
       }
-    ],
-    "rankName": null,
-    "branch": null
+    ]
   },
   {
     "id": "pharaoh-013",
@@ -437,6 +437,8 @@
     "name": "Buhen",
     "campaign": "Pharaoh",
     "rank": 5,
+    "rankName": null,
+    "branch": null,
     "goals": [
       {
         "type": "population",
@@ -468,9 +470,7 @@
         "label": "Housing level",
         "value": 10
       }
-    ],
-    "rankName": null,
-    "branch": null
+    ]
   },
   {
     "id": "pharaoh-014",
@@ -479,6 +479,8 @@
     "name": "South Dahshur",
     "campaign": "Pharaoh",
     "rank": 5,
+    "rankName": null,
+    "branch": null,
     "goals": [
       {
         "type": "population",
@@ -505,9 +507,7 @@
         "label": "Housing level",
         "value": 19
       }
-    ],
-    "rankName": null,
-    "branch": null
+    ]
   },
   {
     "id": "pharaoh-015",
@@ -516,6 +516,8 @@
     "name": "North Dahshur",
     "campaign": "Pharaoh",
     "rank": 6,
+    "rankName": null,
+    "branch": null,
     "goals": [
       {
         "type": "population",
@@ -547,9 +549,7 @@
         "label": "Housing level",
         "value": 10
       }
-    ],
-    "rankName": null,
-    "branch": null
+    ]
   },
   {
     "id": "pharaoh-016",
@@ -558,6 +558,8 @@
     "name": "Iunet",
     "campaign": "Pharaoh",
     "rank": 6,
+    "rankName": null,
+    "branch": null,
     "goals": [
       {
         "type": "population",
@@ -589,9 +591,7 @@
         "label": "Housing level",
         "value": 16
       }
-    ],
-    "rankName": null,
-    "branch": null
+    ]
   },
   {
     "id": "pharaoh-017",
@@ -600,6 +600,8 @@
     "name": "On",
     "campaign": "Pharaoh",
     "rank": 6,
+    "rankName": null,
+    "branch": null,
     "goals": [
       {
         "type": "population",
@@ -631,9 +633,7 @@
         "label": "Housing level",
         "value": 10
       }
-    ],
-    "rankName": null,
-    "branch": null
+    ]
   },
   {
     "id": "pharaoh-018",
@@ -642,6 +642,8 @@
     "name": "Rostja",
     "campaign": "Pharaoh",
     "rank": 6,
+    "rankName": null,
+    "branch": null,
     "goals": [
       {
         "type": "monuments",
@@ -658,9 +660,7 @@
         "label": "Housing level",
         "value": 10
       }
-    ],
-    "rankName": null,
-    "branch": null
+    ]
   },
   {
     "id": "pharaoh-019",
@@ -669,6 +669,8 @@
     "name": "Bahariya",
     "campaign": "Pharaoh",
     "rank": 6,
+    "rankName": null,
+    "branch": null,
     "goals": [
       {
         "type": "population",
@@ -700,9 +702,7 @@
         "label": "Housing level",
         "value": 10
       }
-    ],
-    "rankName": null,
-    "branch": null
+    ]
   },
   {
     "id": "pharaoh-020",
@@ -711,6 +711,8 @@
     "name": "Djedu",
     "campaign": "Pharaoh",
     "rank": 7,
+    "rankName": null,
+    "branch": null,
     "goals": [
       {
         "type": "population",
@@ -742,9 +744,7 @@
         "label": "Housing level",
         "value": 10
       }
-    ],
-    "rankName": null,
-    "branch": null
+    ]
   },
   {
     "id": "pharaoh-021",
@@ -753,6 +753,8 @@
     "name": "Dunqul",
     "campaign": "Pharaoh",
     "rank": 8,
+    "rankName": null,
+    "branch": null,
     "goals": [
       {
         "type": "population",
@@ -784,9 +786,7 @@
         "label": "Housing level",
         "value": 14
       }
-    ],
-    "rankName": null,
-    "branch": null
+    ]
   },
   {
     "id": "pharaoh-022",
@@ -795,6 +795,8 @@
     "name": "Dakhla",
     "campaign": "Pharaoh",
     "rank": 8,
+    "rankName": null,
+    "branch": null,
     "goals": [
       {
         "type": "population",
@@ -826,9 +828,7 @@
         "label": "Housing level",
         "value": 11
       }
-    ],
-    "rankName": null,
-    "branch": null
+    ]
   },
   {
     "id": "pharaoh-023",
@@ -837,6 +837,8 @@
     "name": "Thinis",
     "campaign": "Pharaoh",
     "rank": 9,
+    "rankName": null,
+    "branch": null,
     "goals": [
       {
         "type": "population",
@@ -868,9 +870,7 @@
         "label": "Housing level",
         "value": 10
       }
-    ],
-    "rankName": null,
-    "branch": null
+    ]
   },
   {
     "id": "pharaoh-024",
@@ -879,6 +879,8 @@
     "name": "Waset",
     "campaign": "Pharaoh",
     "rank": 8,
+    "rankName": null,
+    "branch": null,
     "goals": [
       {
         "type": "population",
@@ -910,9 +912,7 @@
         "label": "Housing level",
         "value": 10
       }
-    ],
-    "rankName": null,
-    "branch": null
+    ]
   },
   {
     "id": "pharaoh-025",
@@ -921,6 +921,8 @@
     "name": "Kebet",
     "campaign": "Pharaoh",
     "rank": 9,
+    "rankName": null,
+    "branch": null,
     "goals": [
       {
         "type": "population",
@@ -952,9 +954,7 @@
         "label": "Housing level",
         "value": 13
       }
-    ],
-    "rankName": null,
-    "branch": null
+    ]
   },
   {
     "id": "pharaoh-026",
@@ -963,6 +963,8 @@
     "name": "Menat Khufu",
     "campaign": "Pharaoh",
     "rank": 9,
+    "rankName": null,
+    "branch": null,
     "goals": [
       {
         "type": "population",
@@ -994,9 +996,7 @@
         "label": "Housing level",
         "value": 10
       }
-    ],
-    "rankName": null,
-    "branch": null
+    ]
   },
   {
     "id": "pharaoh-027",
@@ -1005,6 +1005,8 @@
     "name": "Itjtawy",
     "campaign": "Pharaoh",
     "rank": 10,
+    "rankName": null,
+    "branch": null,
     "goals": [
       {
         "type": "population",
@@ -1041,9 +1043,7 @@
         "label": "Housing level",
         "value": 17
       }
-    ],
-    "rankName": null,
-    "branch": null
+    ]
   },
   {
     "id": "pharaoh-028",
@@ -1052,6 +1052,8 @@
     "name": "Iken",
     "campaign": "Pharaoh",
     "rank": 10,
+    "rankName": null,
+    "branch": null,
     "goals": [
       {
         "type": "population",
@@ -1083,9 +1085,7 @@
         "label": "Housing level",
         "value": 10
       }
-    ],
-    "rankName": null,
-    "branch": null
+    ]
   },
   {
     "id": "pharaoh-029",
@@ -1094,6 +1094,8 @@
     "name": "Sawu",
     "campaign": "Pharaoh",
     "rank": 10,
+    "rankName": null,
+    "branch": null,
     "goals": [
       {
         "type": "population",
@@ -1125,9 +1127,7 @@
         "label": "Housing level",
         "value": 17
       }
-    ],
-    "rankName": null,
-    "branch": null
+    ]
   },
   {
     "id": "pharaoh-030",
@@ -1136,6 +1136,8 @@
     "name": "Heh",
     "campaign": "Pharaoh",
     "rank": 10,
+    "rankName": null,
+    "branch": null,
     "goals": [
       {
         "type": "population",
@@ -1167,9 +1169,7 @@
         "label": "Housing level",
         "value": 10
       }
-    ],
-    "rankName": null,
-    "branch": null
+    ]
   },
   {
     "id": "pharaoh-031",
@@ -1178,6 +1178,8 @@
     "name": "Bubastis",
     "campaign": "Pharaoh",
     "rank": 10,
+    "rankName": null,
+    "branch": null,
     "goals": [
       {
         "type": "culture",
@@ -1209,9 +1211,7 @@
         "label": "Housing level",
         "value": 19
       }
-    ],
-    "rankName": null,
-    "branch": null
+    ]
   },
   {
     "id": "pharaoh-032",
@@ -1220,6 +1220,8 @@
     "name": "Khmun",
     "campaign": "Pharaoh",
     "rank": 10,
+    "rankName": null,
+    "branch": null,
     "goals": [
       {
         "type": "population",
@@ -1251,9 +1253,7 @@
         "label": "Housing level",
         "value": 14
       }
-    ],
-    "rankName": null,
-    "branch": null
+    ]
   },
   {
     "id": "pharaoh-033",
@@ -1262,6 +1262,8 @@
     "name": "Sauty",
     "campaign": "Pharaoh",
     "rank": 10,
+    "rankName": null,
+    "branch": null,
     "goals": [
       {
         "type": "population",
@@ -1293,9 +1295,7 @@
         "label": "Housing level",
         "value": 14
       }
-    ],
-    "rankName": null,
-    "branch": null
+    ]
   },
   {
     "id": "pharaoh-034",
@@ -1304,6 +1304,8 @@
     "name": "Byblos",
     "campaign": "Pharaoh",
     "rank": 10,
+    "rankName": null,
+    "branch": null,
     "goals": [
       {
         "type": "population",
@@ -1335,9 +1337,7 @@
         "label": "Housing level",
         "value": 10
       }
-    ],
-    "rankName": null,
-    "branch": null
+    ]
   },
   {
     "id": "pharaoh-035",
@@ -1346,6 +1346,8 @@
     "name": "Baki",
     "campaign": "Pharaoh",
     "rank": 10,
+    "rankName": null,
+    "branch": null,
     "goals": [
       {
         "type": "population",
@@ -1377,9 +1379,7 @@
         "label": "Housing level",
         "value": 19
       }
-    ],
-    "rankName": null,
-    "branch": null
+    ]
   },
   {
     "id": "pharaoh-036",
@@ -1388,6 +1388,8 @@
     "name": "Rowarty",
     "campaign": "Pharaoh",
     "rank": 10,
+    "rankName": null,
+    "branch": null,
     "goals": [
       {
         "type": "population",
@@ -1419,9 +1421,7 @@
         "label": "Housing level",
         "value": 10
       }
-    ],
-    "rankName": null,
-    "branch": null
+    ]
   },
   {
     "id": "pharaoh-037",
@@ -1430,6 +1430,8 @@
     "name": "Hetepsensusret",
     "campaign": "Pharaoh",
     "rank": 10,
+    "rankName": null,
+    "branch": null,
     "goals": [
       {
         "type": "population",
@@ -1461,9 +1463,7 @@
         "label": "Housing level",
         "value": 14
       }
-    ],
-    "rankName": null,
-    "branch": null
+    ]
   },
   {
     "id": "pharaoh-038",
@@ -1472,6 +1472,8 @@
     "name": "Thutmose in the Valley",
     "campaign": "Cleopatra: Valley of the Kings",
     "rank": 5,
+    "rankName": null,
+    "branch": null,
     "goals": [
       {
         "type": "culture",
@@ -1498,9 +1500,7 @@
         "label": "Housing level",
         "value": 14
       }
-    ],
-    "rankName": null,
-    "branch": null
+    ]
   },
   {
     "id": "pharaoh-039",
@@ -1509,6 +1509,8 @@
     "name": "Tut in the Valley",
     "campaign": "Cleopatra: Valley of the Kings",
     "rank": 6,
+    "rankName": null,
+    "branch": null,
     "goals": [
       {
         "type": "population",
@@ -1530,9 +1532,7 @@
         "label": "Housing level",
         "value": 14
       }
-    ],
-    "rankName": null,
-    "branch": null
+    ]
   },
   {
     "id": "pharaoh-040",
@@ -1541,6 +1541,8 @@
     "name": "Seti in the Valley",
     "campaign": "Cleopatra: Valley of the Kings",
     "rank": 6,
+    "rankName": null,
+    "branch": null,
     "goals": [
       {
         "type": "population",
@@ -1577,9 +1579,7 @@
         "label": "Housing level",
         "value": 15
       }
-    ],
-    "rankName": null,
-    "branch": null
+    ]
   },
   {
     "id": "pharaoh-041",
@@ -1588,6 +1588,8 @@
     "name": "Sumur",
     "campaign": "Cleopatra: Ramses II",
     "rank": 6,
+    "rankName": null,
+    "branch": null,
     "goals": [
       {
         "type": "population",
@@ -1619,9 +1621,7 @@
         "label": "Housing level",
         "value": 14
       }
-    ],
-    "rankName": null,
-    "branch": null
+    ]
   },
   {
     "id": "pharaoh-042",
@@ -1630,6 +1630,8 @@
     "name": "Qadesh",
     "campaign": "Cleopatra: Ramses II",
     "rank": 10,
+    "rankName": null,
+    "branch": null,
     "goals": [
       {
         "type": "population",
@@ -1651,9 +1653,7 @@
         "label": "Housing level",
         "value": 14
       }
-    ],
-    "rankName": null,
-    "branch": null
+    ]
   },
   {
     "id": "pharaoh-043",
@@ -1662,6 +1662,8 @@
     "name": "Abu Simbel",
     "campaign": "Cleopatra: Ramses II",
     "rank": 5,
+    "rankName": null,
+    "branch": null,
     "goals": [
       {
         "type": "population",
@@ -1693,9 +1695,7 @@
         "label": "Housing level",
         "value": 10
       }
-    ],
-    "rankName": null,
-    "branch": null
+    ]
   },
   {
     "id": "pharaoh-044",
@@ -1704,6 +1704,8 @@
     "name": "Ramses in the Valley",
     "campaign": "Cleopatra: Ramses II",
     "rank": 6,
+    "rankName": null,
+    "branch": null,
     "goals": [
       {
         "type": "population",
@@ -1740,9 +1742,7 @@
         "label": "Housing level",
         "value": 17
       }
-    ],
-    "rankName": null,
-    "branch": null
+    ]
   },
   {
     "id": "pharaoh-045",
@@ -1751,6 +1751,8 @@
     "name": "Pi-Yer",
     "campaign": "Cleopatra: Ancient Conquerors",
     "rank": 4,
+    "rankName": null,
+    "branch": null,
     "goals": [
       {
         "type": "population",
@@ -1782,9 +1784,7 @@
         "label": "Housing level",
         "value": 8
       }
-    ],
-    "rankName": null,
-    "branch": null
+    ]
   },
   {
     "id": "pharaoh-046",
@@ -1793,6 +1793,8 @@
     "name": "Migdol",
     "campaign": "Cleopatra: Ancient Conquerors",
     "rank": 5,
+    "rankName": null,
+    "branch": null,
     "goals": [
       {
         "type": "population",
@@ -1814,9 +1816,7 @@
         "label": "Housing level",
         "value": 10
       }
-    ],
-    "rankName": null,
-    "branch": null
+    ]
   },
   {
     "id": "pharaoh-047",
@@ -1825,6 +1825,8 @@
     "name": "Tanis",
     "campaign": "Cleopatra: Ancient Conquerors",
     "rank": 6,
+    "rankName": null,
+    "branch": null,
     "goals": [
       {
         "type": "population",
@@ -1851,9 +1853,7 @@
         "label": "Housing level",
         "value": 10
       }
-    ],
-    "rankName": null,
-    "branch": null
+    ]
   },
   {
     "id": "pharaoh-048",
@@ -1862,6 +1862,8 @@
     "name": "Alexandria",
     "campaign": "Cleopatra: Cleopatra's Capitol",
     "rank": 5,
+    "rankName": null,
+    "branch": null,
     "goals": [
       {
         "type": "population",
@@ -1898,9 +1900,7 @@
         "label": "Housing level",
         "value": 10
       }
-    ],
-    "rankName": null,
-    "branch": null
+    ]
   },
   {
     "id": "pharaoh-049",
@@ -1909,6 +1909,8 @@
     "name": "Ptolemy's Alexandria",
     "campaign": "Cleopatra: Cleopatra's Capitol",
     "rank": 10,
+    "rankName": null,
+    "branch": null,
     "goals": [
       {
         "type": "population",
@@ -1945,9 +1947,7 @@
         "label": "Housing level",
         "value": 16
       }
-    ],
-    "rankName": null,
-    "branch": null
+    ]
   },
   {
     "id": "pharaoh-050",
@@ -1956,6 +1956,8 @@
     "name": "Maritis",
     "campaign": "Cleopatra: Cleopatra's Capitol",
     "rank": 1,
+    "rankName": null,
+    "branch": null,
     "goals": [
       {
         "type": "population",
@@ -1987,9 +1989,7 @@
         "label": "Housing level",
         "value": 4
       }
-    ],
-    "rankName": null,
-    "branch": null
+    ]
   },
   {
     "id": "pharaoh-051",
@@ -1998,6 +1998,8 @@
     "name": "Cleopatra's Alexandria",
     "campaign": "Cleopatra: Cleopatra's Capitol",
     "rank": 10,
+    "rankName": null,
+    "branch": null,
     "goals": [
       {
         "type": "population",
@@ -2034,9 +2036,7 @@
         "label": "Housing level",
         "value": 19
       }
-    ],
-    "rankName": null,
-    "branch": null
+    ]
   },
   {
     "id": "pharaoh-052",
@@ -2045,6 +2045,8 @@
     "name": "Actium",
     "campaign": "Cleopatra: Cleopatra's Capitol",
     "rank": 10,
+    "rankName": null,
+    "branch": null,
     "goals": [
       {
         "type": "population",
@@ -2061,9 +2063,7 @@
         "label": "Housing level",
         "value": 5
       }
-    ],
-    "rankName": null,
-    "branch": null
+    ]
   },
   {
     "id": "caesar3-00",
@@ -2290,7 +2290,7 @@
     "game": "emperor",
     "order": 0,
     "name": "Banpo (first)",
-    "campaign": "Emperor",
+    "campaign": "Xia Dynasty (tutorials)",
     "rank": null,
     "rankName": null,
     "branch": null,
@@ -2301,7 +2301,7 @@
     "game": "emperor",
     "order": 1,
     "name": "Banpo (second)",
-    "campaign": "Emperor",
+    "campaign": "Xia Dynasty (tutorials)",
     "rank": null,
     "rankName": null,
     "branch": null,
@@ -2312,7 +2312,7 @@
     "game": "emperor",
     "order": 2,
     "name": "Banpo (third)",
-    "campaign": "Emperor",
+    "campaign": "Xia Dynasty (tutorials)",
     "rank": null,
     "rankName": null,
     "branch": null,
@@ -2323,7 +2323,7 @@
     "game": "emperor",
     "order": 3,
     "name": "Banpo (fourth)",
-    "campaign": "Emperor",
+    "campaign": "Xia Dynasty (tutorials)",
     "rank": null,
     "rankName": null,
     "branch": null,
@@ -2334,7 +2334,7 @@
     "game": "emperor",
     "order": 4,
     "name": "Erlitou (first)",
-    "campaign": "Emperor",
+    "campaign": "Xia Dynasty (tutorials)",
     "rank": null,
     "rankName": null,
     "branch": null,
@@ -2345,7 +2345,7 @@
     "game": "emperor",
     "order": 5,
     "name": "Erlitou (second)",
-    "campaign": "Emperor",
+    "campaign": "Xia Dynasty (tutorials)",
     "rank": null,
     "rankName": null,
     "branch": null,
@@ -2356,7 +2356,7 @@
     "game": "emperor",
     "order": 6,
     "name": "Bo (first)",
-    "campaign": "Emperor",
+    "campaign": "Shang Dynasty",
     "rank": null,
     "rankName": null,
     "branch": null,
@@ -2367,7 +2367,7 @@
     "game": "emperor",
     "order": 7,
     "name": "Baoji",
-    "campaign": "Emperor",
+    "campaign": "Shang Dynasty",
     "rank": null,
     "rankName": null,
     "branch": null,
@@ -2378,7 +2378,7 @@
     "game": "emperor",
     "order": 8,
     "name": "Bo (second)",
-    "campaign": "Emperor",
+    "campaign": "Shang Dynasty",
     "rank": null,
     "rankName": null,
     "branch": null,
@@ -2389,7 +2389,7 @@
     "game": "emperor",
     "order": 9,
     "name": "Zhengzhou",
-    "campaign": "Emperor",
+    "campaign": "Shang Dynasty",
     "rank": null,
     "rankName": null,
     "branch": null,
@@ -2400,7 +2400,7 @@
     "game": "emperor",
     "order": 10,
     "name": "Yin (first)",
-    "campaign": "Emperor",
+    "campaign": "Shang Dynasty",
     "rank": null,
     "rankName": null,
     "branch": null,
@@ -2411,7 +2411,7 @@
     "game": "emperor",
     "order": 11,
     "name": "Panlongcheng",
-    "campaign": "Emperor",
+    "campaign": "Shang Dynasty",
     "rank": null,
     "rankName": null,
     "branch": null,
@@ -2422,7 +2422,7 @@
     "game": "emperor",
     "order": 12,
     "name": "Yin (second)",
-    "campaign": "Emperor",
+    "campaign": "Shang Dynasty",
     "rank": null,
     "rankName": null,
     "branch": null,
@@ -2433,7 +2433,7 @@
     "game": "emperor",
     "order": 13,
     "name": "Hao",
-    "campaign": "Emperor",
+    "campaign": "Zhou Dynasty",
     "rank": null,
     "rankName": null,
     "branch": null,
@@ -2444,7 +2444,7 @@
     "game": "emperor",
     "order": 14,
     "name": "Anyi",
-    "campaign": "Emperor",
+    "campaign": "Zhou Dynasty",
     "rank": null,
     "rankName": null,
     "branch": null,
@@ -2455,7 +2455,7 @@
     "game": "emperor",
     "order": 15,
     "name": "Yulin",
-    "campaign": "Emperor",
+    "campaign": "Zhou Dynasty",
     "rank": null,
     "rankName": null,
     "branch": null,
@@ -2466,7 +2466,7 @@
     "game": "emperor",
     "order": 16,
     "name": "Loyi",
-    "campaign": "Emperor",
+    "campaign": "Zhou Dynasty",
     "rank": null,
     "rankName": null,
     "branch": null,
@@ -2477,7 +2477,7 @@
     "game": "emperor",
     "order": 17,
     "name": "Ying",
-    "campaign": "Emperor",
+    "campaign": "Zhou Dynasty",
     "rank": null,
     "rankName": null,
     "branch": null,
@@ -2488,7 +2488,7 @@
     "game": "emperor",
     "order": 18,
     "name": "Handan",
-    "campaign": "Emperor",
+    "campaign": "Zhou Dynasty",
     "rank": null,
     "rankName": null,
     "branch": null,
@@ -2499,7 +2499,7 @@
     "game": "emperor",
     "order": 19,
     "name": "Lingshou",
-    "campaign": "Emperor",
+    "campaign": "Zhou Dynasty",
     "rank": null,
     "rankName": null,
     "branch": null,
@@ -2510,7 +2510,7 @@
     "game": "emperor",
     "order": 20,
     "name": "Huanxian",
-    "campaign": "Emperor",
+    "campaign": "Qin Dynasty",
     "rank": null,
     "rankName": null,
     "branch": null,
@@ -2521,7 +2521,7 @@
     "game": "emperor",
     "order": 21,
     "name": "Xianyang (first)",
-    "campaign": "Emperor",
+    "campaign": "Qin Dynasty",
     "rank": null,
     "rankName": null,
     "branch": null,
@@ -2532,7 +2532,7 @@
     "game": "emperor",
     "order": 22,
     "name": "Xiangjun",
-    "campaign": "Emperor",
+    "campaign": "Qin Dynasty",
     "rank": null,
     "rankName": null,
     "branch": null,
@@ -2543,7 +2543,7 @@
     "game": "emperor",
     "order": 23,
     "name": "Badaling",
-    "campaign": "Emperor",
+    "campaign": "Qin Dynasty",
     "rank": null,
     "rankName": null,
     "branch": null,
@@ -2554,7 +2554,7 @@
     "game": "emperor",
     "order": 24,
     "name": "Xianyang (second)",
-    "campaign": "Emperor",
+    "campaign": "Qin Dynasty",
     "rank": null,
     "rankName": null,
     "branch": null,
@@ -2565,7 +2565,7 @@
     "game": "emperor",
     "order": 25,
     "name": "Chang-an (Han first)",
-    "campaign": "Emperor",
+    "campaign": "Han Dynasty",
     "rank": null,
     "rankName": null,
     "branch": null,
@@ -2576,7 +2576,7 @@
     "game": "emperor",
     "order": 26,
     "name": "Jiaozhou",
-    "campaign": "Emperor",
+    "campaign": "Han Dynasty",
     "rank": null,
     "rankName": null,
     "branch": null,
@@ -2587,7 +2587,7 @@
     "game": "emperor",
     "order": 27,
     "name": "Chang-an (Han second)",
-    "campaign": "Emperor",
+    "campaign": "Han Dynasty",
     "rank": null,
     "rankName": null,
     "branch": null,
@@ -2598,7 +2598,7 @@
     "game": "emperor",
     "order": 28,
     "name": "Lo-lang",
-    "campaign": "Emperor",
+    "campaign": "Han Dynasty",
     "rank": null,
     "rankName": null,
     "branch": null,
@@ -2609,7 +2609,7 @@
     "game": "emperor",
     "order": 29,
     "name": "Loulan",
-    "campaign": "Emperor",
+    "campaign": "Han Dynasty",
     "rank": null,
     "rankName": null,
     "branch": null,
@@ -2620,7 +2620,7 @@
     "game": "emperor",
     "order": 30,
     "name": "Luoyang (Han first)",
-    "campaign": "Emperor",
+    "campaign": "Han Dynasty",
     "rank": null,
     "rankName": null,
     "branch": null,
@@ -2631,7 +2631,7 @@
     "game": "emperor",
     "order": 31,
     "name": "Jiayuguan",
-    "campaign": "Emperor",
+    "campaign": "Han Dynasty",
     "rank": null,
     "rankName": null,
     "branch": null,
@@ -2642,7 +2642,7 @@
     "game": "emperor",
     "order": 32,
     "name": "Luoyang (Han second)",
-    "campaign": "Emperor",
+    "campaign": "Han Dynasty",
     "rank": null,
     "rankName": null,
     "branch": null,
@@ -2653,7 +2653,7 @@
     "game": "emperor",
     "order": 33,
     "name": "Chang-an (Sui-Tang first)",
-    "campaign": "Emperor",
+    "campaign": "Sui-Tang Dynasty",
     "rank": null,
     "rankName": null,
     "branch": null,
@@ -2664,7 +2664,7 @@
     "game": "emperor",
     "order": 34,
     "name": "Lanzhou",
-    "campaign": "Emperor",
+    "campaign": "Sui-Tang Dynasty",
     "rank": null,
     "rankName": null,
     "branch": null,
@@ -2675,7 +2675,7 @@
     "game": "emperor",
     "order": 35,
     "name": "Yangzhou",
-    "campaign": "Emperor",
+    "campaign": "Sui-Tang Dynasty",
     "rank": null,
     "rankName": null,
     "branch": null,
@@ -2686,7 +2686,7 @@
     "game": "emperor",
     "order": 36,
     "name": "Liangzhou",
-    "campaign": "Emperor",
+    "campaign": "Sui-Tang Dynasty",
     "rank": null,
     "rankName": null,
     "branch": null,
@@ -2697,7 +2697,7 @@
     "game": "emperor",
     "order": 37,
     "name": "Niya",
-    "campaign": "Emperor",
+    "campaign": "Sui-Tang Dynasty",
     "rank": null,
     "rankName": null,
     "branch": null,
@@ -2708,7 +2708,7 @@
     "game": "emperor",
     "order": 38,
     "name": "Luoyang (Sui-Tang)",
-    "campaign": "Emperor",
+    "campaign": "Sui-Tang Dynasty",
     "rank": null,
     "rankName": null,
     "branch": null,
@@ -2719,7 +2719,7 @@
     "game": "emperor",
     "order": 39,
     "name": "Chang-an (Sui-Tang second)",
-    "campaign": "Emperor",
+    "campaign": "Sui-Tang Dynasty",
     "rank": null,
     "rankName": null,
     "branch": null,
@@ -2730,7 +2730,7 @@
     "game": "emperor",
     "order": 40,
     "name": "Dunhuang",
-    "campaign": "Emperor",
+    "campaign": "Sui-Tang Dynasty",
     "rank": null,
     "rankName": null,
     "branch": null,
@@ -2741,7 +2741,7 @@
     "game": "emperor",
     "order": 41,
     "name": "Kaifeng (first)",
-    "campaign": "Emperor",
+    "campaign": "Song-Jin Dynasty",
     "rank": null,
     "rankName": null,
     "branch": null,
@@ -2752,7 +2752,7 @@
     "game": "emperor",
     "order": 42,
     "name": "Pingyao",
-    "campaign": "Emperor",
+    "campaign": "Song-Jin Dynasty",
     "rank": null,
     "rankName": null,
     "branch": null,
@@ -2763,7 +2763,7 @@
     "game": "emperor",
     "order": 43,
     "name": "Chengdu",
-    "campaign": "Emperor",
+    "campaign": "Song-Jin Dynasty",
     "rank": null,
     "rankName": null,
     "branch": null,
@@ -2774,7 +2774,7 @@
     "game": "emperor",
     "order": 44,
     "name": "Kaifeng (second)",
-    "campaign": "Emperor",
+    "campaign": "Song-Jin Dynasty",
     "rank": null,
     "rankName": null,
     "branch": null,
@@ -2785,7 +2785,7 @@
     "game": "emperor",
     "order": 45,
     "name": "Zhongdu (first)",
-    "campaign": "Emperor",
+    "campaign": "Song-Jin Dynasty",
     "rank": null,
     "rankName": null,
     "branch": null,
@@ -2796,7 +2796,7 @@
     "game": "emperor",
     "order": 46,
     "name": "Juyongguan",
-    "campaign": "Emperor",
+    "campaign": "Song-Jin Dynasty",
     "rank": null,
     "rankName": null,
     "branch": null,
@@ -2807,7 +2807,1811 @@
     "game": "emperor",
     "order": 47,
     "name": "Zhongdu (second)",
-    "campaign": "Emperor",
+    "campaign": "Song-Jin Dynasty",
+    "rank": null,
+    "rankName": null,
+    "branch": null,
+    "goals": []
+  },
+  {
+    "id": "zeus-000",
+    "game": "zeus",
+    "order": 0,
+    "name": "Founding of Thebes",
+    "campaign": "Zeus and Europa",
+    "rank": null,
+    "rankName": null,
+    "branch": null,
+    "goals": []
+  },
+  {
+    "id": "zeus-001",
+    "game": "zeus",
+    "order": 1,
+    "name": "The Serpent",
+    "campaign": "Zeus and Europa",
+    "rank": null,
+    "rankName": null,
+    "branch": null,
+    "goals": []
+  },
+  {
+    "id": "zeus-002",
+    "game": "zeus",
+    "order": 2,
+    "name": "Ares' City",
+    "campaign": "Zeus and Europa",
+    "rank": null,
+    "rankName": null,
+    "branch": null,
+    "goals": []
+  },
+  {
+    "id": "zeus-003",
+    "game": "zeus",
+    "order": 3,
+    "name": "The Cretan Princess",
+    "campaign": "Zeus and Europa",
+    "rank": null,
+    "rankName": null,
+    "branch": null,
+    "goals": []
+  },
+  {
+    "id": "zeus-004",
+    "game": "zeus",
+    "order": 4,
+    "name": "The Wedding Present",
+    "campaign": "Zeus and Europa",
+    "rank": null,
+    "rankName": null,
+    "branch": null,
+    "goals": []
+  },
+  {
+    "id": "zeus-005",
+    "game": "zeus",
+    "order": 5,
+    "name": "The Wine Crisis",
+    "campaign": "Zeus and Europa",
+    "rank": null,
+    "rankName": null,
+    "branch": null,
+    "goals": []
+  },
+  {
+    "id": "zeus-006",
+    "game": "zeus",
+    "order": 6,
+    "name": "The Maenads' Rampage",
+    "campaign": "Zeus and Europa",
+    "rank": null,
+    "rankName": null,
+    "branch": null,
+    "goals": []
+  },
+  {
+    "id": "zeus-007",
+    "game": "zeus",
+    "order": 7,
+    "name": "The Pretender to the Throne",
+    "campaign": "Zeus and Europa",
+    "rank": null,
+    "rankName": null,
+    "branch": null,
+    "goals": []
+  },
+  {
+    "id": "zeus-008",
+    "game": "zeus",
+    "order": 8,
+    "name": "A New Way of Life",
+    "campaign": "Perseus and Medusa",
+    "rank": null,
+    "rankName": null,
+    "branch": null,
+    "goals": []
+  },
+  {
+    "id": "zeus-009",
+    "game": "zeus",
+    "order": 9,
+    "name": "The City Grows",
+    "campaign": "Perseus and Medusa",
+    "rank": null,
+    "rankName": null,
+    "branch": null,
+    "goals": []
+  },
+  {
+    "id": "zeus-010",
+    "game": "zeus",
+    "order": 10,
+    "name": "Calydon - Artemis' Revenge",
+    "campaign": "Perseus and Medusa",
+    "rank": null,
+    "rankName": null,
+    "branch": null,
+    "goals": []
+  },
+  {
+    "id": "zeus-011",
+    "game": "zeus",
+    "order": 11,
+    "name": "The Hero Perseus",
+    "campaign": "Perseus and Medusa",
+    "rank": null,
+    "rankName": null,
+    "branch": null,
+    "goals": []
+  },
+  {
+    "id": "zeus-012",
+    "game": "zeus",
+    "order": 12,
+    "name": "Miletos - The Eastern Frontier",
+    "campaign": "Perseus and Medusa",
+    "rank": null,
+    "rankName": null,
+    "branch": null,
+    "goals": []
+  },
+  {
+    "id": "zeus-013",
+    "game": "zeus",
+    "order": 13,
+    "name": "The Gorgon, or The Bad Hair Day",
+    "campaign": "Perseus and Medusa",
+    "rank": null,
+    "rankName": null,
+    "branch": null,
+    "goals": []
+  },
+  {
+    "id": "zeus-014",
+    "game": "zeus",
+    "order": 14,
+    "name": "Unlikely Beginnings",
+    "campaign": "Athens Through The Ages",
+    "rank": null,
+    "rankName": null,
+    "branch": null,
+    "goals": []
+  },
+  {
+    "id": "zeus-015",
+    "game": "zeus",
+    "order": 15,
+    "name": "Breaking the Bonds",
+    "campaign": "Athens Through The Ages",
+    "rank": null,
+    "rankName": null,
+    "branch": null,
+    "goals": []
+  },
+  {
+    "id": "zeus-016",
+    "game": "zeus",
+    "order": 16,
+    "name": "Amphipolis - Land of Plenty",
+    "campaign": "Athens Through The Ages",
+    "rank": null,
+    "rankName": null,
+    "branch": null,
+    "goals": []
+  },
+  {
+    "id": "zeus-017",
+    "game": "zeus",
+    "order": 17,
+    "name": "Revolt in Ionia",
+    "campaign": "Athens Through The Ages",
+    "rank": null,
+    "rankName": null,
+    "branch": null,
+    "goals": []
+  },
+  {
+    "id": "zeus-018",
+    "game": "zeus",
+    "order": 18,
+    "name": "Laurion - The Silver Mines",
+    "campaign": "Athens Through The Ages",
+    "rank": null,
+    "rankName": null,
+    "branch": null,
+    "goals": []
+  },
+  {
+    "id": "zeus-019",
+    "game": "zeus",
+    "order": 19,
+    "name": "Vengeance",
+    "campaign": "Athens Through The Ages",
+    "rank": null,
+    "rankName": null,
+    "branch": null,
+    "goals": []
+  },
+  {
+    "id": "zeus-020",
+    "game": "zeus",
+    "order": 20,
+    "name": "A Bride For a Hero",
+    "campaign": "Athens Through The Ages",
+    "rank": null,
+    "rankName": null,
+    "branch": null,
+    "goals": []
+  },
+  {
+    "id": "zeus-021",
+    "game": "zeus",
+    "order": 21,
+    "name": "The Hero's Habit",
+    "campaign": "Athens Through The Ages",
+    "rank": null,
+    "rankName": null,
+    "branch": null,
+    "goals": []
+  },
+  {
+    "id": "zeus-022",
+    "game": "zeus",
+    "order": 22,
+    "name": "Rescuing a Hero",
+    "campaign": "The Voyages of Jason",
+    "rank": null,
+    "rankName": null,
+    "branch": null,
+    "goals": []
+  },
+  {
+    "id": "zeus-023",
+    "game": "zeus",
+    "order": 23,
+    "name": "Return of Theseus",
+    "campaign": "The Voyages of Jason",
+    "rank": null,
+    "rankName": null,
+    "branch": null,
+    "goals": []
+  },
+  {
+    "id": "zeus-024",
+    "game": "zeus",
+    "order": 24,
+    "name": "A New Hero Arrives",
+    "campaign": "The Voyages of Jason",
+    "rank": null,
+    "rankName": null,
+    "branch": null,
+    "goals": []
+  },
+  {
+    "id": "zeus-025",
+    "game": "zeus",
+    "order": 25,
+    "name": "The Way of the Sickle (Corcyra Colony)",
+    "campaign": "The Voyages of Jason",
+    "rank": null,
+    "rankName": null,
+    "branch": "choice",
+    "goals": []
+  },
+  {
+    "id": "zeus-026",
+    "game": "zeus",
+    "order": 26,
+    "name": "The Way of the Sword (Corinth Colony)",
+    "campaign": "The Voyages of Jason",
+    "rank": null,
+    "rankName": null,
+    "branch": "choice",
+    "goals": []
+  },
+  {
+    "id": "zeus-027",
+    "game": "zeus",
+    "order": 27,
+    "name": "Iolcus Thrives",
+    "campaign": "The Voyages of Jason",
+    "rank": null,
+    "rankName": null,
+    "branch": null,
+    "goals": []
+  },
+  {
+    "id": "zeus-028",
+    "game": "zeus",
+    "order": 28,
+    "name": "The Labors Begin",
+    "campaign": "Hercules' Labors",
+    "rank": null,
+    "rankName": null,
+    "branch": null,
+    "goals": []
+  },
+  {
+    "id": "zeus-029",
+    "game": "zeus",
+    "order": 29,
+    "name": "The Amazon World (Ephasus Colony)",
+    "campaign": "Hercules' Labors",
+    "rank": null,
+    "rankName": null,
+    "branch": null,
+    "goals": []
+  },
+  {
+    "id": "zeus-030",
+    "game": "zeus",
+    "order": 30,
+    "name": "Gods In The World",
+    "campaign": "Hercules' Labors",
+    "rank": null,
+    "rankName": null,
+    "branch": null,
+    "goals": []
+  },
+  {
+    "id": "zeus-031",
+    "game": "zeus",
+    "order": 31,
+    "name": "The Hydra (Lerna Colony)",
+    "campaign": "Hercules' Labors",
+    "rank": null,
+    "rankName": null,
+    "branch": null,
+    "goals": []
+  },
+  {
+    "id": "zeus-032",
+    "game": "zeus",
+    "order": 32,
+    "name": "War with The Centaurs",
+    "campaign": "Hercules' Labors",
+    "rank": null,
+    "rankName": null,
+    "branch": null,
+    "goals": []
+  },
+  {
+    "id": "zeus-033",
+    "game": "zeus",
+    "order": 33,
+    "name": "The Fallen God (Lemnos Colony)",
+    "campaign": "Hercules' Labors",
+    "rank": null,
+    "rankName": null,
+    "branch": null,
+    "goals": []
+  },
+  {
+    "id": "zeus-034",
+    "game": "zeus",
+    "order": 34,
+    "name": "The Tables Have Turned",
+    "campaign": "Hercules' Labors",
+    "rank": null,
+    "rankName": null,
+    "branch": null,
+    "goals": []
+  },
+  {
+    "id": "zeus-035",
+    "game": "zeus",
+    "order": 35,
+    "name": "A Kingdom Reborn",
+    "campaign": "The Peloponnesian War",
+    "rank": null,
+    "rankName": null,
+    "branch": null,
+    "goals": []
+  },
+  {
+    "id": "zeus-036",
+    "game": "zeus",
+    "order": 36,
+    "name": "Sparta On The Rise",
+    "campaign": "The Peloponnesian War",
+    "rank": null,
+    "rankName": null,
+    "branch": null,
+    "goals": []
+  },
+  {
+    "id": "zeus-037",
+    "game": "zeus",
+    "order": 37,
+    "name": "War With Persia",
+    "campaign": "The Peloponnesian War",
+    "rank": null,
+    "rankName": null,
+    "branch": null,
+    "goals": []
+  },
+  {
+    "id": "zeus-038",
+    "game": "zeus",
+    "order": 38,
+    "name": "The First Skirmishes (Taras Colony)",
+    "campaign": "The Peloponnesian War",
+    "rank": null,
+    "rankName": null,
+    "branch": "choice",
+    "goals": []
+  },
+  {
+    "id": "zeus-039",
+    "game": "zeus",
+    "order": 39,
+    "name": "The First Skirmishes (Ithaca Colony)",
+    "campaign": "The Peloponnesian War",
+    "rank": null,
+    "rankName": null,
+    "branch": "choice",
+    "goals": []
+  },
+  {
+    "id": "zeus-040",
+    "game": "zeus",
+    "order": 40,
+    "name": "All Out War",
+    "campaign": "The Peloponnesian War",
+    "rank": null,
+    "rankName": null,
+    "branch": null,
+    "goals": []
+  },
+  {
+    "id": "zeus-041",
+    "game": "zeus",
+    "order": 41,
+    "name": "The Oath",
+    "campaign": "The Trojan War",
+    "rank": null,
+    "rankName": null,
+    "branch": null,
+    "goals": []
+  },
+  {
+    "id": "zeus-042",
+    "game": "zeus",
+    "order": 42,
+    "name": "The Beauty Contest",
+    "campaign": "The Trojan War",
+    "rank": null,
+    "rankName": null,
+    "branch": null,
+    "goals": []
+  },
+  {
+    "id": "zeus-043",
+    "game": "zeus",
+    "order": 43,
+    "name": "The Great God Zeus (Pergamum Colony)",
+    "campaign": "The Trojan War",
+    "rank": null,
+    "rankName": null,
+    "branch": null,
+    "goals": []
+  },
+  {
+    "id": "zeus-044",
+    "game": "zeus",
+    "order": 44,
+    "name": "The Hero Odysseus",
+    "campaign": "The Trojan War",
+    "rank": null,
+    "rankName": null,
+    "branch": null,
+    "goals": []
+  },
+  {
+    "id": "zeus-045",
+    "game": "zeus",
+    "order": 45,
+    "name": "Achilles The Warrior (Tenedos Colony)",
+    "campaign": "The Trojan War",
+    "rank": null,
+    "rankName": null,
+    "branch": null,
+    "goals": []
+  },
+  {
+    "id": "zeus-046",
+    "game": "zeus",
+    "order": 46,
+    "name": "The Ingenious Plot",
+    "campaign": "The Trojan War",
+    "rank": null,
+    "rankName": null,
+    "branch": null,
+    "goals": []
+  },
+  {
+    "id": "zeus-047",
+    "game": "zeus",
+    "order": 47,
+    "name": "The Capital City",
+    "campaign": "Poseidon: Birth of Atlantis",
+    "rank": null,
+    "rankName": null,
+    "branch": null,
+    "goals": []
+  },
+  {
+    "id": "zeus-048",
+    "game": "zeus",
+    "order": 48,
+    "name": "All Creatures Great and Greater",
+    "campaign": "Poseidon: Birth of Atlantis",
+    "rank": null,
+    "rankName": null,
+    "branch": null,
+    "goals": []
+  },
+  {
+    "id": "zeus-049",
+    "game": "zeus",
+    "order": 49,
+    "name": "Big Game Hunting",
+    "campaign": "Poseidon: Birth of Atlantis",
+    "rank": null,
+    "rankName": null,
+    "branch": null,
+    "goals": []
+  },
+  {
+    "id": "zeus-050",
+    "game": "zeus",
+    "order": 50,
+    "name": "War and Ethics",
+    "campaign": "Poseidon: Birth of Atlantis",
+    "rank": null,
+    "rankName": null,
+    "branch": null,
+    "goals": []
+  },
+  {
+    "id": "zeus-051",
+    "game": "zeus",
+    "order": 51,
+    "name": "Symphonia Ithikos",
+    "campaign": "Poseidon: Birth of Atlantis",
+    "rank": null,
+    "rankName": null,
+    "branch": null,
+    "goals": []
+  },
+  {
+    "id": "zeus-052",
+    "game": "zeus",
+    "order": 52,
+    "name": "The Hungry Sphinx (Leucippium Colony)",
+    "campaign": "Poseidon: Birth of Atlantis",
+    "rank": null,
+    "rankName": null,
+    "branch": null,
+    "goals": []
+  },
+  {
+    "id": "zeus-053",
+    "game": "zeus",
+    "order": 53,
+    "name": "The Citadel of Poseidon",
+    "campaign": "Poseidon: Birth of Atlantis",
+    "rank": null,
+    "rankName": null,
+    "branch": null,
+    "goals": []
+  },
+  {
+    "id": "zeus-054",
+    "game": "zeus",
+    "order": 54,
+    "name": "People of the Sea (Evenestus Colony)",
+    "campaign": "Poseidon: Birth of Atlantis",
+    "rank": null,
+    "rankName": null,
+    "branch": null,
+    "goals": []
+  },
+  {
+    "id": "zeus-055",
+    "game": "zeus",
+    "order": 55,
+    "name": "Atlas the God",
+    "campaign": "Poseidon: Birth of Atlantis",
+    "rank": null,
+    "rankName": null,
+    "branch": null,
+    "goals": []
+  },
+  {
+    "id": "zeus-056",
+    "game": "zeus",
+    "order": 56,
+    "name": "Westward Ho!",
+    "campaign": "Poseidon: Enlightenment in the West",
+    "rank": null,
+    "rankName": null,
+    "branch": null,
+    "goals": []
+  },
+  {
+    "id": "zeus-057",
+    "game": "zeus",
+    "order": 57,
+    "name": "In the Name of Science (Copan Colony)",
+    "campaign": "Poseidon: Enlightenment in the West",
+    "rank": null,
+    "rankName": null,
+    "branch": null,
+    "goals": []
+  },
+  {
+    "id": "zeus-058",
+    "game": "zeus",
+    "order": 58,
+    "name": "Water, Water and Urchins (Biminis Colony)",
+    "campaign": "Poseidon: Enlightenment in the West",
+    "rank": null,
+    "rankName": null,
+    "branch": null,
+    "goals": []
+  },
+  {
+    "id": "zeus-059",
+    "game": "zeus",
+    "order": 59,
+    "name": "Help from Above",
+    "campaign": "Poseidon: Enlightenment in the West",
+    "rank": null,
+    "rankName": null,
+    "branch": null,
+    "goals": []
+  },
+  {
+    "id": "zeus-060",
+    "game": "zeus",
+    "order": 60,
+    "name": "The Glory of Pyramids (Cuello Colony)",
+    "campaign": "Poseidon: Enlightenment in the West",
+    "rank": null,
+    "rankName": null,
+    "branch": null,
+    "goals": []
+  },
+  {
+    "id": "zeus-061",
+    "game": "zeus",
+    "order": 61,
+    "name": "The Grand Collection",
+    "campaign": "Poseidon: Enlightenment in the West",
+    "rank": null,
+    "rankName": null,
+    "branch": null,
+    "goals": []
+  },
+  {
+    "id": "zeus-062",
+    "game": "zeus",
+    "order": 62,
+    "name": "Land Stained Red (Ianira Colony)",
+    "campaign": "Poseidon: Enlightenment in the West",
+    "rank": null,
+    "rankName": null,
+    "branch": null,
+    "goals": []
+  },
+  {
+    "id": "zeus-063",
+    "game": "zeus",
+    "order": 63,
+    "name": "The Twin Kingdoms' War",
+    "campaign": "Poseidon: Enlightenment in the West",
+    "rank": null,
+    "rankName": null,
+    "branch": null,
+    "goals": []
+  },
+  {
+    "id": "zeus-064",
+    "game": "zeus",
+    "order": 64,
+    "name": "Entering the Mediterranean",
+    "campaign": "Poseidon: Life in the Mediterranean",
+    "rank": null,
+    "rankName": null,
+    "branch": null,
+    "goals": []
+  },
+  {
+    "id": "zeus-065",
+    "game": "zeus",
+    "order": 65,
+    "name": "Exploring the Sea",
+    "campaign": "Poseidon: Life in the Mediterranean",
+    "rank": null,
+    "rankName": null,
+    "branch": null,
+    "goals": []
+  },
+  {
+    "id": "zeus-066",
+    "game": "zeus",
+    "order": 66,
+    "name": "Showing the Way (Saqqara colony)",
+    "campaign": "Poseidon: Life in the Mediterranean",
+    "rank": null,
+    "rankName": null,
+    "branch": null,
+    "goals": []
+  },
+  {
+    "id": "zeus-067",
+    "game": "zeus",
+    "order": 67,
+    "name": "Phoenician Strife",
+    "campaign": "Poseidon: Life in the Mediterranean",
+    "rank": null,
+    "rankName": null,
+    "branch": null,
+    "goals": []
+  },
+  {
+    "id": "zeus-068",
+    "game": "zeus",
+    "order": 68,
+    "name": "Near the Hellenes (Syracuse Colony)",
+    "campaign": "Poseidon: Life in the Mediterranean",
+    "rank": null,
+    "rankName": null,
+    "branch": null,
+    "goals": []
+  },
+  {
+    "id": "zeus-069",
+    "game": "zeus",
+    "order": 69,
+    "name": "Plague",
+    "campaign": "Poseidon: Life in the Mediterranean",
+    "rank": null,
+    "rankName": null,
+    "branch": null,
+    "goals": []
+  },
+  {
+    "id": "zeus-070",
+    "game": "zeus",
+    "order": 70,
+    "name": "Reconstruction",
+    "campaign": "Poseidon: Atlantis Reborn",
+    "rank": null,
+    "rankName": null,
+    "branch": null,
+    "goals": []
+  },
+  {
+    "id": "zeus-071",
+    "game": "zeus",
+    "order": 71,
+    "name": "The Greater Mediterranean Co-Prosperity Sphere",
+    "campaign": "Poseidon: Atlantis Reborn",
+    "rank": null,
+    "rankName": null,
+    "branch": null,
+    "goals": []
+  },
+  {
+    "id": "zeus-072",
+    "game": "zeus",
+    "order": 72,
+    "name": "Night Falls on Atlantis",
+    "campaign": "Poseidon: Atlantis Reborn",
+    "rank": null,
+    "rankName": null,
+    "branch": null,
+    "goals": []
+  },
+  {
+    "id": "zeus-073",
+    "game": "zeus",
+    "order": 73,
+    "name": "Hope Among the Ruins (Malaca Colony)",
+    "campaign": "Poseidon: Atlantis Reborn",
+    "rank": null,
+    "rankName": null,
+    "branch": null,
+    "goals": []
+  },
+  {
+    "id": "zeus-074",
+    "game": "zeus",
+    "order": 74,
+    "name": "Benevolent Ares",
+    "campaign": "Poseidon: Atlantis Reborn",
+    "rank": null,
+    "rankName": null,
+    "branch": null,
+    "goals": []
+  },
+  {
+    "id": "zeus-075",
+    "game": "zeus",
+    "order": 75,
+    "name": "Just When You Thought It Was Safe (Thera Colony)",
+    "campaign": "Poseidon: Atlantis Reborn",
+    "rank": null,
+    "rankName": null,
+    "branch": null,
+    "goals": []
+  },
+  {
+    "id": "zeus-076",
+    "game": "zeus",
+    "order": 76,
+    "name": "Defending Atlantis (first)",
+    "campaign": "Poseidon: Atlantis Reborn",
+    "rank": null,
+    "rankName": null,
+    "branch": null,
+    "goals": []
+  },
+  {
+    "id": "zeus-077",
+    "game": "zeus",
+    "order": 77,
+    "name": "Defending Atlantis (second)",
+    "campaign": "Poseidon: Atlantis Reborn",
+    "rank": null,
+    "rankName": null,
+    "branch": null,
+    "goals": []
+  },
+  {
+    "id": "zeus-078",
+    "game": "zeus",
+    "order": 78,
+    "name": "Boys will be Boys (Lycia)",
+    "campaign": "Poseidon: Proteus and Bellerophon",
+    "rank": null,
+    "rankName": null,
+    "branch": null,
+    "goals": []
+  },
+  {
+    "id": "zeus-079",
+    "game": "zeus",
+    "order": 79,
+    "name": "In Memory of Abas (Lycia)",
+    "campaign": "Poseidon: Proteus and Bellerophon",
+    "rank": null,
+    "rankName": null,
+    "branch": null,
+    "goals": []
+  },
+  {
+    "id": "zeus-080",
+    "game": "zeus",
+    "order": 80,
+    "name": "Big Game Hunting",
+    "campaign": "Poseidon: Proteus and Bellerophon",
+    "rank": null,
+    "rankName": null,
+    "branch": null,
+    "goals": []
+  },
+  {
+    "id": "zeus-081",
+    "game": "zeus",
+    "order": 81,
+    "name": "A Question of Etiquette (Lycia)",
+    "campaign": "Poseidon: Proteus and Bellerophon",
+    "rank": null,
+    "rankName": null,
+    "branch": null,
+    "goals": []
+  },
+  {
+    "id": "zeus-082",
+    "game": "zeus",
+    "order": 82,
+    "name": "If You Can't Beat Him, Join Him (Lycia)",
+    "campaign": "Poseidon: Proteus and Bellerophon",
+    "rank": null,
+    "rankName": null,
+    "branch": null,
+    "goals": []
+  },
+  {
+    "id": "zeus-083",
+    "game": "zeus",
+    "order": 83,
+    "name": "Revenge",
+    "campaign": "Poseidon: Proteus and Bellerophon",
+    "rank": null,
+    "rankName": null,
+    "branch": null,
+    "goals": []
+  },
+  {
+    "id": "zeus-084",
+    "game": "zeus",
+    "order": 84,
+    "name": "The Wheel of Fortune Spins",
+    "campaign": "Poseidon: Proteus and Bellerophon",
+    "rank": null,
+    "rankName": null,
+    "branch": null,
+    "goals": []
+  },
+  {
+    "id": "zeus-085",
+    "game": "zeus",
+    "order": 85,
+    "name": "Rebel Base",
+    "campaign": "Poseidon: Two Worlds Collide",
+    "rank": null,
+    "rankName": null,
+    "branch": null,
+    "goals": []
+  },
+  {
+    "id": "zeus-086",
+    "game": "zeus",
+    "order": 86,
+    "name": "The Battle of Knossos",
+    "campaign": "Poseidon: Two Worlds Collide",
+    "rank": null,
+    "rankName": null,
+    "branch": null,
+    "goals": []
+  },
+  {
+    "id": "zeus-087",
+    "game": "zeus",
+    "order": 87,
+    "name": "The Wrath of Poseidon and Sons",
+    "campaign": "Poseidon: Two Worlds Collide",
+    "rank": null,
+    "rankName": null,
+    "branch": null,
+    "goals": []
+  },
+  {
+    "id": "zeus-088",
+    "game": "zeus",
+    "order": 88,
+    "name": "Inroads to Egypt (Knossos Colony)",
+    "campaign": "Poseidon: Two Worlds Collide",
+    "rank": null,
+    "rankName": null,
+    "branch": null,
+    "goals": []
+  },
+  {
+    "id": "zeus-089",
+    "game": "zeus",
+    "order": 89,
+    "name": "The Cleitos Project",
+    "campaign": "Poseidon: Two Worlds Collide",
+    "rank": null,
+    "rankName": null,
+    "branch": null,
+    "goals": []
+  },
+  {
+    "id": "zeus-090",
+    "game": "zeus",
+    "order": 90,
+    "name": "The Secret Base (Salamis Colony)",
+    "campaign": "Poseidon: Two Worlds Collide",
+    "rank": null,
+    "rankName": null,
+    "branch": null,
+    "goals": []
+  },
+  {
+    "id": "zeus-091",
+    "game": "zeus",
+    "order": 91,
+    "name": "Attrition and Survival",
+    "campaign": "Poseidon: Two Worlds Collide",
+    "rank": null,
+    "rankName": null,
+    "branch": null,
+    "goals": []
+  },
+  {
+    "id": "zeus-092",
+    "game": "zeus",
+    "order": 92,
+    "name": "Zeus' Retribution: The Fall of Atlantis",
+    "campaign": "Poseidon: Two Worlds Collide",
+    "rank": null,
+    "rankName": null,
+    "branch": null,
+    "goals": []
+  },
+  {
+    "id": "caesar1-001",
+    "game": "caesar1",
+    "order": 1,
+    "name": "Citizen",
+    "campaign": "Ranks",
+    "rank": 1,
+    "rankName": null,
+    "branch": null,
+    "goals": [
+      {
+        "type": "rating_min",
+        "label": "Minimum rating",
+        "value": 12
+      },
+      {
+        "type": "rating_avg",
+        "label": "Average rating",
+        "value": 35
+      }
+    ]
+  },
+  {
+    "id": "caesar1-002",
+    "game": "caesar1",
+    "order": 2,
+    "name": "Equitus",
+    "campaign": "Ranks",
+    "rank": 2,
+    "rankName": null,
+    "branch": null,
+    "goals": [
+      {
+        "type": "rating_min",
+        "label": "Minimum rating",
+        "value": 16
+      },
+      {
+        "type": "rating_avg",
+        "label": "Average rating",
+        "value": 40
+      }
+    ]
+  },
+  {
+    "id": "caesar1-003",
+    "game": "caesar1",
+    "order": 3,
+    "name": "Tabellarius",
+    "campaign": "Ranks",
+    "rank": 3,
+    "rankName": null,
+    "branch": null,
+    "goals": [
+      {
+        "type": "rating_min",
+        "label": "Minimum rating",
+        "value": 25
+      },
+      {
+        "type": "rating_avg",
+        "label": "Average rating",
+        "value": 50
+      }
+    ]
+  },
+  {
+    "id": "caesar1-004",
+    "game": "caesar1",
+    "order": 4,
+    "name": "Decurian",
+    "campaign": "Ranks",
+    "rank": 4,
+    "rankName": null,
+    "branch": null,
+    "goals": [
+      {
+        "type": "rating_min",
+        "label": "Minimum rating",
+        "value": 30
+      },
+      {
+        "type": "rating_avg",
+        "label": "Average rating",
+        "value": 56
+      }
+    ]
+  },
+  {
+    "id": "caesar1-005",
+    "game": "caesar1",
+    "order": 5,
+    "name": "Iuridicus",
+    "campaign": "Ranks",
+    "rank": 5,
+    "rankName": null,
+    "branch": null,
+    "goals": [
+      {
+        "type": "rating_min",
+        "label": "Minimum rating",
+        "value": 35
+      },
+      {
+        "type": "rating_avg",
+        "label": "Average rating",
+        "value": 60
+      }
+    ]
+  },
+  {
+    "id": "caesar1-006",
+    "game": "caesar1",
+    "order": 6,
+    "name": "Procurator",
+    "campaign": "Ranks",
+    "rank": 6,
+    "rankName": null,
+    "branch": null,
+    "goals": [
+      {
+        "type": "rating_min",
+        "label": "Minimum rating",
+        "value": 40
+      },
+      {
+        "type": "rating_avg",
+        "label": "Average rating",
+        "value": 64
+      }
+    ]
+  },
+  {
+    "id": "caesar1-007",
+    "game": "caesar1",
+    "order": 7,
+    "name": "Magistrate",
+    "campaign": "Ranks",
+    "rank": 7,
+    "rankName": null,
+    "branch": null,
+    "goals": [
+      {
+        "type": "rating_min",
+        "label": "Minimum rating",
+        "value": 45
+      },
+      {
+        "type": "rating_avg",
+        "label": "Average rating",
+        "value": 68
+      }
+    ]
+  },
+  {
+    "id": "caesar1-008",
+    "game": "caesar1",
+    "order": 8,
+    "name": "Logistas",
+    "campaign": "Ranks",
+    "rank": 8,
+    "rankName": null,
+    "branch": null,
+    "goals": [
+      {
+        "type": "rating_min",
+        "label": "Minimum rating",
+        "value": 50
+      },
+      {
+        "type": "rating_avg",
+        "label": "Average rating",
+        "value": 72
+      }
+    ]
+  },
+  {
+    "id": "caesar1-009",
+    "game": "caesar1",
+    "order": 9,
+    "name": "Praefectus",
+    "campaign": "Ranks",
+    "rank": 9,
+    "rankName": null,
+    "branch": null,
+    "goals": [
+      {
+        "type": "rating_min",
+        "label": "Minimum rating",
+        "value": 55
+      },
+      {
+        "type": "rating_avg",
+        "label": "Average rating",
+        "value": 74
+      }
+    ]
+  },
+  {
+    "id": "caesar1-010",
+    "game": "caesar1",
+    "order": 10,
+    "name": "Magister",
+    "campaign": "Ranks",
+    "rank": 10,
+    "rankName": null,
+    "branch": null,
+    "goals": [
+      {
+        "type": "rating_min",
+        "label": "Minimum rating",
+        "value": 60
+      },
+      {
+        "type": "rating_avg",
+        "label": "Average rating",
+        "value": 78
+      }
+    ]
+  },
+  {
+    "id": "caesar1-011",
+    "game": "caesar1",
+    "order": 11,
+    "name": "Cubicularius",
+    "campaign": "Ranks",
+    "rank": 11,
+    "rankName": null,
+    "branch": null,
+    "goals": [
+      {
+        "type": "rating_min",
+        "label": "Minimum rating",
+        "value": 65
+      },
+      {
+        "type": "rating_avg",
+        "label": "Average rating",
+        "value": 80
+      }
+    ]
+  },
+  {
+    "id": "caesar1-012",
+    "game": "caesar1",
+    "order": 12,
+    "name": "Legate",
+    "campaign": "Ranks",
+    "rank": 12,
+    "rankName": null,
+    "branch": null,
+    "goals": [
+      {
+        "type": "rating_min",
+        "label": "Minimum rating",
+        "value": 70
+      },
+      {
+        "type": "rating_avg",
+        "label": "Average rating",
+        "value": 82
+      }
+    ]
+  },
+  {
+    "id": "caesar1-013",
+    "game": "caesar1",
+    "order": 13,
+    "name": "Quaestor",
+    "campaign": "Ranks",
+    "rank": 13,
+    "rankName": null,
+    "branch": null,
+    "goals": [
+      {
+        "type": "rating_min",
+        "label": "Minimum rating",
+        "value": 72
+      },
+      {
+        "type": "rating_avg",
+        "label": "Average rating",
+        "value": 83
+      }
+    ]
+  },
+  {
+    "id": "caesar1-014",
+    "game": "caesar1",
+    "order": 14,
+    "name": "Senator",
+    "campaign": "Ranks",
+    "rank": 14,
+    "rankName": null,
+    "branch": null,
+    "goals": [
+      {
+        "type": "rating_min",
+        "label": "Minimum rating",
+        "value": 74
+      },
+      {
+        "type": "rating_avg",
+        "label": "Average rating",
+        "value": 84
+      }
+    ]
+  },
+  {
+    "id": "caesar1-015",
+    "game": "caesar1",
+    "order": 15,
+    "name": "Praetor",
+    "campaign": "Ranks",
+    "rank": 15,
+    "rankName": null,
+    "branch": null,
+    "goals": [
+      {
+        "type": "rating_min",
+        "label": "Minimum rating",
+        "value": 75
+      },
+      {
+        "type": "rating_avg",
+        "label": "Average rating",
+        "value": 85
+      }
+    ]
+  },
+  {
+    "id": "caesar1-016",
+    "game": "caesar1",
+    "order": 16,
+    "name": "Consul",
+    "campaign": "Ranks",
+    "rank": 16,
+    "rankName": null,
+    "branch": null,
+    "goals": [
+      {
+        "type": "rating_min",
+        "label": "Minimum rating",
+        "value": 76
+      },
+      {
+        "type": "rating_avg",
+        "label": "Average rating",
+        "value": 86
+      }
+    ]
+  },
+  {
+    "id": "caesar1-017",
+    "game": "caesar1",
+    "order": 17,
+    "name": "Proconsul",
+    "campaign": "Ranks",
+    "rank": 17,
+    "rankName": null,
+    "branch": null,
+    "goals": [
+      {
+        "type": "rating_min",
+        "label": "Minimum rating",
+        "value": 77
+      },
+      {
+        "type": "rating_avg",
+        "label": "Average rating",
+        "value": 87
+      }
+    ]
+  },
+  {
+    "id": "caesar1-018",
+    "game": "caesar1",
+    "order": 18,
+    "name": "Princeps",
+    "campaign": "Ranks",
+    "rank": 18,
+    "rankName": null,
+    "branch": null,
+    "goals": [
+      {
+        "type": "rating_min",
+        "label": "Minimum rating",
+        "value": 78
+      },
+      {
+        "type": "rating_avg",
+        "label": "Average rating",
+        "value": 88
+      }
+    ]
+  },
+  {
+    "id": "caesar1-019",
+    "game": "caesar1",
+    "order": 19,
+    "name": "Imperator",
+    "campaign": "Ranks",
+    "rank": 19,
+    "rankName": null,
+    "branch": null,
+    "goals": [
+      {
+        "type": "rating_min",
+        "label": "Minimum rating",
+        "value": 79
+      },
+      {
+        "type": "rating_avg",
+        "label": "Average rating",
+        "value": 89
+      }
+    ]
+  },
+  {
+    "id": "caesar1-020",
+    "game": "caesar1",
+    "order": 20,
+    "name": "Caesar",
+    "campaign": "Ranks",
+    "rank": 20,
+    "rankName": null,
+    "branch": null,
+    "goals": []
+  },
+  {
+    "id": "caesar2-000",
+    "game": "caesar2",
+    "order": 0,
+    "name": "Campania",
+    "campaign": "Provinces",
+    "rank": null,
+    "rankName": null,
+    "branch": null,
+    "goals": []
+  },
+  {
+    "id": "caesar2-001",
+    "game": "caesar2",
+    "order": 1,
+    "name": "Cisalpine Gaul",
+    "campaign": "Provinces",
+    "rank": null,
+    "rankName": null,
+    "branch": null,
+    "goals": []
+  },
+  {
+    "id": "caesar2-002",
+    "game": "caesar2",
+    "order": 2,
+    "name": "Corsica and Sardinia",
+    "campaign": "Provinces",
+    "rank": null,
+    "rankName": null,
+    "branch": null,
+    "goals": []
+  },
+  {
+    "id": "caesar2-003",
+    "game": "caesar2",
+    "order": 3,
+    "name": "Illyricum",
+    "campaign": "Provinces",
+    "rank": null,
+    "rankName": null,
+    "branch": null,
+    "goals": []
+  },
+  {
+    "id": "caesar2-004",
+    "game": "caesar2",
+    "order": 4,
+    "name": "Sicilia",
+    "campaign": "Provinces",
+    "rank": null,
+    "rankName": null,
+    "branch": null,
+    "goals": []
+  },
+  {
+    "id": "caesar2-005",
+    "game": "caesar2",
+    "order": 5,
+    "name": "Pannonia",
+    "campaign": "Provinces",
+    "rank": null,
+    "rankName": null,
+    "branch": null,
+    "goals": []
+  },
+  {
+    "id": "caesar2-006",
+    "game": "caesar2",
+    "order": 6,
+    "name": "Dacia",
+    "campaign": "Provinces",
+    "rank": null,
+    "rankName": null,
+    "branch": null,
+    "goals": []
+  },
+  {
+    "id": "caesar2-007",
+    "game": "caesar2",
+    "order": 7,
+    "name": "Macedonia",
+    "campaign": "Provinces",
+    "rank": null,
+    "rankName": null,
+    "branch": null,
+    "goals": []
+  },
+  {
+    "id": "caesar2-008",
+    "game": "caesar2",
+    "order": 8,
+    "name": "Carthage",
+    "campaign": "Provinces",
+    "rank": null,
+    "rankName": null,
+    "branch": null,
+    "goals": []
+  },
+  {
+    "id": "caesar2-009",
+    "game": "caesar2",
+    "order": 9,
+    "name": "Africa Proconsularis",
+    "campaign": "Provinces",
+    "rank": null,
+    "rankName": null,
+    "branch": null,
+    "goals": []
+  },
+  {
+    "id": "caesar2-010",
+    "game": "caesar2",
+    "order": 10,
+    "name": "Gallia Narbonensis",
+    "campaign": "Provinces",
+    "rank": null,
+    "rankName": null,
+    "branch": null,
+    "goals": []
+  },
+  {
+    "id": "caesar2-011",
+    "game": "caesar2",
+    "order": 11,
+    "name": "Belgica",
+    "campaign": "Provinces",
+    "rank": null,
+    "rankName": null,
+    "branch": null,
+    "goals": []
+  },
+  {
+    "id": "caesar2-012",
+    "game": "caesar2",
+    "order": 12,
+    "name": "Germania Superior",
+    "campaign": "Provinces",
+    "rank": null,
+    "rankName": null,
+    "branch": null,
+    "goals": []
+  },
+  {
+    "id": "caesar2-013",
+    "game": "caesar2",
+    "order": 13,
+    "name": "Achaea",
+    "campaign": "Provinces",
+    "rank": null,
+    "rankName": null,
+    "branch": null,
+    "goals": []
+  },
+  {
+    "id": "caesar2-014",
+    "game": "caesar2",
+    "order": 14,
+    "name": "Germania Inferior",
+    "campaign": "Provinces",
+    "rank": null,
+    "rankName": null,
+    "branch": null,
+    "goals": []
+  },
+  {
+    "id": "caesar2-015",
+    "game": "caesar2",
+    "order": 15,
+    "name": "Gallia Lugdunensis",
+    "campaign": "Provinces",
+    "rank": null,
+    "rankName": null,
+    "branch": null,
+    "goals": []
+  },
+  {
+    "id": "caesar2-016",
+    "game": "caesar2",
+    "order": 16,
+    "name": "Britannia",
+    "campaign": "Provinces",
+    "rank": null,
+    "rankName": null,
+    "branch": null,
+    "goals": []
+  },
+  {
+    "id": "caesar2-017",
+    "game": "caesar2",
+    "order": 17,
+    "name": "Thracia",
+    "campaign": "Provinces",
+    "rank": null,
+    "rankName": null,
+    "branch": null,
+    "goals": []
+  },
+  {
+    "id": "caesar2-018",
+    "game": "caesar2",
+    "order": 18,
+    "name": "Cyrenaica",
+    "campaign": "Provinces",
+    "rank": null,
+    "rankName": null,
+    "branch": null,
+    "goals": []
+  },
+  {
+    "id": "caesar2-019",
+    "game": "caesar2",
+    "order": 19,
+    "name": "Aquitania",
+    "campaign": "Provinces",
+    "rank": null,
+    "rankName": null,
+    "branch": null,
+    "goals": []
+  },
+  {
+    "id": "caesar2-020",
+    "game": "caesar2",
+    "order": 20,
+    "name": "Baetica",
+    "campaign": "Provinces",
+    "rank": null,
+    "rankName": null,
+    "branch": null,
+    "goals": []
+  },
+  {
+    "id": "caesar2-021",
+    "game": "caesar2",
+    "order": 21,
+    "name": "Mauretania",
+    "campaign": "Provinces",
+    "rank": null,
+    "rankName": null,
+    "branch": null,
+    "goals": []
+  },
+  {
+    "id": "caesar2-022",
+    "game": "caesar2",
+    "order": 22,
+    "name": "Caria",
+    "campaign": "Provinces",
+    "rank": null,
+    "rankName": null,
+    "branch": null,
+    "goals": []
+  },
+  {
+    "id": "caesar2-023",
+    "game": "caesar2",
+    "order": 23,
+    "name": "Creta",
+    "campaign": "Provinces",
+    "rank": null,
+    "rankName": null,
+    "branch": null,
+    "goals": []
+  },
+  {
+    "id": "caesar2-024",
+    "game": "caesar2",
+    "order": 24,
+    "name": "Aegyptus",
+    "campaign": "Provinces",
+    "rank": null,
+    "rankName": null,
+    "branch": null,
+    "goals": []
+  },
+  {
+    "id": "caesar2-025",
+    "game": "caesar2",
+    "order": 25,
+    "name": "Lycia and Pamphylia",
+    "campaign": "Provinces",
+    "rank": null,
+    "rankName": null,
+    "branch": null,
+    "goals": []
+  },
+  {
+    "id": "caesar2-026",
+    "game": "caesar2",
+    "order": 26,
+    "name": "Cappadocia",
+    "campaign": "Provinces",
+    "rank": null,
+    "rankName": null,
+    "branch": null,
+    "goals": []
+  },
+  {
+    "id": "caesar2-027",
+    "game": "caesar2",
+    "order": 27,
+    "name": "Cyprus",
+    "campaign": "Provinces",
+    "rank": null,
+    "rankName": null,
+    "branch": null,
+    "goals": []
+  },
+  {
+    "id": "caesar2-028",
+    "game": "caesar2",
+    "order": 28,
+    "name": "Germania Exterior",
+    "campaign": "Exterior provinces",
+    "rank": null,
+    "rankName": null,
+    "branch": null,
+    "goals": []
+  },
+  {
+    "id": "caesar2-029",
+    "game": "caesar2",
+    "order": 29,
+    "name": "Noricum Exterior",
+    "campaign": "Exterior provinces",
+    "rank": null,
+    "rankName": null,
+    "branch": null,
+    "goals": []
+  },
+  {
+    "id": "caesar2-030",
+    "game": "caesar2",
+    "order": 30,
+    "name": "Pannonia Exterior",
+    "campaign": "Exterior provinces",
+    "rank": null,
+    "rankName": null,
+    "branch": null,
+    "goals": []
+  },
+  {
+    "id": "caesar2-031",
+    "game": "caesar2",
+    "order": 31,
+    "name": "Dacia Exterior",
+    "campaign": "Exterior provinces",
     "rank": null,
     "rankName": null,
     "branch": null,

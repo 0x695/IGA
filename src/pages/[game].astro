@@ -48,6 +48,40 @@ const g = game.data;
  * those into a single run of roles and the reader is told, wrongly, that one
  * team did all of it.
  */
+/*
+ * What the campaign link says, per game. The six are not the same kind of
+ * thing - Caesar has ranks and no fixed maps, Caesar II a province map with no
+ * order, Zeus adventures made of episodes - and one sentence written for
+ * Pharaoh described all of them wrongly.
+ */
+const CAMPAIGN_LINK: Record<string, { label: string; note: string }> = {
+  caesar1: {
+    label: '19 ranks',
+    note: 'The promotion ladder, and the minimum and average ratings each rank demands. Caesar generates its provinces, so the ladder is the campaign.',
+  },
+  caesar2: {
+    label: '32 provinces',
+    note: 'Every province the game can hand you, and why they are not a sequence - you civilize outward from Latium in an order of your own.',
+  },
+  caesar3: {
+    label: '20 missions',
+    note: 'Every mission across eleven ranks, with the peaceful and military province each rank after the second offers you.',
+  },
+  pharaoh: {
+    label: '53 missions',
+    note: 'Every mission in play order, with the rank you hold and the win criteria the engine actually checks.',
+  },
+  zeus: {
+    label: '13 adventures',
+    note: 'Seven adventures and the six Poseidon adds, with the episodes inside each - including the colony choices that make a played run shorter than the list.',
+  },
+  emperor: {
+    label: '48 missions',
+    note: 'Every mission in play order, grouped by the dynasty it belongs to, from the Xia tutorials to the Song-Jin.',
+  },
+};
+const campaignLink = CAMPAIGN_LINK[game.id];
+
 const creditGroups: { section: string | null; rows: { role: string; names: string[] }[] }[] = [];
 for (const row of g.fullCredits ?? []) {
   const section = row.section ?? null;
@@ -180,11 +214,8 @@ for (const row of g.fullCredits ?? []) {
         <section class="section block">
           <h2 class="section-heading">Campaign</h2>
           <a class="buildings-link" href={withBase(`/${game.id}/campaign/`)}>
-            <span class="buildings-link__count">{missionCount} missions -></span>
-            <span class="buildings-link__note">
-              Every mission in play order, with the rank you hold and the win criteria the engine
-              actually checks.
-            </span>
+            <span class="buildings-link__count">{campaignLink.label} -></span>
+            <span class="buildings-link__note">{campaignLink.note}</span>
           </a>
         </section>
       )

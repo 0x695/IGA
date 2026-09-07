@@ -296,10 +296,13 @@ const campaigns = defineCollection({
     rankName: z.string().nullable(),
     /**
      * Caesar III offers two provinces at most ranks: one peaceful, one under
-     * military threat. Null where a mission has no choice, or the game has no
-     * such split.
+     * military threat. Zeus offers a choice of colony twice, which is why a
+     * played adventure is one episode shorter than the list - but the game
+     * does not frame those two as peaceful and military, so they are marked
+     * `choice` rather than given a label the source does not support. Null
+     * where a mission has no choice, or the game has no such split.
      */
-    branch: z.enum(['peaceful', 'military']).nullable(),
+    branch: z.enum(['peaceful', 'military', 'choice']).nullable(),
     goals: z.array(
       z.object({
         type: z.string(),
