@@ -12,7 +12,8 @@
     "check": "astro check",
     "images": "node scripts/optimize-images.mjs",
     "social": "node scripts/make-social-images.mjs",
-    "buildings": "node scripts/build-buildings.mjs"
+    "buildings": "node scripts/build-buildings.mjs",
+    "links": "node scripts/check-links.mjs"
   },
   "dependencies": {
     "astro": "^5.0.0"

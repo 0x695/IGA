@@ -2,35 +2,38 @@
   {
     "id": "citybuilders-forums-caesar1",
     "title": "HeavenGames — City Builders Forums",
-    "url": "https://caesar3.heavengames.com/cgi-bin/forums/index.cgi",
+    "url": "https://caesar3.heavengames.com/cgi-bin/caeforumscgi/index.cgi",
     "category": "Forums",
     "games": [
       "caesar1"
     ],
     "status": "active",
-    "note": "Shared forums covering the whole series, including Caesar."
+    "note": "Shared forums covering the whole series, including Caesar.",
+    "archivedUrl": "https://web.archive.org/web/2/https://caesar3.heavengames.com/cgi-bin/caeforumscgi/index.cgi"
   },
   {
     "id": "citybuilders-forums-caesar2",
     "title": "HeavenGames — City Builders Forums",
-    "url": "https://caesar3.heavengames.com/cgi-bin/forums/index.cgi",
+    "url": "https://caesar3.heavengames.com/cgi-bin/caeforumscgi/index.cgi",
     "category": "Forums",
     "games": [
       "caesar2"
     ],
     "status": "active",
-    "note": "Shared forums covering the whole series, including Caesar II."
+    "note": "Shared forums covering the whole series, including Caesar II.",
+    "archivedUrl": "https://web.archive.org/web/2/https://caesar3.heavengames.com/cgi-bin/caeforumscgi/index.cgi"
   },
   {
     "id": "citybuilders-forums-caesar3",
     "title": "HeavenGames — City Builders Forums",
-    "url": "https://caesar3.heavengames.com/cgi-bin/forums/index.cgi",
+    "url": "https://caesar3.heavengames.com/cgi-bin/caeforumscgi/index.cgi",
     "category": "Forums",
     "games": [
       "caesar3"
     ],
     "status": "active",
-    "note": "The main hub — news archives back to 2002, downloads, FAQs."
+    "note": "The main hub — news archives back to 2002, downloads, FAQs.",
+    "archivedUrl": "https://web.archive.org/web/2/https://caesar3.heavengames.com/cgi-bin/caeforumscgi/index.cgi"
   },
   {
     "id": "augustus-discord",
@@ -58,13 +61,14 @@
   {
     "id": "pharaoh-heavengames",
     "title": "pharaoh.heavengames.com",
-    "url": "https://pharaoh.heavengames.com",
+    "url": "https://pharaoh.heavengames.com/",
     "category": "Forums",
     "games": [
       "pharaoh"
     ],
     "status": "active",
-    "note": "Per-game HeavenGames site — news, downloads, FAQ."
+    "note": "Per-game HeavenGames site — news, downloads, FAQ.",
+    "archivedUrl": "https://web.archive.org/web/2/https://pharaoh.heavengames.com/"
   },
   {
     "id": "impressions-fandom",
@@ -80,24 +84,26 @@
   {
     "id": "zeus-heavengames",
     "title": "zeus.heavengames.com",
-    "url": "https://zeus.heavengames.com",
+    "url": "https://zeus.heavengames.com/",
     "category": "Forums",
     "games": [
       "zeus"
     ],
     "status": "active",
-    "note": "Per-game HeavenGames site — news, downloads, FAQ."
+    "note": "Per-game HeavenGames site — news, downloads, FAQ.",
+    "archivedUrl": "https://web.archive.org/web/2/https://zeus.heavengames.com/"
   },
   {
     "id": "emperor-heavengames",
     "title": "emperor.heavengames.com",
-    "url": "https://emperor.heavengames.com",
+    "url": "https://emperor.heavengames.com/",
     "category": "Forums",
     "games": [
       "emperor"
     ],
     "status": "active",
-    "note": "Notably documents bugs Impressions never fixed before going under."
+    "note": "Notably documents bugs Impressions never fixed before going under.",
+    "archivedUrl": "https://web.archive.org/web/2/https://emperor.heavengames.com/"
   },
   {
     "id": "gweilo-emperor-campaigns",

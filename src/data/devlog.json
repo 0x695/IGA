@@ -230,5 +230,49 @@
         ]
       }
     ]
+  },
+  {
+    "id": "link-rot-triage",
+    "date": "2026-09-07T11:30",
+    "title": "Link-rot triage, and three kinds of redirect",
+    "summary": "Every outbound link checked. Nothing is dead - but reading the results properly mattered more than the headline, because most of the redirects were not what they looked like.",
+    "blocks": [
+      {
+        "kind": "prose",
+        "body": [
+          "Masterdoc §7 asked how much of what this archive points at is at genuine risk. Everything here is twenty-odd years old and privately hosted, so the honest answer needed measuring rather than assuming. A script now collects every http link out of the data files, checks each one, and reports.",
+          "The headline is good: of 49 distinct links, none are dead and none are unreachable. Three return a refusal rather than a failure - MobyGames and the Fandom wiki bot-check, and GitHub rate-limited the twenty-sixth request in a row - which is a different finding from a broken page and is counted separately."
+        ]
+      },
+      {
+        "kind": "list",
+        "title": "Eleven redirects, three kinds",
+        "items": [
+          {
+            "term": "Six that are not redirects at all",
+            "description": "Every GOG storefront link resolved to a /fr/ URL, because the machine running the check is in France. Rewriting those would have hard-coded one visitor's locale into the data for everyone. Left alone."
+          },
+          {
+            "term": "Four that are a missing slash",
+            "description": "Three HeavenGames roots and a Discord invite redirect to a canonical form. Harmless, but a hop is a hop, so the trailing slashes are now in the data."
+          },
+          {
+            "term": "One that is a real move",
+            "description": "The Caesar 3 Heaven forum has moved from /cgi-bin/forums/ to /cgi-bin/caeforumscgi/. The old URL still redirects today; the day it stops, three links on this site break. Updated, and verified at the new path."
+          }
+        ]
+      },
+      {
+        "kind": "callout",
+        "title": "The concentration is the actual risk",
+        "body": "No single link is in trouble. What the count shows instead is where the exposure sits: 26 references to GitHub, and six to HeavenGames across four subdomains that are one hosting decision away from taking a large part of the series' community history with them. Every HeavenGames link now carries a Wayback fallback alongside it, pointing at the newest snapshot rather than a frozen one. All four are archived, with snapshots from 2026."
+      },
+      {
+        "kind": "prose",
+        "body": [
+          "The script reports rather than deletes, and that is deliberate. A 403 usually means a bot check, not a dead page, and quietly dropping a good link because a CDN dislikes scripts would lose more than it saves. Only a genuine 4xx or 5xx fails the run."
+        ]
+      }
+    ]
   }
 ]
