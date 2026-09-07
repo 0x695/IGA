@@ -281,24 +281,6 @@ for (const row of g.fullCredits ?? []) {
       )
     }
 
-    {
-      g.manuals && (
-        <section class="section block">
-          <h2 class="section-heading">Manual</h2>
-          <ul class="compat manual">
-            {
-              g.manuals.map((manual) => (
-                <li class="compat__item">
-                  <a class="compat__link" href={withBase(manual.url)}>{manual.title}</a>
-                  <span class="compat__note">Scanned copy, {manual.source}.</span>
-                </li>
-              ))
-            }
-          </ul>
-        </section>
-      )
-    }
-
     <section class="section block">
       <h2 class="section-heading">Open-source engines</h2>
 
@@ -369,6 +351,20 @@ for (const row of g.fullCredits ?? []) {
         }
       </ul>
     </section>
+
+    {
+      g.manuals && (
+        <section class="section block">
+          <h2 class="section-heading">Manual</h2>
+          {g.manuals.map((manual) => (
+            <a class="buildings-link" href={withBase(manual.url)}>
+              <span class="buildings-link__count">{manual.title} -></span>
+              <span class="buildings-link__note">Scanned copy, {manual.source}.</span>
+            </a>
+          ))}
+        </section>
+      )
+    }
 
     <section class="section block block--last">
       <h2 class="section-heading">Community</h2>
