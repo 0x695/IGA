@@ -6,9 +6,8 @@ import { withBase } from '../lib/url';
 const games = (await getCollection('games')).sort((a, b) => a.data.order - b.data.order);
 
 const studios = [
-  { years: '1990–2002', name: 'Impressions Games' },
-  { years: '2002', name: 'BreakAway Games' },
-  { years: '2004–2006', name: 'Tilted Mill' },
+  { years: '1992–2000', developer: 'Impressions Games', publisher: 'Sierra' },
+  { years: '2002', developer: 'BreakAway Games', publisher: 'Sierra' },
 ];
 ---
 
@@ -28,14 +27,15 @@ const studios = [
     </section>
 
     <section id="timeline" class="section">
-      <h2 class="timeline__heading">The series, 1992 → 2023</h2>
+      <h2 class="timeline__heading">The series, 1992 → 2002</h2>
 
       <div class="studios">
         {
           studios.map((studio) => (
             <div class="studios__cell">
               <div class="studios__years">{studio.years}</div>
-              <div class="studios__name">{studio.name}</div>
+              <div class="studios__name">{studio.developer}</div>
+              <div class="studios__publisher">Published by {studio.publisher}</div>
             </div>
           ))
         }
@@ -140,7 +140,7 @@ const studios = [
 
   .studios {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr;
     border: 1px solid var(--color-divider);
     border-radius: var(--radius-md);
     overflow: hidden;
@@ -168,6 +168,12 @@ const studios = [
     font-family: var(--font-heading);
     font-weight: 600;
     font-size: 15px;
+  }
+
+  .studios__publisher {
+    font-size: 12px;
+    color: var(--color-text-dim);
+    margin-top: 2px;
   }
 
   .timeline {
