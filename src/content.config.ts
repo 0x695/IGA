@@ -117,6 +117,19 @@ const engineProjects = defineCollection({
     saveCompat: z.string(),
     platforms: z.string(),
     activity: z.string(),
+    /**
+     * The project's most recent commit, filled in by
+     * scripts/update-engine-activity.mjs. Saying a project is dormant is only
+     * worth something with a date behind it, and a date the reader can see is
+     * also a date the reader can see going stale. Null where the repository
+     * could not be read - which is itself a finding worth showing.
+     */
+    lastCommit: z
+      .object({ sha: z.string(), date: z.string(), branch: z.string() })
+      .nullable()
+      .optional(),
+    /** When the commit above was last looked up. */
+    activityCheckedAt: z.string().optional(),
     repoUrl: z.string().url(),
     docsUrl: z.string().url().nullable(),
   }),

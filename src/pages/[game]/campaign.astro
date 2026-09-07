@@ -146,7 +146,7 @@ const showRank = missions.some((m) => m.data.rank !== null);
               <>
                 {index > 0 && <span aria-hidden="true"> · </span>}
                 {source.url ? (
-                  <a href={source.url} rel="noopener">{source.title} ↗</a>
+                  <a href={source.url} target="_blank" rel="noopener noreferrer">{source.title} ↗</a>
                 ) : (
                   <span>{source.title}</span>
                 )}

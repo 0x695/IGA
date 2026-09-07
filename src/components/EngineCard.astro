@@ -8,6 +8,19 @@ interface Props {
 
 const { project } = Astro.props;
 const p = project.data;
+
+/*
+ * "Dormant" is a claim, and the last commit is the evidence for it. Shown as a
+ * plain date plus the short sha, so a reader can check it against the repo
+ * rather than take the word on trust.
+ */
+const commitDate = p.lastCommit
+  ? new Date(p.lastCommit.date).toLocaleDateString('en-GB', {
+      day: 'numeric',
+      month: 'short',
+      year: 'numeric',
+    })
+  : null;
 ---
 
 <article class="engine">
@@ -30,7 +43,23 @@ const p = project.data;
     <div class="engine__facts-wide">{p.activity}</div>
   </div>
 
-  <a class="engine__link" href={p.repoUrl} rel="noopener">Repository ↗</a>
+  {
+    commitDate && (
+      <p class="engine__commit">
+        Last commit <time datetime={p.lastCommit!.date}>{commitDate}</time>
+        <code>{p.lastCommit!.sha}</code>
+      </p>
+    )
+  }
+  {
+    p.lastCommit === null && (
+      <p class="engine__commit">Repository could not be read when this was last checked.</p>
+    )
+  }
+
+  <a class="engine__link" href={p.repoUrl} target="_blank" rel="noopener noreferrer">
+    Repository ↗
+  </a>
 </article>
 
 <style>
@@ -59,6 +88,20 @@ const p = project.data;
     font-size: 12px;
     color: var(--color-text-dim);
     margin-left: 8px;
+  }
+
+  /* The evidence line for the status dot. Mono only on the sha, which is a
+     value you compare character by character; the date is read. */
+  .engine__commit {
+    font-size: 12px;
+    color: var(--color-text-dim);
+    margin: 0 0 8px;
+  }
+
+  .engine__commit code {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    margin-left: 6px;
   }
 
   .engine__facts {

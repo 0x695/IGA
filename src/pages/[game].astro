@@ -148,7 +148,7 @@ for (const row of g.fullCredits ?? []) {
                   <>
                     {index > 0 && <span> and </span>}
                     {source.url ? (
-                      <a href={source.url} rel="noopener">{source.title} ↗</a>
+                      <a href={source.url} target="_blank" rel="noopener noreferrer">{source.title} ↗</a>
                     ) : (
                       <span>{source.title}</span>
                     )}
@@ -267,7 +267,7 @@ for (const row of g.fullCredits ?? []) {
         {
           g.storefronts.map((store) => (
             <li>
-              <a class="store" href={store.url} rel="noopener">
+              <a class="store" href={store.url} target="_blank" rel="noopener noreferrer">
                 <span class="store__name">{store.store} ↗</span>
                 <span class="store__edition">{store.edition}</span>
               </a>
@@ -282,7 +282,7 @@ for (const row of g.fullCredits ?? []) {
         {
           g.compat.map((entry) => (
             <li class="compat__item">
-              <a class="compat__link" href={entry.url} rel="noopener">
+              <a class="compat__link" href={entry.url} target="_blank" rel="noopener noreferrer">
                 {entry.title} ↗
               </a>
               <span class="compat__note">{entry.note}</span>

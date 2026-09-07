@@ -18,7 +18,7 @@ const c = link.data;
            invite we haven't got. Those render unlinked rather than as a dead
            link, which would say the opposite of what the site is for. */
         c.url ? (
-          <a href={c.url} rel="noopener">
+          <a href={c.url} target="_blank" rel="noopener noreferrer">
             {c.title}
           </a>
         ) : (
@@ -32,7 +32,7 @@ const c = link.data;
   <p class="community__note">{c.note}</p>
   {
     c.archivedUrl && (
-      <a class="community__archive" href={c.archivedUrl} rel="noopener">
+      <a class="community__archive" href={c.archivedUrl} target="_blank" rel="noopener noreferrer">
         Archived copy ↗
       </a>
     )

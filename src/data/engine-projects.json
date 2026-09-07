@@ -2,7 +2,9 @@
   {
     "id": "julius",
     "name": "Julius",
-    "games": ["caesar3"],
+    "games": [
+      "caesar3"
+    ],
     "lineage": "Foundational — base of the lineage",
     "language": "C (SDL2)",
     "status": "active",
@@ -10,12 +12,20 @@
     "platforms": "Windows, Linux, macOS, Android, Vita, Switch",
     "activity": "First release Nov 2018 · actively maintained",
     "repoUrl": "https://github.com/bvschaik/julius",
-    "docsUrl": "https://github.com/bvschaik/julius/wiki"
+    "docsUrl": "https://github.com/bvschaik/julius/wiki",
+    "lastCommit": {
+      "sha": "5992838",
+      "date": "2026-09-05T16:52:12Z",
+      "branch": "master"
+    },
+    "activityCheckedAt": "2026-09-07"
   },
   {
     "id": "augustus",
     "name": "Augustus",
-    "games": ["caesar3"],
+    "games": [
+      "caesar3"
+    ],
     "lineage": "Fork of Julius",
     "language": "C (SDL2)",
     "status": "active",
@@ -23,12 +33,20 @@
     "platforms": "Windows, Linux, macOS · browser build",
     "activity": "Most active dev community · hosts a Discord",
     "repoUrl": "https://github.com/Keriew/augustus",
-    "docsUrl": null
+    "docsUrl": null,
+    "lastCommit": {
+      "sha": "719f486",
+      "date": "2026-09-05T08:59:33Z",
+      "branch": "master"
+    },
+    "activityCheckedAt": "2026-09-07"
   },
   {
     "id": "akhenaten",
     "name": "Akhenaten",
-    "games": ["pharaoh"],
+    "games": [
+      "pharaoh"
+    ],
     "lineage": "Fork of Ozymandias",
     "language": "C/C++ (CMake 3.30+)",
     "status": "active",
@@ -36,25 +54,41 @@
     "platforms": "Windows 10/11, major Linux distros, macOS (arm64 + x86_64)",
     "activity": "First commit late 2023 · the currently living Pharaoh project",
     "repoUrl": "https://github.com/dalerank/Akhenaten",
-    "docsUrl": null
+    "docsUrl": null,
+    "lastCommit": {
+      "sha": "5c4ad33",
+      "date": "2026-09-06T18:23:47Z",
+      "branch": "master"
+    },
+    "activityCheckedAt": "2026-09-07"
   },
   {
     "id": "ozymandias-godot",
     "name": "Ozymandias (Godot)",
-    "games": ["pharaoh"],
+    "games": [
+      "pharaoh"
+    ],
     "lineage": "Rewrite of the Julius fork in Godot 3.6",
     "language": "GDScript (Godot 3.6)",
     "status": "dormant",
     "saveCompat": "Unconfirmed",
     "platforms": "Windows, Linux, macOS (Godot export)",
-    "activity": "Dormant since ~Sept 2022",
+    "activity": "Godot rewrite - slow but not stopped",
     "repoUrl": "https://github.com/Banderi/Ozymandias",
-    "docsUrl": null
+    "docsUrl": null,
+    "lastCommit": {
+      "sha": "ee4cc27",
+      "date": "2026-02-20T05:34:36Z",
+      "branch": "master"
+    },
+    "activityCheckedAt": "2026-09-07"
   },
   {
     "id": "ozymandias-julius",
     "name": "Ozymandias (Julius fork)",
-    "games": ["pharaoh"],
+    "games": [
+      "pharaoh"
+    ],
     "lineage": "Fork of Julius, targeting Pharaoh",
     "language": "C (SDL2)",
     "status": "dormant",
@@ -62,12 +96,20 @@
     "platforms": "Windows, Linux, macOS",
     "activity": "Superseded by the Godot port",
     "repoUrl": "https://github.com/Banderi/Ozymandias_Julius",
-    "docsUrl": null
+    "docsUrl": null,
+    "lastCommit": {
+      "sha": "6ba5f82",
+      "date": "2026-02-03T09:28:16Z",
+      "branch": "master"
+    },
+    "activityCheckedAt": "2026-09-07"
   },
   {
     "id": "openpharaoh",
     "name": "OpenPharaoh",
-    "games": ["pharaoh"],
+    "games": [
+      "pharaoh"
+    ],
     "lineage": "Independent — from-scratch .NET/XNA attempt",
     "language": ".NET / Mono + XNA",
     "status": "dead",
@@ -75,12 +117,20 @@
     "platforms": "Windows (.NET/XNA)",
     "activity": "No known recent activity — but ships a 010 Editor SG3 template and a C# parser",
     "repoUrl": "https://github.com/gaddas/OpenPharaoh",
-    "docsUrl": null
+    "docsUrl": null,
+    "lastCommit": {
+      "sha": "79e5eb5",
+      "date": "2012-09-19T14:49:54Z",
+      "branch": "master"
+    },
+    "activityCheckedAt": "2026-09-07"
   },
   {
     "id": "olympus",
     "name": "Olympus",
-    "games": ["zeus"],
+    "games": [
+      "zeus"
+    ],
     "lineage": "Built on eZeus",
     "language": "C++ (Qt)",
     "status": "active",
@@ -88,25 +138,41 @@
     "platforms": "Windows (packaged builds)",
     "activity": "Newer packaged releases · 0.1.0-rc.1",
     "repoUrl": "https://github.com/gitTerebi/Olympus",
-    "docsUrl": null
+    "docsUrl": null,
+    "lastCommit": {
+      "sha": "161a122",
+      "date": "2026-07-04T11:14:32Z",
+      "branch": "main"
+    },
+    "activityCheckedAt": "2026-09-07"
   },
   {
     "id": "ezeus",
     "name": "eZeus",
-    "games": ["zeus"],
+    "games": [
+      "zeus"
+    ],
     "lineage": "Independent — not byte-exact by design",
     "language": "C++ (Qt)",
-    "status": "dormant",
+    "status": "active",
     "saveCompat": "N/A — intentional divergences (new walker model, dual-city play)",
     "platforms": "Windows, Linux (Qt)",
-    "activity": "Base for Olympus · English/Polish only (font glyph limits)",
+    "activity": "Base for Olympus - English/Polish only (font glyph limits)",
     "repoUrl": "https://github.com/MaurycyLiebner/eZeus",
-    "docsUrl": null
+    "docsUrl": null,
+    "lastCommit": {
+      "sha": "046f9d9",
+      "date": "2026-08-13T15:02:52Z",
+      "branch": "main"
+    },
+    "activityCheckedAt": "2026-09-07"
   },
   {
     "id": "citybuilderengine",
     "name": "CityBuilderEngine",
-    "games": ["zeus"],
+    "games": [
+      "zeus"
+    ],
     "lineage": "Independent — inspired by Zeus, not a reimplementation",
     "language": "C++14 (Qt5)",
     "status": "dormant",
@@ -114,6 +180,12 @@
     "platforms": "Windows, Linux (Qt5) · server/client split",
     "activity": "Early stage — map engine only",
     "repoUrl": "https://github.com/Vinorcola/CityBuilderEngine",
-    "docsUrl": null
+    "docsUrl": null,
+    "lastCommit": {
+      "sha": "ed1a287",
+      "date": "2021-01-05T18:00:54Z",
+      "branch": "main"
+    },
+    "activityCheckedAt": "2026-09-07"
   }
 ]
