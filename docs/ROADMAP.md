@@ -327,24 +327,40 @@ behind. Size can, so size shipped and the flag did not.
 
 ---
 
-## Credits — two of six
+## Credits — all six, done
 
-Added to the game hubs, not a sub-page. Caesar III (15 roles, 36 credits) and
-Zeus (20 roles, 63) are complete; the other four are not sourced yet and the
-hubs fall back to their one-line designer/programmer note rather than showing
-an empty section.
+On the game hubs, not a sub-page. Every game now carries its team role by
+role, and the two expansions with credits of their own — Cleopatra and
+Poseidon — sit under the base game they shipped for.
 
-**MobyGames could not be used.** It is the obvious source and it is blocked
-both ways — 403 to a plain fetch, and a Cloudflare bot check in the browser.
-Working around bot detection is off the table, so the credits come from the
-**games' own manuals**, which is the primary source those databases transcribe
-in the first place, and each block links the manual it came from.
+| Game | Roles | Credited names | Source |
+| --- | --- | --- | --- |
+| Caesar | 8 | 21 | credit listings |
+| Caesar II | 19 | 36 | credit listings |
+| Caesar III | 15 | 36 | the game's manual |
+| Pharaoh (+ Cleopatra) | 27 | 68 | credit listings |
+| Zeus (+ Poseidon) | 38 | 106 | manual, then listings for Poseidon |
+| Emperor | 37 | 91 | credit listings |
 
-Still to source: **Pharaoh, Emperor, Caesar and Caesar II.** Archive.org has
-no text manual for Pharaoh or Emperor (only disc images), sierrahelp's PDFs
-fail TLS, and the Caesar II manual scan is truncated before its credits. The
-data shape is in place, so each is a fill rather than a rebuild:
-`fullCredits`, `creditsSource` and `creditsNote` in `src/data/games.json`.
+**MobyGames could not be reached from here** — 403 to a plain fetch and a
+Cloudflare bot check in the browser — and working around bot detection was off
+the table. Caesar III and Zeus were therefore transcribed from the **games' own
+manuals**, the primary source those databases work from; the remaining four
+were supplied by the archive's maintainer from the listings. Each block names
+where it came from, and Zeus names both because its base game and its expansion
+came from different places.
+
+Two shape changes fell out of doing it honestly. A credit row may carry a
+`section`, because **a credit list is not always one team** — Emperor was built
+by BreakAway Games for Impressions and Sierra and credits the two studios
+separately, and flattening that would tell the reader something untrue. And
+`creditsSource` became `creditsSources`, an array, for the same reason: naming
+only one of two sources is a small lie.
+
+**Beta testers are not reproduced**, and each affected game says so. The lists
+run to eighty-odd names per game. The exception is Emperor's map-contest
+winners, who wrote scenarios that shipped in patch 1.0.1.0 — that is
+authorship, not testing, and it is credited.
 
 ---
 

@@ -174,6 +174,30 @@ without solving that first.
   no consuming code was found. Don't revive it without finding where the
   engine reads it.
 
+## Credits: whole teams, on the hub
+
+Every game hub carries its full credits, role by role -- not a sub-page, by
+request. Three things about that list are decisions, not accidents:
+
+- **A credit row may carry a `section`, because a credit list is not always
+  one team.** Emperor was built by BreakAway Games for Impressions and Sierra
+  and credits the two studios separately; Cleopatra and Poseidon credit their
+  own teams and sit under the base game they shipped for. Flattening those
+  into one run of roles would tell the reader something untrue.
+- **`creditsSources` is an array.** Caesar III and Zeus were transcribed from
+  the games' own manuals -- the primary source, and what the credit databases
+  work from -- and the rest came from the listings. Zeus is both, because its
+  expansion did not come from the manual. Naming one of two sources is a small
+  lie, and the block names what it used.
+- **Beta testers are not reproduced, and the games that have them say so.**
+  The lists run to eighty-odd names each. The exception is Emperor's
+  map-contest winners, whose scenarios shipped in patch 1.0.1.0 -- that is
+  authorship, not testing.
+
+MobyGames cannot be reached from this machine (403 to a fetch, Cloudflare in
+the browser) and **working around bot detection is not on the table**. Where a
+manual exists, prefer it anyway.
+
 ## Never republish someone else's guide
 
 A compilation of GameFAQs walkthroughs for the series was offered as source
