@@ -300,9 +300,9 @@
     "archive": true,
     "badge": "Archive entry",
     "accent": "var(--game-caesar2)",
-    "engineNote": "Transitional generation between Caesar and Caesar III — still no open documentation of its asset formats.",
-    "timelineNote": "Transitional generation. Same core team (Lester/Bradbury), Chris Beatrice joining on art. Still no open documentation of its asset formats.",
-    "wanted": "No open-source engine or format documentation exists for Caesar II either.",
+    "engineNote": "Transitional generation between Caesar and Caesar III. The first of the two undocumented earlier titles to get an open engine — a clean-room decompilation, byte-exact against the original PS.EXE, with a native and browser port built on top of it.",
+    "timelineNote": "Transitional generation. Same core team (Lester/Bradbury), Chris Beatrice joining on art. A byte-exact source reconstruction and cross-platform port shipped in 2026.",
+    "wanted": null,
     "storefronts": [
       {
         "store": "GOG",
@@ -316,6 +316,11 @@
         "title": "PCGamingWiki — Caesar II",
         "url": "https://www.pcgamingwiki.com/wiki/Caesar_II",
         "note": "Compatibility notes for the DOS/Windows original and the DOSBox re-release."
+      },
+      {
+        "title": "Play in a browser — Caesar II Port",
+        "url": "https://second-impressions.github.io/caesar2-port/",
+        "note": "The engine reconstruction above, running via WebAssembly. Needs your own copy of the game data, imported client-side into the browser's own storage; nothing is uploaded."
       }
     ],
     "tools": [],

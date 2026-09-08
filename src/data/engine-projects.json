@@ -18,7 +18,7 @@
       "date": "2026-09-05T16:52:12Z",
       "branch": "master"
     },
-    "activityCheckedAt": "2026-09-07"
+    "activityCheckedAt": "2026-09-08"
   },
   {
     "id": "augustus",
@@ -35,11 +35,11 @@
     "repoUrl": "https://github.com/Keriew/augustus",
     "docsUrl": null,
     "lastCommit": {
-      "sha": "719f486",
-      "date": "2026-09-05T08:59:33Z",
+      "sha": "95e120d",
+      "date": "2026-09-08T13:17:17Z",
       "branch": "master"
     },
-    "activityCheckedAt": "2026-09-07"
+    "activityCheckedAt": "2026-09-08"
   },
   {
     "id": "akhenaten",
@@ -56,11 +56,11 @@
     "repoUrl": "https://github.com/dalerank/Akhenaten",
     "docsUrl": null,
     "lastCommit": {
-      "sha": "5c4ad33",
-      "date": "2026-09-06T18:23:47Z",
+      "sha": "69d63e7",
+      "date": "2026-09-08T10:25:58Z",
       "branch": "master"
     },
-    "activityCheckedAt": "2026-09-07"
+    "activityCheckedAt": "2026-09-08"
   },
   {
     "id": "ozymandias-godot",
@@ -81,7 +81,7 @@
       "date": "2026-02-20T05:34:36Z",
       "branch": "master"
     },
-    "activityCheckedAt": "2026-09-07"
+    "activityCheckedAt": "2026-09-08"
   },
   {
     "id": "ozymandias-julius",
@@ -102,7 +102,7 @@
       "date": "2026-02-03T09:28:16Z",
       "branch": "master"
     },
-    "activityCheckedAt": "2026-09-07"
+    "activityCheckedAt": "2026-09-08"
   },
   {
     "id": "openpharaoh",
@@ -123,7 +123,7 @@
       "date": "2012-09-19T14:49:54Z",
       "branch": "master"
     },
-    "activityCheckedAt": "2026-09-07"
+    "activityCheckedAt": "2026-09-08"
   },
   {
     "id": "olympus",
@@ -144,7 +144,7 @@
       "date": "2026-07-04T11:14:32Z",
       "branch": "main"
     },
-    "activityCheckedAt": "2026-09-07"
+    "activityCheckedAt": "2026-09-08"
   },
   {
     "id": "ezeus",
@@ -165,7 +165,7 @@
       "date": "2026-08-13T15:02:52Z",
       "branch": "main"
     },
-    "activityCheckedAt": "2026-09-07"
+    "activityCheckedAt": "2026-09-08"
   },
   {
     "id": "citybuilderengine",
@@ -186,6 +186,48 @@
       "date": "2021-01-05T18:00:54Z",
       "branch": "main"
     },
-    "activityCheckedAt": "2026-09-07"
+    "activityCheckedAt": "2026-09-08"
+  },
+  {
+    "id": "caesar2-reconstruction",
+    "name": "Caesar II Reconstruction",
+    "games": [
+      "caesar2"
+    ],
+    "lineage": "Independent — clean-room decompilation",
+    "language": "C (Open Watcom 10.0a, DOS/4GW)",
+    "status": "active",
+    "saveCompat": "N/A — rebuilds the literal original PS.EXE byte-for-byte rather than reimplementing it",
+    "platforms": "DOS (reproduces the original executable; run it under an emulator)",
+    "activity": "Reached byte-exact against the original in Jul 2026 · CI gates every change against it",
+    "repoUrl": "https://github.com/second-impressions/caesar2-reconstruction",
+    "docsUrl": null,
+    "lastCommit": {
+      "sha": "f549467",
+      "date": "2026-09-06T17:16:12Z",
+      "branch": "main"
+    },
+    "activityCheckedAt": "2026-09-08"
+  },
+  {
+    "id": "caesar2-port",
+    "name": "Caesar II Port",
+    "games": [
+      "caesar2"
+    ],
+    "lineage": "Built on the Caesar II Reconstruction",
+    "language": "C (SDL3)",
+    "status": "active",
+    "saveCompat": "100% — saves from the original load directly",
+    "platforms": "Windows, Linux, macOS, browser (WebAssembly)",
+    "activity": "First stable release (v1.0.0) 2026 · v1.0.2 current · actively maintained",
+    "repoUrl": "https://github.com/second-impressions/caesar2-port",
+    "docsUrl": "https://github.com/second-impressions/caesar2-port/tree/main/docs",
+    "lastCommit": {
+      "sha": "cfc1d62",
+      "date": "2026-09-08T11:35:55Z",
+      "branch": "main"
+    },
+    "activityCheckedAt": "2026-09-08"
   }
 ]

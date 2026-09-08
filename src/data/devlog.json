@@ -333,5 +333,25 @@
         "body": "r/impressionsgames now appears on all six hubs. Reddit refuses this machine's fetches outright - the browser pane's own policy blocks the domain, and a plain request gets a 403 - so its traffic couldn't be checked the way every other source on this page is. It's marked active on trust, not verification, and that's written into its own note rather than left implicit."
       }
     ]
+  },
+  {
+    "id": "caesar-ii-leaves-the-wanted-board",
+    "date": "2026-09-08T18:13",
+    "title": "Caesar II leaves the wanted board",
+    "summary": "A clean-room decompilation of Caesar II, byte-exact against the original executable, plus a native and browser port built on it - the first of the two undocumented earlier titles to get an open engine, found through a community post rather than a search of this site's own making.",
+    "blocks": [
+      {
+        "kind": "prose",
+        "body": [
+          "Caesar and Caesar II have carried the same line since this site's first research pass: no engine, no format documentation, virgin reverse-engineering territory. That stopped being true for one of them. The second-impressions project's Caesar II Reconstruction recovers the 1995 executable as C source and rebuilds it byte-for-byte against the original PS.EXE - not an approximation of the game's behaviour but the literal machine code, reproduced. A companion repository, the Caesar II Port, continues that recovered source onto SDL3: the DOS-and-Windows calls are replaced one function at a time, the game's own logic is left untouched, and the result runs natively on Windows, Linux and macOS, and in a browser over WebAssembly, loading the original's save files directly.",
+          "Both are now listed as engine projects on the Caesar II hub, and its wanted callout is gone - the first time that has happened for either of the series' two undocumented titles."
+        ]
+      },
+      {
+        "kind": "callout",
+        "title": "What this changes, and what it doesn't yet",
+        "body": "The file format entry moved from undocumented to partially documented, pointing at the reconstruction's include/entities.h and include/c2_data.h - but no spec page exists here yet. That gap is now a research task rather than a research problem: the data structures are recovered and public, and turning them into a written spec is the obvious next piece of work, the same shape as the still-open Caesar III scenario block. The reconstruction repository was created 15 July 2026 and reached byte-exactness that same month; both repositories were still receiving commits the day this entry was written."
+      }
+    ]
   }
 ]

@@ -1121,10 +1121,19 @@
     "games": [
       "caesar2"
     ],
-    "documentation": "undocumented",
-    "note": "No public documentation exists for Caesar II's asset formats either, and no tool reads them.",
+    "documentation": "partial",
+    "note": "No written spec exists on this site yet, but the data structures are no longer unknown: a clean-room decompilation reads them directly, and a companion port imports the original CD/install data, XMI music and Smacker video without help from an emulator.",
     "summary": null,
-    "sources": [],
+    "sources": [
+      {
+        "title": "Caesar II Reconstruction — include/entities.h, include/c2_data.h",
+        "url": "https://github.com/second-impressions/caesar2-reconstruction"
+      },
+      {
+        "title": "Caesar II Port — docs/",
+        "url": "https://github.com/second-impressions/caesar2-port/tree/main/docs"
+      }
+    ],
     "spec": null
   }
 ]
