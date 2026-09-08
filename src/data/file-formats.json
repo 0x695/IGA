@@ -1115,25 +1115,231 @@
   },
   {
     "id": "caesar2-assets",
-    "name": "Caesar II assets",
+    "name": "Caesar II media & disc formats",
     "shortName": null,
     "title": null,
     "games": [
       "caesar2"
     ],
     "documentation": "partial",
-    "note": "No written spec exists on this site yet, but the data structures are no longer unknown: a clean-room decompilation reads them directly, and a companion port imports the original CD/install data, XMI music and Smacker video without help from an emulator.",
+    "note": "The save and text formats now have written specs on this site; the music (Miles XMIDI + OPL3), Smacker movies, and CD/ISO/BIN-CUE disc layouts are read and reimplemented by the port but not yet written up here as their own pages.",
     "summary": null,
     "sources": [
       {
-        "title": "Caesar II Reconstruction — include/entities.h, include/c2_data.h",
-        "url": "https://github.com/second-impressions/caesar2-reconstruction"
+        "title": "Caesar II Port — docs/media-implementation.md",
+        "url": "https://github.com/second-impressions/caesar2-port/blob/main/docs/media-implementation.md"
       },
       {
-        "title": "Caesar II Port — docs/",
-        "url": "https://github.com/second-impressions/caesar2-port/tree/main/docs"
+        "title": "Caesar II Port — docs/game-data-sources-plan.md",
+        "url": "https://github.com/second-impressions/caesar2-port/blob/main/docs/game-data-sources-plan.md"
       }
     ],
     "spec": null
+  },
+  {
+    "id": "caesar2-sav",
+    "name": ".SAV",
+    "shortName": "SAV",
+    "title": "The Caesar II savegame format",
+    "games": [
+      "caesar2"
+    ],
+    "documentation": "documented",
+    "note": "Not a container at all: roughly 430 named game-state fields written back to back in a fixed order, none of it compressed, followed by a fixed 4,000-byte history tail. Every field's name, size and position comes straight from the recovered save/load code.",
+    "summary": "A Caesar II save is the plainest format in the whole series once you have the source: the recovered savegame() function writes about 430 registered fields in order, then appends a sibling file whole. Nothing is inferred from a hex dump — every offset below follows directly from the recovered table.",
+    "sources": [
+      {
+        "title": "Caesar II Reconstruction — src/loadsave.c",
+        "url": "https://github.com/second-impressions/caesar2-reconstruction/blob/main/src/loadsave.c"
+      },
+      {
+        "title": "Caesar II Reconstruction — include/entities.h",
+        "url": "https://github.com/second-impressions/caesar2-reconstruction/blob/main/include/entities.h"
+      },
+      {
+        "title": "Caesar II Port — docs/save-testing.md",
+        "url": "https://github.com/second-impressions/caesar2-port/blob/main/docs/save-testing.md"
+      }
+    ],
+    "spec": [
+      {
+        "kind": "prose",
+        "body": [
+          "savegame() and loadgame() in the recovered source read and write two things, in sequence. First, a 500-slot table of registered game-state blocks — some a single byte, most a 4-byte counter, a handful multi-kilobyte arrays — terminated by the first zero-size entry, which the write loop treats as the end. Second, the complete contents of a sibling history.dat file, exactly 4,000 bytes, copied in with one read() and one write() and never touched by the entry table at all.",
+          "Of the 500 declared slots, 432 carry real data; the rest are zero-size padding the loop never reaches. Those 432 add up to exactly 221,745 bytes. Add the 4,000-byte history tail and every Caesar II save is 225,745 bytes — confirmed by the port's own round-trip tests against the real engine, not measured off a sample of files."
+        ]
+      },
+      {
+        "kind": "fields",
+        "title": "The largest blocks, in file order",
+        "note": "Offsets are cumulative, exactly as the registration table declares them. Scalars in between are omitted here — roughly 380 of them, mostly 4-byte counters and rates named for what they track (denarii, population, ind_tax_rate…) — the full list is in loadsave.c, linked above.",
+        "rows": [
+          {
+            "offset": "0",
+            "size": "16",
+            "type": "—",
+            "name": "view state",
+            "description": "Map mode, overlay mode, zoom level (written twice), map scroll direction and position."
+          },
+          {
+            "offset": "16",
+            "size": "4550",
+            "type": "army_rec[]",
+            "name": "army_list",
+            "description": "Every field army."
+          },
+          {
+            "offset": "4566",
+            "size": "11658",
+            "type": "citizen_rec[]",
+            "name": "citizen_list",
+            "description": "Every citizen record."
+          },
+          {
+            "offset": "16224",
+            "size": "3978",
+            "type": "unit_rec[]",
+            "name": "unit_list",
+            "description": "Military units."
+          },
+          {
+            "offset": "20202",
+            "size": "17688",
+            "type": "figure_rec[]",
+            "name": "figure_list",
+            "description": "Every animated figure on the map — walkers, soldiers, wildlife. The most heavily annotated struct in the reconstruction: every field is cross-referenced against the functions that read it."
+          },
+          {
+            "offset": "37890",
+            "size": "9045",
+            "type": "arrow_rec[]",
+            "name": "arrow_list",
+            "description": "Projectiles and thrown weapons in flight."
+          },
+          {
+            "offset": "46935",
+            "size": "3460",
+            "type": "army_route_rec[]",
+            "name": "army_routes",
+            "description": "Pathing state for field armies."
+          },
+          {
+            "offset": "50395",
+            "size": "128000",
+            "type": "uint8[]",
+            "name": "city_map",
+            "description": "80×80 tiles, 20 bytes each. Independently confirmed: entities.h's CITY_W × CITY_H × CITY_CELL_BYTES macros multiply to exactly this figure."
+          },
+          {
+            "offset": "178395",
+            "size": "28800",
+            "type": "uint8[]",
+            "name": "region_map",
+            "description": "60×60 tiles, 8 bytes each. Same cross-check as city_map."
+          },
+          {
+            "offset": "208338",
+            "size": "10816",
+            "type": "uint8[]",
+            "name": "battle_map",
+            "description": "52×52 tiles, 4 bytes each. Same cross-check again."
+          },
+          {
+            "offset": "219792",
+            "size": "768",
+            "type": "industry_rec[]",
+            "name": "industry",
+            "description": "Per-province industry state."
+          },
+          {
+            "offset": "221205",
+            "size": "200",
+            "type": "—",
+            "name": "empire_won",
+            "description": "Province conquest flags."
+          },
+          {
+            "offset": "221745",
+            "size": "4000",
+            "type": "—",
+            "name": "history.dat tail",
+            "description": "The complete contents of the separate history.dat file, copied in unmodified — not part of the registered entry table, and always exactly 4,000 bytes."
+          }
+        ]
+      },
+      {
+        "kind": "callout",
+        "title": "Every unknown gap is a real field, not padding",
+        "body": "Watcom C defaults to 1-byte struct packing, so there is no implicit alignment padding anywhere in these records — every gap the reconstruction hasn't named is a genuinely unrecovered field, marked by its own byte offset rather than left invisible. Several such gaps in figure_rec, unit_rec and citizen_rec were cross-checked against the separate Mac (PowerPC, CodeWarrior) build of the same source and confirmed genuinely unused there too — not just unread in the DOS decompilation."
+      },
+      {
+        "kind": "callout",
+        "title": "Not compressed, unlike Caesar III's",
+        "body": "Caesar III's savegame is a chunk list, most of it compressed with PKWARE DCL. Caesar II's is not — every field above is written with a plain write() call, in the clear. The older game turns out to have the more transparent format."
+      }
+    ]
+  },
+  {
+    "id": "caesar2-text",
+    "name": ".ENG / .HELP",
+    "shortName": "ENG/HELP",
+    "title": "Caesar II's text and help files",
+    "games": [
+      "caesar2"
+    ],
+    "documentation": "partial",
+    "note": "The addressing model and both files' buffer limits are confirmed from a byte-exact reimplementation; the on-disk group/page directory layout itself is not restated on this site.",
+    "summary": "C2.ENG and HELP.ENG aren't text files in the ordinary sense. Every string is addressed by a (group, index) pair the game's own code compiles into, and a from-scratch reimplementation reproduces both files byte-for-byte in every language tested — which is why the model below can be stated as fact rather than read off a hex dump.",
+    "sources": [
+      {
+        "title": "Caesar II Port — docs/game-text.md",
+        "url": "https://github.com/second-impressions/caesar2-port/blob/main/docs/game-text.md"
+      },
+      {
+        "title": "Caesar II Port — docs/text-encoding.md",
+        "url": "https://github.com/second-impressions/caesar2-port/blob/main/docs/text-encoding.md"
+      },
+      {
+        "title": "Caesar II Port — src/platform/common/c2_port_text.c",
+        "url": "https://github.com/second-impressions/caesar2-port/blob/main/src/platform/common/c2_port_text.c"
+      }
+    ],
+    "spec": [
+      {
+        "kind": "prose",
+        "body": [
+          "C2.ENG holds every string in the game — menus, panels, in-game messages — addressed as (group, index): a call site reads as font_list(0x2f, 3, …) to mean \"string 3 of group 0x2f\", and there are 147 groups. HELP.ENG is addressed differently, by help page number, and each page carries a title string and a body string plus non-text fields — an illustration name, a voice-clip name, a sprite id, layout widths — that the port treats as language-neutral and compiles from the 1996 English file regardless of which language's text is active.",
+          "Both files are read into fixed buffers the engine never grows: a help page into 2,000 bytes, the whole of C2.ENG into 40,000. A translation that overflows either limit is rejected before it ships, not discovered by a player."
+        ]
+      },
+      {
+        "kind": "list",
+        "title": "What the addressing scheme guarantees",
+        "items": [
+          {
+            "term": "(group, index) for C2.ENG",
+            "description": "147 groups; two of them, 117 and 118, deliberately share group 116's payload, and 120 shares 119's — the same string reused under more than one address rather than duplicated."
+          },
+          {
+            "term": "(page, slot) for HELP.ENG",
+            "description": "Slot 0 is a page's title, slot 1 its body. A page that reuses another page's text stores the reference \"@1234\" instead of repeating it — the German translation uses this to link spare pages differently where a chapter ran long."
+          },
+          {
+            "term": "In-body markup",
+            "description": "\"$\" is the engine's own line break; \"#12text#\" is a clickable link to help page 12, and both must survive translation unchanged."
+          }
+        ]
+      },
+      {
+        "kind": "callout",
+        "title": "A shipped content bug, not a rendering bug",
+        "body": "The full English HELP.ENG contains four 0x92 bytes inside contractions and possessives. In Windows-1252 that byte is a curly right-quote; in Caesar II's own bitmap font table the same slot draws the DOS Æ glyph. The English 1995 demo omits the affected pages, but the retail and rerelease help files ship all four — every font asset examined across the DOS retail, Win95 rerelease and Mac demo agrees, so the visible Æ is a genuine authoring defect from 1995/96, not something a host text encoding could ever have fixed."
+      },
+      {
+        "kind": "callout",
+        "title": "Real translation bugs the tooling now corrects",
+        "body": "The 1995 French C2.ENG splits several strings with a NUL byte instead of a space and merges two others, which shifted every later index in four groups onto the wrong text in the shipped game; the 1995 releases also have no battle icon tooltips at all, so those groups alias a Senate letter instead. Both are documented, sourced defects in the original release — reproduced faithfully by a byte-exact reimplementation, and separately corrected in the reimplementation's own translation template with the reason recorded alongside the fix."
+      }
+    ]
   }
 ]

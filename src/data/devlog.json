@@ -353,5 +353,32 @@
         "body": "The file format entry moved from undocumented to partially documented, pointing at the reconstruction's include/entities.h and include/c2_data.h - but no spec page exists here yet. That gap is now a research task rather than a research problem: the data structures are recovered and public, and turning them into a written spec is the obvious next piece of work, the same shape as the still-open Caesar III scenario block. The reconstruction repository was created 15 July 2026 and reached byte-exactness that same month; both repositories were still receiving commits the day this entry was written."
       }
     ]
+  },
+  {
+    "id": "caesar-ii-save-and-text-formats-written-up",
+    "date": "2026-09-08T18:41",
+    "title": "Reading the save file straight out of the loop that writes it",
+    "summary": "Two Caesar II format pages, .SAV and .ENG/.HELP, sourced entirely from the decompilation's own save/load code and the port's text pipeline - closing the gap the last entry left open the same day it was opened.",
+    "blocks": [
+      {
+        "kind": "prose",
+        "body": [
+          "A savegame's format is usually reconstructed by staring at hex dumps and guessing where one field ends and the next begins. Caesar II didn't need that: the reconstruction's src/loadsave.c contains savegame()'s actual write loop, and it is a 500-slot table of {pointer, size} pairs written out in order and terminated by the first zero-size entry. Counting the 432 real entries and summing their sizes gives 221,745 bytes, exactly matching the figure the port's own save-testing.md states independently - two unrelated ways of arriving at the same number is about as confident as this site ever gets. A sibling history.dat file, always exactly 4,000 bytes, is appended after with one read() and one write(), untouched by the entry table. Total: 225,745 bytes, every time.",
+          "The three memory-mapped tile grids inside that table - city, region and battle maps - cross-checked cleanly against a second, independent source: entities.h's own CITY_W/CITY_H/CITY_CELL_BYTES-style macros multiply out to the exact same byte counts the save table declares. Two people (or rather, two files in the same repository, describing the same engine from different angles) agreeing on 128,000 and 28,800 and 10,816 bytes is the kind of corroboration this site's Caesar III pages have never had the luxury of."
+        ]
+      },
+      {
+        "kind": "prose",
+        "body": [
+          "The text format is a different kind of interesting. C2.ENG and HELP.ENG aren't addressed by byte offset at all but by (group, index) and (page, slot) pairs the game's own code compiles into - and the port's from-scratch reimplementation reproduces both files byte-for-byte in every language it was tested against, which is what makes the addressing model citable as fact rather than inference.",
+          "It also surfaced two genuine shipped bugs, both now on the format page rather than smoothed over: the English HELP.ENG's four 0x92 apostrophes render as a Danish Æ because the game's font table was never Windows-1252 to begin with, and the 1995 French C2.ENG has NUL bytes splitting strings that shifted four whole groups onto the wrong text - a defect faithfully reproduced by the byte-exact reimplementation and separately corrected in its own translation template, with the correction's reason recorded rather than silently applied."
+        ]
+      },
+      {
+        "kind": "callout",
+        "title": "What's still not written up",
+        "body": "Music, movies and disc import aren't on this site yet, even though the port's docs describe all three in real depth - a reimplemented Miles XMIDI sequencer with numbered branch tables, libsmacker for the movies, and a project-owned ISO-9660/BIN-CUE reader for getting data off the original discs. The hub's third format row says so and points at the source rather than pretending the gap isn't there."
+      }
+    ]
   }
 ]
