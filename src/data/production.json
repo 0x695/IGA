@@ -1,5 +1,210 @@
 [
   {
+    "id": "caesar3-clay-pit",
+    "game": "caesar3",
+    "name": "Clay Pit",
+    "engineType": "BUILDING_CLAY_PIT",
+    "size": 2,
+    "laborers": null,
+    "inputs": [],
+    "output": "Clay",
+    "productionRate": null,
+    "progressMax": 200,
+    "rateByDifficulty": null
+  },
+  {
+    "id": "caesar3-fruit-farm",
+    "game": "caesar3",
+    "name": "Fruit Farm",
+    "engineType": "BUILDING_FRUIT_FARM",
+    "size": 3,
+    "laborers": null,
+    "inputs": [],
+    "output": "Fruit",
+    "productionRate": null,
+    "progressMax": 200,
+    "rateByDifficulty": null
+  },
+  {
+    "id": "caesar3-furniture-workshop",
+    "game": "caesar3",
+    "name": "Furniture Workshop",
+    "engineType": "BUILDING_FURNITURE_WORKSHOP",
+    "size": 2,
+    "laborers": null,
+    "inputs": [
+      "Timber"
+    ],
+    "output": "Furniture",
+    "productionRate": null,
+    "progressMax": 400,
+    "rateByDifficulty": null
+  },
+  {
+    "id": "caesar3-iron-mine",
+    "game": "caesar3",
+    "name": "Iron Mine",
+    "engineType": "BUILDING_IRON_MINE",
+    "size": 2,
+    "laborers": null,
+    "inputs": [],
+    "output": "Iron",
+    "productionRate": null,
+    "progressMax": 200,
+    "rateByDifficulty": null
+  },
+  {
+    "id": "caesar3-marble-quarry",
+    "game": "caesar3",
+    "name": "Marble Quarry",
+    "engineType": "BUILDING_MARBLE_QUARRY",
+    "size": 2,
+    "laborers": null,
+    "inputs": [],
+    "output": "Marble",
+    "productionRate": null,
+    "progressMax": 200,
+    "rateByDifficulty": null
+  },
+  {
+    "id": "caesar3-oil-workshop",
+    "game": "caesar3",
+    "name": "Oil Workshop",
+    "engineType": "BUILDING_OIL_WORKSHOP",
+    "size": 2,
+    "laborers": null,
+    "inputs": [
+      "Olives"
+    ],
+    "output": "Oil",
+    "productionRate": null,
+    "progressMax": 400,
+    "rateByDifficulty": null
+  },
+  {
+    "id": "caesar3-olive-farm",
+    "game": "caesar3",
+    "name": "Olive Farm",
+    "engineType": "BUILDING_OLIVE_FARM",
+    "size": 3,
+    "laborers": null,
+    "inputs": [],
+    "output": "Olives",
+    "productionRate": null,
+    "progressMax": 200,
+    "rateByDifficulty": null
+  },
+  {
+    "id": "caesar3-pig-farm",
+    "game": "caesar3",
+    "name": "Pig Farm",
+    "engineType": "BUILDING_PIG_FARM",
+    "size": 3,
+    "laborers": null,
+    "inputs": [],
+    "output": "Meat",
+    "productionRate": null,
+    "progressMax": 200,
+    "rateByDifficulty": null
+  },
+  {
+    "id": "caesar3-pottery-workshop",
+    "game": "caesar3",
+    "name": "Pottery Workshop",
+    "engineType": "BUILDING_POTTERY_WORKSHOP",
+    "size": 2,
+    "laborers": null,
+    "inputs": [
+      "Clay"
+    ],
+    "output": "Pottery",
+    "productionRate": null,
+    "progressMax": 400,
+    "rateByDifficulty": null
+  },
+  {
+    "id": "caesar3-timber-yard",
+    "game": "caesar3",
+    "name": "Timber Yard",
+    "engineType": "BUILDING_TIMBER_YARD",
+    "size": 2,
+    "laborers": null,
+    "inputs": [],
+    "output": "Timber",
+    "productionRate": null,
+    "progressMax": 200,
+    "rateByDifficulty": null
+  },
+  {
+    "id": "caesar3-vegetable-farm",
+    "game": "caesar3",
+    "name": "Vegetable Farm",
+    "engineType": "BUILDING_VEGETABLE_FARM",
+    "size": 3,
+    "laborers": null,
+    "inputs": [],
+    "output": "Vegetables",
+    "productionRate": null,
+    "progressMax": 200,
+    "rateByDifficulty": null
+  },
+  {
+    "id": "caesar3-vines-farm",
+    "game": "caesar3",
+    "name": "Vines Farm",
+    "engineType": "BUILDING_VINES_FARM",
+    "size": 3,
+    "laborers": null,
+    "inputs": [],
+    "output": "Vines",
+    "productionRate": null,
+    "progressMax": 200,
+    "rateByDifficulty": null
+  },
+  {
+    "id": "caesar3-weapons-workshop",
+    "game": "caesar3",
+    "name": "Weapons Workshop",
+    "engineType": "BUILDING_WEAPONS_WORKSHOP",
+    "size": 2,
+    "laborers": null,
+    "inputs": [
+      "Iron"
+    ],
+    "output": "Weapons",
+    "productionRate": null,
+    "progressMax": 400,
+    "rateByDifficulty": null
+  },
+  {
+    "id": "caesar3-wheat-farm",
+    "game": "caesar3",
+    "name": "Wheat Farm",
+    "engineType": "BUILDING_WHEAT_FARM",
+    "size": 3,
+    "laborers": null,
+    "inputs": [],
+    "output": "Wheat",
+    "productionRate": null,
+    "progressMax": 200,
+    "rateByDifficulty": null
+  },
+  {
+    "id": "caesar3-wine-workshop",
+    "game": "caesar3",
+    "name": "Wine Workshop",
+    "engineType": "BUILDING_WINE_WORKSHOP",
+    "size": 2,
+    "laborers": null,
+    "inputs": [
+      "Vines"
+    ],
+    "output": "Wine",
+    "productionRate": null,
+    "progressMax": 400,
+    "rateByDifficulty": null
+  },
+  {
     "id": "pharaoh-brewery",
     "game": "pharaoh",
     "name": "Brewery",

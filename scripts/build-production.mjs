@@ -6,34 +6,45 @@
  *
  *   node scripts/build-production.mjs
  *
- * PHARAOH and ZEUS are here, for the same underlying reason: both open-source
- * reimplementations keep a building's input, output, staff and pacing in
- * their own source, so these are read out rather than invented. The other
- * four games have nothing comparable that can be published:
+ * PHARAOH, ZEUS and now CAESAR III are here, for the same underlying reason:
+ * an open-source reimplementation keeps a building's input, output and (in
+ * some shape) its pacing in its own source, so these are read out rather
+ * than invented. The other three games have nothing comparable:
  *
- *  - CAESAR III's rates live in c3_model.txt, which mods rewrite - the same
- *    reason its buildings table has no cost column and its housing ladder no
- *    requirements.
  *  - EMPEROR's are only in a walkthrough, and are explicitly estimates there
  *    ("about 6-7 per year", "I assume the bump is like 15%"). A reference that
  *    reprints someone's assumption as a figure is worse than one that says
  *    nothing.
  *  - CAESAR and CAESAR II have no engine that carries them.
  *
- * PHARAOH and ZEUS are not the same shape, though, and productionRate /
- * progressMax / rateByDifficulty stay null for every Zeus row rather than
- * force one model onto the other's columns. Akhenaten steps a literal
- * progress bar - add `rate` each tick, finish a load at `full` - and states
- * it per difficulty. eZeus's processing buildings consume a fixed amount of
- * raw material every fixed number of ticks with no per-step increment at
- * all, and eZeus - unlike Akhenaten - is explicitly not byte-exact against
- * the original, so its own tuned constants (`eNumbers::sOlivePressProcessingPeriod`
- * and siblings, in enumbers.cpp) are the reimplementation's approximation of
- * the original's pacing, not a verified reproduction of it. Publishing them
- * under Pharaoh's "rate/full" headers would claim a precision this site
- * cannot stand behind; what inputs a Zeus building takes, what it makes, its
- * footprint and its staff are read the same way and carry the same
- * confidence as Pharaoh's, so those columns are filled in as usual.
+ * The three that are here are not the same shape, and productionRate /
+ * progressMax / rateByDifficulty are filled in only as far as each source
+ * actually supports, never forced to match Pharaoh's columns just because
+ * they exist:
+ *
+ *  - AKHENATEN (Pharaoh) steps a literal progress bar - add `rate` each
+ *    tick, finish a load at `full` - and states both per building, plus a
+ *    five-value difficulty curve. All three columns are filled in.
+ *  - eZEUS's processing buildings consume a fixed amount of raw material
+ *    every fixed number of ticks, with no per-step increment at all - a
+ *    different model, not a subset of Akhenaten's - and eZeus is explicitly
+ *    not byte-exact against the original besides, so even its own tuned
+ *    constants would be the reimplementation's approximation rather than a
+ *    verified figure. All three columns stay null for every Zeus row.
+ *  - JULIUS (Caesar III) turns out to sit in between. `progress += number of
+ *    employed workers each day` (half that for the marble quarry - a real,
+ *    single special case, not a rounding choice) until progress reaches a
+ *    fixed threshold - literal `#define MAX_PROGRESS_RAW 200` /
+ *    `MAX_PROGRESS_WORKSHOP 400` constants in src/building/industry.c, not
+ *    something c3_model.txt can move. That threshold is progressMax, filled
+ *    in with real confidence. productionRate is a different matter: it is
+ *    not a fixed number the way Pharaoh's is, it *is* however many workers
+ *    are currently employed at that building, up to the cap c3_model.txt
+ *    sets - a genuinely variable quantity this static site has no one true
+ *    value for, so it stays null rather than publish a number that would
+ *    only be true at full staffing. rateByDifficulty: no evidence in this
+ *    part of the source that difficulty touches production speed at all, so
+ *    null rather than guessed.
  */
 import { readFile, writeFile } from 'node:fs/promises';
 
@@ -210,9 +221,97 @@ if (wheatFarmBuilding.employees !== wheatFarmProduction.laborers) {
 }
 
 rows.push(...zeusRows);
-rows.sort((a, b) => a.game.localeCompare(b.game) || a.name.localeCompare(b.name));
 
 console.log(`${zeusRows.length} Zeus producers added`);
+
+// --- CAESAR III, from Julius's own building.c / industry.c / resource.c ---------
+//
+// Every raw producer's output and every workshop's input+output is a literal
+// switch statement in src/building/building.c (`b->output_resource_id = ...`,
+// `b->subtype.workshop_type = ...`) plus game/resource.c's
+// `resource_to_workshop_type()`, read verbatim on 14 September 2026. Sizes
+// come from src/data/buildings.json's own Caesar III entries (already
+// generated from the same repository, by build-buildings.mjs) rather than
+// being retyped - cross-checked below, not just assumed to match.
+//
+// progressMax is one of two literal engine constants
+// (MAX_PROGRESS_RAW = 200, MAX_PROGRESS_WORKSHOP = 400, in industry.c) - not
+// a c3_model.txt value, and not moddable the way cost and labour caps are.
+// The marble quarry is the one exception: it accrues progress at half the
+// rate of every other raw producer (`progress += num_workers / 2`, a literal
+// special case in the same file), which the production page's caveat states
+// rather than silently matching every other row's number.
+//
+// productionRate has no fixed figure to publish: it equals however many
+// workers are currently employed at a building, up to the cap c3_model.txt
+// sets, which is why it stays null - see the file-level comment above.
+//
+// id | name | engineType | inputs (comma-sep, blank = none) | output
+const CAESAR3_PRODUCERS = `
+wheat-farm|Wheat Farm|BUILDING_WHEAT_FARM||Wheat
+vegetable-farm|Vegetable Farm|BUILDING_VEGETABLE_FARM||Vegetables
+fruit-farm|Fruit Farm|BUILDING_FRUIT_FARM||Fruit
+olive-farm|Olive Farm|BUILDING_OLIVE_FARM||Olives
+vines-farm|Vines Farm|BUILDING_VINES_FARM||Vines
+pig-farm|Pig Farm|BUILDING_PIG_FARM||Meat
+marble-quarry|Marble Quarry|BUILDING_MARBLE_QUARRY||Marble
+iron-mine|Iron Mine|BUILDING_IRON_MINE||Iron
+timber-yard|Timber Yard|BUILDING_TIMBER_YARD||Timber
+clay-pit|Clay Pit|BUILDING_CLAY_PIT||Clay
+wine-workshop|Wine Workshop|BUILDING_WINE_WORKSHOP|Vines|Wine
+oil-workshop|Oil Workshop|BUILDING_OIL_WORKSHOP|Olives|Oil
+weapons-workshop|Weapons Workshop|BUILDING_WEAPONS_WORKSHOP|Iron|Weapons
+furniture-workshop|Furniture Workshop|BUILDING_FURNITURE_WORKSHOP|Timber|Furniture
+pottery-workshop|Pottery Workshop|BUILDING_POTTERY_WORKSHOP|Clay|Pottery
+`;
+
+const MAX_PROGRESS_RAW = 200;
+const MAX_PROGRESS_WORKSHOP = 400;
+
+const buildingsByName = new Map(
+  buildings.map((b) => [b.name, b.variants.find((v) => v.game === 'caesar3')]),
+);
+
+const caesar3Rows = CAESAR3_PRODUCERS.trim()
+  .split('\n')
+  .map((line) => line.split('|'))
+  .map(([id, name, engineType, inputs, output]) => {
+    const variant = buildingsByName.get(name);
+    if (!variant) throw new Error(`caesar3 ${name}: no matching entry in buildings.json`);
+    if (variant.engineType !== engineType) {
+      throw new Error(`caesar3 ${name}: engineType ${variant.engineType} in buildings.json, ${engineType} here`);
+    }
+    return {
+      id: `caesar3-${id}`,
+      game: 'caesar3',
+      name,
+      engineType,
+      size: variant.size,
+      // Not in the engine, same as buildings.json's own Caesar III rows.
+      laborers: null,
+      inputs: inputs ? inputs.split(',').filter(Boolean) : [],
+      output,
+      productionRate: null,
+      progressMax: inputs ? MAX_PROGRESS_WORKSHOP : MAX_PROGRESS_RAW,
+      rateByDifficulty: null,
+    };
+  });
+
+if (caesar3Rows.length !== 15) throw new Error(`expected 15 Caesar III producers, got ${caesar3Rows.length}`);
+
+const wineWorkshop = caesar3Rows.find((r) => r.id === 'caesar3-wine-workshop');
+if (wineWorkshop.inputs.join() !== 'Vines' || wineWorkshop.output !== 'Wine') {
+  throw new Error(`caesar3 wine workshop: takes ${wineWorkshop.inputs}, makes ${wineWorkshop.output}`);
+}
+if (wineWorkshop.progressMax !== 400) throw new Error('caesar3 wine workshop: expected progressMax 400');
+
+const wheatFarmC3 = caesar3Rows.find((r) => r.id === 'caesar3-wheat-farm');
+if (wheatFarmC3.progressMax !== 200) throw new Error('caesar3 wheat farm: expected progressMax 200');
+
+rows.push(...caesar3Rows);
+rows.sort((a, b) => a.game.localeCompare(b.game) || a.name.localeCompare(b.name));
+
+console.log(`${caesar3Rows.length} Caesar III producers added`);
 
 await writeFile(OUT, `${JSON.stringify(rows, null, 2)}\n`, 'utf8');
 

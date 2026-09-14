@@ -36,7 +36,7 @@
     "language": "C (SDL2)",
     "status": "active",
     "saveCompat": "One-way — loads Julius/C3 saves",
-    "platforms": "Windows, Linux, macOS · browser build",
+    "platforms": "Windows, Linux, macOS, Android, PS Vita, Switch · browser build",
     "activity": "Most active dev community · hosts a Discord",
     "repoUrl": "https://github.com/Keriew/augustus",
     "docsUrl": null,

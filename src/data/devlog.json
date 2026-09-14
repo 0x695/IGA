@@ -573,5 +573,20 @@
         ]
       }
     ]
+  },
+  {
+    "id": "caesar-iii-gets-a-production-page-half-the-numbers-were-wrong-assumption",
+    "date": "2026-09-14T21:00",
+    "title": "Caesar III gets a Production page - the \"rates live in c3_model.txt\" line was only half true",
+    "summary": "Julius's src/building/building.c turns out to state every raw producer's output and every workshop's input+output as a literal switch statement, and industry.c's progress threshold (200 for raw producers, 400 for workshops) is a hardcoded engine constant, not a c3_model.txt value. Fifteen producers now have a page; only the per-day rate itself - which really is however many workers are on shift, not a fixed number - stays a dash.",
+    "blocks": [
+      {
+        "kind": "prose",
+        "body": [
+          "The production script's file comment used to say plainly that Caesar III's rates live in c3_model.txt, full stop, in the same breath as Emperor's walkthrough estimates and the two games with no engine at all - grouped with the ones that genuinely have nothing to publish. Reading Julius's own building.c to build Zeus's production page's sibling turned up a switch statement that flatly contradicts half of that: `b->output_resource_id = RESOURCE_WHEAT` for the Wheat Farm, `b->subtype.workshop_type = WORKSHOP_VINES_TO_WINE` for the Wine Workshop, one case per building, naming exactly what each one takes in and puts out. None of that is moddable through c3_model.txt - it's compiled into the engine.",
+          "industry.c settles the other half more precisely than assumed, too: `#define MAX_PROGRESS_RAW 200` and `MAX_PROGRESS_WORKSHOP 400` are the actual thresholds a building's progress counter has to reach for one load to finish, and they're the same hardcoded constants for every raw producer and every workshop respectively - real, citable, not something a mod's c3_model.txt can move. What genuinely isn't a fixed number is the per-day rate: the engine literally adds a building's current worker count to its progress each day, so the true speed depends on how fully staffed it is, capped by whatever c3_model.txt says that building may employ. Publishing a single rate figure would have been wrong for a half-staffed building and right only by coincidence for a fully-staffed one, so it's the one column that stays a dash - the marble quarry's real half-rate exception is named directly in the page's caveat instead of being smoothed into that same dash."
+        ]
+      }
+    ]
   }
 ]

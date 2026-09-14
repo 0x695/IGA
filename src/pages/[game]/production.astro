@@ -38,10 +38,13 @@ const groups = [
 ].filter((group) => group.rows.length > 0);
 
 /* Each game's numbers come from the reimplementation that covers it, and
-   the two aren't the same shape - Akhenaten steps a literal progress bar,
-   eZeus consumes raw material on a timer with no per-step increment at all,
-   so rate/full stay dashes for every Zeus row rather than force one model
-   onto the other's columns (see scripts/build-production.mjs). */
+   none of the three are quite the same shape (see the file-level comment in
+   scripts/build-production.mjs): Akhenaten steps a literal progress bar and
+   states rate/full/difficulty outright; eZeus consumes raw material on a
+   timer with no per-step increment at all, so rate/full stay dashes for
+   every Zeus row; Julius's progress threshold (full) is a real engine
+   constant but the per-day rate is however many workers are currently
+   employed, not a fixed figure, so Caesar III publishes full but not rate. */
 const SOURCE: Record<string, { label: string; url: string }> = {
   pharaoh: {
     label: "Akhenaten's building configuration",
@@ -50,6 +53,10 @@ const SOURCE: Record<string, { label: string; url: string }> = {
   zeus: {
     label: "eZeus's own building source",
     url: 'https://github.com/MaurycyLiebner/eZeus/tree/main/buildings',
+  },
+  caesar3: {
+    label: "Julius's own building source",
+    url: 'https://github.com/bvschaik/julius/blob/master/src/building/industry.c',
   },
 };
 const source = SOURCE[game.id];
@@ -99,6 +106,21 @@ const source = SOURCE[game.id];
               original, so even its own timing constants would be the reimplementation's
               approximation, not a verified reproduction. What takes/makes, footprint and staff are
               read the same way as Pharaoh's and carry the same confidence.
+            </p>
+          )
+        }
+        {
+          game.id === 'caesar3' && (
+            <p>
+              Full is real here — <code>MAX_PROGRESS_RAW</code> and <code>MAX_PROGRESS_WORKSHOP</code>{' '}
+              are literal constants in Julius's own source, 200 and 400, not a value c3_model.txt can
+              move. Rate is the gap: the engine adds a building's current worker count to its progress
+              every day, not a fixed number, so the true rate changes with how fully staffed a
+              building happens to be at the cap c3_model.txt sets for it — a real quantity, just not
+              one this page can state as a single figure. The marble quarry is the one outlier worth
+              naming directly: it accrues progress at half that rate, a genuine special case in the
+              source rather than a rounding choice, so it reaches the same 200 threshold roughly twice
+              as slowly as every other raw producer at equal staffing.
             </p>
           )
         }
