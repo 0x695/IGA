@@ -159,47 +159,58 @@ for (const row of g.fullCredits ?? []) {
       </figure>
     </section>
 
-    {
-      g.fullCredits && (
-        <section class="section block">
-          <h2 class="section-heading">Credits</h2>
-          {creditGroups.map((group) => (
-            <>
-              {group.section && <h3 class="credits__section">{group.section}</h3>}
-              <dl class="credits">
-                {group.rows.map((entry) => (
-                  <div class="credits__row">
-                    <dt>{entry.role}</dt>
-                    <dd>{entry.names.join(', ')}</dd>
-                  </div>
-                ))}
-              </dl>
-            </>
-          ))}
-          <p class="credits__meta">
-            {g.creditsNote && <span>{g.creditsNote} </span>}
-            {g.creditsSources && (
+    <section class="section block">
+      <h2 class="section-heading">Credits</h2>
+      {
+        g.fullCredits ? (
+          <>
+            {creditGroups.map((group) => (
               <>
-                Transcribed from{' '}
-                {g.creditsSources.map((source, index) => (
-                  <>
-                    {index > 0 && <span> and </span>}
-                    {source.url ? (
-                      <a href={source.url} target="_blank" rel="noopener noreferrer">{source.title} ↗</a>
-                    ) : (
-                      <span>{source.title}</span>
-                    )}
-                  </>
-                ))}.
+                {group.section && <h3 class="credits__section">{group.section}</h3>}
+                <dl class="credits">
+                  {group.rows.map((entry) => (
+                    <div class="credits__row">
+                      <dt>{entry.role}</dt>
+                      <dd>{entry.names.join(', ')}</dd>
+                    </div>
+                  ))}
+                </dl>
               </>
-            )}
-          </p>
-        </section>
-      )
-    }
+            ))}
+            <p class="credits__meta">
+              {g.creditsNote && <span>{g.creditsNote} </span>}
+              {g.creditsSources && (
+                <>
+                  Transcribed from{' '}
+                  {g.creditsSources.map((source, index) => (
+                    <>
+                      {index > 0 && <span> and </span>}
+                      {source.url ? (
+                        <a href={source.url} target="_blank" rel="noopener noreferrer">{source.title} ↗</a>
+                      ) : (
+                        <span>{source.title}</span>
+                      )}
+                    </>
+                  ))}.
+                </>
+              )}
+            </p>
+          </>
+        ) : (
+          <div class="wanted">
+            <p>No credits transcribed for {g.shortTitle} yet.</p>
+          </div>
+        )
+      }
+    </section>
 
     <section class="section block">
       <h2 class="section-heading">File formats</h2>
+      {formats.length === 0 && (
+        <div class="wanted">
+          <p>No documented file formats for {g.shortTitle} yet.</p>
+        </div>
+      )}
       <div class="rule-list">
         {
           formats.map((format) => (
@@ -231,10 +242,10 @@ for (const row of g.fullCredits ?? []) {
     {/* A hundred cards would bury this page, so the hub carries the count and
         the reference lives on its own route — the same shape as the format
         pages. Only shown for games whose buildings are actually populated. */}
-    {
-      buildingCount > 0 && (
-        <section class="section block">
-          <h2 class="section-heading">Buildings</h2>
+    <section class="section block">
+      <h2 class="section-heading">Buildings</h2>
+      {
+        buildingCount > 0 ? (
           <a class="buildings-link" href={withBase(`/${game.id}/buildings/`)}>
             <span class="buildings-link__count">{buildingCount} buildings →</span>
             <span class="buildings-link__note">
@@ -242,14 +253,18 @@ for (const row of g.fullCredits ?? []) {
               names it in the source. Filterable by name or category.
             </span>
           </a>
-        </section>
-      )
-    }
+        ) : (
+          <div class="wanted">
+            <p>No building data for {g.shortTitle} yet.</p>
+          </div>
+        )
+      }
+    </section>
 
-    {
-      housingCount > 0 && (
-        <section class="section block">
-          <h2 class="section-heading">Housing</h2>
+    <section class="section block">
+      <h2 class="section-heading">Housing</h2>
+      {
+        housingCount > 0 ? (
           <a class="buildings-link" href={withBase(`/${game.id}/housing/`)}>
             <span class="buildings-link__count">{housingCount} rungs -></span>
             <span class="buildings-link__note">
@@ -257,28 +272,36 @@ for (const row of g.fullCredits ?? []) {
               evolve - the number half this game's mission goals are written against.
             </span>
           </a>
-        </section>
-      )
-    }
+        ) : (
+          <div class="wanted">
+            <p>No housing data for {g.shortTitle} yet.</p>
+          </div>
+        )
+      }
+    </section>
 
-    {
-      mechanics.length > 0 && (
-        <section class="section block">
-          <h2 class="section-heading">Mechanics</h2>
-          {mechanics.map((topic) => (
+    <section class="section block">
+      <h2 class="section-heading">Mechanics</h2>
+      {
+        mechanics.length > 0 ? (
+          mechanics.map((topic) => (
             <a class="buildings-link" href={withBase(`/mechanics/${topic.id}/`)}>
               <span class="buildings-link__count">{topic.data.shortTitle} -></span>
               <span class="buildings-link__note">{topic.data.summary}</span>
             </a>
-          ))}
-        </section>
-      )
-    }
+          ))
+        ) : (
+          <div class="wanted">
+            <p>No mechanics deep-dive for {g.shortTitle} yet.</p>
+          </div>
+        )
+      }
+    </section>
 
-    {
-      productionCount > 0 && (
-        <section class="section block">
-          <h2 class="section-heading">Production</h2>
+    <section class="section block">
+      <h2 class="section-heading">Production</h2>
+      {
+        productionCount > 0 ? (
           <a class="buildings-link" href={withBase(`/${game.id}/production/`)}>
             <span class="buildings-link__count">{productionCount} producers -></span>
             <span class="buildings-link__note">
@@ -287,26 +310,34 @@ for (const row of g.fullCredits ?? []) {
               where the source states one in a shape this page can stand behind.
             </span>
           </a>
-        </section>
-      )
-    }
+        ) : (
+          <div class="wanted">
+            <p>No production data for {g.shortTitle} yet.</p>
+          </div>
+        )
+      }
+    </section>
 
-    {
-      missionCount > 0 && (
-        <section class="section block">
-          <h2 class="section-heading">Campaign</h2>
+    <section class="section block">
+      <h2 class="section-heading">Campaign</h2>
+      {
+        missionCount > 0 ? (
           <a class="buildings-link" href={withBase(`/${game.id}/campaign/`)}>
             <span class="buildings-link__count">{campaignLink.label} -></span>
             <span class="buildings-link__note">{campaignLink.note}</span>
           </a>
-        </section>
-      )
-    }
+        ) : (
+          <div class="wanted">
+            <p>No campaign data for {g.shortTitle} yet.</p>
+          </div>
+        )
+      }
+    </section>
 
-    {
-      cheatCount > 0 && (
-        <section class="section block">
-          <h2 class="section-heading">Cheats</h2>
+    <section class="section block">
+      <h2 class="section-heading">Cheats</h2>
+      {
+        cheatCount > 0 ? (
           <a class="buildings-link" href={withBase(`/${game.id}/cheats/`)}>
             <span class="buildings-link__count">{cheatCount} codes -></span>
             <span class="buildings-link__note">
@@ -315,9 +346,13 @@ for (const row of g.fullCredits ?? []) {
               mention for the rest.
             </span>
           </a>
-        </section>
-      )
-    }
+        ) : (
+          <div class="wanted">
+            <p>No documented cheat codes for {g.shortTitle} yet.</p>
+          </div>
+        )
+      }
+    </section>
 
     <section class="section block">
       <h2 class="section-heading">Open-source engines</h2>
@@ -460,19 +495,23 @@ for (const row of g.fullCredits ?? []) {
       }
     </section>
 
-    {
-      g.manuals && (
-        <section class="section block">
-          <h2 class="section-heading">Manual</h2>
-          {g.manuals.map((manual) => (
+    <section class="section block">
+      <h2 class="section-heading">Manual</h2>
+      {
+        g.manuals ? (
+          g.manuals.map((manual) => (
             <a class="buildings-link" href={withBase(manual.url)} target="_blank" rel="noopener noreferrer">
               <span class="buildings-link__count">{manual.title} -></span>
               <span class="buildings-link__note">Scanned copy, {manual.source}.</span>
             </a>
-          ))}
-        </section>
-      )
-    }
+          ))
+        ) : (
+          <div class="wanted">
+            <p>No scanned manual for {g.shortTitle} on the site yet.</p>
+          </div>
+        )
+      }
+    </section>
 
     <section class="section block block--last">
       <h2 class="section-heading">Community</h2>
