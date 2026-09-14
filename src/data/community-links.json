@@ -145,28 +145,6 @@
     "note": "The store page's discussion board — the first place most Steam buyers land with a question."
   },
   {
-    "id": "emperor-heavengames-misc-downloads",
-    "title": "HeavenGames — Miscellaneous Files",
-    "url": "https://emperor.heavengames.com/downloads/lister.php?category=misc",
-    "category": "Downloads",
-    "games": [
-      "emperor"
-    ],
-    "status": "active",
-    "note": "Fan-made utilities alongside the campaigns and maps — EmperorMapper, a desirability-calculator spreadsheet, minimap viewers. None of these are individually catalogued on this site; browse here instead."
-  },
-  {
-    "id": "emperor-nexusmods",
-    "title": "Nexus Mods — Emperor: Rise of the Middle Kingdom",
-    "url": "https://www.nexusmods.com/games/emperorriseofthemiddlekingdom/mods",
-    "category": "Downloads",
-    "games": [
-      "emperor"
-    ],
-    "status": "active",
-    "note": "Two uploads as of writing: the resolution customiser and the Ukrainian localization, both already listed above under Tools & Mods."
-  },
-  {
     "id": "reddit-impressionsgames",
     "title": "r/impressionsgames",
     "url": "https://www.reddit.com/r/impressionsgames",

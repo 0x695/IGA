@@ -463,5 +463,19 @@
         ]
       }
     ]
+  },
+  {
+    "id": "sources-belong-with-the-tools-not-the-forums",
+    "date": "2026-09-14T19:19",
+    "title": "The two Emperor mod sources move from Community into Tools & Mods; the Ukrainian localization comes back out",
+    "summary": "A correction on the last entry: HeavenGames' misc-downloads listing and Emperor's Nexus Mods page were places to browse for tools and mods, so they belong in Tools & Mods, not filed as Community links under a new category invented for them. The Ukrainian localization mod found while researching those sources is removed - a source worth linking isn't the same call as every mod behind it deserving its own entry.",
+    "blocks": [
+      {
+        "kind": "prose",
+        "body": [
+          "Both source links are now Tools & Mods rows like everything else - title, note, a plain-text \"community\" byline since neither is a single person's work, and the fallback title-link since neither has a repo, website or play build of its own. The invented \"Downloads\" community-link category is gone with them; Community goes back to being exactly what it was before this detour, Forums/GOG/Steam/Reddit."
+        ]
+      }
+    ]
   }
 ]

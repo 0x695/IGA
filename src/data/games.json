@@ -1628,12 +1628,23 @@
         "playUrl": null
       },
       {
-        "title": "Ukrainian localization",
-        "url": "https://www.nexusmods.com/emperorriseofthemiddlekingdom/mods/2",
-        "kind": "mod",
-        "note": "A full Ukrainian translation of the game's text.",
-        "author": "Inqisitor888",
-        "authorUrl": "https://www.nexusmods.com/profile/Inqisitor888?gameId=4244",
+        "title": "HeavenGames — Miscellaneous Files",
+        "url": "https://emperor.heavengames.com/downloads/lister.php?category=misc",
+        "kind": "tool",
+        "note": "Fan-made utilities alongside the campaigns and maps - EmperorMapper, a desirability-calculator spreadsheet, minimap viewers. None are individually catalogued on this site; browse here instead.",
+        "author": "HeavenGames community",
+        "authorUrl": null,
+        "repoUrl": null,
+        "websiteUrl": null,
+        "playUrl": null
+      },
+      {
+        "title": "Nexus Mods — Emperor: Rise of the Middle Kingdom",
+        "url": "https://www.nexusmods.com/games/emperorriseofthemiddlekingdom/mods",
+        "kind": "tool",
+        "note": "The resolution customiser above is hosted here too, alongside whatever else gets uploaded - check back for new mods and tools as they appear.",
+        "author": "Nexus Mods community",
+        "authorUrl": null,
         "repoUrl": null,
         "websiteUrl": null,
         "playUrl": null
