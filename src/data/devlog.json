@@ -646,5 +646,19 @@
         ]
       }
     ]
+  },
+  {
+    "id": "zeus-gets-two-moddb-links",
+    "date": "2026-09-14T21:46",
+    "title": "Zeus and Poseidon's ModDB pages, same pattern as Pharaoh and Cleopatra",
+    "summary": "ModDB's Zeus and Poseidon pages join Tools & Mods - Zeus's has a jackfuste WSGF mirror, Poseidon's own separate listing has nothing yet and is linked anyway, exactly the shape this got for Pharaoh and Cleopatra two entries ago.",
+    "blocks": [
+      {
+        "kind": "prose",
+        "body": [
+          "Nothing new in the pattern, but one aside worth a note for later: Poseidon's ModDB summary states outright that \"Poseidon: Master of Atlantis expansion pack introduces Adventure Editor to both Zeus and Poseidon\" - a secondary source touching the same Adventure Editor entry already on this page, worth a closer look against eZeus/Julius wiki sourcing if this site ever revisits exactly which release first shipped that editor, base Zeus or the Poseidon expansion. Not chased down this round; the two links are the only thing asked for."
+        ]
+      }
+    ]
   }
 ]

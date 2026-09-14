@@ -1347,6 +1347,28 @@
         "repoUrl": null,
         "websiteUrl": null,
         "playUrl": null
+      },
+      {
+        "title": "ModDB — Zeus: Master of Olympus",
+        "url": "https://www.moddb.com/games/zeus-master-of-olympus",
+        "kind": "tool",
+        "note": "A mirror of jackfuste's WSGF widescreen fix, as of writing.",
+        "author": "ModDB community",
+        "authorUrl": null,
+        "repoUrl": null,
+        "websiteUrl": null,
+        "playUrl": null
+      },
+      {
+        "title": "ModDB — Poseidon: Master of Atlantis",
+        "url": "https://www.moddb.com/games/poseidon-master-of-atlantis",
+        "kind": "tool",
+        "note": "No mods listed as of writing; the expansion has its own ModDB page, so it's linked separately from Zeus's.",
+        "author": "ModDB community",
+        "authorUrl": null,
+        "repoUrl": null,
+        "websiteUrl": null,
+        "playUrl": null
       }
     ],
     "image": "/images/zeus.webp",
