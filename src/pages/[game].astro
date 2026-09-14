@@ -102,9 +102,6 @@ const CAMPAIGN_LINK: Record<string, { label: string; note: string }> = {
 };
 const campaignLink = CAMPAIGN_LINK[game.id];
 
-const toolEntries = g.tools.filter((t) => t.kind === 'tool');
-const modEntries = g.tools.filter((t) => t.kind === 'mod');
-
 /** Same evidence-for-the-status-claim shape as EngineCard, plus the same
  *  Repository/Website/Play in browser link set — formatted here once and
  *  reused by both the Tools and Mods lists below. */
@@ -393,27 +390,33 @@ for (const row of g.fullCredits ?? []) {
     </section>
 
     <section class="section block">
-      <h2 class="section-heading">Tools</h2>
+      <h2 class="section-heading">Tools & Mods</h2>
       {
-        toolEntries.length > 0 ? (
+        g.tools.length > 0 ? (
           <ul class="compat">
             {
-              toolEntries.map((tool) => {
-                const { slug, date, hasAnyLink } = toolInfo(tool);
+              g.tools.map((entry) => {
+                const { slug, date, hasAnyLink } = toolInfo(entry);
                 return (
                   <li class="compat__item">
-                    <span class="compat__title">{tool.title}</span>
-                    <span class="compat__note">{tool.note}</span>
+                    <span class="compat__title">{entry.title}</span>
+                    <span class="pill compat__kind">{entry.kind === 'mod' ? 'Mod' : 'Tool'}</span>
+                    <span class="compat__note">{entry.note}</span>
                     <span class="compat__author">
-                      By <a href={tool.authorUrl} target="_blank" rel="noopener noreferrer">{tool.author}</a>
+                      By{' '}
+                      {entry.authorUrl ? (
+                        <a href={entry.authorUrl} target="_blank" rel="noopener noreferrer">{entry.author}</a>
+                      ) : (
+                        entry.author
+                      )}
                     </span>
                     {
                       slug && (
                         <p class="compat__commit" data-commit-block data-repo={slug}>
                           {date ? (
                             <>
-                              Last commit <time datetime={tool.lastCommit!.date}>{date}</time>{' '}
-                              <code>{tool.lastCommit!.sha}</code>
+                              Last commit <time datetime={entry.lastCommit!.date}>{date}</time>{' '}
+                              <code>{entry.lastCommit!.sha}</code>
                             </>
                           ) : (
                             'Repository could not be read when this was last checked.'
@@ -422,24 +425,24 @@ for (const row of g.fullCredits ?? []) {
                       )
                     }
                     <div class="compat__links">
-                      {tool.repoUrl && (
-                        <a class="compat__link" href={tool.repoUrl} target="_blank" rel="noopener noreferrer">
+                      {entry.repoUrl && (
+                        <a class="compat__link" href={entry.repoUrl} target="_blank" rel="noopener noreferrer">
                           Repository ↗
                         </a>
                       )}
-                      {tool.websiteUrl && (
-                        <a class="compat__link" href={tool.websiteUrl} target="_blank" rel="noopener noreferrer">
+                      {entry.websiteUrl && (
+                        <a class="compat__link" href={entry.websiteUrl} target="_blank" rel="noopener noreferrer">
                           Website ↗
                         </a>
                       )}
-                      {tool.playUrl && (
-                        <a class="compat__link" href={tool.playUrl} target="_blank" rel="noopener noreferrer">
+                      {entry.playUrl && (
+                        <a class="compat__link" href={entry.playUrl} target="_blank" rel="noopener noreferrer">
                           Play in browser ↗
                         </a>
                       )}
                       {!hasAnyLink && (
-                        <a class="compat__link" href={tool.url} target="_blank" rel="noopener noreferrer">
-                          {tool.title} ↗
+                        <a class="compat__link" href={entry.url} target="_blank" rel="noopener noreferrer">
+                          {entry.title} ↗
                         </a>
                       )}
                     </div>
@@ -450,71 +453,7 @@ for (const row of g.fullCredits ?? []) {
           </ul>
         ) : (
           <div class="wanted">
-            <p>No known third-party tool for {g.shortTitle} yet.</p>
-          </div>
-        )
-      }
-    </section>
-
-    <section class="section block">
-      <h2 class="section-heading">Mods</h2>
-      {
-        modEntries.length > 0 ? (
-          <ul class="compat">
-            {
-              modEntries.map((mod) => {
-                const { slug, date, hasAnyLink } = toolInfo(mod);
-                return (
-                  <li class="compat__item">
-                    <span class="compat__title">{mod.title}</span>
-                    <span class="compat__note">{mod.note}</span>
-                    <span class="compat__author">
-                      By <a href={mod.authorUrl} target="_blank" rel="noopener noreferrer">{mod.author}</a>
-                    </span>
-                    {
-                      slug && (
-                        <p class="compat__commit" data-commit-block data-repo={slug}>
-                          {date ? (
-                            <>
-                              Last commit <time datetime={mod.lastCommit!.date}>{date}</time>{' '}
-                              <code>{mod.lastCommit!.sha}</code>
-                            </>
-                          ) : (
-                            'Repository could not be read when this was last checked.'
-                          )}
-                        </p>
-                      )
-                    }
-                    <div class="compat__links">
-                      {mod.repoUrl && (
-                        <a class="compat__link" href={mod.repoUrl} target="_blank" rel="noopener noreferrer">
-                          Repository ↗
-                        </a>
-                      )}
-                      {mod.websiteUrl && (
-                        <a class="compat__link" href={mod.websiteUrl} target="_blank" rel="noopener noreferrer">
-                          Website ↗
-                        </a>
-                      )}
-                      {mod.playUrl && (
-                        <a class="compat__link" href={mod.playUrl} target="_blank" rel="noopener noreferrer">
-                          Play in browser ↗
-                        </a>
-                      )}
-                      {!hasAnyLink && (
-                        <a class="compat__link" href={mod.url} target="_blank" rel="noopener noreferrer">
-                          {mod.title} ↗
-                        </a>
-                      )}
-                    </div>
-                  </li>
-                );
-              })
-            }
-          </ul>
-        ) : (
-          <div class="wanted">
-            <p>No known mod for {g.shortTitle} yet.</p>
+            <p>No known third-party tool or mod for {g.shortTitle} yet.</p>
           </div>
         )
       }
@@ -899,6 +838,10 @@ for (const row of g.fullCredits ?? []) {
   .compat__title {
     font-size: 13px;
     font-weight: 600;
+    flex: none;
+  }
+
+  .compat__kind {
     flex: none;
   }
 

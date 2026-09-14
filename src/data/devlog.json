@@ -442,5 +442,26 @@
         "body": "Every tool/mod entry so far has at least a repoUrl, so the three-link row has never come up empty. The template still keeps the old title-as-link behaviour as a fallback for the day a tool is just a Nexus Mods page with no public repository at all - `url` remains a required field for exactly that reason, even though nothing on the live site currently exercises it."
       }
     ]
+  },
+  {
+    "id": "tools-and-mods-fuse-back-into-one-section-emperor-gets-its-editor",
+    "date": "2026-09-14T19:10",
+    "title": "Tools and Mods fuse back into one section; Emperor's built-in map editor finally gets listed",
+    "summary": "The Tools/Mods split from a few weeks back is reversed - one \"Tools & Mods\" section per game now, each row labelled Tool or Mod. Emperor also gains its shipped-in-the-box Campaign Creator, a Ukrainian localization found while researching, and two community source links for browsing further.",
+    "blocks": [
+      {
+        "kind": "prose",
+        "body": [
+          "Splitting Tools and Mods into two always-shown sections was a deliberate call, recorded at the time: an empty Tools section for a game said something true that hiding it wouldn't. That's still the right instinct, but running six hubs with two sections each - most of them empty - turned out to read as more structure than the data actually has. One \"Tools & Mods\" section, one small Tool/Mod pill per row, says the same honest thing (including the empty case - \"No known third-party tool or mod for X yet\") with less scaffolding. `toolEntries`/`modEntries`, the two filtered arrays the split relied on, are gone; the section now just maps over `g.tools` directly.",
+          "Emperor picked up its first non-third-party entry in the process: a Campaign Creator that ships inside the game's own install directory as EmperorCampaignCreator.pdf, not a separate download - confirmed from a 2004 HeavenGames scenario-design forum thread rather than assumed from memory. It has no GitHub author to credit, so `authorUrl` on a tools entry is nullable now; the byline reads \"By Impressions Games / BreakAway Games\" as plain text, pointing at the Credits section already on the same page rather than inventing a link that doesn't exist. With no repo, website or play link either, it's the first entry to actually exercise the title-as-fallback-link behaviour the schema was built with months ago but nothing had needed until now."
+        ]
+      },
+      {
+        "kind": "prose",
+        "body": [
+          "Checking the two community sources given for this - HeavenGames' misc-downloads category and Emperor's Nexus Mods page - surfaced a mod this site didn't have: a Ukrainian localization by Inqisitor888, sitting right next to the resolution customiser's own Nexus listing (useful corroboration that the customiser really is what's hosted there). It's now a full Tools & Mods entry of its own, not just a mention. Both sources are also linked from the Community section under a new \"Downloads\" category, for whatever isn't worth cataloguing individually - EmperorMapper, a desirability-calculator spreadsheet, minimap viewers, wallpapers."
+        ]
+      }
+    ]
   }
 ]

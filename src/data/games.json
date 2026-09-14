@@ -1615,6 +1615,28 @@
           "branch": "main"
         },
         "activityCheckedAt": "2026-09-14"
+      },
+      {
+        "title": "Campaign Creator (map & scenario editor)",
+        "url": "https://emperor.heavengames.com/maps/design/editor/",
+        "kind": "tool",
+        "note": "Ships in the game's own install directory as EmperorCampaignCreator.pdf, not a separate download. Builds maps, campaigns and scripted events; HeavenGames' primer, linked here, is the gentler starting point before the manual.",
+        "author": "Impressions Games / BreakAway Games",
+        "authorUrl": null,
+        "repoUrl": null,
+        "websiteUrl": null,
+        "playUrl": null
+      },
+      {
+        "title": "Ukrainian localization",
+        "url": "https://www.nexusmods.com/emperorriseofthemiddlekingdom/mods/2",
+        "kind": "mod",
+        "note": "A full Ukrainian translation of the game's text.",
+        "author": "Inqisitor888",
+        "authorUrl": "https://www.nexusmods.com/profile/Inqisitor888?gameId=4244",
+        "repoUrl": null,
+        "websiteUrl": null,
+        "playUrl": null
       }
     ],
     "image": "/images/emperor.webp",

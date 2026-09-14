@@ -116,15 +116,17 @@ const games = defineCollection({
       z.object({ title: z.string(), url: z.string().url(), note: z.string() }),
     ),
     /**
-     * Fan-made tools and mods — a resolution patcher, a save editor, a
-     * gameplay mod. Distinct from `compat` above: compat is patches and
+     * Tools and mods, fused into one list — a resolution patcher, a save
+     * editor, a gameplay mod, an editor that shipped in the game's own
+     * install directory. Distinct from `compat` above: compat is patches and
      * compatibility notes for running the original as shipped, this is
-     * something a third party built on top of it.
+     * something built on top of it (or, for a bundled editor, alongside it).
      *
-     * `kind` splits the hub into two sections, Tools and Mods, and both are
-     * shown for every game even when empty — the same honesty the `wanted`
-     * callout applies to engines. An empty Tools section for Caesar III says
-     * something true (nobody has built one) that hiding the section would not.
+     * `kind` used to split the hub into two sections, both shown even when
+     * empty; fused into one "Tools & Mods" section per request, with `kind`
+     * now only a small label on each row. The section itself is still shown
+     * empty rather than hidden where a game has neither — the same honesty
+     * the `wanted` callout applies to engines.
      */
     tools: z.array(
       z.object({
@@ -133,9 +135,12 @@ const games = defineCollection({
         kind: z.enum(['tool', 'mod']),
         note: z.string(),
         /** Who made it — twenty-plus years of this series staying playable is
-         *  down to named people, not an anonymous "community". */
+         *  down to named people, not an anonymous "community". Null only for
+         *  something the original developers built into the game itself,
+         *  where the credit is already the game's own Credits section on
+         *  this same page and there's no separate person to link. */
         author: z.string(),
-        authorUrl: z.string().url(),
+        authorUrl: z.string().url().nullable(),
         /**
          * The GitHub repo behind it, when there is one — separate from `url`
          * because a tool's user-facing link is sometimes a docs/download page
