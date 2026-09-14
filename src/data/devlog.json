@@ -514,5 +514,20 @@
         ]
       }
     ]
+  },
+  {
+    "id": "the-buildings-filter-was-never-actually-hiding-anything",
+    "date": "2026-09-14T20:07",
+    "title": "The buildings filter's hidden cards were never actually hidden",
+    "summary": "A user report on the new Zeus page (\"click Aesthetics, all buildings are still showing\") turned out to be a real, pre-existing bug on every game's Buildings page: the filter script was setting card.hidden correctly the whole time, but the .card class's own display: flex silently overrode the browser's default hidden styling, so filtered-out cards stayed laid out and visible.",
+    "blocks": [
+      {
+        "kind": "prose",
+        "body": [
+          "The report didn't reproduce in testing at first - clicking a category chip and watching the count go from \"100 buildings\" to \"9 of 100\" looked like proof the filter worked, and screenshots seemed to back that up. What that testing never did was check computed styles directly. Doing that on the live site settled it in one query: 80 cards had the hidden attribute set correctly by the script, and all 80 of them were still computed to display: flex, still taking up real space in the grid, rect and all. The count text was honest; the layout wasn't listening to it.",
+          "The cause is a specific, well-known CSS gotcha rather than a script bug: hidden's default browser styling is [hidden] { display: none }, declared in the user-agent stylesheet - the lowest-priority origin in the cascade. Any author stylesheet rule setting display on the same element beats it outright, regardless of specificity, and .card { display: flex } is exactly that rule. The fix is the standard one: a compound selector, .card[hidden] { display: none }, which outranks .card alone and wins. This wasn't specific to Zeus or to Firefox, where it was noticed - it's been true of every game's Buildings page since BuildingsGrid.astro was first written, silently doing nothing every time a chip or the search box removed a card from view, on every browser, the whole time this component has existed."
+        ]
+      }
+    ]
   }
 ]

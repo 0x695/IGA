@@ -241,6 +241,16 @@ const categories = [...new Set(rows.map((r) => r.category))].sort();
     gap: 5px;
   }
 
+  /* `.card`'s own `display: flex` is an author-origin rule, and author
+     styles always beat the browser's default `[hidden] { display: none }`
+     regardless of specificity - so a filtered-out card (`card.hidden = true`
+     in the script below) stayed laid out as an empty flex box instead of
+     disappearing. `[hidden]` on the compound selector outranks `.card`
+     alone and wins outright. */
+  .card[hidden] {
+    display: none;
+  }
+
   .card__head {
     display: flex;
     justify-content: space-between;
