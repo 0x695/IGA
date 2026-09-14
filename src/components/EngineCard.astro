@@ -68,9 +68,25 @@ const slug = repoSlug(p.repoUrl);
     )
   }
 
-  <a class="engine__link" href={p.repoUrl} target="_blank" rel="noopener noreferrer">
-    Repository ↗
-  </a>
+  <div class="engine__links">
+    <a class="engine__link" href={p.repoUrl} target="_blank" rel="noopener noreferrer">
+      Repository ↗
+    </a>
+    {
+      p.websiteUrl && (
+        <a class="engine__link" href={p.websiteUrl} target="_blank" rel="noopener noreferrer">
+          Website ↗
+        </a>
+      )
+    }
+    {
+      p.playUrl && (
+        <a class="engine__link" href={p.playUrl} target="_blank" rel="noopener noreferrer">
+          Play in browser ↗
+        </a>
+      )
+    }
+  </div>
 </article>
 
 <style>
@@ -148,6 +164,12 @@ const slug = repoSlug(p.repoUrl);
 
   .engine__facts-wide {
     grid-column: 1 / -1;
+  }
+
+  .engine__links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px 14px;
   }
 
   .engine__link {

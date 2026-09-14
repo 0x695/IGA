@@ -197,6 +197,23 @@ const engineProjects = defineCollection({
     activityCheckedAt: z.string().optional(),
     repoUrl: z.string().url(),
     docsUrl: z.string().url().nullable(),
+    /**
+     * The project's own site, when it has one beyond the repo — Akhenaten's
+     * is a real landing page (About/Devblog/Wiki/Downloads), Julius's is a
+     * development-builds download page. Distinct from `playUrl`: a project
+     * can have either, both, or neither. Checked by hand, not guessed from a
+     * `<username>.github.io/<repo>` pattern — most projects here don't have
+     * one at all.
+     */
+    websiteUrl: z.string().url().nullable().optional(),
+    /**
+     * A WebAssembly build a reader can run without installing anything.
+     * Sometimes the same URL as `websiteUrl` (Augustus, the Caesar II port —
+     * the whole site *is* the player), sometimes a sub-page of it
+     * (Akhenaten's `/play/`). Still needs the reader's own copy of the game
+     * data; nothing here is a way to play without owning the original.
+     */
+    playUrl: z.string().url().nullable().optional(),
   }),
 });
 

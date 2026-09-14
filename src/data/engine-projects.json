@@ -15,6 +15,8 @@
     "activity": "First release Nov 2018 · actively maintained",
     "repoUrl": "https://github.com/bvschaik/julius",
     "docsUrl": "https://github.com/bvschaik/julius/wiki",
+    "websiteUrl": "https://julius.biancavanschaik.nl/",
+    "playUrl": null,
     "lastCommit": {
       "sha": "34d1ecd",
       "date": "2026-09-12T12:22:23Z",
@@ -38,6 +40,8 @@
     "activity": "Most active dev community · hosts a Discord",
     "repoUrl": "https://github.com/Keriew/augustus",
     "docsUrl": null,
+    "websiteUrl": null,
+    "playUrl": "https://augustus.josecadete.net/",
     "lastCommit": {
       "sha": "b7d8ee1",
       "date": "2026-09-13T13:37:49Z",
@@ -61,6 +65,8 @@
     "activity": "First commit late 2023 · the currently living Pharaoh project",
     "repoUrl": "https://github.com/dalerank/Akhenaten",
     "docsUrl": null,
+    "websiteUrl": "https://dalerank.github.io/Akhenaten/",
+    "playUrl": "https://dalerank.github.io/Akhenaten/play/",
     "lastCommit": {
       "sha": "14eeb6b",
       "date": "2026-09-13T22:26:58Z",
@@ -84,6 +90,8 @@
     "activity": "Godot rewrite - slow but not stopped",
     "repoUrl": "https://github.com/Banderi/Ozymandias",
     "docsUrl": null,
+    "websiteUrl": null,
+    "playUrl": null,
     "lastCommit": {
       "sha": "ee4cc27",
       "date": "2026-02-20T05:34:36Z",
@@ -107,6 +115,8 @@
     "activity": "Superseded by the Godot port",
     "repoUrl": "https://github.com/Banderi/Ozymandias_Julius",
     "docsUrl": null,
+    "websiteUrl": null,
+    "playUrl": null,
     "lastCommit": {
       "sha": "6ba5f82",
       "date": "2026-02-03T09:28:16Z",
@@ -130,6 +140,8 @@
     "activity": "No known recent activity — but ships a 010 Editor SG3 template and a C# parser",
     "repoUrl": "https://github.com/gaddas/OpenPharaoh",
     "docsUrl": null,
+    "websiteUrl": null,
+    "playUrl": null,
     "lastCommit": {
       "sha": "79e5eb5",
       "date": "2012-09-19T14:49:54Z",
@@ -153,6 +165,8 @@
     "activity": "Newer packaged releases · 0.1.0-rc.1",
     "repoUrl": "https://github.com/gitTerebi/Olympus",
     "docsUrl": null,
+    "websiteUrl": null,
+    "playUrl": null,
     "lastCommit": {
       "sha": "161a122",
       "date": "2026-07-04T11:14:32Z",
@@ -176,6 +190,8 @@
     "activity": "Base for Olympus - English/Polish only (font glyph limits)",
     "repoUrl": "https://github.com/MaurycyLiebner/eZeus",
     "docsUrl": null,
+    "websiteUrl": null,
+    "playUrl": null,
     "lastCommit": {
       "sha": "9200381",
       "date": "2026-09-10T12:03:51Z",
@@ -199,6 +215,8 @@
     "activity": "Early stage — map engine only",
     "repoUrl": "https://github.com/Vinorcola/CityBuilderEngine",
     "docsUrl": null,
+    "websiteUrl": null,
+    "playUrl": null,
     "lastCommit": {
       "sha": "ed1a287",
       "date": "2021-01-05T18:00:54Z",
@@ -222,6 +240,8 @@
     "activity": "Reached byte-exact against the original in Jul 2026 · CI gates every change against it",
     "repoUrl": "https://github.com/second-impressions/caesar2-reconstruction",
     "docsUrl": null,
+    "websiteUrl": null,
+    "playUrl": null,
     "lastCommit": {
       "sha": "f549467",
       "date": "2026-09-06T17:16:12Z",
@@ -245,6 +265,8 @@
     "activity": "First stable release (v1.0.0) 2026 · v1.0.2 current · actively maintained",
     "repoUrl": "https://github.com/second-impressions/caesar2-port",
     "docsUrl": "https://github.com/second-impressions/caesar2-port/tree/main/docs",
+    "websiteUrl": null,
+    "playUrl": "https://second-impressions.github.io/caesar2-port/",
     "lastCommit": {
       "sha": "a8b0fea",
       "date": "2026-09-13T17:48:41Z",

@@ -407,5 +407,20 @@
         "body": "The straightforward alternative was a daily GitHub Action re-running the update script and pushing, which would redeploy through the existing deploy workflow with no new runtime code at all. That was the first plan. Live-in-the-browser was chosen instead so the number is never more than one page load stale for whoever's actually looking at it, at the cost of depending on a visitor's own network conditions and GitHub's rate limit rather than a controlled CI run - a trade this site's audience of one-search-away developers should tolerate fine, given the graceful fallback."
       }
     ]
+  },
+  {
+    "id": "some-of-these-engines-have-their-own-front-door",
+    "date": "2026-09-14T17:33",
+    "title": "Four engine projects turn out to have a website, or a browser build, or both",
+    "summary": "Julius, Augustus, Akhenaten and the Caesar II port each carry something beyond the bare GitHub repo - a project site, a WebAssembly build you can run with no install, or both. Checked by hand rather than guessed from a github.io URL pattern; the other seven engine projects genuinely have neither.",
+    "blocks": [
+      {
+        "kind": "prose",
+        "body": [
+          "Every engine card has always shown one link - Repository - which undersold a few of these projects. Augustus's own homepage isn't a landing page at all: augustus.josecadete.net is the player itself, a drag-and-drop box for a C3 folder that runs the game in the browser on load. The Caesar II port's github.io page is the same shape. Akhenaten's site is a proper one - About, Devblog, Wiki, Screenshots, Downloads - with its own separate /play/ route for the browser build, so it needed both a Website and a Play in browser link where Augustus only needed one. Julius's own domain turned out to be a development-builds page (zip downloads per platform, including an Emscripten build with no embedded player) rather than a marketing site or a playable one, so it's labelled Website and nothing more.",
+          "Checking meant reading each README for outbound links rather than trying `<username>.github.io/<repo>` and seeing what resolved - Olympus, eZeus, CityBuilderEngine, both Ozymandias forks and OpenPharaoh have no non-GitHub link in their README at all, and a guessed URL for any of them would have either 404'd or, worse, silently resolved to something unrelated on someone's personal github.io. Two new optional fields, `websiteUrl` and `playUrl`, carry `null` rather than being left off for the seven that have neither - the same explicit-absence pattern `docsUrl` already set."
+        ]
+      }
+    ]
   }
 ]
