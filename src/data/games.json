@@ -834,20 +834,9 @@
         "title": "Nexus Mods — Pharaoh + Cleopatra",
         "url": "https://www.nexusmods.com/games/pharaohcleopatra/mods",
         "kind": "tool",
-        "note": "The CrashFix mod below is hosted here; check back for whatever else gets uploaded.",
+        "note": "Check back for whatever gets uploaded.",
         "author": "Nexus Mods community",
         "authorUrl": null,
-        "repoUrl": null,
-        "websiteUrl": null,
-        "playUrl": null
-      },
-      {
-        "title": "Pharaoh CrashFix",
-        "url": "https://www.nexusmods.com/pharaohcleopatra/mods/1",
-        "kind": "mod",
-        "note": "Replacement audio DLLs for the crash some modern systems hit loading sound on the CD version. Tested on Pharaoh 1.2 and Pharaoh + Cleopatra.",
-        "author": "SCARaw",
-        "authorUrl": "https://www.nexusmods.com/profile/SCARaw?gameId=7936",
         "repoUrl": null,
         "websiteUrl": null,
         "playUrl": null

@@ -544,5 +544,19 @@
         ]
       }
     ]
+  },
+  {
+    "id": "pharaoh-crashfix-removed",
+    "date": "2026-09-14T20:27",
+    "title": "Pharaoh CrashFix comes back out",
+    "summary": "Removed at request, the same way Emperor's Ukrainian localization briefly was and then wasn't. The Nexus Mods link-out stays; its note no longer points at an entry that isn't there.",
+    "blocks": [
+      {
+        "kind": "prose",
+        "body": [
+          "The Mission Editor and the two source links (HeavenGames misc-downloads, Nexus Mods) stay on Pharaoh's Tools & Mods list; only the CrashFix entry itself is gone, and the Nexus row's note was edited so it no longer refers to a mod \"below\" that no longer exists."
+        ]
+      }
+    ]
   }
 ]
