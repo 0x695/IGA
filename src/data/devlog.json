@@ -660,5 +660,20 @@
         ]
       }
     ]
+  },
+  {
+    "id": "the-three-caesars-get-moddb-links",
+    "date": "2026-09-14T21:52",
+    "title": "ModDB rounds out all three Caesars' Tools & Mods lists",
+    "summary": "Caesar, Caesar II and Caesar III all get a ModDB link now, the same source-link pattern the rest of the series already has. Caesar III's page is genuinely active (restored cinematics, a housing tweak, a WSGF mirror); Caesar and Caesar II's are both empty, linked anyway.",
+    "blocks": [
+      {
+        "kind": "prose",
+        "body": [
+          "Caesar's ModDB page has nothing at all - no mods, no files, no articles - which is at least consistent with everything else this site has found for the original 1992 game: no open-source engine, no format documentation, virgin reverse-engineering territory by its own wanted-board framing. Caesar II's page has two files (the official v1.01 Windows patch and a magazine cover-disc scan) but zero mods, matching what this site already confirmed by other means - no map editor, official or fan-made, has ever surfaced for it. Caesar III's is the one with real content: a fan-restored cinematics pack, a housing-requirements tweak, and a WSGF widescreen mirror shared with several other titles in the series.",
+          "That's five of the six games with a ModDB link now - Caesar, Caesar II, Caesar III, Pharaoh and Zeus. Emperor's is the one still missing."
+        ]
+      }
+    ]
   }
 ]

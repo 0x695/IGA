@@ -112,7 +112,19 @@
         "note": "Compatibility notes for the DOS original and the DOSBox re-release."
       }
     ],
-    "tools": [],
+    "tools": [
+      {
+        "title": "ModDB — Caesar",
+        "url": "https://www.moddb.com/games/caesar",
+        "kind": "tool",
+        "note": "No mods, files or articles listed as of writing.",
+        "author": "ModDB community",
+        "authorUrl": null,
+        "repoUrl": null,
+        "websiteUrl": null,
+        "playUrl": null
+      }
+    ],
     "image": "/images/caesar1.webp",
     "imageCredit": "Community screenshot — Caesar (1992) © Activision",
     "cover": "/images/caesar1-cover.webp",
@@ -323,7 +335,19 @@
         "note": "The engine reconstruction above, running via WebAssembly. Needs your own copy of the game data, imported client-side into the browser's own storage; nothing is uploaded."
       }
     ],
-    "tools": [],
+    "tools": [
+      {
+        "title": "ModDB — Caesar II",
+        "url": "https://www.moddb.com/games/caesar-ii",
+        "kind": "tool",
+        "note": "No mods or articles listed as of writing - the files tab has the official v1.01 Windows patch and a magazine cover-disc scan, but no fan tools.",
+        "author": "ModDB community",
+        "authorUrl": null,
+        "repoUrl": null,
+        "websiteUrl": null,
+        "playUrl": null
+      }
+    ],
     "image": "/images/caesar2.webp",
     "imageCredit": "Community screenshot — Caesar II (1995) © Activision",
     "cover": "/images/caesar2-cover.webp",
@@ -540,6 +564,17 @@
         "kind": "tool",
         "note": "Fan-made utilities alongside the scenarios and completed cities - a desirability calculator, an .sg2 image extractor, a .map terrain explorer, save-file scripts. None are individually catalogued on this site; browse here instead.",
         "author": "HeavenGames community",
+        "authorUrl": null,
+        "repoUrl": null,
+        "websiteUrl": null,
+        "playUrl": null
+      },
+      {
+        "title": "ModDB — Caesar III",
+        "url": "https://www.moddb.com/games/caesar-iii",
+        "kind": "tool",
+        "note": "A fan-restored cinematics pack, a housing-requirements tweak, and a WSGF widescreen mirror, as of writing.",
+        "author": "ModDB community",
         "authorUrl": null,
         "repoUrl": null,
         "websiteUrl": null,
