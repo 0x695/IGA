@@ -105,33 +105,6 @@
     ]
   },
   {
-    "id": "campaigns-and-a-misread-array",
-    "date": "2026-09-07T09:30",
-    "title": "Campaigns, a misread array, and ten missions in the wrong game",
-    "summary": "Reading mission lists out of engines rather than walkthroughs produced something no guide has — and caught two errors, one of them mine.",
-    "blocks": [
-      {
-        "kind": "prose",
-        "body": [
-          "A compilation of walkthroughs was offered as source material and declined for the pages themselves: each section had a named author and its own terms, and one said plainly that it may not be placed on any web site. The rule that came out of it is simple, and it is now the site's rule for anything handed over as content — facts can be sourced, prose cannot be copied.",
-          "So Pharaoh's campaign was read out of Akhenaten's per-mission configuration instead, which yields something no walkthrough has: the win criteria the engine actually tests. Caesar III and Emperor had to come from the community, because their mission names are not in any engine, and the pages say which is which rather than presenting both as equally grounded."
-        ]
-      },
-      {
-        "kind": "callout",
-        "title": "Twelve ranks and twenty-two scenarios, except not",
-        "body": "Caesar III's campaign was first reported here as twelve ranks and twenty-two scenarios, read off the size of Julius's MISSION_IDS array. That was array capacity, not campaign content. The game has eleven ranks and twenty missions; Julius simply leaves its twelfth row unused. Reading a fixed-size table as a fact about the game is a mistake worth remembering."
-      },
-      {
-        "kind": "prose",
-        "body": [
-          "The second error survived longer. Ten missions belonging to Cleopatra: Queen of the Nile were being presented as part of the base Pharaoh campaign. A supplied mission list disagreed with the site, and it was right — but rather than take its word, the fix walked the engine's own chains: every Akhenaten mission names the mission it hands off to, and a campaign ends where that pointer reads -1. Those terminators land at 40, 44, 47 and 52, which reproduces Cleopatra's four short campaigns exactly. The engine's own comments back it up, annotating mission 45 as the first Ancient Conquerors mission and 52 as the campaign end.",
-          "The right split is 38 base missions and 15 Cleopatra ones. Two independent sources agreeing is good; a source agreeing with something you can walk yourself is better."
-        ]
-      }
-    ]
-  },
-  {
     "id": "credits-and-a-blocked-door",
     "date": "2026-09-07T09:06",
     "title": "Credits, a blocked door, and the shape of a lie",
@@ -162,6 +135,33 @@
         "kind": "callout",
         "title": "Eighty names that are not here",
         "body": "The manuals list roughly eighty external beta testers per game, and they are not reproduced — but each affected game says so, rather than staying quiet about the omission. Emperor's map-contest winners are the exception: their scenarios shipped in patch 1.0.1.0, which is authorship rather than testing, and they are credited for it."
+      }
+    ]
+  },
+  {
+    "id": "campaigns-and-a-misread-array",
+    "date": "2026-09-07T09:30",
+    "title": "Campaigns, a misread array, and ten missions in the wrong game",
+    "summary": "Reading mission lists out of engines rather than walkthroughs produced something no guide has — and caught two errors, one of them mine.",
+    "blocks": [
+      {
+        "kind": "prose",
+        "body": [
+          "A compilation of walkthroughs was offered as source material and declined for the pages themselves: each section had a named author and its own terms, and one said plainly that it may not be placed on any web site. The rule that came out of it is simple, and it is now the site's rule for anything handed over as content — facts can be sourced, prose cannot be copied.",
+          "So Pharaoh's campaign was read out of Akhenaten's per-mission configuration instead, which yields something no walkthrough has: the win criteria the engine actually tests. Caesar III and Emperor had to come from the community, because their mission names are not in any engine, and the pages say which is which rather than presenting both as equally grounded."
+        ]
+      },
+      {
+        "kind": "callout",
+        "title": "Twelve ranks and twenty-two scenarios, except not",
+        "body": "Caesar III's campaign was first reported here as twelve ranks and twenty-two scenarios, read off the size of Julius's MISSION_IDS array. That was array capacity, not campaign content. The game has eleven ranks and twenty missions; Julius simply leaves its twelfth row unused. Reading a fixed-size table as a fact about the game is a mistake worth remembering."
+      },
+      {
+        "kind": "prose",
+        "body": [
+          "The second error survived longer. Ten missions belonging to Cleopatra: Queen of the Nile were being presented as part of the base Pharaoh campaign. A supplied mission list disagreed with the site, and it was right — but rather than take its word, the fix walked the engine's own chains: every Akhenaten mission names the mission it hands off to, and a campaign ends where that pointer reads -1. Those terminators land at 40, 44, 47 and 52, which reproduces Cleopatra's four short campaigns exactly. The engine's own comments back it up, annotating mission 45 as the first Ancient Conquerors mission and 52 as the campaign end.",
+          "The right split is 38 base missions and 15 Cleopatra ones. Two independent sources agreeing is good; a source agreeing with something you can walk yourself is better."
+        ]
       }
     ]
   },
