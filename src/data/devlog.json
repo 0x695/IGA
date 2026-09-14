@@ -558,5 +558,20 @@
         ]
       }
     ]
+  },
+  {
+    "id": "caesar-iii-completes-the-editor-set",
+    "date": "2026-09-14T20:47",
+    "title": "Caesar III's editor was the fourth kind of \"integrated\" this series had",
+    "summary": "The last of the four games' Tools & Mods lists gets its editor entry and a HeavenGames source link. Caesar III's own engineNote already said the official editor landed in the v1.1 patch - it just didn't have a row. Turns out not every copy still ships it, which is its own small wrinkle Emperor, Zeus and Pharaoh's editors didn't have.",
+    "blocks": [
+      {
+        "kind": "prose",
+        "body": [
+          "Four games, four different ways to be \"the editor came with the game.\" Emperor's is a PDF-documented tool in the install directory; Zeus's is a menu option on the start screen; Pharaoh's is unlocked by a patch; Caesar III's shipped in the v1.1 patch too, but unlike Pharaoh's - which the GOG release already carries patched in - not every surviving copy of Caesar III still has the editor's files. Julius's own wiki says as much and mirrors the editor per language for exactly that reason, which is also why that wiki page is the entry's link rather than a bare download: it explains the situation instead of just handing over a .exe. The same file is also mirrored on ModDB as si_caesar3_mapeditor.exe, credited there too as Impressions Games' official tool.",
+          "HeavenGames' Utility Programs category joins as a source link the same way the other three games' downloads/misc categories did - a desirability calculator, an .sg2 image extractor, a .map terrain explorer, a couple of save-file Python scripts. Fifteen files, browsed rather than catalogued."
+        ]
+      }
+    ]
   }
 ]

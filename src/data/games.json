@@ -511,7 +511,30 @@
         "note": "Patches, resolution options and modern-Windows notes."
       }
     ],
-    "tools": [],
+    "tools": [
+      {
+        "title": "Map Editor (map & scenario editor)",
+        "url": "https://github.com/bvschaik/julius/wiki/Editor",
+        "kind": "tool",
+        "note": "The official editor, bundled since the v1.1 patch (mentioned above) - not every copy of the game still has it, though, so Julius's own wiki mirrors it per language for anyone whose install is missing it. Also mirrored on ModDB as si_caesar3_mapeditor.exe.",
+        "author": "Impressions Games",
+        "authorUrl": null,
+        "repoUrl": null,
+        "websiteUrl": null,
+        "playUrl": null
+      },
+      {
+        "title": "HeavenGames — Utility Programs",
+        "url": "https://caesar3.heavengames.com/downloads/lister.php?category=utilities",
+        "kind": "tool",
+        "note": "Fan-made utilities alongside the scenarios and completed cities - a desirability calculator, an .sg2 image extractor, a .map terrain explorer, save-file scripts. None are individually catalogued on this site; browse here instead.",
+        "author": "HeavenGames community",
+        "authorUrl": null,
+        "repoUrl": null,
+        "websiteUrl": null,
+        "playUrl": null
+      }
+    ],
     "image": "/images/caesar3.webp",
     "imageCredit": "Community screenshot — Caesar III (1998) © Activision",
     "cover": "/images/caesar3-cover.webp",
