@@ -514,10 +514,21 @@
     "tools": [
       {
         "title": "Map Editor (map & scenario editor)",
+        "url": "https://www.moddb.com/games/caesar-iii/downloads/caesar-iii-map-editor",
+        "kind": "tool",
+        "note": "The official si_caesar3_mapeditor.exe, bundled since the v1.1 patch (mentioned above) - not every surviving copy of the game still has it, so this ModDB mirror is here for whoever's is missing it.",
+        "author": "Impressions Games",
+        "authorUrl": null,
+        "repoUrl": null,
+        "websiteUrl": null,
+        "playUrl": null
+      },
+      {
+        "title": "Julius / Augustus editor (built-in)",
         "url": "https://github.com/bvschaik/julius/wiki/Editor",
         "kind": "tool",
-        "note": "The official editor, bundled since the v1.1 patch (mentioned above) - not every copy of the game still has it, though, so Julius's own wiki mirrors it per language for anyone whose install is missing it. Also mirrored on ModDB as si_caesar3_mapeditor.exe.",
-        "author": "Impressions Games",
+        "note": "Not a redistribution of the file above - a from-scratch reimplementation of the assignment editor, built into Julius's own menu rather than running the original .exe. It still needs the original editor's font and graphic files, the same way the main game needs original assets; this wiki page mirrors those per language. Augustus builds on it with Scenario Events - XML-scriptable conditional logic a map maker can attach to a scenario, e.g. \"every 6 months, if favour is high enough, raise a good's trade demand.\"",
+        "author": "Bianca van Schaik / Keriew",
         "authorUrl": null,
         "repoUrl": null,
         "websiteUrl": null,

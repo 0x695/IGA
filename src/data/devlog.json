@@ -588,5 +588,20 @@
         ]
       }
     ]
+  },
+  {
+    "id": "julius-has-its-own-editor-not-just-a-mirror-of-the-original",
+    "date": "2026-09-14T21:07",
+    "title": "Julius turns out to have reimplemented the map editor too, not just the game",
+    "summary": "Asked to check whether Julius/Augustus have their own map editor, distinct from the original si_caesar3_mapeditor.exe already listed. They do: src/editor/ and src/window/editor/ are a from-scratch C reimplementation built into Julius's own menu, and Augustus extends it with Scenario Events, an XML-scriptable conditional-logic system the original editor never had. The earlier Map Editor entry's link was wrong about what it was pointing at, and is corrected.",
+    "blocks": [
+      {
+        "kind": "prose",
+        "body": [
+          "The Caesar III Map Editor entry added a few commits back linked Julius's wiki \"Editor\" page and credited Impressions Games, on the assumption that the wiki page was just a redistribution mirror for the original binary. Checking Julius's own repository shows that's not what it is: there's a full src/editor/ and src/window/editor/ tree - build menus, win criteria, invasions, demand and price changes, empire editing, starting conditions, all reimplemented in Julius's own C, compiled into the same executable as the main game rather than shipped as a separate program. What the wiki page actually explains is how to get the original editor's font and graphic files, which Julius's own editor code still needs - the identical relationship the main game has to the original's assets. The entry now points at the real original (ModDB's si_caesar3_mapeditor.exe, credited to Impressions Games there) and a new, separate entry credits Julius's reimplementation to Bianca van Schaik.",
+          "Augustus goes further: its README ships a 32KB, 583-line manual for something called Scenario Events - conditions and actions a map maker can script in XML and import through the editor's own UI. \"Every 6 months, if the player has 70 or more favour and Rome buys less than 100 wine a year, increase Rome's wine demand by 5\" is the kind of rule this makes possible, imported through a button the base editor's scenario-details window never had. Genuinely new capability, not a rebrand of Julius's editor, credited to Keriew alongside Bianca van Schaik on the same entry."
+        ]
+      }
+    ]
   }
 ]
