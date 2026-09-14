@@ -8,8 +8,7 @@
       "caesar1"
     ],
     "status": "active",
-    "note": "Shared forums covering the whole series, including Caesar.",
-    "archivedUrl": "https://web.archive.org/web/2/https://caesar3.heavengames.com/cgi-bin/caeforumscgi/index.cgi"
+    "note": "Shared forums covering the whole series, including Caesar."
   },
   {
     "id": "citybuilders-forums-caesar2",
@@ -20,8 +19,7 @@
       "caesar2"
     ],
     "status": "active",
-    "note": "Shared forums covering the whole series, including Caesar II.",
-    "archivedUrl": "https://web.archive.org/web/2/https://caesar3.heavengames.com/cgi-bin/caeforumscgi/index.cgi"
+    "note": "Shared forums covering the whole series, including Caesar II."
   },
   {
     "id": "citybuilders-forums-caesar3",
@@ -32,8 +30,7 @@
       "caesar3"
     ],
     "status": "active",
-    "note": "Per-game HeavenGames site — news, downloads, FAQ, and its own forums.",
-    "archivedUrl": "https://web.archive.org/web/2/https://caesar3.heavengames.com/"
+    "note": "Per-game HeavenGames site — news, downloads, FAQ, and its own forums."
   },
   {
     "id": "pharaoh-heavengames",
@@ -44,8 +41,7 @@
       "pharaoh"
     ],
     "status": "active",
-    "note": "Per-game HeavenGames site — news, downloads, FAQ.",
-    "archivedUrl": "https://web.archive.org/web/2/https://pharaoh.heavengames.com/"
+    "note": "Per-game HeavenGames site — news, downloads, FAQ."
   },
   {
     "id": "zeus-heavengames",
@@ -56,8 +52,7 @@
       "zeus"
     ],
     "status": "active",
-    "note": "Per-game HeavenGames site — news, downloads, FAQ.",
-    "archivedUrl": "https://web.archive.org/web/2/https://zeus.heavengames.com/"
+    "note": "Per-game HeavenGames site — news, downloads, FAQ."
   },
   {
     "id": "emperor-heavengames",
@@ -68,8 +63,7 @@
       "emperor"
     ],
     "status": "active",
-    "note": "Notably documents bugs Impressions never fixed before going under.",
-    "archivedUrl": "https://web.archive.org/web/2/https://emperor.heavengames.com/"
+    "note": "Notably documents bugs Impressions never fixed before going under."
   },
   {
     "id": "gog-forum-caesar-series",
