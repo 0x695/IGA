@@ -874,6 +874,28 @@
         "repoUrl": null,
         "websiteUrl": null,
         "playUrl": null
+      },
+      {
+        "title": "ModDB — Pharaoh",
+        "url": "https://www.moddb.com/games/pharaoh",
+        "kind": "tool",
+        "note": "A resolution mod (a mirror of jackfuste's WSGF fix) and a mod lowering housing requirements, as of writing.",
+        "author": "ModDB community",
+        "authorUrl": null,
+        "repoUrl": null,
+        "websiteUrl": null,
+        "playUrl": null
+      },
+      {
+        "title": "ModDB — Cleopatra: Queen of the Nile",
+        "url": "https://www.moddb.com/games/cleopatra-queen-of-the-nile",
+        "kind": "tool",
+        "note": "No mods listed as of writing; the expansion has its own ModDB page, so it's linked separately from Pharaoh's.",
+        "author": "ModDB community",
+        "authorUrl": null,
+        "repoUrl": null,
+        "websiteUrl": null,
+        "playUrl": null
       }
     ],
     "image": "/images/pharaoh.webp",

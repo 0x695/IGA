@@ -632,5 +632,19 @@
         "body": "Forum and Temple's multi-tier footprints aren't in the Buildings table yet - they need a different row shape than every other building on this site has, and that hasn't been designed. Eleven of Caesar II's sixteen known businesses have a raw material but no confirmed output good. Housing's land-value thresholds, population capacities and per-rung requirements - the numbers behind the 31 names, not just the names themselves - weren't found in either source used this round. All three are honest gaps, not gaps this site has stopped looking for."
       }
     ]
+  },
+  {
+    "id": "pharaoh-gets-two-moddb-links",
+    "date": "2026-09-14T21:41",
+    "title": "Two more browsing sources for Pharaoh, one of them empty and linked anyway",
+    "summary": "ModDB's Pharaoh and Cleopatra pages join Tools & Mods as source links, the same shape as the HeavenGames and Nexus Mods entries already there. Cleopatra's page currently lists no mods at all - linked anyway, since the expansion has always had its own storefront listing and credits on this site, so it gets its own ModDB link too rather than being folded into Pharaoh's.",
+    "blocks": [
+      {
+        "kind": "prose",
+        "body": [
+          "Pharaoh's ModDB page has two real entries as of writing: a mirror of jackfuste's WSGF widescreen fix, and a mod that lowers housing requirements. Cleopatra's own ModDB page - a separate listing, since ModDB treats the expansion as its own game entry - has none. Both are linked anyway: an empty browsing source is still a real place to check back, the same call this site already made for Zeus's Nexus Mods page when it turned out to hold nothing beyond what was already listed."
+        ]
+      }
+    ]
   }
 ]
