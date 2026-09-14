@@ -380,5 +380,32 @@
         "body": "Music, movies and disc import aren't on this site yet, even though the port's docs describe all three in real depth - a reimplemented Miles XMIDI sequencer with numbered branch tables, libsmacker for the movies, and a project-owned ISO-9660/BIN-CUE reader for getting data off the original discs. The hub's third format row says so and points at the source rather than pretending the gap isn't there."
       }
     ]
+  },
+  {
+    "id": "naming-the-people-behind-the-engines-and-a-live-commit-check",
+    "date": "2026-09-14T17:21",
+    "title": "Naming the people behind the engines, and checking their commits live",
+    "summary": "Every engine project and tool/mod now credits who built it, sourced from the GitHub account behind the repo rather than invented. Hub pages also run a small script in the browser that refreshes each project's last-commit date against the GitHub API directly, on top of the build-time snapshot the update script already wrote.",
+    "blocks": [
+      {
+        "kind": "prose",
+        "body": [
+          "The engine table said Julius, Augustus, Akhenaten and the rest were built by someone, but never who. Eleven engine projects and two resolution-customiser tools got an author and a profile link added to their data, each sourced from the GitHub account that owns the repo - its display name where the account has actually set one (bvschaik is Bianca van Schaik, Banderi is Federico Barlotti, Luminger behind both new Caesar II projects is Simon Brakhane), the bare username otherwise. MaurycyLiebner and gitTerebi read like real names but neither account states one, so the site doesn't decide that on their behalf - the same 'facts can be sourced, prose cannot be copied' line the credits sections already draw, applied to a GitHub profile instead of a game manual.",
+          "The two resolution customisers (Zeus, Emperor) turned out to be one person, one repository: XJDHDR's impressions-resolution-customiser README explains they're both built from the same source, with per-game readmes pointing at Nexus Mods for the actual binaries. Emperor's tool entry links its readme rather than the repo, so it got a separate repoUrl field to check activity against, apart from the url a reader actually clicks."
+        ]
+      },
+      {
+        "kind": "prose",
+        "body": [
+          "\"Last commit\" was previously only as fresh as the last time someone ran scripts/update-engine-activity.mjs by hand and pushed. A visitor asked, reasonably, whether that could just be live. The honest answer for a fully static site with no server is: not truly continuously, but a visitor's own browser can ask GitHub directly - and it turns out the GitHub REST API sends Access-Control-Allow-Origin: * on unauthenticated GETs, so nothing stops a page from doing exactly that with no proxy and no token.",
+          "src/scripts/live-commits.ts now runs on every hub page: it finds each engine/tool card's repo slug, fetches its latest commit, and overwrites the date and sha in place if the fetch succeeds - each visitor spending their own 60-requests/hour allowance, never a shared one. If it fails - offline, GitHub down, rate-limited after a lot of page-hopping in one browsing session, exactly what happened testing this against Julius and Augustus repeatedly in a row - the build-time value from the update script is left exactly as it was, silently. The static number was never a fallback bolted on after the fact; it's the thing the live check is layered onto, on purpose, the same relationship the format pages have between what's documented and what's marked as a gap instead of hidden."
+        ]
+      },
+      {
+        "kind": "callout",
+        "title": "Why not a scheduled rebuild instead",
+        "body": "The straightforward alternative was a daily GitHub Action re-running the update script and pushing, which would redeploy through the existing deploy workflow with no new runtime code at all. That was the first plan. Live-in-the-browser was chosen instead so the number is never more than one page load stale for whoever's actually looking at it, at the cost of depending on a visitor's own network conditions and GitHub's rate limit rather than a controlled CI run - a trade this site's audience of one-search-away developers should tolerate fine, given the graceful fallback."
+      }
+    ]
   }
 ]

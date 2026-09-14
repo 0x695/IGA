@@ -1212,7 +1212,16 @@
         "title": "Impressions Resolution Customiser",
         "url": "https://github.com/XJDHDR/impressions-resolution-customiser",
         "kind": "tool",
-        "note": "Widescreen resolutions and UI scaling for the Steam and GOG releases. Source here; binaries on Nexus Mods."
+        "note": "Widescreen resolutions and UI scaling for the Steam and GOG releases. Source here; binaries on Nexus Mods.",
+        "author": "XJDHDR",
+        "authorUrl": "https://github.com/XJDHDR",
+        "repoUrl": "https://github.com/XJDHDR/impressions-resolution-customiser",
+        "lastCommit": {
+          "sha": "7a97368",
+          "date": "2022-12-15T23:24:27Z",
+          "branch": "main"
+        },
+        "activityCheckedAt": "2026-09-14"
       }
     ],
     "image": "/images/zeus.webp",
@@ -1592,7 +1601,16 @@
         "title": "Emperor Resolution Customiser",
         "url": "https://xjdhdr.gitlab.io/my_creations/Impressions_Resolution_Customiser/Emperor_Resolution_Customiser.html",
         "kind": "tool",
-        "note": "Widescreen resolutions and UI scaling for the GOG release and the English CD. The nearest thing Emperor has to an engine project."
+        "note": "Widescreen resolutions and UI scaling for the GOG release and the English CD. The nearest thing Emperor has to an engine project.",
+        "author": "XJDHDR",
+        "authorUrl": "https://github.com/XJDHDR",
+        "repoUrl": "https://github.com/XJDHDR/impressions-resolution-customiser",
+        "lastCommit": {
+          "sha": "7a97368",
+          "date": "2022-12-15T23:24:27Z",
+          "branch": "main"
+        },
+        "activityCheckedAt": "2026-09-14"
       }
     ],
     "image": "/images/emperor.webp",

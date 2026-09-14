@@ -1,6 +1,7 @@
 ---
 import StatusDot from './StatusDot.astro';
 import type { CollectionEntry } from 'astro:content';
+import { repoSlug } from '../lib/github';
 
 interface Props {
   project: CollectionEntry<'engineProjects'>;
@@ -21,6 +22,10 @@ const commitDate = p.lastCommit
       year: 'numeric',
     })
   : null;
+
+/** For src/scripts/live-commits.ts to refresh the commit line in the
+ *  browser against the GitHub API — null skips the live check silently. */
+const slug = repoSlug(p.repoUrl);
 ---
 
 <article class="engine">
@@ -31,6 +36,10 @@ const commitDate = p.lastCommit
     </div>
     <StatusDot status={p.status} />
   </div>
+
+  <p class="engine__author">
+    Built by <a href={p.authorUrl} target="_blank" rel="noopener noreferrer">{p.author}</a>
+  </p>
 
   {/* Unlabelled by design: every one of these values says what it is on its
       own, and the labels the brief's data model carries would double the row
@@ -45,15 +54,17 @@ const commitDate = p.lastCommit
 
   {
     commitDate && (
-      <p class="engine__commit">
-        Last commit <time datetime={p.lastCommit!.date}>{commitDate}</time>
+      <p class="engine__commit" data-commit-block={slug ? true : undefined} data-repo={slug ?? undefined}>
+        Last commit <time datetime={p.lastCommit!.date}>{commitDate}</time>{' '}
         <code>{p.lastCommit!.sha}</code>
       </p>
     )
   }
   {
     p.lastCommit === null && (
-      <p class="engine__commit">Repository could not be read when this was last checked.</p>
+      <p class="engine__commit" data-commit-block={slug ? true : undefined} data-repo={slug ?? undefined}>
+        Repository could not be read when this was last checked.
+      </p>
     )
   }
 
@@ -90,6 +101,22 @@ const commitDate = p.lastCommit
     margin-left: 8px;
   }
 
+  .engine__author {
+    font-size: 12.5px;
+    color: var(--color-text-dim);
+    margin: 0 0 10px;
+  }
+
+  .engine__author a {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  .engine__author a:hover {
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+
   /* The evidence line for the status dot. Mono only on the sha, which is a
      value you compare character by character; the date is read. */
   .engine__commit {
@@ -102,6 +129,12 @@ const commitDate = p.lastCommit
     font-family: var(--font-mono);
     font-size: 11px;
     margin-left: 6px;
+  }
+
+  /* Appended client-side by src/scripts/live-commits.ts, so :global — a
+     hashed scoped class wouldn't match an element Astro never rendered. */
+  .engine__commit :global(.commit-live) {
+    color: var(--color-accent);
   }
 
   .engine__facts {

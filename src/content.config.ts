@@ -132,6 +132,26 @@ const games = defineCollection({
         url: z.string().url(),
         kind: z.enum(['tool', 'mod']),
         note: z.string(),
+        /** Who made it — twenty-plus years of this series staying playable is
+         *  down to named people, not an anonymous "community". */
+        author: z.string(),
+        authorUrl: z.string().url(),
+        /**
+         * The GitHub repo behind it, when there is one — separate from `url`
+         * because a tool's user-facing link is sometimes a docs/download page
+         * (Emperor's customiser links its readme, not its repo) rather than
+         * the repo itself. Used for the activity check below; null where the
+         * tool has no repo to check (or isn't hosted on GitHub).
+         */
+        repoUrl: z.string().url().nullable(),
+        /** Same fields and same script as engineProjects' lastCommit — see
+         *  there. This is the static fallback; hub pages refresh it live
+         *  against the GitHub API in the browser (src/scripts/live-commits.ts). */
+        lastCommit: z
+          .object({ sha: z.string(), date: z.string(), branch: z.string() })
+          .nullable()
+          .optional(),
+        activityCheckedAt: z.string().optional(),
       }),
     ),
     image: z.string(),
@@ -146,6 +166,11 @@ const engineProjects = defineCollection({
   schema: z.object({
     name: z.string(),
     games: z.array(z.string()),
+    /** Who built it — a GitHub display name where they've set one, their
+     *  username otherwise. This site exists because these people kept this
+     *  series alive for twenty-plus years; naming them is not optional. */
+    author: z.string(),
+    authorUrl: z.string().url(),
     /** What it forked from, or "Independent". */
     lineage: z.string(),
     language: z.string(),
@@ -159,6 +184,10 @@ const engineProjects = defineCollection({
      * worth something with a date behind it, and a date the reader can see is
      * also a date the reader can see going stale. Null where the repository
      * could not be read - which is itself a finding worth showing.
+     *
+     * This is the fallback shown to no-JS visitors and while the live check
+     * below is in flight; src/scripts/live-commits.ts overwrites it in the
+     * browser with whatever the GitHub API reports right now.
      */
     lastCommit: z
       .object({ sha: z.string(), date: z.string(), branch: z.string() })

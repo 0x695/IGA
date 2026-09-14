@@ -6,6 +6,7 @@ import EngineCard from '../components/EngineCard.astro';
 import CommunityCard from '../components/CommunityCard.astro';
 import { withBase } from '../lib/url';
 import { formatStatus, formatLabel } from '../lib/formats';
+import { repoSlug } from '../lib/github';
 
 /**
  * A game hub. Self-contained by design (masterdoc §10): it shows the engine
@@ -103,6 +104,21 @@ const campaignLink = CAMPAIGN_LINK[game.id];
 
 const toolEntries = g.tools.filter((t) => t.kind === 'tool');
 const modEntries = g.tools.filter((t) => t.kind === 'mod');
+
+/** Same evidence-for-the-status-claim shape as EngineCard, for a tool/mod's
+ *  own repo — formatted here once and reused by both the Tools and Mods
+ *  lists below. */
+function commitInfo(entry: (typeof g.tools)[number]) {
+  const slug = repoSlug(entry.repoUrl);
+  const date = entry.lastCommit
+    ? new Date(entry.lastCommit.date).toLocaleDateString('en-GB', {
+        day: 'numeric',
+        month: 'short',
+        year: 'numeric',
+      })
+    : null;
+  return { slug, date };
+}
 
 const creditGroups: { section: string | null; rows: { role: string; names: string[] }[] }[] = [];
 for (const row of g.fullCredits ?? []) {
@@ -380,14 +396,34 @@ for (const row of g.fullCredits ?? []) {
         toolEntries.length > 0 ? (
           <ul class="compat">
             {
-              toolEntries.map((tool) => (
-                <li class="compat__item">
-                  <a class="compat__link" href={tool.url} target="_blank" rel="noopener noreferrer">
-                    {tool.title} ↗
-                  </a>
-                  <span class="compat__note">{tool.note}</span>
-                </li>
-              ))
+              toolEntries.map((tool) => {
+                const { slug, date } = commitInfo(tool);
+                return (
+                  <li class="compat__item">
+                    <a class="compat__link" href={tool.url} target="_blank" rel="noopener noreferrer">
+                      {tool.title} ↗
+                    </a>
+                    <span class="compat__note">{tool.note}</span>
+                    <span class="compat__author">
+                      By <a href={tool.authorUrl} target="_blank" rel="noopener noreferrer">{tool.author}</a>
+                    </span>
+                    {
+                      slug && (
+                        <p class="compat__commit" data-commit-block data-repo={slug}>
+                          {date ? (
+                            <>
+                              Last commit <time datetime={tool.lastCommit!.date}>{date}</time>{' '}
+                              <code>{tool.lastCommit!.sha}</code>
+                            </>
+                          ) : (
+                            'Repository could not be read when this was last checked.'
+                          )}
+                        </p>
+                      )
+                    }
+                  </li>
+                );
+              })
             }
           </ul>
         ) : (
@@ -404,14 +440,34 @@ for (const row of g.fullCredits ?? []) {
         modEntries.length > 0 ? (
           <ul class="compat">
             {
-              modEntries.map((mod) => (
-                <li class="compat__item">
-                  <a class="compat__link" href={mod.url} target="_blank" rel="noopener noreferrer">
-                    {mod.title} ↗
-                  </a>
-                  <span class="compat__note">{mod.note}</span>
-                </li>
-              ))
+              modEntries.map((mod) => {
+                const { slug, date } = commitInfo(mod);
+                return (
+                  <li class="compat__item">
+                    <a class="compat__link" href={mod.url} target="_blank" rel="noopener noreferrer">
+                      {mod.title} ↗
+                    </a>
+                    <span class="compat__note">{mod.note}</span>
+                    <span class="compat__author">
+                      By <a href={mod.authorUrl} target="_blank" rel="noopener noreferrer">{mod.author}</a>
+                    </span>
+                    {
+                      slug && (
+                        <p class="compat__commit" data-commit-block data-repo={slug}>
+                          {date ? (
+                            <>
+                              Last commit <time datetime={mod.lastCommit!.date}>{date}</time>{' '}
+                              <code>{mod.lastCommit!.sha}</code>
+                            </>
+                          ) : (
+                            'Repository could not be read when this was last checked.'
+                          )}
+                        </p>
+                      )
+                    }
+                  </li>
+                );
+              })
             }
           </ul>
         ) : (
@@ -444,6 +500,10 @@ for (const row of g.fullCredits ?? []) {
     </section>
   </div>
 </Base>
+
+<script>
+  import '../scripts/live-commits';
+</script>
 
 <style>
   .hero {
@@ -794,6 +854,39 @@ for (const row of g.fullCredits ?? []) {
   .compat__note {
     font-size: 12.5px;
     color: var(--color-text-dim);
+  }
+
+  .compat__author {
+    flex-basis: 100%;
+    font-size: 12px;
+    color: var(--color-text-dim);
+  }
+
+  .compat__author a {
+    color: inherit;
+  }
+
+  .compat__author a:hover {
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+
+  .compat__commit {
+    flex-basis: 100%;
+    margin: 0;
+    font-size: 12px;
+    color: var(--color-text-dim);
+  }
+
+  .compat__commit code {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    margin-left: 4px;
+  }
+
+  /* Appended client-side by src/scripts/live-commits.ts — see EngineCard. */
+  .compat__commit :global(.commit-live) {
+    color: var(--color-accent);
   }
 
   .community-grid {
