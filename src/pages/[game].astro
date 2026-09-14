@@ -105,10 +105,10 @@ const campaignLink = CAMPAIGN_LINK[game.id];
 const toolEntries = g.tools.filter((t) => t.kind === 'tool');
 const modEntries = g.tools.filter((t) => t.kind === 'mod');
 
-/** Same evidence-for-the-status-claim shape as EngineCard, for a tool/mod's
- *  own repo — formatted here once and reused by both the Tools and Mods
- *  lists below. */
-function commitInfo(entry: (typeof g.tools)[number]) {
+/** Same evidence-for-the-status-claim shape as EngineCard, plus the same
+ *  Repository/Website/Play in browser link set — formatted here once and
+ *  reused by both the Tools and Mods lists below. */
+function toolInfo(entry: (typeof g.tools)[number]) {
   const slug = repoSlug(entry.repoUrl);
   const date = entry.lastCommit
     ? new Date(entry.lastCommit.date).toLocaleDateString('en-GB', {
@@ -117,7 +117,9 @@ function commitInfo(entry: (typeof g.tools)[number]) {
         year: 'numeric',
       })
     : null;
-  return { slug, date };
+  // A tool with none of the three still needs one link to be useful.
+  const hasAnyLink = entry.repoUrl || entry.websiteUrl || entry.playUrl;
+  return { slug, date, hasAnyLink };
 }
 
 const creditGroups: { section: string | null; rows: { role: string; names: string[] }[] }[] = [];
@@ -397,12 +399,10 @@ for (const row of g.fullCredits ?? []) {
           <ul class="compat">
             {
               toolEntries.map((tool) => {
-                const { slug, date } = commitInfo(tool);
+                const { slug, date, hasAnyLink } = toolInfo(tool);
                 return (
                   <li class="compat__item">
-                    <a class="compat__link" href={tool.url} target="_blank" rel="noopener noreferrer">
-                      {tool.title} ↗
-                    </a>
+                    <span class="compat__title">{tool.title}</span>
                     <span class="compat__note">{tool.note}</span>
                     <span class="compat__author">
                       By <a href={tool.authorUrl} target="_blank" rel="noopener noreferrer">{tool.author}</a>
@@ -421,6 +421,28 @@ for (const row of g.fullCredits ?? []) {
                         </p>
                       )
                     }
+                    <div class="compat__links">
+                      {tool.repoUrl && (
+                        <a class="compat__link" href={tool.repoUrl} target="_blank" rel="noopener noreferrer">
+                          Repository ↗
+                        </a>
+                      )}
+                      {tool.websiteUrl && (
+                        <a class="compat__link" href={tool.websiteUrl} target="_blank" rel="noopener noreferrer">
+                          Website ↗
+                        </a>
+                      )}
+                      {tool.playUrl && (
+                        <a class="compat__link" href={tool.playUrl} target="_blank" rel="noopener noreferrer">
+                          Play in browser ↗
+                        </a>
+                      )}
+                      {!hasAnyLink && (
+                        <a class="compat__link" href={tool.url} target="_blank" rel="noopener noreferrer">
+                          {tool.title} ↗
+                        </a>
+                      )}
+                    </div>
                   </li>
                 );
               })
@@ -441,12 +463,10 @@ for (const row of g.fullCredits ?? []) {
           <ul class="compat">
             {
               modEntries.map((mod) => {
-                const { slug, date } = commitInfo(mod);
+                const { slug, date, hasAnyLink } = toolInfo(mod);
                 return (
                   <li class="compat__item">
-                    <a class="compat__link" href={mod.url} target="_blank" rel="noopener noreferrer">
-                      {mod.title} ↗
-                    </a>
+                    <span class="compat__title">{mod.title}</span>
                     <span class="compat__note">{mod.note}</span>
                     <span class="compat__author">
                       By <a href={mod.authorUrl} target="_blank" rel="noopener noreferrer">{mod.author}</a>
@@ -465,6 +485,28 @@ for (const row of g.fullCredits ?? []) {
                         </p>
                       )
                     }
+                    <div class="compat__links">
+                      {mod.repoUrl && (
+                        <a class="compat__link" href={mod.repoUrl} target="_blank" rel="noopener noreferrer">
+                          Repository ↗
+                        </a>
+                      )}
+                      {mod.websiteUrl && (
+                        <a class="compat__link" href={mod.websiteUrl} target="_blank" rel="noopener noreferrer">
+                          Website ↗
+                        </a>
+                      )}
+                      {mod.playUrl && (
+                        <a class="compat__link" href={mod.playUrl} target="_blank" rel="noopener noreferrer">
+                          Play in browser ↗
+                        </a>
+                      )}
+                      {!hasAnyLink && (
+                        <a class="compat__link" href={mod.url} target="_blank" rel="noopener noreferrer">
+                          {mod.title} ↗
+                        </a>
+                      )}
+                    </div>
                   </li>
                 );
               })
@@ -851,6 +893,15 @@ for (const row of g.fullCredits ?? []) {
     text-underline-offset: 3px;
   }
 
+  /* Plain-text heading for a Tools/Mods row — unlike the compat/patches rows
+     above, the title itself no longer doubles as the link; Repository,
+     Website and Play in browser below do that job instead. */
+  .compat__title {
+    font-size: 13px;
+    font-weight: 600;
+    flex: none;
+  }
+
   .compat__note {
     font-size: 12.5px;
     color: var(--color-text-dim);
@@ -882,6 +933,13 @@ for (const row of g.fullCredits ?? []) {
     font-family: var(--font-mono);
     font-size: 11px;
     margin-left: 4px;
+  }
+
+  .compat__links {
+    flex-basis: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px 14px;
   }
 
   /* Appended client-side by src/scripts/live-commits.ts — see EngineCard. */

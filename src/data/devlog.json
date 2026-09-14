@@ -422,5 +422,25 @@
         ]
       }
     ]
+  },
+  {
+    "id": "tools-get-the-same-link-row-the-engines-do",
+    "date": "2026-09-14T18:53",
+    "title": "Tools and mods get the same Repository/Website/Play in browser row the engines do",
+    "summary": "The Website and Play in browser links added to engine cards only covered the engineProjects collection. Tools and mods carry the same idea now, and it surfaced a link the site was missing: the Zeus customiser has its own gitlab.io page, same as Emperor's, that the data never pointed at.",
+    "blocks": [
+      {
+        "kind": "prose",
+        "body": [
+          "Every tool/mod row used to have exactly one link, its title doubling as an anchor to whatever `url` pointed at - the GitHub repo for the Zeus customiser, a gitlab.io readme for Emperor's. That was two different kinds of link wearing the same UI, which is the inconsistency the engine cards had already been fixed for a few commits back. Tools and mods now render the identical three-slot row - Repository, Website, Play in browser, each shown only when the data has it - with the title going back to being plain text, matching how an engine's name is presented.",
+          "Rereading XJDHDR's own README while adding this turned up something the Zeus entry had been missing: the impressions-resolution-customiser repo links two separate gitlab.io readmes, one per game, and the Zeus data only ever pointed at the bare GitHub repo. It now carries its own Website link (the Zeus & Poseidon Resolution Customiser readme) alongside Repository, matching what Emperor's entry already had. Neither tool has a browser build, so Play in browser stays absent for both - `playUrl: null`, not omitted."
+        ]
+      },
+      {
+        "kind": "callout",
+        "title": "The fallback that hasn't been needed yet",
+        "body": "Every tool/mod entry so far has at least a repoUrl, so the three-link row has never come up empty. The template still keeps the old title-as-link behaviour as a fallback for the day a tool is just a Nexus Mods page with no public repository at all - `url` remains a required field for exactly that reason, even though nothing on the live site currently exercises it."
+      }
+    ]
   }
 ]

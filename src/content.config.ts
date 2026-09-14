@@ -144,6 +144,12 @@ const games = defineCollection({
          * tool has no repo to check (or isn't hosted on GitHub).
          */
         repoUrl: z.string().url().nullable(),
+        /** Same three-link shape as engineProjects — see there. A tool/mod
+         *  card shows whichever of Repository/Website/Play in browser it
+         *  actually has, `url` staying as the fallback link for one that has
+         *  none of the three (a Nexus Mods page with no public repo, say). */
+        websiteUrl: z.string().url().nullable(),
+        playUrl: z.string().url().nullable(),
         /** Same fields and same script as engineProjects' lastCommit — see
          *  there. This is the static fallback; hub pages refresh it live
          *  against the GitHub API in the browser (src/scripts/live-commits.ts). */
