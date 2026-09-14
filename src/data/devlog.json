@@ -477,5 +477,20 @@
         ]
       }
     ]
+  },
+  {
+    "id": "zeus-gets-its-editor-and-mod-sources-too",
+    "date": "2026-09-14T19:25",
+    "title": "Zeus gets its own built-in editor and the same two mod sources",
+    "summary": "Following the pattern set for Emperor: Zeus's Adventure Editor - launched straight from the game's start screen, no separate install - joins Tools & Mods, alongside HeavenGames' misc-downloads listing and Zeus's Nexus Mods page. This time Nexus turned up nothing new; its one upload is the resolution customiser already listed.",
+    "blocks": [
+      {
+        "kind": "prose",
+        "body": [
+          "Zeus's editor turns out to be even more integrated than Emperor's Campaign Creator: there's no separate PDF or installed utility, just an \"Adventure Editor\" option on the game's own start screen. HeavenGames' Scenario Design page - written by bobT, the same primer author credited on Emperor's page - is the closest thing to an official guide and is what the entry links to, since there's no repo, website or play build to point at instead.",
+          "Checking Zeus's Nexus Mods page the same way Emperor's was checked found exactly one upload: the resolution customiser, already on this page under its own entry. No second mod this time, so nothing new to add there - a useful contrast with Emperor, where the same check turned up a translation worth its own row."
+        ]
+      }
+    ]
   }
 ]

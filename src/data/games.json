@@ -1224,6 +1224,39 @@
           "branch": "main"
         },
         "activityCheckedAt": "2026-09-14"
+      },
+      {
+        "title": "Adventure Editor (map & scenario editor)",
+        "url": "https://zeus.heavengames.com/scendesign/",
+        "kind": "tool",
+        "note": "Launches straight from the game's own start screen - no separate install. Builds adventures, colonies and scripted episodes; HeavenGames' scenario-design primer, linked here, covers the design side the manual doesn't.",
+        "author": "Impressions Games",
+        "authorUrl": null,
+        "repoUrl": null,
+        "websiteUrl": null,
+        "playUrl": null
+      },
+      {
+        "title": "HeavenGames — Miscellaneous Files",
+        "url": "https://zeus.heavengames.com/downloads/lister.php?category=misc",
+        "kind": "tool",
+        "note": "Fan-made utilities alongside the adventures and completed cities - ZeusMapper, Cheat Engine scripts, custom map packs. None are individually catalogued on this site; browse here instead.",
+        "author": "HeavenGames community",
+        "authorUrl": null,
+        "repoUrl": null,
+        "websiteUrl": null,
+        "playUrl": null
+      },
+      {
+        "title": "Nexus Mods — Zeus: Master of Olympus",
+        "url": "https://www.nexusmods.com/games/zeusmasterofolympus/mods",
+        "kind": "tool",
+        "note": "The resolution customiser above is hosted here too, alongside whatever else gets uploaded - check back for new mods and tools as they appear.",
+        "author": "Nexus Mods community",
+        "authorUrl": null,
+        "repoUrl": null,
+        "websiteUrl": null,
+        "playUrl": null
       }
     ],
     "image": "/images/zeus.webp",
