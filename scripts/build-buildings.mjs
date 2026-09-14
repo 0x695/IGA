@@ -41,7 +41,7 @@
  *
  *   node scripts/build-buildings.mjs
  */
-import { writeFile } from 'node:fs/promises';
+import { readFile, writeFile } from 'node:fs/promises';
 
 // --- verbatim: src/building/type.h, the building_type enum ------------------
 const TYPE_H = `
@@ -549,6 +549,233 @@ for (const row of pharaohRows) {
 }
 
 console.log(pharaohRows.length + ' Pharaoh buildings, ' + merged + ' merged into existing concepts');
+
+// --- ZEUS, from eZeus's own buildings/*.cpp -----------------------------------
+//
+// A third shape again. Julius keeps one flat enum + properties table; Akhenaten
+// keeps JS config blocks; eZeus keeps one C++ class per building, and a
+// building's footprint is a literal argument in its own constructor call -
+// `eGranary(...) : eStorageBuilding(board, eBuildingType::granary, 4, 4, 18,
+// eResourceType::food, cid)` reads as "4x4, 18 max employees" directly. That
+// argument position is NOT uniform across the class hierarchy (plain
+// eBuilding subclasses take (type, sw, sh, cid); eEmployingBuilding and its
+// descendants take (type, sw, sh, maxEmployees, cid), sometimes with more
+// arguments after maxEmployees before cid closes the call), so this table was
+// built by reading every buildings/*.cpp file in the repository, not by one
+// regular expression - each row below is a literal transcription of a
+// constructor call, read verbatim on 14 September 2026.
+//
+// `employees` is the constructor's own `maxEmployees` argument wherever the
+// class exposes one; null for buildings with no staff (walls, roads,
+// decoration) and for the three farm types, whose 10-employee figure is
+// hardcoded inside the shared eFarmBase class rather than passed by each
+// farm's own leaf constructor - true, but not something this table invents on
+// their behalf without a source line to point at.
+//
+// `cost` has no equivalent here. Nothing under buildings/ carries a drachma
+// price, and no other file in the repository was found to either - unlike
+// Caesar III, this isn't a documented "lives in a separate file" gap, just an
+// honest "not found".
+//
+// A handful of buildings (gatehouses, the palace, the stadium, both agora
+// types) take a `rotated` flag and are genuinely not square - `w, h` are
+// swapped between two fixed footprints depending on orientation. `size` is a
+// [width, height] pair for these instead of one number, and `notes` states
+// the rotated reading.
+//
+// Three god-tiered sanctuary buildings (minorShrine/shrine/majorShrine) and
+// the god-monument decoration are built once per Olympian god - fourteen
+// nearly-identical enum entries each. Rather than publish fourteen rows that
+// differ only in name, each is one row noting that it repeats per god; the
+// footprint, category and role are identical every time.
+//
+// id | w | h | employees | category | display name (blank = title-case id) | notes
+const ZEUS = `
+road|1|1||Infrastructure||
+avenue|1|1||Infrastructure||
+doricColumn|1|1||Infrastructure|Doric Column|
+ionicColumn|1|1||Infrastructure|Ionic Column|
+corinthianColumn|1|1||Infrastructure|Corinthian Column|
+wall|1|1||Military||
+tower|2|2|15|Military||
+watchPost|2|2|6|Military|Watch Post|
+gatehouse|2|5||Military||Rotates to 5x2 the other way round.
+armory|2|2|18|Military||
+triremeWharf|3|3|100|Military|Trireme Wharf|A full 100-strong rowing crew, not shipyard labour.
+horseRanch|3|3|15|Military|Horse Ranch|
+horseRanchEnclosure|4|4||Military|Horse Ranch Enclosure|An unstaffed paddock attached to a Horse Ranch, not an independent building.
+chariotFactory|4|4|30|Military|Chariot Factory|
+fountain|2|2|4|Infrastructure||
+maintenanceOffice|2|2|5|Government|Maintenance Office|
+taxOffice|2|2|8|Government|Tax Office|
+podium|2|2|4|Government||
+palace|4|8||Government||Rotates to 8x4 the other way round.
+granary|4|4|18|Distribution||
+warehouse|3|3|12|Distribution||
+tradePost|4|4|24|Distribution|Trade Post|
+pier|2|2||Distribution||
+commonAgora|3|6||Distribution|Common Agora|Rotates to 6x3 the other way round.
+grandAgora|5|6||Distribution|Grand Agora|Rotates to 6x5 the other way round.
+foodVendor|2|2|4|Distribution|Food Vendor|
+fleeceVendor|2|2|4|Distribution|Fleece Vendor|
+oilVendor|2|2|4|Distribution|Oil Vendor|
+wineVendor|2|2|4|Distribution|Wine Vendor|
+armsVendor|2|2|4|Distribution|Arms Vendor|
+horseTrainer|2|2|4|Distribution|Horse Trainer|
+chariotVendor|2|2|4|Distribution|Chariot Vendor|
+wheatFarm|3|3|10|Farming|Wheat Farm|
+carrotsFarm|3|3|10|Farming|Carrots Farm|
+onionsFarm|3|3|10|Farming|Onions Farm|
+corral|4|4|25|Farming||
+dairy|2|2|8|Farming||
+cardingShed|2|2|8|Farming|Carding Shed|
+growersLodge|2|2|12|Farming|Grower's Lodge|
+orangeTendersLodge|2|2|12|Farming|Orange Tender's Lodge|
+huntingLodge|2|2|8|Farming|Hunting Lodge|
+fishery|2|2|10|Farming||
+urchinQuay|2|2|10|Farming|Urchin Quay|
+timberMill|2|2|12|Raw materials|Timber Mill|
+masonryShop|2|2|15|Raw materials|Masonry Shop|
+blackMarbleWorkshop|2|2|15|Raw materials|Black Marble Workshop|
+mint|2|2|15|Workshops||
+foundry|2|2|15|Workshops||
+refinery|2|2|16|Workshops||
+olivePress|2|2|12|Workshops|Olive Press|
+winery|2|2|12|Workshops||
+sculptureStudio|2|2|12|Workshops|Sculpture Studio|
+artisansGuild|2|2|25|Workshops|Artisans' Guild|
+gymnasium|3|3|7|Entertainment||
+college|3|3|12|Education||
+dramaSchool|3|3|10|Entertainment|Drama School|
+theater|5|5|18|Entertainment|Theater|
+stadium|5|10||Entertainment||Rotates to 10x5 the other way round.
+bibliotheke|2|2|5|Education|Bibliotheke|
+observatory|5|5|18|Education||
+university|3|3|12|Education||
+laboratory|4|4|9|Education||
+inventorsWorkshop|3|3|12|Education|Inventor's Workshop|
+museum|6|6|50|Education||
+hospital|4|4|11|Health||
+park|1|1||Aesthetics||
+bench|1|1||Aesthetics||
+flowerGarden|2|2||Aesthetics|Flower Garden|
+gazebo|2|2||Aesthetics||
+hedgeMaze|3|3||Aesthetics|Hedge Maze|
+fishPond|4|4||Aesthetics|Fish Pond|
+waterPark|2|2||Aesthetics|Water Park|
+birdBath|1|1||Aesthetics|Bird Bath|
+shortObelisk|1|1||Aesthetics|Short Obelisk|
+tallObelisk|1|1||Aesthetics|Tall Obelisk|
+orrery|3|3||Aesthetics||
+shellGarden|2|2||Aesthetics|Shell Garden|
+sundial|2|2||Aesthetics||
+dolphinSculpture|3|3||Aesthetics|Dolphin Sculpture|
+spring|3|3||Aesthetics||
+topiary|3|3||Aesthetics||
+baths|4|4||Aesthetics||
+stoneCircle|4|4||Aesthetics|Stone Circle|
+commemorative|3|3||Aesthetics|Commemorative Monument|
+godMonument|2|2||Aesthetics|God Monument|One is built per god; footprint and role are identical every time.
+minorShrine|3|3||Religion|Minor Shrine|One is built per god (fourteen in total) - the first tier of a sanctuary.
+shrine|6|6||Religion||One is built per god (fourteen in total) - a Minor Shrine grown to its second tier.
+majorShrine|8|8||Religion|Major Shrine|One is built per god (fourteen in total) - a Shrine fully exalted to its final tier.
+altarOfOlympus|8|8||Religion|Altar of Olympus|
+templeOfOlympus|8|8||Religion|Temple of Olympus|
+observatoryKosmika|9|9||Education|Observatory Kosmika|
+museumAtlantika|8|8||Education|Museum Atlantika|
+modestPyramid|3|3||Monuments|Modest Pyramid|
+pyramid|5|5||Monuments||
+greatPyramid|7|7||Monuments|Great Pyramid|
+majesticPyramid|9|9||Monuments|Majestic Pyramid|
+smallMonumentToTheSky|5|5||Monuments|Small Monument to the Sky|
+monumentToTheSky|6|6||Monuments|Monument to the Sky|
+grandMonumentToTheSky|8|8||Monuments|Grand Monument to the Sky|
+pyramidOfThePantheon|11|9||Monuments|Pyramid of the Pantheon|
+`;
+
+/** camelCase -> Title Case, for rows with no explicit display name. */
+function zeusName(id) {
+  return id.replace(/([a-z0-9])([A-Z])/g, '$1 $2').replace(/^./, (c) => c.toUpperCase());
+}
+
+const zeusRows = ZEUS.trim()
+  .split('\n')
+  .map((line) => line.split('|'))
+  .map(([id, w, h, employees, category, name, notes]) => ({
+    id,
+    name: name || zeusName(id),
+    size: w === h ? Number(w) : [Number(w), Number(h)],
+    employees: employees === '' ? null : Number(employees),
+    category,
+    notes: notes || null,
+  }));
+
+if (zeusRows.length < 90) {
+  throw new Error(`Only ${zeusRows.length} Zeus rows - the block was truncated`);
+}
+
+/*
+ * Spot checks. Three independent of each other: the palace and stadium
+ * rotate (read directly off their `r ? a : b` ternaries), the pyramid sizes
+ * come from the enum's own inline `// WxH` comments rather than a
+ * constructor at all, and the common house's 2x2 agrees with the figure
+ * src/data/housing.json's Zeus ladder already carries for its base rung -
+ * two different research passes on this site landing on the same number.
+ */
+const zeusById = new Map(zeusRows.map((r) => [r.id, r]));
+const zeusChecks = {
+  granary: 4,
+  tower: 2,
+  hospital: 4,
+  museum: 6,
+};
+for (const [id, expected] of Object.entries(zeusChecks)) {
+  const row = zeusById.get(id);
+  if (!row || row.size !== expected) {
+    throw new Error(`zeus ${id}: expected size ${expected}, got ${row && row.size}`);
+  }
+}
+if (JSON.stringify(zeusById.get('palace').size) !== '[4,8]') {
+  throw new Error('zeus palace: expected [4,8]');
+}
+const HOUSING = JSON.parse(await readFile('src/data/housing.json', 'utf8'));
+const zeusHut = HOUSING.find((r) => r.game === 'zeus' && r.level === 0);
+if (zeusHut.size !== 2) {
+  throw new Error(`housing.json's Zeus base rung is size ${zeusHut.size}, not the 2 this table assumes`);
+}
+
+let zeusMerged = 0;
+for (const row of zeusRows) {
+  const variant = {
+    game: 'zeus',
+    name: row.name,
+    engineType: `eBuildingType::${row.id}`,
+    size: row.size,
+    cost: null,
+    employees: row.employees,
+    requires: [],
+    produces: [],
+    notes: row.notes,
+  };
+
+  const existing = byName.get(row.name);
+  if (existing) {
+    existing.variants.push(variant);
+    zeusMerged += 1;
+  } else {
+    const entry = {
+      id: 'zeus-' + row.id.replace(/([a-z0-9])([A-Z])/g, '$1-$2').toLowerCase(),
+      name: row.name,
+      category: row.category,
+      description: null,
+      variants: [variant],
+    };
+    byName.set(row.name, entry);
+    buildings.push(entry);
+  }
+}
+
+console.log(zeusRows.length + ' Zeus buildings, ' + zeusMerged + ' merged into existing concepts');
 
 buildings.sort((a, b) => a.category.localeCompare(b.category) || a.name.localeCompare(b.name));
 

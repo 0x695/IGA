@@ -1,5 +1,445 @@
 [
   {
+    "id": "zeus-baths",
+    "name": "Baths",
+    "category": "Aesthetics",
+    "description": null,
+    "variants": [
+      {
+        "game": "zeus",
+        "name": "Baths",
+        "engineType": "eBuildingType::baths",
+        "size": 4,
+        "cost": null,
+        "employees": null,
+        "requires": [],
+        "produces": [],
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "zeus-bench",
+    "name": "Bench",
+    "category": "Aesthetics",
+    "description": null,
+    "variants": [
+      {
+        "game": "zeus",
+        "name": "Bench",
+        "engineType": "eBuildingType::bench",
+        "size": 1,
+        "cost": null,
+        "employees": null,
+        "requires": [],
+        "produces": [],
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "zeus-bird-bath",
+    "name": "Bird Bath",
+    "category": "Aesthetics",
+    "description": null,
+    "variants": [
+      {
+        "game": "zeus",
+        "name": "Bird Bath",
+        "engineType": "eBuildingType::birdBath",
+        "size": 1,
+        "cost": null,
+        "employees": null,
+        "requires": [],
+        "produces": [],
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "zeus-commemorative",
+    "name": "Commemorative Monument",
+    "category": "Aesthetics",
+    "description": null,
+    "variants": [
+      {
+        "game": "zeus",
+        "name": "Commemorative Monument",
+        "engineType": "eBuildingType::commemorative",
+        "size": 3,
+        "cost": null,
+        "employees": null,
+        "requires": [],
+        "produces": [],
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "zeus-dolphin-sculpture",
+    "name": "Dolphin Sculpture",
+    "category": "Aesthetics",
+    "description": null,
+    "variants": [
+      {
+        "game": "zeus",
+        "name": "Dolphin Sculpture",
+        "engineType": "eBuildingType::dolphinSculpture",
+        "size": 3,
+        "cost": null,
+        "employees": null,
+        "requires": [],
+        "produces": [],
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "zeus-fish-pond",
+    "name": "Fish Pond",
+    "category": "Aesthetics",
+    "description": null,
+    "variants": [
+      {
+        "game": "zeus",
+        "name": "Fish Pond",
+        "engineType": "eBuildingType::fishPond",
+        "size": 4,
+        "cost": null,
+        "employees": null,
+        "requires": [],
+        "produces": [],
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "zeus-flower-garden",
+    "name": "Flower Garden",
+    "category": "Aesthetics",
+    "description": null,
+    "variants": [
+      {
+        "game": "zeus",
+        "name": "Flower Garden",
+        "engineType": "eBuildingType::flowerGarden",
+        "size": 2,
+        "cost": null,
+        "employees": null,
+        "requires": [],
+        "produces": [],
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "zeus-gazebo",
+    "name": "Gazebo",
+    "category": "Aesthetics",
+    "description": null,
+    "variants": [
+      {
+        "game": "zeus",
+        "name": "Gazebo",
+        "engineType": "eBuildingType::gazebo",
+        "size": 2,
+        "cost": null,
+        "employees": null,
+        "requires": [],
+        "produces": [],
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "zeus-god-monument",
+    "name": "God Monument",
+    "category": "Aesthetics",
+    "description": null,
+    "variants": [
+      {
+        "game": "zeus",
+        "name": "God Monument",
+        "engineType": "eBuildingType::godMonument",
+        "size": 2,
+        "cost": null,
+        "employees": null,
+        "requires": [],
+        "produces": [],
+        "notes": "One is built per god; footprint and role are identical every time."
+      }
+    ]
+  },
+  {
+    "id": "zeus-hedge-maze",
+    "name": "Hedge Maze",
+    "category": "Aesthetics",
+    "description": null,
+    "variants": [
+      {
+        "game": "zeus",
+        "name": "Hedge Maze",
+        "engineType": "eBuildingType::hedgeMaze",
+        "size": 3,
+        "cost": null,
+        "employees": null,
+        "requires": [],
+        "produces": [],
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "zeus-orrery",
+    "name": "Orrery",
+    "category": "Aesthetics",
+    "description": null,
+    "variants": [
+      {
+        "game": "zeus",
+        "name": "Orrery",
+        "engineType": "eBuildingType::orrery",
+        "size": 3,
+        "cost": null,
+        "employees": null,
+        "requires": [],
+        "produces": [],
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "zeus-park",
+    "name": "Park",
+    "category": "Aesthetics",
+    "description": null,
+    "variants": [
+      {
+        "game": "zeus",
+        "name": "Park",
+        "engineType": "eBuildingType::park",
+        "size": 1,
+        "cost": null,
+        "employees": null,
+        "requires": [],
+        "produces": [],
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "zeus-shell-garden",
+    "name": "Shell Garden",
+    "category": "Aesthetics",
+    "description": null,
+    "variants": [
+      {
+        "game": "zeus",
+        "name": "Shell Garden",
+        "engineType": "eBuildingType::shellGarden",
+        "size": 2,
+        "cost": null,
+        "employees": null,
+        "requires": [],
+        "produces": [],
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "zeus-short-obelisk",
+    "name": "Short Obelisk",
+    "category": "Aesthetics",
+    "description": null,
+    "variants": [
+      {
+        "game": "zeus",
+        "name": "Short Obelisk",
+        "engineType": "eBuildingType::shortObelisk",
+        "size": 1,
+        "cost": null,
+        "employees": null,
+        "requires": [],
+        "produces": [],
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "zeus-spring",
+    "name": "Spring",
+    "category": "Aesthetics",
+    "description": null,
+    "variants": [
+      {
+        "game": "zeus",
+        "name": "Spring",
+        "engineType": "eBuildingType::spring",
+        "size": 3,
+        "cost": null,
+        "employees": null,
+        "requires": [],
+        "produces": [],
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "zeus-stone-circle",
+    "name": "Stone Circle",
+    "category": "Aesthetics",
+    "description": null,
+    "variants": [
+      {
+        "game": "zeus",
+        "name": "Stone Circle",
+        "engineType": "eBuildingType::stoneCircle",
+        "size": 4,
+        "cost": null,
+        "employees": null,
+        "requires": [],
+        "produces": [],
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "zeus-sundial",
+    "name": "Sundial",
+    "category": "Aesthetics",
+    "description": null,
+    "variants": [
+      {
+        "game": "zeus",
+        "name": "Sundial",
+        "engineType": "eBuildingType::sundial",
+        "size": 2,
+        "cost": null,
+        "employees": null,
+        "requires": [],
+        "produces": [],
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "zeus-tall-obelisk",
+    "name": "Tall Obelisk",
+    "category": "Aesthetics",
+    "description": null,
+    "variants": [
+      {
+        "game": "zeus",
+        "name": "Tall Obelisk",
+        "engineType": "eBuildingType::tallObelisk",
+        "size": 1,
+        "cost": null,
+        "employees": null,
+        "requires": [],
+        "produces": [],
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "zeus-topiary",
+    "name": "Topiary",
+    "category": "Aesthetics",
+    "description": null,
+    "variants": [
+      {
+        "game": "zeus",
+        "name": "Topiary",
+        "engineType": "eBuildingType::topiary",
+        "size": 3,
+        "cost": null,
+        "employees": null,
+        "requires": [],
+        "produces": [],
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "zeus-water-park",
+    "name": "Water Park",
+    "category": "Aesthetics",
+    "description": null,
+    "variants": [
+      {
+        "game": "zeus",
+        "name": "Water Park",
+        "engineType": "eBuildingType::waterPark",
+        "size": 2,
+        "cost": null,
+        "employees": null,
+        "requires": [],
+        "produces": [],
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "zeus-arms-vendor",
+    "name": "Arms Vendor",
+    "category": "Distribution",
+    "description": null,
+    "variants": [
+      {
+        "game": "zeus",
+        "name": "Arms Vendor",
+        "engineType": "eBuildingType::armsVendor",
+        "size": 2,
+        "cost": null,
+        "employees": 4,
+        "requires": [],
+        "produces": [],
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "zeus-chariot-vendor",
+    "name": "Chariot Vendor",
+    "category": "Distribution",
+    "description": null,
+    "variants": [
+      {
+        "game": "zeus",
+        "name": "Chariot Vendor",
+        "engineType": "eBuildingType::chariotVendor",
+        "size": 2,
+        "cost": null,
+        "employees": 4,
+        "requires": [],
+        "produces": [],
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "zeus-common-agora",
+    "name": "Common Agora",
+    "category": "Distribution",
+    "description": null,
+    "variants": [
+      {
+        "game": "zeus",
+        "name": "Common Agora",
+        "engineType": "eBuildingType::commonAgora",
+        "size": [
+          3,
+          6
+        ],
+        "cost": null,
+        "employees": null,
+        "requires": [],
+        "produces": [],
+        "notes": "Rotates to 6x3 the other way round."
+      }
+    ]
+  },
+  {
     "id": "dock",
     "name": "Dock",
     "category": "Distribution",
@@ -29,6 +469,44 @@
           150
         ],
         "employees": 12,
+        "requires": [],
+        "produces": [],
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "zeus-fleece-vendor",
+    "name": "Fleece Vendor",
+    "category": "Distribution",
+    "description": null,
+    "variants": [
+      {
+        "game": "zeus",
+        "name": "Fleece Vendor",
+        "engineType": "eBuildingType::fleeceVendor",
+        "size": 2,
+        "cost": null,
+        "employees": 4,
+        "requires": [],
+        "produces": [],
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "zeus-food-vendor",
+    "name": "Food Vendor",
+    "category": "Distribution",
+    "description": null,
+    "variants": [
+      {
+        "game": "zeus",
+        "name": "Food Vendor",
+        "engineType": "eBuildingType::foodVendor",
+        "size": 2,
+        "cost": null,
+        "employees": 4,
         "requires": [],
         "produces": [],
         "notes": null
@@ -68,6 +546,58 @@
         "requires": [],
         "produces": [],
         "notes": null
+      },
+      {
+        "game": "zeus",
+        "name": "Granary",
+        "engineType": "eBuildingType::granary",
+        "size": 4,
+        "cost": null,
+        "employees": 18,
+        "requires": [],
+        "produces": [],
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "zeus-grand-agora",
+    "name": "Grand Agora",
+    "category": "Distribution",
+    "description": null,
+    "variants": [
+      {
+        "game": "zeus",
+        "name": "Grand Agora",
+        "engineType": "eBuildingType::grandAgora",
+        "size": [
+          5,
+          6
+        ],
+        "cost": null,
+        "employees": null,
+        "requires": [],
+        "produces": [],
+        "notes": "Rotates to 6x5 the other way round."
+      }
+    ]
+  },
+  {
+    "id": "zeus-horse-trainer",
+    "name": "Horse Trainer",
+    "category": "Distribution",
+    "description": null,
+    "variants": [
+      {
+        "game": "zeus",
+        "name": "Horse Trainer",
+        "engineType": "eBuildingType::horseTrainer",
+        "size": 2,
+        "cost": null,
+        "employees": 4,
+        "requires": [],
+        "produces": [],
+        "notes": null
       }
     ]
   },
@@ -81,6 +611,44 @@
         "game": "caesar3",
         "name": "Market",
         "engineType": "BUILDING_MARKET",
+        "size": 2,
+        "cost": null,
+        "employees": null,
+        "requires": [],
+        "produces": [],
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "zeus-oil-vendor",
+    "name": "Oil Vendor",
+    "category": "Distribution",
+    "description": null,
+    "variants": [
+      {
+        "game": "zeus",
+        "name": "Oil Vendor",
+        "engineType": "eBuildingType::oilVendor",
+        "size": 2,
+        "cost": null,
+        "employees": 4,
+        "requires": [],
+        "produces": [],
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "zeus-pier",
+    "name": "Pier",
+    "category": "Distribution",
+    "description": null,
+    "variants": [
+      {
+        "game": "zeus",
+        "name": "Pier",
+        "engineType": "eBuildingType::pier",
         "size": 2,
         "cost": null,
         "employees": null,
@@ -127,6 +695,25 @@
     ]
   },
   {
+    "id": "zeus-trade-post",
+    "name": "Trade Post",
+    "category": "Distribution",
+    "description": null,
+    "variants": [
+      {
+        "game": "zeus",
+        "name": "Trade Post",
+        "engineType": "eBuildingType::tradePost",
+        "size": 4,
+        "cost": null,
+        "employees": 24,
+        "requires": [],
+        "produces": [],
+        "notes": null
+      }
+    ]
+  },
+  {
     "id": "warehouse",
     "name": "Warehouse",
     "category": "Distribution",
@@ -139,6 +726,17 @@
         "size": 1,
         "cost": null,
         "employees": null,
+        "requires": [],
+        "produces": [],
+        "notes": null
+      },
+      {
+        "game": "zeus",
+        "name": "Warehouse",
+        "engineType": "eBuildingType::warehouse",
+        "size": 3,
+        "cost": null,
+        "employees": 12,
         "requires": [],
         "produces": [],
         "notes": null
@@ -158,6 +756,25 @@
         "size": 2,
         "cost": null,
         "employees": null,
+        "requires": [],
+        "produces": [],
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "zeus-wine-vendor",
+    "name": "Wine Vendor",
+    "category": "Distribution",
+    "description": null,
+    "variants": [
+      {
+        "game": "zeus",
+        "name": "Wine Vendor",
+        "engineType": "eBuildingType::wineVendor",
+        "size": 2,
+        "cost": null,
+        "employees": 4,
         "requires": [],
         "produces": [],
         "notes": null
@@ -201,6 +818,82 @@
     ]
   },
   {
+    "id": "zeus-bibliotheke",
+    "name": "Bibliotheke",
+    "category": "Education",
+    "description": null,
+    "variants": [
+      {
+        "game": "zeus",
+        "name": "Bibliotheke",
+        "engineType": "eBuildingType::bibliotheke",
+        "size": 2,
+        "cost": null,
+        "employees": 5,
+        "requires": [],
+        "produces": [],
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "zeus-college",
+    "name": "College",
+    "category": "Education",
+    "description": null,
+    "variants": [
+      {
+        "game": "zeus",
+        "name": "College",
+        "engineType": "eBuildingType::college",
+        "size": 3,
+        "cost": null,
+        "employees": 12,
+        "requires": [],
+        "produces": [],
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "zeus-inventors-workshop",
+    "name": "Inventor's Workshop",
+    "category": "Education",
+    "description": null,
+    "variants": [
+      {
+        "game": "zeus",
+        "name": "Inventor's Workshop",
+        "engineType": "eBuildingType::inventorsWorkshop",
+        "size": 3,
+        "cost": null,
+        "employees": 12,
+        "requires": [],
+        "produces": [],
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "zeus-laboratory",
+    "name": "Laboratory",
+    "category": "Education",
+    "description": null,
+    "variants": [
+      {
+        "game": "zeus",
+        "name": "Laboratory",
+        "engineType": "eBuildingType::laboratory",
+        "size": 4,
+        "cost": null,
+        "employees": 9,
+        "requires": [],
+        "produces": [],
+        "notes": null
+      }
+    ]
+  },
+  {
     "id": "library",
     "name": "Library",
     "category": "Education",
@@ -230,6 +923,82 @@
           400
         ],
         "employees": 20,
+        "requires": [],
+        "produces": [],
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "zeus-museum",
+    "name": "Museum",
+    "category": "Education",
+    "description": null,
+    "variants": [
+      {
+        "game": "zeus",
+        "name": "Museum",
+        "engineType": "eBuildingType::museum",
+        "size": 6,
+        "cost": null,
+        "employees": 50,
+        "requires": [],
+        "produces": [],
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "zeus-museum-atlantika",
+    "name": "Museum Atlantika",
+    "category": "Education",
+    "description": null,
+    "variants": [
+      {
+        "game": "zeus",
+        "name": "Museum Atlantika",
+        "engineType": "eBuildingType::museumAtlantika",
+        "size": 8,
+        "cost": null,
+        "employees": null,
+        "requires": [],
+        "produces": [],
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "zeus-observatory",
+    "name": "Observatory",
+    "category": "Education",
+    "description": null,
+    "variants": [
+      {
+        "game": "zeus",
+        "name": "Observatory",
+        "engineType": "eBuildingType::observatory",
+        "size": 5,
+        "cost": null,
+        "employees": 18,
+        "requires": [],
+        "produces": [],
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "zeus-observatory-kosmika",
+    "name": "Observatory Kosmika",
+    "category": "Education",
+    "description": null,
+    "variants": [
+      {
+        "game": "zeus",
+        "name": "Observatory Kosmika",
+        "engineType": "eBuildingType::observatoryKosmika",
+        "size": 9,
+        "cost": null,
+        "employees": null,
         "requires": [],
         "produces": [],
         "notes": null
@@ -274,6 +1043,25 @@
           150
         ],
         "employees": 10,
+        "requires": [],
+        "produces": [],
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "zeus-university",
+    "name": "University",
+    "category": "Education",
+    "description": null,
+    "variants": [
+      {
+        "game": "zeus",
+        "name": "University",
+        "engineType": "eBuildingType::university",
+        "size": 3,
+        "cost": null,
+        "employees": 12,
         "requires": [],
         "produces": [],
         "notes": null
@@ -482,6 +1270,25 @@
     ]
   },
   {
+    "id": "zeus-drama-school",
+    "name": "Drama School",
+    "category": "Entertainment",
+    "description": null,
+    "variants": [
+      {
+        "game": "zeus",
+        "name": "Drama School",
+        "engineType": "eBuildingType::dramaSchool",
+        "size": 3,
+        "cost": null,
+        "employees": 10,
+        "requires": [],
+        "produces": [],
+        "notes": null
+      }
+    ]
+  },
+  {
     "id": "pharaoh-festival-square",
     "name": "Festival Square",
     "category": "Entertainment",
@@ -519,6 +1326,25 @@
         "size": 3,
         "cost": null,
         "employees": null,
+        "requires": [],
+        "produces": [],
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "zeus-gymnasium",
+    "name": "Gymnasium",
+    "category": "Entertainment",
+    "description": null,
+    "variants": [
+      {
+        "game": "zeus",
+        "name": "Gymnasium",
+        "engineType": "eBuildingType::gymnasium",
+        "size": 3,
+        "cost": null,
+        "employees": 7,
         "requires": [],
         "produces": [],
         "notes": null
@@ -639,6 +1465,28 @@
     ]
   },
   {
+    "id": "zeus-stadium",
+    "name": "Stadium",
+    "category": "Entertainment",
+    "description": null,
+    "variants": [
+      {
+        "game": "zeus",
+        "name": "Stadium",
+        "engineType": "eBuildingType::stadium",
+        "size": [
+          5,
+          10
+        ],
+        "cost": null,
+        "employees": null,
+        "requires": [],
+        "produces": [],
+        "notes": "Rotates to 10x5 the other way round."
+      }
+    ]
+  },
+  {
     "id": "theater",
     "name": "Theater",
     "category": "Entertainment",
@@ -651,6 +1499,17 @@
         "size": 2,
         "cost": null,
         "employees": null,
+        "requires": [],
+        "produces": [],
+        "notes": null
+      },
+      {
+        "game": "zeus",
+        "name": "Theater",
+        "engineType": "eBuildingType::theater",
+        "size": 5,
+        "cost": null,
+        "employees": 18,
         "requires": [],
         "produces": [],
         "notes": null
@@ -725,6 +1584,44 @@
           20,
           50
         ],
+        "employees": 10,
+        "requires": [],
+        "produces": [],
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "zeus-carding-shed",
+    "name": "Carding Shed",
+    "category": "Farming",
+    "description": null,
+    "variants": [
+      {
+        "game": "zeus",
+        "name": "Carding Shed",
+        "engineType": "eBuildingType::cardingShed",
+        "size": 2,
+        "cost": null,
+        "employees": 8,
+        "requires": [],
+        "produces": [],
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "zeus-carrots-farm",
+    "name": "Carrots Farm",
+    "category": "Farming",
+    "description": null,
+    "variants": [
+      {
+        "game": "zeus",
+        "name": "Carrots Farm",
+        "engineType": "eBuildingType::carrotsFarm",
+        "size": 3,
+        "cost": null,
         "employees": 10,
         "requires": [],
         "produces": [],
@@ -808,6 +1705,44 @@
     ]
   },
   {
+    "id": "zeus-corral",
+    "name": "Corral",
+    "category": "Farming",
+    "description": null,
+    "variants": [
+      {
+        "game": "zeus",
+        "name": "Corral",
+        "engineType": "eBuildingType::corral",
+        "size": 4,
+        "cost": null,
+        "employees": 25,
+        "requires": [],
+        "produces": [],
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "zeus-dairy",
+    "name": "Dairy",
+    "category": "Farming",
+    "description": null,
+    "variants": [
+      {
+        "game": "zeus",
+        "name": "Dairy",
+        "engineType": "eBuildingType::dairy",
+        "size": 2,
+        "cost": null,
+        "employees": 8,
+        "requires": [],
+        "produces": [],
+        "notes": null
+      }
+    ]
+  },
+  {
     "id": "pharaoh-farm-figs",
     "name": "Figs Farm",
     "category": "Farming",
@@ -850,6 +1785,25 @@
           20,
           50
         ],
+        "employees": 10,
+        "requires": [],
+        "produces": [],
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "zeus-fishery",
+    "name": "Fishery",
+    "category": "Farming",
+    "description": null,
+    "variants": [
+      {
+        "game": "zeus",
+        "name": "Fishery",
+        "engineType": "eBuildingType::fishery",
+        "size": 2,
+        "cost": null,
         "employees": 10,
         "requires": [],
         "produces": [],
@@ -1027,6 +1981,25 @@
     ]
   },
   {
+    "id": "zeus-growers-lodge",
+    "name": "Grower's Lodge",
+    "category": "Farming",
+    "description": null,
+    "variants": [
+      {
+        "game": "zeus",
+        "name": "Grower's Lodge",
+        "engineType": "eBuildingType::growersLodge",
+        "size": 2,
+        "cost": null,
+        "employees": 12,
+        "requires": [],
+        "produces": [],
+        "notes": null
+      }
+    ]
+  },
+  {
     "id": "pharaoh-farm-henna",
     "name": "Henna Farm",
     "category": "Farming",
@@ -1095,6 +2068,25 @@
           60
         ],
         "employees": 6,
+        "requires": [],
+        "produces": [],
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "zeus-hunting-lodge",
+    "name": "Hunting Lodge",
+    "category": "Farming",
+    "description": null,
+    "variants": [
+      {
+        "game": "zeus",
+        "name": "Hunting Lodge",
+        "engineType": "eBuildingType::huntingLodge",
+        "size": 2,
+        "cost": null,
+        "employees": 8,
         "requires": [],
         "produces": [],
         "notes": null
@@ -1171,6 +2163,44 @@
     ]
   },
   {
+    "id": "zeus-onions-farm",
+    "name": "Onions Farm",
+    "category": "Farming",
+    "description": null,
+    "variants": [
+      {
+        "game": "zeus",
+        "name": "Onions Farm",
+        "engineType": "eBuildingType::onionsFarm",
+        "size": 3,
+        "cost": null,
+        "employees": 10,
+        "requires": [],
+        "produces": [],
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "zeus-orange-tenders-lodge",
+    "name": "Orange Tender's Lodge",
+    "category": "Farming",
+    "description": null,
+    "variants": [
+      {
+        "game": "zeus",
+        "name": "Orange Tender's Lodge",
+        "engineType": "eBuildingType::orangeTendersLodge",
+        "size": 2,
+        "cost": null,
+        "employees": 12,
+        "requires": [],
+        "produces": [],
+        "notes": null
+      }
+    ]
+  },
+  {
     "id": "pig-farm",
     "name": "Pig Farm",
     "category": "Farming",
@@ -1240,6 +2270,25 @@
     ]
   },
   {
+    "id": "zeus-urchin-quay",
+    "name": "Urchin Quay",
+    "category": "Farming",
+    "description": null,
+    "variants": [
+      {
+        "game": "zeus",
+        "name": "Urchin Quay",
+        "engineType": "eBuildingType::urchinQuay",
+        "size": 2,
+        "cost": null,
+        "employees": 10,
+        "requires": [],
+        "produces": [],
+        "notes": null
+      }
+    ]
+  },
+  {
     "id": "vegetable-farm",
     "name": "Vegetable Farm",
     "category": "Farming",
@@ -1290,6 +2339,17 @@
         "size": 3,
         "cost": null,
         "employees": null,
+        "requires": [],
+        "produces": [],
+        "notes": null
+      },
+      {
+        "game": "zeus",
+        "name": "Wheat Farm",
+        "engineType": "eBuildingType::wheatFarm",
+        "size": 3,
+        "cost": null,
+        "employees": 10,
         "requires": [],
         "produces": [],
         "notes": null
@@ -1498,6 +2558,25 @@
     ]
   },
   {
+    "id": "zeus-maintenance-office",
+    "name": "Maintenance Office",
+    "category": "Government",
+    "description": null,
+    "variants": [
+      {
+        "game": "zeus",
+        "name": "Maintenance Office",
+        "engineType": "eBuildingType::maintenanceOffice",
+        "size": 2,
+        "cost": null,
+        "employees": 5,
+        "requires": [],
+        "produces": [],
+        "notes": null
+      }
+    ]
+  },
+  {
     "id": "mission-post",
     "name": "Mission Post",
     "category": "Government",
@@ -1513,6 +2592,28 @@
         "requires": [],
         "produces": [],
         "notes": null
+      }
+    ]
+  },
+  {
+    "id": "zeus-palace",
+    "name": "Palace",
+    "category": "Government",
+    "description": null,
+    "variants": [
+      {
+        "game": "zeus",
+        "name": "Palace",
+        "engineType": "eBuildingType::palace",
+        "size": [
+          4,
+          8
+        ],
+        "cost": null,
+        "employees": null,
+        "requires": [],
+        "produces": [],
+        "notes": "Rotates to 8x4 the other way round."
       }
     ]
   },
@@ -1535,6 +2636,25 @@
           400
         ],
         "employees": 0,
+        "requires": [],
+        "produces": [],
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "zeus-podium",
+    "name": "Podium",
+    "category": "Government",
+    "description": null,
+    "variants": [
+      {
+        "game": "zeus",
+        "name": "Podium",
+        "engineType": "eBuildingType::podium",
+        "size": 2,
+        "cost": null,
+        "employees": 4,
         "requires": [],
         "produces": [],
         "notes": null
@@ -1603,6 +2723,25 @@
           80,
           100
         ],
+        "employees": 8,
+        "requires": [],
+        "produces": [],
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "zeus-tax-office",
+    "name": "Tax Office",
+    "category": "Government",
+    "description": null,
+    "variants": [
+      {
+        "game": "zeus",
+        "name": "Tax Office",
+        "engineType": "eBuildingType::taxOffice",
+        "size": 2,
+        "cost": null,
         "employees": 8,
         "requires": [],
         "produces": [],
@@ -1805,6 +2944,17 @@
         "size": 3,
         "cost": null,
         "employees": null,
+        "requires": [],
+        "produces": [],
+        "notes": null
+      },
+      {
+        "game": "zeus",
+        "name": "Hospital",
+        "engineType": "eBuildingType::hospital",
+        "size": 4,
+        "cost": null,
+        "employees": 11,
         "requires": [],
         "produces": [],
         "notes": null
@@ -2861,6 +4011,25 @@
     ]
   },
   {
+    "id": "zeus-avenue",
+    "name": "Avenue",
+    "category": "Infrastructure",
+    "description": null,
+    "variants": [
+      {
+        "game": "zeus",
+        "name": "Avenue",
+        "engineType": "eBuildingType::avenue",
+        "size": 1,
+        "cost": null,
+        "employees": null,
+        "requires": [],
+        "produces": [],
+        "notes": null
+      }
+    ]
+  },
+  {
     "id": "pharaoh-bricklayers-guild",
     "name": "Bricklayers Guild",
     "category": "Infrastructure",
@@ -2911,6 +4080,25 @@
     ]
   },
   {
+    "id": "zeus-corinthian-column",
+    "name": "Corinthian Column",
+    "category": "Infrastructure",
+    "description": null,
+    "variants": [
+      {
+        "game": "zeus",
+        "name": "Corinthian Column",
+        "engineType": "eBuildingType::corinthianColumn",
+        "size": 1,
+        "cost": null,
+        "employees": null,
+        "requires": [],
+        "produces": [],
+        "notes": null
+      }
+    ]
+  },
+  {
     "id": "pharaoh-courthouse",
     "name": "Courthouse",
     "category": "Infrastructure",
@@ -2954,6 +4142,25 @@
           25
         ],
         "employees": 0,
+        "requires": [],
+        "produces": [],
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "zeus-doric-column",
+    "name": "Doric Column",
+    "category": "Infrastructure",
+    "description": null,
+    "variants": [
+      {
+        "game": "zeus",
+        "name": "Doric Column",
+        "engineType": "eBuildingType::doricColumn",
+        "size": 1,
+        "cost": null,
+        "employees": null,
         "requires": [],
         "produces": [],
         "notes": null
@@ -3020,6 +4227,17 @@
         "requires": [],
         "produces": [],
         "notes": null
+      },
+      {
+        "game": "zeus",
+        "name": "Fountain",
+        "engineType": "eBuildingType::fountain",
+        "size": 2,
+        "cost": null,
+        "employees": 4,
+        "requires": [],
+        "produces": [],
+        "notes": null
       }
     ]
   },
@@ -3058,6 +4276,25 @@
         "game": "caesar3",
         "name": "Gardens",
         "engineType": "BUILDING_GARDENS",
+        "size": 1,
+        "cost": null,
+        "employees": null,
+        "requires": [],
+        "produces": [],
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "zeus-ionic-column",
+    "name": "Ionic Column",
+    "category": "Infrastructure",
+    "description": null,
+    "variants": [
+      {
+        "game": "zeus",
+        "name": "Ionic Column",
+        "engineType": "eBuildingType::ionicColumn",
         "size": 1,
         "cost": null,
         "employees": null,
@@ -3332,6 +4569,17 @@
         "requires": [],
         "produces": [],
         "notes": null
+      },
+      {
+        "game": "zeus",
+        "name": "Road",
+        "engineType": "eBuildingType::road",
+        "size": 1,
+        "cost": null,
+        "employees": null,
+        "requires": [],
+        "produces": [],
+        "notes": null
       }
     ]
   },
@@ -3519,6 +4767,25 @@
     ]
   },
   {
+    "id": "zeus-armory",
+    "name": "Armory",
+    "category": "Military",
+    "description": null,
+    "variants": [
+      {
+        "game": "zeus",
+        "name": "Armory",
+        "engineType": "eBuildingType::armory",
+        "size": 2,
+        "cost": null,
+        "employees": 18,
+        "requires": [],
+        "produces": [],
+        "notes": null
+      }
+    ]
+  },
+  {
     "id": "barracks",
     "name": "Barracks",
     "category": "Military",
@@ -3606,6 +4873,25 @@
           70
         ],
         "employees": 0,
+        "requires": [],
+        "produces": [],
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "zeus-chariot-factory",
+    "name": "Chariot Factory",
+    "category": "Military",
+    "description": null,
+    "variants": [
+      {
+        "game": "zeus",
+        "name": "Chariot Factory",
+        "engineType": "eBuildingType::chariotFactory",
+        "size": 4,
+        "cost": null,
+        "employees": 30,
         "requires": [],
         "produces": [],
         "notes": null
@@ -3854,6 +5140,58 @@
         "requires": [],
         "produces": [],
         "notes": null
+      },
+      {
+        "game": "zeus",
+        "name": "Gatehouse",
+        "engineType": "eBuildingType::gatehouse",
+        "size": [
+          2,
+          5
+        ],
+        "cost": null,
+        "employees": null,
+        "requires": [],
+        "produces": [],
+        "notes": "Rotates to 5x2 the other way round."
+      }
+    ]
+  },
+  {
+    "id": "zeus-horse-ranch",
+    "name": "Horse Ranch",
+    "category": "Military",
+    "description": null,
+    "variants": [
+      {
+        "game": "zeus",
+        "name": "Horse Ranch",
+        "engineType": "eBuildingType::horseRanch",
+        "size": 3,
+        "cost": null,
+        "employees": 15,
+        "requires": [],
+        "produces": [],
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "zeus-horse-ranch-enclosure",
+    "name": "Horse Ranch Enclosure",
+    "category": "Military",
+    "description": null,
+    "variants": [
+      {
+        "game": "zeus",
+        "name": "Horse Ranch Enclosure",
+        "engineType": "eBuildingType::horseRanchEnclosure",
+        "size": 4,
+        "cost": null,
+        "employees": null,
+        "requires": [],
+        "produces": [],
+        "notes": "An unstaffed paddock attached to a Horse Ranch, not an independent building."
       }
     ]
   },
@@ -4034,6 +5372,17 @@
         "requires": [],
         "produces": [],
         "notes": null
+      },
+      {
+        "game": "zeus",
+        "name": "Tower",
+        "engineType": "eBuildingType::tower",
+        "size": 2,
+        "cost": null,
+        "employees": 15,
+        "requires": [],
+        "produces": [],
+        "notes": null
       }
     ]
   },
@@ -4088,6 +5437,25 @@
     ]
   },
   {
+    "id": "zeus-trireme-wharf",
+    "name": "Trireme Wharf",
+    "category": "Military",
+    "description": null,
+    "variants": [
+      {
+        "game": "zeus",
+        "name": "Trireme Wharf",
+        "engineType": "eBuildingType::triremeWharf",
+        "size": 3,
+        "cost": null,
+        "employees": 100,
+        "requires": [],
+        "produces": [],
+        "notes": "A full 100-strong rowing crew, not shipyard labour."
+      }
+    ]
+  },
+  {
     "id": "triumphal-arch",
     "name": "Triumphal Arch",
     "category": "Military",
@@ -4116,6 +5484,17 @@
         "game": "caesar3",
         "name": "Wall",
         "engineType": "BUILDING_WALL",
+        "size": 1,
+        "cost": null,
+        "employees": null,
+        "requires": [],
+        "produces": [],
+        "notes": null
+      },
+      {
+        "game": "zeus",
+        "name": "Wall",
+        "engineType": "eBuildingType::wall",
         "size": 1,
         "cost": null,
         "employees": null,
@@ -4151,6 +5530,25 @@
     ]
   },
   {
+    "id": "zeus-watch-post",
+    "name": "Watch Post",
+    "category": "Military",
+    "description": null,
+    "variants": [
+      {
+        "game": "zeus",
+        "name": "Watch Post",
+        "engineType": "eBuildingType::watchPost",
+        "size": 2,
+        "cost": null,
+        "employees": 6,
+        "requires": [],
+        "produces": [],
+        "notes": null
+      }
+    ]
+  },
+  {
     "id": "pharaoh-weaponsmith",
     "name": "Weaponsmith",
     "category": "Military",
@@ -4169,6 +5567,161 @@
           150
         ],
         "employees": 12,
+        "requires": [],
+        "produces": [],
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "zeus-grand-monument-to-the-sky",
+    "name": "Grand Monument to the Sky",
+    "category": "Monuments",
+    "description": null,
+    "variants": [
+      {
+        "game": "zeus",
+        "name": "Grand Monument to the Sky",
+        "engineType": "eBuildingType::grandMonumentToTheSky",
+        "size": 8,
+        "cost": null,
+        "employees": null,
+        "requires": [],
+        "produces": [],
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "zeus-great-pyramid",
+    "name": "Great Pyramid",
+    "category": "Monuments",
+    "description": null,
+    "variants": [
+      {
+        "game": "zeus",
+        "name": "Great Pyramid",
+        "engineType": "eBuildingType::greatPyramid",
+        "size": 7,
+        "cost": null,
+        "employees": null,
+        "requires": [],
+        "produces": [],
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "zeus-majestic-pyramid",
+    "name": "Majestic Pyramid",
+    "category": "Monuments",
+    "description": null,
+    "variants": [
+      {
+        "game": "zeus",
+        "name": "Majestic Pyramid",
+        "engineType": "eBuildingType::majesticPyramid",
+        "size": 9,
+        "cost": null,
+        "employees": null,
+        "requires": [],
+        "produces": [],
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "zeus-modest-pyramid",
+    "name": "Modest Pyramid",
+    "category": "Monuments",
+    "description": null,
+    "variants": [
+      {
+        "game": "zeus",
+        "name": "Modest Pyramid",
+        "engineType": "eBuildingType::modestPyramid",
+        "size": 3,
+        "cost": null,
+        "employees": null,
+        "requires": [],
+        "produces": [],
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "zeus-monument-to-the-sky",
+    "name": "Monument to the Sky",
+    "category": "Monuments",
+    "description": null,
+    "variants": [
+      {
+        "game": "zeus",
+        "name": "Monument to the Sky",
+        "engineType": "eBuildingType::monumentToTheSky",
+        "size": 6,
+        "cost": null,
+        "employees": null,
+        "requires": [],
+        "produces": [],
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "zeus-pyramid",
+    "name": "Pyramid",
+    "category": "Monuments",
+    "description": null,
+    "variants": [
+      {
+        "game": "zeus",
+        "name": "Pyramid",
+        "engineType": "eBuildingType::pyramid",
+        "size": 5,
+        "cost": null,
+        "employees": null,
+        "requires": [],
+        "produces": [],
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "zeus-pyramid-of-the-pantheon",
+    "name": "Pyramid of the Pantheon",
+    "category": "Monuments",
+    "description": null,
+    "variants": [
+      {
+        "game": "zeus",
+        "name": "Pyramid of the Pantheon",
+        "engineType": "eBuildingType::pyramidOfThePantheon",
+        "size": [
+          11,
+          9
+        ],
+        "cost": null,
+        "employees": null,
+        "requires": [],
+        "produces": [],
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "zeus-small-monument-to-the-sky",
+    "name": "Small Monument to the Sky",
+    "category": "Monuments",
+    "description": null,
+    "variants": [
+      {
+        "game": "zeus",
+        "name": "Small Monument to the Sky",
+        "engineType": "eBuildingType::smallMonumentToTheSky",
+        "size": 5,
+        "cost": null,
+        "employees": null,
         "requires": [],
         "produces": [],
         "notes": null
@@ -4226,6 +5779,25 @@
         "size": 2,
         "cost": null,
         "employees": null,
+        "requires": [],
+        "produces": [],
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "zeus-black-marble-workshop",
+    "name": "Black Marble Workshop",
+    "category": "Raw materials",
+    "description": null,
+    "variants": [
+      {
+        "game": "zeus",
+        "name": "Black Marble Workshop",
+        "engineType": "eBuildingType::blackMarbleWorkshop",
+        "size": 2,
+        "cost": null,
+        "employees": 15,
         "requires": [],
         "produces": [],
         "notes": null
@@ -4307,6 +5879,44 @@
     ]
   },
   {
+    "id": "zeus-masonry-shop",
+    "name": "Masonry Shop",
+    "category": "Raw materials",
+    "description": null,
+    "variants": [
+      {
+        "game": "zeus",
+        "name": "Masonry Shop",
+        "engineType": "eBuildingType::masonryShop",
+        "size": 2,
+        "cost": null,
+        "employees": 15,
+        "requires": [],
+        "produces": [],
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "zeus-timber-mill",
+    "name": "Timber Mill",
+    "category": "Raw materials",
+    "description": null,
+    "variants": [
+      {
+        "game": "zeus",
+        "name": "Timber Mill",
+        "engineType": "eBuildingType::timberMill",
+        "size": 2,
+        "cost": null,
+        "employees": 12,
+        "requires": [],
+        "produces": [],
+        "notes": null
+      }
+    ]
+  },
+  {
     "id": "timber-yard",
     "name": "Timber Yard",
     "category": "Raw materials",
@@ -4317,6 +5927,25 @@
         "name": "Timber Yard",
         "engineType": "BUILDING_TIMBER_YARD",
         "size": 2,
+        "cost": null,
+        "employees": null,
+        "requires": [],
+        "produces": [],
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "zeus-altar-of-olympus",
+    "name": "Altar of Olympus",
+    "category": "Religion",
+    "description": null,
+    "variants": [
+      {
+        "game": "zeus",
+        "name": "Altar of Olympus",
+        "engineType": "eBuildingType::altarOfOlympus",
+        "size": 8,
         "cost": null,
         "employees": null,
         "requires": [],
@@ -4421,6 +6050,44 @@
     ]
   },
   {
+    "id": "zeus-major-shrine",
+    "name": "Major Shrine",
+    "category": "Religion",
+    "description": null,
+    "variants": [
+      {
+        "game": "zeus",
+        "name": "Major Shrine",
+        "engineType": "eBuildingType::majorShrine",
+        "size": 8,
+        "cost": null,
+        "employees": null,
+        "requires": [],
+        "produces": [],
+        "notes": "One is built per god (fourteen in total) - a Shrine fully exalted to its final tier."
+      }
+    ]
+  },
+  {
+    "id": "zeus-minor-shrine",
+    "name": "Minor Shrine",
+    "category": "Religion",
+    "description": null,
+    "variants": [
+      {
+        "game": "zeus",
+        "name": "Minor Shrine",
+        "engineType": "eBuildingType::minorShrine",
+        "size": 3,
+        "cost": null,
+        "employees": null,
+        "requires": [],
+        "produces": [],
+        "notes": "One is built per god (fourteen in total) - the first tier of a sanctuary."
+      }
+    ]
+  },
+  {
     "id": "oracle",
     "name": "Oracle",
     "category": "Religion",
@@ -4436,6 +6103,25 @@
         "requires": [],
         "produces": [],
         "notes": null
+      }
+    ]
+  },
+  {
+    "id": "zeus-shrine",
+    "name": "Shrine",
+    "category": "Religion",
+    "description": null,
+    "variants": [
+      {
+        "game": "zeus",
+        "name": "Shrine",
+        "engineType": "eBuildingType::shrine",
+        "size": 6,
+        "cost": null,
+        "employees": null,
+        "requires": [],
+        "produces": [],
+        "notes": "One is built per god (fourteen in total) - a Minor Shrine grown to its second tier."
       }
     ]
   },
@@ -4685,6 +6371,25 @@
     ]
   },
   {
+    "id": "zeus-temple-of-olympus",
+    "name": "Temple of Olympus",
+    "category": "Religion",
+    "description": null,
+    "variants": [
+      {
+        "game": "zeus",
+        "name": "Temple of Olympus",
+        "engineType": "eBuildingType::templeOfOlympus",
+        "size": 8,
+        "cost": null,
+        "employees": null,
+        "requires": [],
+        "produces": [],
+        "notes": null
+      }
+    ]
+  },
+  {
     "id": "pharaoh-temple-osiris",
     "name": "Temple of Osiris",
     "category": "Religion",
@@ -4785,6 +6490,44 @@
     ]
   },
   {
+    "id": "zeus-artisans-guild",
+    "name": "Artisans' Guild",
+    "category": "Workshops",
+    "description": null,
+    "variants": [
+      {
+        "game": "zeus",
+        "name": "Artisans' Guild",
+        "engineType": "eBuildingType::artisansGuild",
+        "size": 2,
+        "cost": null,
+        "employees": 25,
+        "requires": [],
+        "produces": [],
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "zeus-foundry",
+    "name": "Foundry",
+    "category": "Workshops",
+    "description": null,
+    "variants": [
+      {
+        "game": "zeus",
+        "name": "Foundry",
+        "engineType": "eBuildingType::foundry",
+        "size": 2,
+        "cost": null,
+        "employees": 15,
+        "requires": [],
+        "produces": [],
+        "notes": null
+      }
+    ]
+  },
+  {
     "id": "furniture-workshop",
     "name": "Furniture Workshop",
     "category": "Workshops",
@@ -4797,6 +6540,25 @@
         "size": 2,
         "cost": null,
         "employees": null,
+        "requires": [],
+        "produces": [],
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "zeus-mint",
+    "name": "Mint",
+    "category": "Workshops",
+    "description": null,
+    "variants": [
+      {
+        "game": "zeus",
+        "name": "Mint",
+        "engineType": "eBuildingType::mint",
+        "size": 2,
+        "cost": null,
+        "employees": 15,
         "requires": [],
         "produces": [],
         "notes": null
@@ -4823,6 +6585,25 @@
     ]
   },
   {
+    "id": "zeus-olive-press",
+    "name": "Olive Press",
+    "category": "Workshops",
+    "description": null,
+    "variants": [
+      {
+        "game": "zeus",
+        "name": "Olive Press",
+        "engineType": "eBuildingType::olivePress",
+        "size": 2,
+        "cost": null,
+        "employees": 12,
+        "requires": [],
+        "produces": [],
+        "notes": null
+      }
+    ]
+  },
+  {
     "id": "pottery-workshop",
     "name": "Pottery Workshop",
     "category": "Workshops",
@@ -4835,6 +6616,44 @@
         "size": 2,
         "cost": null,
         "employees": null,
+        "requires": [],
+        "produces": [],
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "zeus-refinery",
+    "name": "Refinery",
+    "category": "Workshops",
+    "description": null,
+    "variants": [
+      {
+        "game": "zeus",
+        "name": "Refinery",
+        "engineType": "eBuildingType::refinery",
+        "size": 2,
+        "cost": null,
+        "employees": 16,
+        "requires": [],
+        "produces": [],
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "zeus-sculpture-studio",
+    "name": "Sculpture Studio",
+    "category": "Workshops",
+    "description": null,
+    "variants": [
+      {
+        "game": "zeus",
+        "name": "Sculpture Studio",
+        "engineType": "eBuildingType::sculptureStudio",
+        "size": 2,
+        "cost": null,
+        "employees": 12,
         "requires": [],
         "produces": [],
         "notes": null
@@ -4873,6 +6692,25 @@
         "size": 2,
         "cost": null,
         "employees": null,
+        "requires": [],
+        "produces": [],
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "zeus-winery",
+    "name": "Winery",
+    "category": "Workshops",
+    "description": null,
+    "variants": [
+      {
+        "game": "zeus",
+        "name": "Winery",
+        "engineType": "eBuildingType::winery",
+        "size": 2,
+        "cost": null,
+        "employees": 12,
         "requires": [],
         "produces": [],
         "notes": null

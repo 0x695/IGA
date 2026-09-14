@@ -492,5 +492,27 @@
         ]
       }
     ]
+  },
+  {
+    "id": "zeus-buildings-and-production-a-third-source-a-third-shape",
+    "date": "2026-09-14T19:51",
+    "title": "Reading a hundred buildings out of a hundred and twenty-five C++ files",
+    "summary": "Zeus gets its own Buildings and Production pages, sourced from eZeus's per-building constructor calls rather than a single table - a third data shape, joining Julius's enum-and-properties join and Akhenaten's JS config. The buildings schema also grew a second footprint shape, [width, height], for the handful of Zeus buildings that genuinely aren't square.",
+    "blocks": [
+      {
+        "kind": "prose",
+        "body": [
+          "Caesar III and Pharaoh's Buildings pages both come from a single generated join: an enum matched to a properties array by numeric index, or a JS config object per building. eZeus has neither. It keeps one C++ class per building type, and a footprint is a literal argument in that class's own constructor - eGranary's base-class call reads `eStorageBuilding(board, eBuildingType::granary, 4, 4, 18, eResourceType::food, cid)`, which is 4x4 with an 18-worker cap, right there in the source, no lookup table involved. But that argument's position moves depending which of roughly a dozen intermediate base classes a building descends from - eEmployingBuilding puts it right after width and height, eProcessingBuilding buries it behind a raw material and a product type, eFarmBase doesn't expose it in the leaf constructor at all because the figure (10, for every crop) is hardcoded one level up. No single regular expression covers all of that safely, so this table is a literal transcription: every one of roughly 125 buildings/*.cpp files in the repository, read by hand, the same discipline Julius's table gets without the live re-parse to lean on afterward.",
+          "That reading turned up something the schema didn't have room for: five Zeus buildings - both agora types, the gatehouse, the palace, the stadium - take a `rotated` flag and swap between two fixed, unequal footprints. \"Buildings are square\" was a true, stated assumption right up until this game. Rather than force a fake single number onto them or quietly drop them, `size` now accepts `[width, height]` as well as a plain number, and BuildingsGrid.astro renders whichever shape it's given. Three sanctuary tiers and the god monument are the other wrinkle: Zeus builds one shrine per Olympian god, fourteen near-identical enum entries per tier, and rather than publish forty-two rows that differ only in a god's name, each tier is one row noting that it repeats fourteen times with the same footprint and role."
+        ]
+      },
+      {
+        "kind": "prose",
+        "body": [
+          "Production chains hit a harder honesty question. Pharaoh's page states a rate and a threshold per building because Akhenaten steps a literal progress bar and writes both numbers into its config. eZeus's processing buildings (the Armory, Olive Press, Sculpture Studio, Winery) do something related but not identical - consume a fixed amount of raw material every fixed number of ticks, no per-step increment anywhere in the code. Those two models don't actually correspond number-for-number, and eZeus carries an extra caveat Akhenaten doesn't: it is explicitly, by its own author's description, not byte-exact against the original game. Its own timing constants (`eNumbers::sOlivePressProcessingPeriod` and its siblings, each with a tuned default sitting in enumbers.cpp) are the reimplementation's approximation of Zeus's pacing, not a verified reproduction of it.",
+          "Publishing those numbers under Pharaoh's rate/full column headers would have claimed a precision this site doesn't have evidence for, so they don't appear - every Zeus row on the production page carries a dash in both columns, and the page explains why in more detail than the usual one-liner for a merely-missing field. What is solid - what each building takes in, what it makes, its footprint, its worker count - is filled in exactly the way Pharaoh's is, because those numbers carry the same confidence Pharaoh's do."
+        ]
+      }
+    ]
   }
 ]

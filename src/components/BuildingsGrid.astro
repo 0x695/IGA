@@ -66,9 +66,18 @@ const categories = [...new Set(rows.map((r) => r.category))].sort();
         >
           <div class="card__head">
             <span class="card__name">{row.name}</span>
-            {row.variant.size && <span class="card__size">{row.variant.size}×{row.variant.size}</span>}
+            {
+              row.variant.size && (
+                <span class="card__size">
+                  {Array.isArray(row.variant.size)
+                    ? `${row.variant.size[0]}×${row.variant.size[1]}`
+                    : `${row.variant.size}×${row.variant.size}`}
+                </span>
+              )
+            }
           </div>
           <span class="card__category">{row.category}</span>
+          {row.variant.notes && <span class="card__notes">{row.variant.notes}</span>}
           {
             /* Cost and labour only exist where the engine carries them, which
                today means Pharaoh. Pharaoh states cost per difficulty level, so
@@ -254,6 +263,12 @@ const categories = [...new Set(rows.map((r) => r.category))].sort();
 
   .card__category {
     font-size: 11px;
+    color: var(--color-text-dim);
+  }
+
+  .card__notes {
+    font-size: 11px;
+    line-height: 1.5;
     color: var(--color-text-dim);
   }
 

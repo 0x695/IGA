@@ -30,15 +30,24 @@ export async function getStaticPaths() {
 const { game, buildings } = Astro.props;
 const g = game.data;
 
-/* Caesar III keeps its costs in c3_model.txt rather than the engine, so that
-   caveat belongs on its page and would be simply untrue on Pharaoh's. */
+/* Caesar III and Zeus keep their costs outside the engine (or nowhere this
+   site could find), so that caveat belongs on their pages and would be
+   simply untrue on Pharaoh's. */
 const hasCosts = buildings.some((b) =>
   b.data.variants.some((v) => v.game === game.id && v.cost !== null),
 );
 
+const hasEmployees = buildings.some((b) =>
+  b.data.variants.some((v) => v.game === game.id && v.employees !== null),
+);
+
 /* Each game's table comes from the reimplementation that covers it, and the
    page should name the one it actually used. */
-const sourceProject = game.id === 'pharaoh' ? "Akhenaten's building definitions" : "Julius's building type table";
+const SOURCE_PROJECT: Record<string, string> = {
+  pharaoh: "Akhenaten's building definitions",
+  zeus: "eZeus's own building source",
+};
+const sourceProject = SOURCE_PROJECT[game.id] ?? "Julius's building type table";
 ---
 
 <Base
@@ -63,7 +72,7 @@ const sourceProject = game.id === 'pharaoh' ? "Akhenaten's building definitions"
         The obvious two columns are missing, and saying why is more useful than
         leaving a reader to wonder whether the table is simply unfinished.
       */}
-      {!hasCosts && (
+      {!hasCosts && !hasEmployees && (
       <aside class="caveat">
         <h2 class="caveat__title">Where cost and labour are</h2>
         <p>
@@ -86,6 +95,24 @@ const sourceProject = game.id === 'pharaoh' ? "Akhenaten's building definitions"
             cards show the range. Monuments are not listed: pyramids, the sphinx, obelisks and the
             temple complexes are built in phases by work camps, and the size the engine records for
             them is not a footprint.
+          </p>
+        </aside>
+      )}
+
+      {!hasCosts && hasEmployees && (
+        <aside class="caveat">
+          <h2 class="caveat__title">About these numbers</h2>
+          <p>
+            Sizes and worker counts are read straight out of eZeus's own building classes — most
+            constructors state a building's footprint and its <code>maxEmployees</code> as literal
+            arguments. Cost has no equivalent: nothing under eZeus's <code>buildings/</code> carries a
+            drachma price, and no other file in the project was found to either, so this table leaves
+            it out rather than guess. A handful of buildings — both agora types, the gatehouse, the
+            palace, the stadium — rotate between two fixed, unequal footprints rather than staying
+            square; those cards show the unrotated reading with the alternate noted underneath.
+            {' '}The common house and its elite counterpart aren't listed here at all — their ladder,
+            with a real size per rung, is the{' '}
+            <a href={withBase(`/${game.id}/housing/`)}>Housing page</a>.
           </p>
         </aside>
       )}

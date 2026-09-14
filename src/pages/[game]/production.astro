@@ -36,6 +36,23 @@ const groups = [
   { name: 'Raw materials', rows: raw },
   { name: 'Workshops', rows: workshops },
 ].filter((group) => group.rows.length > 0);
+
+/* Each game's numbers come from the reimplementation that covers it, and
+   the two aren't the same shape - Akhenaten steps a literal progress bar,
+   eZeus consumes raw material on a timer with no per-step increment at all,
+   so rate/full stay dashes for every Zeus row rather than force one model
+   onto the other's columns (see scripts/build-production.mjs). */
+const SOURCE: Record<string, { label: string; url: string }> = {
+  pharaoh: {
+    label: "Akhenaten's building configuration",
+    url: 'https://github.com/dalerank/Akhenaten/tree/master/src/scripts/building',
+  },
+  zeus: {
+    label: "eZeus's own building source",
+    url: 'https://github.com/MaurycyLiebner/eZeus/tree/main/buildings',
+  },
+};
+const source = SOURCE[game.id];
 ---
 
 <Base
@@ -52,8 +69,8 @@ const groups = [
       <h1 class="head__title">Production chains</h1>
       <p class="head__summary">
         Every building that makes something: what it takes in, what it puts out, how many labourers
-        it wants, and the rate the engine steps its progress bar with. Read out of Akhenaten's
-        building configuration rather than timed in play.
+        it wants, and — where the source states it in a shape this page can stand behind — the rate
+        the engine steps its progress bar with. Read out of {source.label} rather than timed in play.
       </p>
 
       <aside class="caveat">
@@ -68,16 +85,27 @@ const groups = [
           speed on the gentlest setting, half on the hardest.
         </p>
         <p>
-          A dash means the config does not state that field — some buildings take their timing from
+          A dash means the source does not state that field — some buildings take their timing from
           engine defaults rather than from their own file, and inventing a number for them would be
           worse than the gap.
         </p>
+        {
+          game.id === 'zeus' && (
+            <p>
+              Every rate and full cell on this page is a dash, and that one's a wider gap than "not
+              stated": eZeus's processing buildings consume a fixed amount of raw material every
+              fixed number of ticks, with no per-step progress bar at all, so Pharaoh's two columns
+              have nothing to read a value from. eZeus is also explicitly not byte-exact against the
+              original, so even its own timing constants would be the reimplementation's
+              approximation, not a verified reproduction. What takes/makes, footprint and staff are
+              read the same way as Pharaoh's and carry the same confidence.
+            </p>
+          )
+        }
         <p class="caveat__sources">
-          <a
-            href="https://github.com/dalerank/Akhenaten/tree/master/src/scripts/building"
-            target="_blank"
-            rel="noopener noreferrer">Akhenaten — src/scripts/building/ ↗</a
-          >
+          <a href={source.url} target="_blank" rel="noopener noreferrer">
+            {source.label} ↗
+          </a>
         </p>
       </aside>
     </section>
