@@ -2884,6 +2884,17 @@
         "requires": [],
         "produces": [],
         "notes": null
+      },
+      {
+        "game": "caesar2",
+        "name": "Bathhouse",
+        "engineType": "evolver.c: Bathhouse",
+        "size": 2,
+        "cost": null,
+        "employees": null,
+        "requires": [],
+        "produces": [],
+        "notes": null
       }
     ]
   },
@@ -4238,6 +4249,17 @@
         "requires": [],
         "produces": [],
         "notes": null
+      },
+      {
+        "game": "caesar2",
+        "name": "Fountain",
+        "engineType": "evolver.c: Fountain",
+        "size": 1,
+        "cost": null,
+        "employees": null,
+        "requires": [],
+        "produces": [],
+        "notes": null
       }
     ]
   },
@@ -4760,6 +4782,17 @@
           20
         ],
         "employees": 0,
+        "requires": [],
+        "produces": [],
+        "notes": null
+      },
+      {
+        "game": "caesar2",
+        "name": "Well",
+        "engineType": "evolver.c: Well",
+        "size": 1,
+        "cost": null,
+        "employees": null,
         "requires": [],
         "produces": [],
         "notes": null

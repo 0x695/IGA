@@ -777,6 +777,67 @@ for (const row of zeusRows) {
 
 console.log(zeusRows.length + ' Zeus buildings, ' + zeusMerged + ' merged into existing concepts');
 
+// --- CAESAR II, from the reconstruction's evolver.c + the manual -------------
+//
+// Caesar II has no single building table the way Julius or eZeus do - its
+// civic buildings (unlike its houses) grow through size tiers, not just
+// quality ones, and the reconstruction's src/evolver.c passes each tier's
+// footprint as a literal argument to evolve_a_building()/devolve_a_building()
+// (read verbatim on 14 September 2026), one call site per building family.
+// Three of those families keep the SAME footprint at every quality tier -
+// Well, Fountain and Bathhouse - which is what makes them safe to publish as
+// single-size entries here, the same shape as every other building on this
+// page. Forum and Temple genuinely change footprint as they grow (2/3/4 and
+// 1/2/3 tiles respectively) and are not in this table yet for exactly that
+// reason - a size that depends on which of three tiers is currently built
+// needs a different representation than this page's one-size-per-row shape,
+// and that hasn't been built.
+//
+// Employees and cost are not published for the same reason as Caesar III's:
+// no equivalent of an enum-and-properties join was found, and the manual
+// doesn't state them per building either.
+const CAESAR2 = [
+  { name: 'Well', size: 1, category: 'Infrastructure' },
+  { name: 'Fountain', size: 1, category: 'Infrastructure' },
+  { name: 'Bathhouse', size: 2, category: 'Health' },
+];
+
+let caesar2Merged = 0;
+for (const row of CAESAR2) {
+  const variant = {
+    game: 'caesar2',
+    name: row.name,
+    // No enum symbol exists to cite - see the file-level comment above.
+    engineType: 'evolver.c: ' + row.name,
+    size: row.size,
+    cost: null,
+    employees: null,
+    requires: [],
+    produces: [],
+    notes: null,
+  };
+
+  const existing = byName.get(row.name);
+  if (existing) {
+    existing.variants.push(variant);
+    caesar2Merged += 1;
+  } else {
+    const entry = {
+      id: 'caesar2-' + row.name.toLowerCase().replace(/\s+/g, '-'),
+      name: row.name,
+      category: row.category,
+      description: null,
+      variants: [variant],
+    };
+    byName.set(row.name, entry);
+    buildings.push(entry);
+  }
+}
+
+if (caesar2Merged !== 3) throw new Error(`expected all 3 Caesar II buildings to merge, got ${caesar2Merged}`);
+
+console.log(CAESAR2.length + ' Caesar II buildings, ' + caesar2Merged + ' merged into existing concepts');
+
 buildings.sort((a, b) => a.category.localeCompare(b.category) || a.name.localeCompare(b.name));
 
 await writeFile('src/data/buildings.json', JSON.stringify(buildings, null, 2) + '\n');

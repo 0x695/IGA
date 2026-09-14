@@ -46,6 +46,7 @@ const hasEmployees = buildings.some((b) =>
 const SOURCE_PROJECT: Record<string, string> = {
   pharaoh: "Akhenaten's building definitions",
   zeus: "eZeus's own building source",
+  caesar2: "the Caesar II Reconstruction's own source, cross-checked against the manual",
 };
 const sourceProject = SOURCE_PROJECT[game.id] ?? "Julius's building type table";
 ---
@@ -72,7 +73,7 @@ const sourceProject = SOURCE_PROJECT[game.id] ?? "Julius's building type table";
         The obvious two columns are missing, and saying why is more useful than
         leaving a reader to wonder whether the table is simply unfinished.
       */}
-      {!hasCosts && !hasEmployees && (
+      {!hasCosts && !hasEmployees && game.id === 'caesar3' && (
       <aside class="caveat">
         <h2 class="caveat__title">Where cost and labour are</h2>
         <p>
@@ -95,6 +96,25 @@ const sourceProject = SOURCE_PROJECT[game.id] ?? "Julius's building type table";
             cards show the range. Monuments are not listed: pyramids, the sphinx, obelisks and the
             temple complexes are built in phases by work camps, and the size the engine records for
             them is not a footprint.
+          </p>
+        </aside>
+      )}
+
+      {game.id === 'caesar2' && (
+        <aside class="caveat">
+          <h2 class="caveat__title">About these numbers</h2>
+          <p>
+            Only three buildings, on purpose: Well, Fountain and Bathhouse are the only Caesar II
+            civic buildings whose footprint stays the same at every quality tier, which is what makes
+            them safe to publish in this page's one-size-per-row shape. Their size comes from a
+            literal argument in the reconstruction's src/evolver.c; there is no engine table to read
+            cost or labour from, and the manual doesn't state either per building. Forum and Temple
+            are not here — both genuinely change footprint as they grow through their size tiers, and
+            that needs a different table shape than this page has. The full growth mechanism, shared
+            by all five of these buildings plus housing, is the subject of a{' '}
+            <a href={withBase('/mechanics/growth-tiers/')}>mechanics page</a>; the housing ladder
+            itself, cross-checked the same way as these three, is the{' '}
+            <a href={withBase(`/${game.id}/housing/`)}>Housing page</a>.
           </p>
         </aside>
       )}

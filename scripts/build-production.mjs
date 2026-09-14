@@ -309,9 +309,77 @@ const wheatFarmC3 = caesar3Rows.find((r) => r.id === 'caesar3-wheat-farm');
 if (wheatFarmC3.progressMax !== 200) throw new Error('caesar3 wheat farm: expected progressMax 200');
 
 rows.push(...caesar3Rows);
-rows.sort((a, b) => a.game.localeCompare(b.game) || a.name.localeCompare(b.name));
 
 console.log(`${caesar3Rows.length} Caesar III producers added`);
+
+// --- CAESAR II, from the manual's own Appendix (no engine table to read) --------
+//
+// Caesar II's decompilation names businesses only by a raw-material index
+// (`placing_type`, checked against `house_gfxdat`-style tables in
+// src/action.c) - there is no BUSINESS_* enum with English names anywhere in
+// the reconstruction, because those names were never compiled into the
+// binary: they live in the .ENG text resource, which this site does not
+// reproduce (see /formats/caesar2-text/). The manual's own Appendix ("CITY
+// BUSINESS TYPES", p.85) is the primary source instead: sixteen businesses,
+// each with the raw material it needs.
+//
+// Only five are rows here. For those five the finished good is the business
+// name read as plain English - a Bakery makes Bread, a Winery makes Wine, a
+// Butcher makes Meat, Pottery Works makes Pottery, Glass Works makes Glass -
+// not a game-specific claim, just what those words mean. The other eleven
+// (Lumber Mill, Jeweler, Lead/Iron/Copper/Marble/Stone Works, Silk/Spice/
+// Ivory Dealer, Fish Monger) are exactly as real, and their raw material is
+// exactly as certain, but the manual never names their finished good
+// separately from the business itself, and "Works"/"Dealer"/"Monger" don't
+// resolve that on their own - a dealer might resell the same good unchanged,
+// a works might rename it entirely. Guessing would read as sourced when it
+// isn't, so those eleven are named in the production page's caveat instead
+// of turned into rows with an invented output column.
+//
+// No size, laborers or rate figures are published for any of the five: nothing
+// in the manual or the decompilation states them, only that "the maximum
+// output of a business is seven jars" (p.31) - a storage cap, not a rate,
+// and not tied to any one business by name.
+//
+// id | name | input | output
+const CAESAR2_PRODUCERS = `
+bakery|Bakery|Wheat|Bread
+winery|Winery|Grapes|Wine
+butcher|Butcher|Cattle|Meat
+pottery-works|Pottery Works|Clay|Pottery
+glass-works|Glass Works|Sand|Glass
+`;
+
+const caesar2Rows = CAESAR2_PRODUCERS.trim()
+  .split('\n')
+  .map((line) => line.split('|'))
+  .map(([id, name, input, output]) => ({
+    id: `caesar2-${id}`,
+    game: 'caesar2',
+    name,
+    // No engine symbol exists to cite - see the file-level comment above.
+    // Named for what it is: a manual entry, not a decompiled constant.
+    engineType: 'manual: CITY BUSINESS TYPES',
+    size: null,
+    laborers: null,
+    inputs: [input],
+    output,
+    productionRate: null,
+    progressMax: null,
+    rateByDifficulty: null,
+  }));
+
+if (caesar2Rows.length !== 5) throw new Error(`expected 5 Caesar II producers, got ${caesar2Rows.length}`);
+const bakery = caesar2Rows.find((r) => r.id === 'caesar2-bakery');
+if (bakery.inputs.join() !== 'Wheat' || bakery.output !== 'Bread') {
+  throw new Error(`caesar2 bakery: takes ${bakery.inputs}, makes ${bakery.output}`);
+}
+
+rows.push(...caesar2Rows);
+
+console.log(`${caesar2Rows.length} Caesar II producers added`);
+
+rows.sort((a, b) => a.game.localeCompare(b.game) || a.name.localeCompare(b.name));
 
 await writeFile(OUT, `${JSON.stringify(rows, null, 2)}\n`, 'utf8');
 

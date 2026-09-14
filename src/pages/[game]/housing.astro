@@ -92,6 +92,16 @@ const PROVENANCE: Record<string, { summary: string; caveat: string; sources: { t
       { title: 'eZeus - buildings/eelitehousing.cpp', url: 'https://github.com/MaurycyLiebner/eZeus/blob/main/buildings/eelitehousing.cpp' },
     ],
   },
+  caesar2: {
+    summary:
+      "Thirty-one named levels, One Hut to Small Palace, plus the unoccupied plot below the first of them. Two independent sources, lined up and checked against each other, neither of which would have been enough alone.",
+    caveat:
+      "The reconstruction's house_gfxdat table has the footprint for all 32 entries but no English names at all - those live in the game's own text resource, which this site does not reproduce. The manual's own Appendix has the reverse: 31 names, in order, with no sizes. Lined up, the manual's names land on the code's indices 1-31 without a single mismatch, and the size the code assigns each index never disagrees with which named tier it falls into - the size break from 1×1 to 2×2 lands exactly on \"Grand Domus,\" and 2×2 to 3×3 exactly on \"Grand Villa.\" What isn't here: land-value thresholds, population capacity and specific needs per rung. Caesar II tracks all three, but no table naming their values by rung was found in either source.",
+    sources: [
+      { title: 'Caesar II Reconstruction - src/data.c', url: 'https://github.com/second-impressions/caesar2-reconstruction/blob/main/src/data.c' },
+      { title: 'Caesar II manual (Impressions Games / Sierra), Appendix', url: 'https://0x695.github.io/IGA/manuals/caesar2.pdf' },
+    ],
+  },
   emperor: {
     summary:
       'Two ladders rather than one. Common housing runs eight rungs from a shelter to a luxurious apartment; elite housing runs five more, from a modest siheyuan to a heavenly compound, and a citizen never moves between the two.',

@@ -58,6 +58,10 @@ const SOURCE: Record<string, { label: string; url: string }> = {
     label: "Julius's own building source",
     url: 'https://github.com/bvschaik/julius/blob/master/src/building/industry.c',
   },
+  caesar2: {
+    label: "the game's own manual (no engine table exists to read)",
+    url: 'https://0x695.github.io/IGA/manuals/caesar2.pdf',
+  },
 };
 const source = SOURCE[game.id];
 ---
@@ -121,6 +125,26 @@ const source = SOURCE[game.id];
               naming directly: it accrues progress at half that rate, a genuine special case in the
               source rather than a rounding choice, so it reaches the same 200 threshold roughly twice
               as slowly as every other raw producer at equal staffing.
+            </p>
+          )
+        }
+        {
+          game.id === 'caesar2' && (
+            <p>
+              No engine table exists for this page to read at all — Caesar II's decompilation names a
+              business only by a raw-material index, never in English, because those names live in the
+              game's own text resource rather than compiled into the binary. Every figure here comes
+              from the manual's Appendix instead, which names sixteen businesses and each one's raw
+              material but never the finished good's own name — for five of them (Bakery, Winery,
+              Butcher, Pottery Works, Glass Works) that name is just the business's own name read as
+              plain English, so they're rows here. The other eleven are exactly as real — Lumber Mill,
+              Jeweler, Lead Works, Iron Works, Copper Works, Marble Works, Stone Works, Silk Dealer,
+              Spice Dealer, Ivory Dealer, Fish Monger, each with a stated raw material — but "Works" and
+              "Dealer" don't say on their own whether the business refines the material or simply
+              resells it unchanged, and guessing would read as sourced when it isn't. Size, staff and
+              rate are absent for the same reason as everything else on this page: the manual states
+              only that "the maximum output of a business is seven jars" (p.31), a storage cap that
+              applies to none of them by name.
             </p>
           )
         }

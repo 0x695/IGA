@@ -23,6 +23,19 @@
  * ZEUS is absent: the walkthrough that documents its adventures has only prose
  * on housing, and its data appendix is not in the copy available here. An empty
  * ladder is better than a guessed one.
+ *
+ * CAESAR II is transcribed from two independent sources that turned out to
+ * corroborate each other exactly. The reconstruction's src/data.c defines
+ * `house_gfxdat[128]`, 32 {gfx, size, 0, 0} entries (read verbatim on
+ * 14 September 2026); the manual's Appendix ("HOUSING:", p.83) separately
+ * lists 31 named development levels, One Hut to Small Palace, with no sizes
+ * at all. Lined up, they match perfectly: the manual's 31 names map onto
+ * code indices 1-31 in order, and the size the code assigns each index (1
+ * for 1-25, 2 for 26-29, 3 for 30-31) never disagrees with which named tier
+ * it lands on. Code index 0 - the only one the manual doesn't name - is the
+ * pre-occupancy plot. Neither source alone would have been enough to
+ * publish with confidence: the code has no English names, the manual has no
+ * sizes. Together they read as one nearly-certain table.
  */
 import { readFile, writeFile } from 'node:fs/promises';
 
@@ -304,6 +317,65 @@ ZEUS_ELITE.forEach(([name, requirements], index) => {
     note: null,
   });
 });
+
+/* CAESAR II: 31 named levels (manual) mapped onto code indices 1-31
+   (src/data.c's house_gfxdat), plus the unnamed pre-occupancy plot at index 0.
+   Sizes are the code's; names and order are the manual's - see the file-level
+   comment above for how the two were cross-checked against each other. */
+const CAESAR2_NAMES = [
+  'Vacant Lot',
+  'One Hut', 'Two Huts', 'Three Huts', 'Communal Huts', 'Large Communal Hut',
+  'Primitive House', 'Simple House', 'Small House', 'Average House', 'Improved House',
+  'Large House', 'Grand House',
+  'Primitive Insula', 'Simple Insula', 'Small Insula', 'Average Insula', 'Improved Insula',
+  'Large Insula', 'Grand Insula', 'Imperial Insula',
+  'Simple Domus', 'Small Domus', 'Average Domus', 'Improved Domus', 'Large Domus', 'Grand Domus',
+  'Simple Villa', 'Small Villa', 'Improved Villa', 'Grand Villa',
+  'Small Palace',
+];
+if (CAESAR2_NAMES.length !== 32) throw new Error(`expected 32 Caesar II levels, got ${CAESAR2_NAMES.length}`);
+
+/* house_gfxdat[128] = 32 * {gfx, size, 0, 0}, read verbatim from
+   https://github.com/second-impressions/caesar2-reconstruction/blob/main/src/data.c */
+const CAESAR2_SIZES = [
+  1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+  2, 2, 2, 2,
+  3, 3,
+];
+if (CAESAR2_SIZES.length !== 32) throw new Error(`expected 32 Caesar II sizes, got ${CAESAR2_SIZES.length}`);
+
+CAESAR2_NAMES.forEach((name, index) => {
+  rows.push({
+    id: `caesar2-${String(index).padStart(2, '0')}`,
+    game: 'caesar2',
+    tier: null,
+    level: index,
+    name,
+    engineType: `house_gfxdat[${index}]`,
+    size: CAESAR2_SIZES[index],
+    maxPeople: null,
+    prosperity: null,
+    evolveDesirability: null,
+    devolveDesirability: null,
+    needs: null,
+    requirements: null,
+    note:
+      index === 0
+        ? "Not named in the manual's appendix - the pre-occupancy plot, distinct from the 31 named development levels above it."
+        : null,
+  });
+});
+
+/* Spot checks: the cross-referencing claim above is exactly the kind of thing
+   that goes stale silently if either literal array is ever edited alone. */
+const c2First = rows.find((r) => r.id === 'caesar2-01');
+const c2Last = rows.find((r) => r.id === 'caesar2-31');
+if (c2First.name !== 'One Hut' || c2First.size !== 1) throw new Error('caesar2 level 1 should be One Hut, size 1');
+if (c2Last.name !== 'Small Palace' || c2Last.size !== 3) throw new Error('caesar2 level 31 should be Small Palace, size 3');
+const c2SizeBreak = rows.find((r) => r.game === 'caesar2' && r.level === 26);
+if (c2SizeBreak.name !== 'Grand Domus' || c2SizeBreak.size !== 2) {
+  throw new Error('caesar2 level 26 (the 1->2 size break) should be Grand Domus, size 2');
+}
 
 for (const row of rows) if (!('tier' in row)) row.tier = null;
 

@@ -603,5 +603,34 @@
         ]
       }
     ]
+  },
+  {
+    "id": "caesar-ii-gets-buildings-housing-mechanics-and-production",
+    "date": "2026-09-14T21:33",
+    "title": "Two sources that alone weren't enough, and together were exactly enough",
+    "summary": "Caesar II gets four new pages at once - Buildings, Housing, a Mechanics deep-dive, and Production - built from the reconstruction's decompiled source and, for the first time on this site, the game's own manual read directly. The manual's Appendix turned out to be the load-bearing source for all four: it's where the housing ladder's 31 names live, where the civic-building growth tiers are named, and where the only surviving record of Caesar II's sixteen city businesses is.",
+    "blocks": [
+      {
+        "kind": "prose",
+        "title": "A decompilation with no English in it",
+        "body": [
+          "Every open-source engine this site has read from so far - Julius, Akhenaten, eZeus - keeps at least some human-readable names compiled into its own source: an enum with a member called `granary`, a JS object called `building_house_crude_hut`. Caesar II's reconstruction, being a byte-exact clean-room decompilation rather than a reimplementation, keeps none. Its building and housing tables are pure numbers - `house_gfxdat[128]`, thirty-two {graphic, size, 0, 0} entries - because the original game never compiled its English strings into the executable at all; they lived in C2.ENG and HELP.ENG, external text resources this site already documented the format of but does not reproduce the contents of.",
+          "That meant the sizes were sitting right there in src/data.c and nowhere had a name to put next to them. The Caesar II manual, already on this site as a scanned PDF for its own credits, turned out to have exactly the missing half: an Appendix page listing 31 named housing development levels, One Hut to Small Palace, in order, with no sizes at all. Read separately, neither source would have been publishable with real confidence - a table of unlabelled numbers, or a list of names with nothing to measure. Lined up against each other, the manual's 31 names land on the code's indices 1-31 without a single mismatch, and every size-class boundary the code draws (1x1 to 2x2, 2x2 to 3x3) falls exactly on the name the manual gives that transition. Two weak sources turned into one strong one."
+        ]
+      },
+      {
+        "kind": "prose",
+        "title": "The same trick, three more times",
+        "body": [
+          "The same reconstruction's src/evolver.c turned out to hold more than housing. citymap_evolution() runs one evolution pass over the whole city map per cycle, and the same tile-type dispatch that grows a hut into a hovel also grows a well into a maintained well, a bathhouse into a grander one, and - the genuinely distinctive part - forums and temples through multiple size-classes, not just quality tiers. That's real, structural, citable content for a mechanics page (now live: Growth tiers), and it gave three more buildings a real, code-sourced footprint for the Buildings page: Well, Fountain and Bathhouse, the only three civic buildings whose size stays constant while their quality does. Forum and Temple change footprint as they grow and don't fit this site's one-size-per-building-row shape, so they're named as a real, deliberate gap in the buildings page's own caveat rather than forced in.",
+          "Production leaned on the manual again, for a different reason: the decompilation genuinely has nothing to read here. Caesar II's sixteen city businesses are tracked in code by a raw-material index with no embedded name at all, so the manual's own Appendix - \"CITY BUSINESS TYPES\", naming each business and the raw material it needs - is the only source there is. Five made it onto the page as rows (Bakery, Winery, Butcher, Pottery Works, Glass Works) because their finished good is just their own name read as plain English, not a guess. The other eleven are exactly as real, with exactly as certain a raw material, but \"Iron Works\" and \"Fish Monger\" don't say on their own whether the business refines its material into something new or just resells it - so rather than invent an output good with a business's name attached to lend it false confidence, those eleven are named directly in the page's caveat as businesses this site knows exist and cannot yet finish describing."
+        ]
+      },
+      {
+        "kind": "callout",
+        "title": "What's still open",
+        "body": "Forum and Temple's multi-tier footprints aren't in the Buildings table yet - they need a different row shape than every other building on this site has, and that hasn't been designed. Eleven of Caesar II's sixteen known businesses have a raw material but no confirmed output good. Housing's land-value thresholds, population capacities and per-rung requirements - the numbers behind the 31 names, not just the names themselves - weren't found in either source used this round. All three are honest gaps, not gaps this site has stopped looking for."
+      }
+    ]
   }
 ]

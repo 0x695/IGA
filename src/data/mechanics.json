@@ -88,5 +88,46 @@
         "url": "https://github.com/dalerank/Akhenaten/blob/master/src/scripts/building/roadblock.js"
       }
     ]
+  },
+  {
+    "id": "growth-tiers",
+    "title": "Everything grows, not just the houses",
+    "shortTitle": "Growth tiers",
+    "games": [
+      "caesar2"
+    ],
+    "summary": "Caesar II runs one evolution pass over the city map each cycle, and it doesn't only decide whether a house upgrades. Wells, fountains, bathhouses, forums and temples are on the same pass, growing and shrinking through their own tiers by the same land-value logic - a design later Impressions games mostly dropped in favour of fixed-size civic buildings.",
+    "blocks": [
+      {
+        "kind": "prose",
+        "title": "One scan, every building type",
+        "body": [
+          "citymap_evolution() in the reconstruction's src/evolver.c walks the city map row by row once per cycle, and the same function that decides whether a hut becomes a hovel also decides whether a well becomes a maintained well. The dispatch is a single chain of tile-type range checks - wells at 0xD7-0xDA, fountains at 0xDB-0xDE, bathhouses at 0xDF-0xE2, three separate forum size-classes at 0xAE-0xB9, three temple size-classes at 0xA2-0xAD - each compared against the land value at that tile and pushed up or down a tier by the same evolve_a_building()/devolve_a_building() pair that houses use. It is one mechanic wearing five costumes, not five separate systems that happen to look similar.",
+          "The tiers themselves are cosmetic for three of those five: a well, a fountain and a bathhouse occupy the same footprint - literally the same footprint_size argument - at every quality level, so growing one is a reskin with no planning consequence. Forums and temples are not: their footprint argument changes with their size-class (2, 3 or 4 tiles for a forum; 1, 2 or 3 for a temple), so a forum that grows into its next size-class needs room on the map it may not have. Caesar II does not warn about this in advance the way a modern city builder would flag insufficient space - the tile scan simply skips a building whose new footprint doesn't clear, and it stays at its current tier until the surrounding tiles free up or the player demolishes something."
+        ]
+      },
+      {
+        "kind": "prose",
+        "title": "Temples ask a second question housing doesn't",
+        "body": [
+          "Every other growth check in this pass is a single land-value comparison against an evolve_above/devolve_below pair. Temples check two conditions at once: temple_evolution[index] against land value, exactly like everything else, but also temple_populations1/2/3[index] against the city's population - and both must clear before a temple grows, while either failing is enough to devolve it. A wealthy, empty city can build a temple that sits at its lowest tier indefinitely; a poor, crowded one can have the population for a grand temple and still be stuck for want of land value. No other building family in this pass gates on two independent numbers at once."
+        ]
+      },
+      {
+        "kind": "callout",
+        "title": "What ties this to the housing ladder",
+        "body": "The same land-value engine this page describes is what drives the 31 named housing levels on Caesar II's Housing page - One Hut through Small Palace, cross-checked against the reconstruction's own house_gfxdat table. That table and this mechanic are read from the same file, evolver.c, and the same per-cycle scan; the housing page's numbers and this page's mechanism are two views of one system, not two separate findings that happen to agree."
+      }
+    ],
+    "sources": [
+      {
+        "title": "Caesar II Reconstruction - src/evolver.c",
+        "url": "https://github.com/second-impressions/caesar2-reconstruction/blob/main/src/evolver.c"
+      },
+      {
+        "title": "Caesar II manual (Impressions Games / Sierra), Appendix",
+        "url": "https://0x695.github.io/IGA/manuals/caesar2.pdf"
+      }
+    ]
   }
 ]

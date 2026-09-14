@@ -1,5 +1,80 @@
 [
   {
+    "id": "caesar2-bakery",
+    "game": "caesar2",
+    "name": "Bakery",
+    "engineType": "manual: CITY BUSINESS TYPES",
+    "size": null,
+    "laborers": null,
+    "inputs": [
+      "Wheat"
+    ],
+    "output": "Bread",
+    "productionRate": null,
+    "progressMax": null,
+    "rateByDifficulty": null
+  },
+  {
+    "id": "caesar2-butcher",
+    "game": "caesar2",
+    "name": "Butcher",
+    "engineType": "manual: CITY BUSINESS TYPES",
+    "size": null,
+    "laborers": null,
+    "inputs": [
+      "Cattle"
+    ],
+    "output": "Meat",
+    "productionRate": null,
+    "progressMax": null,
+    "rateByDifficulty": null
+  },
+  {
+    "id": "caesar2-glass-works",
+    "game": "caesar2",
+    "name": "Glass Works",
+    "engineType": "manual: CITY BUSINESS TYPES",
+    "size": null,
+    "laborers": null,
+    "inputs": [
+      "Sand"
+    ],
+    "output": "Glass",
+    "productionRate": null,
+    "progressMax": null,
+    "rateByDifficulty": null
+  },
+  {
+    "id": "caesar2-pottery-works",
+    "game": "caesar2",
+    "name": "Pottery Works",
+    "engineType": "manual: CITY BUSINESS TYPES",
+    "size": null,
+    "laborers": null,
+    "inputs": [
+      "Clay"
+    ],
+    "output": "Pottery",
+    "productionRate": null,
+    "progressMax": null,
+    "rateByDifficulty": null
+  },
+  {
+    "id": "caesar2-winery",
+    "game": "caesar2",
+    "name": "Winery",
+    "engineType": "manual: CITY BUSINESS TYPES",
+    "size": null,
+    "laborers": null,
+    "inputs": [
+      "Grapes"
+    ],
+    "output": "Wine",
+    "productionRate": null,
+    "progressMax": null,
+    "rateByDifficulty": null
+  },
+  {
     "id": "caesar3-clay-pit",
     "game": "caesar3",
     "name": "Clay Pit",
