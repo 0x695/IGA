@@ -529,5 +529,20 @@
         ]
       }
     ]
+  },
+  {
+    "id": "pharaoh-gets-its-mission-editor-and-the-same-two-sources",
+    "date": "2026-09-14T20:24",
+    "title": "Pharaoh's Mission Editor joins Tools & Mods, and a real crash fix turns up",
+    "summary": "Third time through the same pattern: Pharaoh's in-game Mission Editor (unlocked by the 1.2 patch, no separate install) plus HeavenGames' misc-downloads listing and Pharaoh's Nexus Mods page. Checking that Nexus page turned up a genuine audio-crash fix, added as its own entry rather than left as a mention.",
+    "blocks": [
+      {
+        "kind": "prose",
+        "body": [
+          "Pharaoh's editor sits between Emperor's and Zeus's in how it's reached: not a menu option on the start screen like Zeus's Adventure Editor, not a separate PDF-documented tool like Emperor's Campaign Creator, but a mode the 1.2 Enhancement Pack patch unlocks inside the game itself - already applied on the GOG release. No official primer exists for it anywhere on Pharaoh Heaven, so the entry links a fan-written Mission Editor Guide instead: an FAQ plus a worked example, the closest thing to documentation this format has.",
+          "Pharaoh's Nexus Mods page has exactly one upload - Pharaoh CrashFix, replacement audio DLLs by SCARaw that stop the game crashing on modern systems when it tries to load sound, tested against both the CD version patched to 1.2 and the Pharaoh + Cleopatra bundle. Genuinely useful, not decorative, so it's a full Tools & Mods entry rather than something the Nexus link-out leaves the reader to discover on their own - the same call made for Emperor's Ukrainian localization, the opposite of Zeus's Nexus page, which had nothing new to add."
+        ]
+      }
+    ]
   }
 ]

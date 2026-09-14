@@ -807,7 +807,52 @@
         "note": "Patches, resolution options and modern-Windows notes."
       }
     ],
-    "tools": [],
+    "tools": [
+      {
+        "title": "Mission Editor (map & scenario editor)",
+        "url": "https://pharaoh.heavengames.com/downloads/showfile.php?fileid=69",
+        "kind": "tool",
+        "note": "Ships in the game itself, unlocked by the 1.2 Enhancement Pack patch (already included in the GOG release). No official primer exists, so this fan-written guide - FAQ plus a worked example - is the closest thing to one.",
+        "author": "Impressions Games",
+        "authorUrl": null,
+        "repoUrl": null,
+        "websiteUrl": null,
+        "playUrl": null
+      },
+      {
+        "title": "HeavenGames — Miscellaneous Files",
+        "url": "https://pharaoh.heavengames.com/downloads/lister.php?category=misc",
+        "kind": "tool",
+        "note": "Fan-made utilities alongside the scenarios and completed cities - desirability calculators, a housing-block guide, a custom-controls script. None are individually catalogued on this site; browse here instead.",
+        "author": "HeavenGames community",
+        "authorUrl": null,
+        "repoUrl": null,
+        "websiteUrl": null,
+        "playUrl": null
+      },
+      {
+        "title": "Nexus Mods — Pharaoh + Cleopatra",
+        "url": "https://www.nexusmods.com/games/pharaohcleopatra/mods",
+        "kind": "tool",
+        "note": "The CrashFix mod below is hosted here; check back for whatever else gets uploaded.",
+        "author": "Nexus Mods community",
+        "authorUrl": null,
+        "repoUrl": null,
+        "websiteUrl": null,
+        "playUrl": null
+      },
+      {
+        "title": "Pharaoh CrashFix",
+        "url": "https://www.nexusmods.com/pharaohcleopatra/mods/1",
+        "kind": "mod",
+        "note": "Replacement audio DLLs for the crash some modern systems hit loading sound on the CD version. Tested on Pharaoh 1.2 and Pharaoh + Cleopatra.",
+        "author": "SCARaw",
+        "authorUrl": "https://www.nexusmods.com/profile/SCARaw?gameId=7936",
+        "repoUrl": null,
+        "websiteUrl": null,
+        "playUrl": null
+      }
+    ],
     "image": "/images/pharaoh.webp",
     "imageCredit": "Community screenshot — Pharaoh (1999) © Activision",
     "cover": "/images/pharaoh-cover.webp",
