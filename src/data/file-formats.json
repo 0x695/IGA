@@ -1107,10 +1107,19 @@
     "games": [
       "caesar1"
     ],
-    "documentation": "undocumented",
-    "note": "No public documentation exists for Caesar's asset formats. It predates the SG pipeline entirely, so nothing here transfers.",
+    "documentation": "partial",
+    "note": "Gaius, an open-source reimplementation, writes up the .VPX pictures, .PL8/.PL1 sprite sheets, .256/.P32 palettes, EMPIRE2 scenarios and .SAV saves, each labelled by how sure it is; none has its own page here yet. It predates the SG pipeline entirely, so nothing from the later games transfers.",
     "summary": null,
-    "sources": [],
+    "sources": [
+      {
+        "title": "Gaius — docs/FORMATS.md",
+        "url": "https://github.com/0x695/Gaius/blob/master/docs/FORMATS.md"
+      },
+      {
+        "title": "Gaius — docs/CAESAR_CONSTRUCTION_DISPATCH_FINDINGS.md (the save writer and loader, section 22 and 33)",
+        "url": "https://github.com/0x695/Gaius/blob/master/docs/CAESAR_CONSTRUCTION_DISPATCH_FINDINGS.md"
+      }
+    ],
     "spec": null
   },
   {

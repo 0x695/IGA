@@ -675,5 +675,25 @@
         ]
       }
     ]
+  },
+  {
+    "id": "caesar-leaves-the-wanted-board",
+    "date": "2026-10-02T12:30",
+    "title": "Caesar leaves the wanted board",
+    "summary": "Gaius, an open-source reimplementation of the 1992 original, joins the Caesar hub as its first engine project - and the callout that said no engine or format documentation existed for Caesar is gone, the second time that has happened.",
+    "blocks": [
+      {
+        "kind": "prose",
+        "body": [
+          "The Caesar hub has carried one line since the first research pass: no open-source engine, no format documentation, virgin reverse-engineering territory. Gaius ends that. It is a GPL-3.0 reimplementation begun on 8 September 2026 that plays a whole career - a new game, the city, the province and its battles, the Forum, saving and loading, promotion - on Windows, Linux, the Steam Deck and Android, with the original's pictures and sound read from the player's own copy. Its simulation is checked cell for cell against real saves of the original, and its save writer reproduces every one of them byte for byte.",
+          "It is listed as an engine project on the Caesar hub, and the wanted callout is removed. Like every engine here it ships code and no assets: the original game is its prerequisite. One disclosure the other entries don't need: Gaius is a sibling project to this site, by the same author, so every claim above is one to check in its repository rather than take from this page."
+        ]
+      },
+      {
+        "kind": "callout",
+        "title": "What this changes, and what it doesn't yet",
+        "body": "The file format entry moved from undocumented to partially documented, pointing at Gaius's own format notes - which give each file a confidence label - but no spec page exists on this site yet. Writing those up is the obvious next piece of work here. Gaius lists its own open items too: the province view's art has not been checked against a capture of the real screen, four panel pictures have no matched palette, and nothing has yet run on a physical Android phone or a Steam Deck. The repository was public and receiving commits the day this entry was written."
+      }
+    ]
   }
 ]

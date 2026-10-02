@@ -96,7 +96,7 @@
     "accent": "var(--game-caesar1)",
     "engineNote": "Top-down, pre-isometric — predates the shared SG/.555 pipeline entirely. Its own reverse-engineering problem, not a variant of the others. Amiga first (Oct 12, 1992), DOS/Atari ST/Mac in 1993.",
     "timelineNote": "Top-down, pre-isometric — predates the shared SG/.555 pipeline entirely, its own reverse-engineering problem. Designer David Lester, programmer Simon Bradbury. Amiga first (Oct 12), DOS/Atari ST/Mac in 1993.",
-    "wanted": "No open-source engine or format documentation exists for Caesar — completely virgin reverse-engineering territory.",
+    "wanted": null,
     "storefronts": [
       {
         "store": "GOG",

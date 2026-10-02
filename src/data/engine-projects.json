@@ -273,5 +273,30 @@
       "branch": "main"
     },
     "activityCheckedAt": "2026-09-14"
+  },
+  {
+    "id": "gaius",
+    "name": "Gaius",
+    "games": [
+      "caesar1"
+    ],
+    "author": "0x695",
+    "authorUrl": "https://github.com/0x695",
+    "lineage": "Independent — clean-room reimplementation",
+    "language": "C++17 (SDL2)",
+    "status": "active",
+    "saveCompat": "Reads and writes the original's .SAV files — all 17 real saves round-trip byte-identical",
+    "platforms": "Windows, Linux, Steam Deck, Android",
+    "activity": "Begun Sep 2026 · the whole game plays, simulation checked against real saves · actively developed",
+    "repoUrl": "https://github.com/0x695/Gaius",
+    "docsUrl": "https://github.com/0x695/Gaius/tree/master/docs",
+    "websiteUrl": null,
+    "playUrl": null,
+    "lastCommit": {
+      "sha": "33cd7ce",
+      "date": "2026-10-02T09:59:50Z",
+      "branch": "master"
+    },
+    "activityCheckedAt": "2026-10-02"
   }
 ]
