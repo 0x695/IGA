@@ -1449,7 +1449,7 @@
           },
           {
             "term": "SHADE.PL8, 17 frames of 16 × 16",
-            "description": "The shading frames the city view's overlay map modes draw, chosen from the coverage, water and similar layers."
+            "description": "The shading frames the city view's overlay map modes draw, chosen from the land value, water and similar layers."
           }
         ]
       },

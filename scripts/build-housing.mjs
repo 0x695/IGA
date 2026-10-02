@@ -400,8 +400,8 @@ if (c2SizeBreak.name !== 'Grand Domus' || c2SizeBreak.size !== 2) {
  *
  * The manual names no grade, and neither does the executable's text, so they
  * are numbered. The land-value figures are the layer the Maps panel calls "land
- * value" (A2C4 in the save; the Gaius code calls that layer `coverage`, for
- * how it is built). A house climbs when land value at its anchor is above the
+ * value" (A2C4 in the save; the Gaius code called that layer `coverage`, for
+ * how it is built, until it was renamed on 2 October 2026). A house climbs when land value at its anchor is above the
  * first figure and falls when it is below the second. The city-size figure is in
  * population units, four people each, and is the whole city's, not the house's.
  *
