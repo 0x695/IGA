@@ -617,6 +617,19 @@
         "requires": [],
         "produces": [],
         "notes": null
+      },
+      {
+        "game": "caesar1",
+        "name": "Market",
+        "engineType": "command 27 / tile 0xF4",
+        "size": 2,
+        "cost": [
+          20
+        ],
+        "employees": null,
+        "requires": [],
+        "produces": [],
+        "notes": "Where workshop goods are sold. Houses within 6 tiles count it as their market; land value +1 within 1 tile, capped at 16."
       }
     ]
   },
@@ -1021,6 +1034,19 @@
         "requires": [],
         "produces": [],
         "notes": null
+      },
+      {
+        "game": "caesar1",
+        "name": "School",
+        "engineType": "command 16 / tile 0xEC",
+        "size": 2,
+        "cost": [
+          60
+        ],
+        "employees": null,
+        "requires": [],
+        "produces": [],
+        "notes": "Land value +1 within 3 tiles; houses within 4 tiles count it for their school-or-hospital need. Counts toward Culture."
       }
     ]
   },
@@ -1216,6 +1242,22 @@
         "requires": [],
         "produces": [],
         "notes": null
+      },
+      {
+        "game": "caesar1",
+        "name": "Coliseum",
+        "engineType": "command 21 / tile 0xF1",
+        "size": [
+          3,
+          2
+        ],
+        "cost": [
+          200
+        ],
+        "employees": null,
+        "requires": [],
+        "produces": [],
+        "notes": "Land value +1 within 4 tiles; houses within 6 count it as their entertainment. Counts toward Culture."
       }
     ]
   },
@@ -1367,6 +1409,22 @@
         "requires": [],
         "produces": [],
         "notes": null
+      },
+      {
+        "game": "caesar1",
+        "name": "Hippodrome",
+        "engineType": "command 22 / tile 0xF2",
+        "size": [
+          4,
+          2
+        ],
+        "cost": [
+          300
+        ],
+        "employees": null,
+        "requires": [],
+        "produces": [],
+        "notes": "Land value +1 within 5 tiles; houses within 7 count it as their entertainment. Counts toward Culture."
       }
     ]
   },
@@ -1513,6 +1571,22 @@
         "requires": [],
         "produces": [],
         "notes": null
+      },
+      {
+        "game": "caesar1",
+        "name": "Theater",
+        "engineType": "command 20 / tile 0xF0",
+        "size": [
+          2,
+          1
+        ],
+        "cost": [
+          100
+        ],
+        "employees": null,
+        "requires": [],
+        "produces": [],
+        "notes": "Land value +1 within 3 tiles; houses within 4 count it as their entertainment. Counts toward Culture."
       }
     ]
   },
@@ -2472,6 +2546,27 @@
         "requires": [],
         "produces": [],
         "notes": null
+      },
+      {
+        "game": "caesar1",
+        "name": "Forum",
+        "engineType": "command 12 / tiles 0xE0-0xE7",
+        "size": 2,
+        "cost": [
+          60,
+          100,
+          140,
+          200,
+          250,
+          300,
+          350,
+          500
+        ],
+        "costBy": "grade",
+        "employees": null,
+        "requires": [],
+        "produces": [],
+        "notes": "Eight grades, chosen as it is built: Aventine 2×2 (60), Caelian 2×2 (100), Esquiline 2×2 (140), Janiculan 3×3 (200), Regia 3×3 (250), Pincian 3×3 (300), Palatine 3×3 (350), Romanum 4×4 (500). Taxes are collected from houses and workshops within 6, 8, 10 or 12 tiles by pair of grades; land value +1 within 2 to 5. At most thirty."
       }
     ]
   },
@@ -2895,6 +2990,19 @@
         "requires": [],
         "produces": [],
         "notes": null
+      },
+      {
+        "game": "caesar1",
+        "name": "Bath Houses",
+        "engineType": "command 14 / tiles 0xE8, 0xEA",
+        "size": 1,
+        "cost": [
+          40
+        ],
+        "employees": null,
+        "requires": [],
+        "produces": [],
+        "notes": "Needs water. Grows into the 2×2 Grand Baths when land value passes 12 and the city holds 160 people. Housing within 3 tiles counts it as its baths; land value +1 within 2 tiles."
       }
     ]
   },
@@ -2969,6 +3077,19 @@
         "requires": [],
         "produces": [],
         "notes": null
+      },
+      {
+        "game": "caesar1",
+        "name": "Hospital",
+        "engineType": "command 15 / tile 0xED",
+        "size": 2,
+        "cost": [
+          60
+        ],
+        "employees": null,
+        "requires": [],
+        "produces": [],
+        "notes": "Land value +1 within 3 tiles; houses within 4 tiles count it for their school-or-hospital need. Counts toward Culture."
       }
     ]
   },
@@ -3428,6 +3549,27 @@
     ]
   },
   {
+    "id": "caesar1-housing",
+    "name": "Housing",
+    "category": "Housing",
+    "description": null,
+    "variants": [
+      {
+        "game": "caesar1",
+        "name": "Housing",
+        "engineType": "command 11 / tile 0xC8",
+        "size": 1,
+        "cost": [
+          2
+        ],
+        "employees": null,
+        "requires": [],
+        "produces": [],
+        "notes": "Places the first of sixteen grades. It then climbs or falls on its own, growing to a pair, 2×2 and finally 3×3; see the Housing page."
+      }
+    ]
+  },
+  {
     "id": "pharaoh-bazaar",
     "name": "Bazaar",
     "category": "Industry",
@@ -3624,6 +3766,27 @@
         "requires": [],
         "produces": [],
         "notes": null
+      }
+    ]
+  },
+  {
+    "id": "caesar1-heavy-industry",
+    "name": "Heavy Industry",
+    "category": "Industry",
+    "description": null,
+    "variants": [
+      {
+        "game": "caesar1",
+        "name": "Heavy Industry",
+        "engineType": "command 26 / tile 0xF3",
+        "size": 4,
+        "cost": [
+          300
+        ],
+        "employees": null,
+        "requires": [],
+        "produces": [],
+        "notes": "The raw materials a workshop within three tiles of it needs. Land value +1 within 4 tiles but capped at 2 there, the lowest limit any building sets."
       }
     ]
   },
@@ -4260,6 +4423,19 @@
         "requires": [],
         "produces": [],
         "notes": null
+      },
+      {
+        "game": "caesar1",
+        "name": "Fountain",
+        "engineType": "command 10 / tiles 0xB9-0xBD",
+        "size": 1,
+        "cost": [
+          10
+        ],
+        "employees": null,
+        "requires": [],
+        "produces": [],
+        "notes": "Water for 6 tiles once piped to a reservoir, and land value +1 within 2 tiles. Placed dry (0xBA); too many fountains in a row on one pipe run dry in turn, flipping between working and dry."
       }
     ]
   },
@@ -4304,6 +4480,30 @@
         "requires": [],
         "produces": [],
         "notes": null
+      }
+    ]
+  },
+  {
+    "id": "caesar1-imperial-highway",
+    "name": "Imperial Highway",
+    "category": "Infrastructure",
+    "description": null,
+    "variants": [
+      {
+        "game": "caesar1",
+        "name": "Imperial Highway",
+        "engineType": "command 42 / tiles 0x6D-0x78",
+        "size": 1,
+        "cost": [
+          50,
+          100,
+          200
+        ],
+        "costBy": "terrain",
+        "employees": null,
+        "requires": [],
+        "produces": [],
+        "notes": "Province level. Joins the capital to the Imperial Highway junction at the province's edge. The executable's price word is 50 (so 50 to 200 by terrain); the manual prints \"from 60 Denarii to 240 Denarii\". The two disagree and no capture of a charge settles it."
       }
     ]
   },
@@ -4492,6 +4692,19 @@
         "requires": [],
         "produces": [],
         "notes": null
+      },
+      {
+        "game": "caesar1",
+        "name": "Plaza",
+        "engineType": "command 23",
+        "size": 1,
+        "cost": [
+          10
+        ],
+        "employees": null,
+        "requires": [],
+        "produces": [],
+        "notes": "Paves an existing road piece; it cannot be laid on bare ground. Raises land value."
       }
     ]
   },
@@ -4536,6 +4749,43 @@
         "requires": [],
         "produces": [],
         "notes": null
+      },
+      {
+        "game": "caesar1",
+        "name": "Prefecture",
+        "engineType": "command 25 / tile 0xEE",
+        "size": 1,
+        "cost": [
+          25
+        ],
+        "employees": null,
+        "requires": [],
+        "produces": [],
+        "notes": "Taxes collected within 4 tiles, unrest −2 within 3, land value +1 within 2 but capped at 8 there."
+      }
+    ]
+  },
+  {
+    "id": "caesar1-provincial-road",
+    "name": "Provincial Road",
+    "category": "Infrastructure",
+    "description": null,
+    "variants": [
+      {
+        "game": "caesar1",
+        "name": "Provincial Road",
+        "engineType": "command 36 / tiles 0x36-0x41",
+        "size": 1,
+        "cost": [
+          30,
+          60,
+          120
+        ],
+        "costBy": "terrain",
+        "employees": null,
+        "requires": [],
+        "produces": [],
+        "notes": "Province level, dragged like a road. Joins the capital to a town, which then grows and raises the Empire rating. Barbarians can march along it."
       }
     ]
   },
@@ -4555,6 +4805,19 @@
         "requires": [],
         "produces": [],
         "notes": null
+      },
+      {
+        "game": "caesar1",
+        "name": "Reservoir / pipe",
+        "engineType": "command 5 / tile 0xA4",
+        "size": 1,
+        "cost": [
+          3
+        ],
+        "employees": null,
+        "requires": [],
+        "produces": [],
+        "notes": "One command builds both: a reservoir where the drag starts in water, pipe everywhere else. Water reaches 3 tiles from a reservoir. Pipes cannot cross each other or branch. The executable spells it \"Resevoir\\pipe\"."
       }
     ]
   },
@@ -4602,6 +4865,19 @@
         "requires": [],
         "produces": [],
         "notes": null
+      },
+      {
+        "game": "caesar1",
+        "name": "Road",
+        "engineType": "command 4 / tiles 0x36-0x43",
+        "size": 1,
+        "cost": [
+          3
+        ],
+        "employees": null,
+        "requires": [],
+        "produces": [],
+        "notes": "Dragged cell by cell; each piece is chosen from its neighbours. Right-click during the drag takes the whole stretch back. Intersections raise land value slightly. Gates form where a wall crosses it."
       }
     ]
   },
@@ -4796,6 +5072,19 @@
         "requires": [],
         "produces": [],
         "notes": null
+      },
+      {
+        "game": "caesar1",
+        "name": "Well",
+        "engineType": "command 9 / tile 0xB8",
+        "size": 1,
+        "cost": [
+          5
+        ],
+        "employees": null,
+        "requires": [],
+        "produces": [],
+        "notes": "Water for 1 tile around it. Needs no pipe."
       }
     ]
   },
@@ -4834,6 +5123,19 @@
         "requires": [],
         "produces": [],
         "notes": null
+      },
+      {
+        "game": "caesar1",
+        "name": "Barracks",
+        "engineType": "command 24 / tile 0xEF",
+        "size": 3,
+        "cost": [
+          80
+        ],
+        "employees": null,
+        "requires": [],
+        "produces": [],
+        "notes": "Sends soldiers out to patrol. Unrest −3 within 5 tiles; land value +1 within 3 but capped at 5."
       }
     ]
   },
@@ -5022,6 +5324,19 @@
         "requires": [],
         "produces": [],
         "notes": null
+      },
+      {
+        "game": "caesar1",
+        "name": "Fort",
+        "engineType": "command 29 / tile 0x4D",
+        "size": 1,
+        "cost": [
+          500
+        ],
+        "employees": null,
+        "requires": [],
+        "produces": [],
+        "notes": "Province level, one cell on the province map. Founds a Cohort; at most ten, counting the Prima Cohors you start with. The price is never shifted by terrain."
       }
     ]
   },
@@ -5187,6 +5502,54 @@
         "requires": [],
         "produces": [],
         "notes": "Rotates to 5x2 the other way round."
+      }
+    ]
+  },
+  {
+    "id": "caesar1-great-tower",
+    "name": "Great Tower",
+    "category": "Military",
+    "description": null,
+    "variants": [
+      {
+        "game": "caesar1",
+        "name": "Great Tower",
+        "engineType": "command 41 / tiles 0x62-0x67",
+        "size": 1,
+        "cost": [
+          90,
+          180,
+          360
+        ],
+        "costBy": "terrain",
+        "employees": null,
+        "requires": [],
+        "produces": [],
+        "notes": "Province level. Only on an existing Great Wall piece, never a three- or four-way junction."
+      }
+    ]
+  },
+  {
+    "id": "caesar1-great-wall",
+    "name": "Great Wall",
+    "category": "Military",
+    "description": null,
+    "variants": [
+      {
+        "game": "caesar1",
+        "name": "Great Wall",
+        "engineType": "command 37 / tiles 0x42-0x49, 0x62-0x6C",
+        "size": 1,
+        "cost": [
+          40,
+          80,
+          160
+        ],
+        "costBy": "terrain",
+        "employees": null,
+        "requires": [],
+        "produces": [],
+        "notes": "Province level, dragged like a road. Gates form where it crosses a road or highway: Cohorts pass, barbarians cannot, but a gate is weaker. It slowly decays unless plebs are assigned to province duty."
       }
     ]
   },
@@ -5416,6 +5779,19 @@
         "requires": [],
         "produces": [],
         "notes": null
+      },
+      {
+        "game": "caesar1",
+        "name": "Tower",
+        "engineType": "command 8 / tile 0x9E",
+        "size": 1,
+        "cost": [
+          10
+        ],
+        "employees": null,
+        "requires": [],
+        "produces": [],
+        "notes": "Only on an existing wall piece, never a three- or four-way junction. Cuts the chance a barbarian breaks through nearby."
       }
     ]
   },
@@ -5534,6 +5910,19 @@
         "requires": [],
         "produces": [],
         "notes": null
+      },
+      {
+        "game": "caesar1",
+        "name": "Wall",
+        "engineType": "command 7",
+        "size": 1,
+        "cost": [
+          5
+        ],
+        "employees": null,
+        "requires": [],
+        "produces": [],
+        "notes": "Dragged like a road. Becomes a gate where it crosses one; gates are weaker than wall, garrisoned, and cap land value nearby."
       }
     ]
   },
@@ -6136,6 +6525,22 @@
         "requires": [],
         "produces": [],
         "notes": null
+      },
+      {
+        "game": "caesar1",
+        "name": "Oracle",
+        "engineType": "command 17 / tile 0xEB",
+        "size": [
+          2,
+          1
+        ],
+        "cost": [
+          200
+        ],
+        "employees": null,
+        "requires": [],
+        "produces": [],
+        "notes": "Does not grow. Land value +2 within 8 tiles, and unrest −2 within 5. Counts toward Culture."
       }
     ]
   },
@@ -6375,6 +6780,27 @@
         "requires": [],
         "produces": [],
         "notes": null
+      }
+    ]
+  },
+  {
+    "id": "caesar1-temple",
+    "name": "Temple",
+    "category": "Religion",
+    "description": null,
+    "variants": [
+      {
+        "game": "caesar1",
+        "name": "Temple",
+        "engineType": "command 13 / tiles 0xD8-0xDF",
+        "size": 1,
+        "cost": [
+          20
+        ],
+        "employees": null,
+        "requires": [],
+        "produces": [],
+        "notes": "Grows like a house, with land value and population: 1×1, then 1×2, 2×2 and 3×2. Raises land value (+1, within 2 tiles, then 3) and lowers unrest. Counts toward Culture."
       }
     ]
   },
@@ -6747,6 +7173,36 @@
         "requires": [],
         "produces": [],
         "notes": null
+      }
+    ]
+  },
+  {
+    "id": "caesar1-workshop",
+    "name": "Workshop",
+    "category": "Workshops",
+    "description": null,
+    "variants": [
+      {
+        "game": "caesar1",
+        "name": "Workshop",
+        "engineType": "command 28 / tiles 0xF5-0xF6",
+        "size": 3,
+        "cost": [
+          50
+        ],
+        "employees": null,
+        "requires": [],
+        "produces": [
+          "Glass",
+          "Tin",
+          "Pottery",
+          "Copper",
+          "Wine",
+          "Ivory",
+          "Wheat",
+          "Spices"
+        ],
+        "notes": "One of eight industries, chosen as it is built (glass, tin, pottery and copper are tile 0xF5; wine, ivory, wheat and spices 0xF6). Land value +1 within 3 tiles but capped at 3. At most thirty. See the Production page."
       }
     ]
   }

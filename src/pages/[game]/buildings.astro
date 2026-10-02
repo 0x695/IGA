@@ -47,6 +47,7 @@ const SOURCE_PROJECT: Record<string, string> = {
   pharaoh: "Akhenaten's building definitions",
   zeus: "eZeus's own building source",
   caesar2: "the Caesar II Reconstruction's own source, cross-checked against the manual",
+  caesar1: "the original executable as the Gaius project has disassembled it, cross-checked against the manual",
 };
 const sourceProject = SOURCE_PROJECT[game.id] ?? "Julius's building type table";
 ---
@@ -64,9 +65,9 @@ const sourceProject = SOURCE_PROJECT[game.id] ?? "Julius's building type table";
       </p>
       <h1 class="head__title">Buildings</h1>
       <p class="head__summary">
-        Every building the engine defines, with its footprint in tiles and the constant that names
-        it in the source. Read out of {sourceProject} rather than transcribed, so the sizes are the
-        ones the game actually uses.
+        {game.id === 'caesar1'
+          ? `Every building and structure the toolbar can place, with its footprint in tiles, its price in denarii and the command and tile numbers that name it in the executable. Read out of ${sourceProject}, so the sizes and prices are the ones the game actually uses.`
+          : `Every building the engine defines, with its footprint in tiles and the constant that names it in the source. Read out of ${sourceProject} rather than transcribed, so the sizes are the ones the game actually uses.`}
       </p>
 
       {/*
@@ -87,7 +88,7 @@ const sourceProject = SOURCE_PROJECT[game.id] ?? "Julius's building type table";
       </aside>
       )}
 
-      {hasCosts && (
+      {hasCosts && game.id === 'pharaoh' && (
         <aside class="caveat">
           <h2 class="caveat__title">About these numbers</h2>
           <p>
@@ -96,6 +97,31 @@ const sourceProject = SOURCE_PROJECT[game.id] ?? "Julius's building type table";
             cards show the range. Monuments are not listed: pyramids, the sphinx, obelisks and the
             temple complexes are built in phases by work camps, and the size the engine records for
             them is not a footprint.
+          </p>
+        </aside>
+      )}
+
+      {game.id === 'caesar1' && (
+        <aside class="caveat">
+          <h2 class="caveat__title">About these numbers</h2>
+          <p>
+            Caesar has no engine to read, so these come from the original executable itself, as the
+            Gaius project has disassembled it, and from the manual. The prices are the executable's
+            own cost table, read by command number; each equals the price the manual prints, with one
+            exception named on the Imperial Highway's card. A building has no worker count:
+            the Tribune of the Plebs assigns plebs to duties by how much has been built, and a
+            workshop's output follows the people living near it, so that column is empty by design.
+          </p>
+          <p>
+            Size is the footprint when the building is placed. A Temple grows from 1×1 to 3×2, Bath
+            Houses from 1×1 to 2×2, and a house through sixteen grades (the{' '}
+            <a href={withBase(`/${game.id}/housing/`)}>Housing page</a>); the Forum comes in eight
+            grades of three sizes, which its card lists. Where a price is a range it is by Forum
+            grade or, for the province commands, by terrain, cheapest to dearest. The constants are
+            command numbers and tile ids, because the executable carries no symbol names. Clear Area
+            is a tool, not a building, and is not listed; it costs 1 denarius in the city and 15 to
+            60 on the province map. How a building's reach works is on the{' '}
+            <a href={withBase('/mechanics/city-growth/')}>mechanics page</a>.
           </p>
         </aside>
       )}
@@ -199,6 +225,10 @@ const sourceProject = SOURCE_PROJECT[game.id] ?? "Julius's building type table";
     font-weight: 600;
     font-size: 15px;
     margin: 0 0 6px;
+  }
+
+  .caveat p + p {
+    margin-top: 10px;
   }
 
   .caveat p {

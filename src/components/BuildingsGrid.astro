@@ -26,6 +26,10 @@ const rows = buildings
   .filter((row) => row.variant);
 
 const categories = [...new Set(rows.map((r) => r.category))].sort();
+
+/* What a price is in: Pharaoh's deben, Caesar's denarii (the game writes
+   "Denarii" in full; "Dn" is the short form the interface itself uses). */
+const CURRENCY: Record<string, string> = { pharaoh: 'db', caesar1: 'Dn' };
 ---
 
 <div class="buildings" data-buildings>
@@ -60,12 +64,12 @@ const categories = [...new Set(rows.map((r) => r.category))].sort();
       rows.map((row) => (
         <li
           class="card"
-          data-name={row.name.toLowerCase()}
+          data-name={row.variant.name.toLowerCase()}
           data-engine={row.variant.engineType.toLowerCase()}
           data-category={row.category}
         >
           <div class="card__head">
-            <span class="card__name">{row.name}</span>
+            <span class="card__name">{row.variant.name}</span>
             {
               row.variant.size && (
                 <span class="card__size">
@@ -86,10 +90,10 @@ const categories = [...new Set(rows.map((r) => r.category))].sort();
             (row.variant.cost || row.variant.employees !== null) && (
               <span class="card__stats">
                 {row.variant.cost && (
-                  <span title={`By difficulty: ${row.variant.cost.join(', ')}`}>
+                  <span title={`By ${row.variant.costBy ?? 'difficulty'}: ${row.variant.cost.join(', ')}`}>
                     {row.variant.cost[0]}
-                    {String.fromCharCode(8211)}
-                    {row.variant.cost[row.variant.cost.length - 1]} db
+                    {row.variant.cost.length > 1 && String.fromCharCode(8211)}
+                    {row.variant.cost.length > 1 && row.variant.cost[row.variant.cost.length - 1]} {CURRENCY[game] ?? 'db'}
                   </span>
                 )}
                 {row.variant.employees !== null && <span>{row.variant.employees} workers</span>}

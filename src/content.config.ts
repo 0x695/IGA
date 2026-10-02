@@ -385,6 +385,15 @@ const buildings = defineCollection({
          * Zeus, whose costs are not in their engines at all.
          */
         cost: z.array(z.number()).nullable(),
+        /**
+         * What the numbers in `cost` vary by. Pharaoh's five are one per
+         * difficulty level (the default when this is absent). Caesar's Forum
+         * has eight grades, and its province commands cost more on rougher
+         * terrain - cheapest to dearest - so those say so rather than letting
+         * a reader take the list for difficulty levels. A single number needs
+         * no label.
+         */
+        costBy: z.enum(['difficulty', 'grade', 'terrain']).optional(),
         employees: z.number().nullable(),
         requires: z.array(z.string()),
         produces: z.array(z.string()),
@@ -469,7 +478,9 @@ const housing = defineCollection({
     /** Emperor runs two ladders side by side and a citizen never crosses. */
     tier: z.enum(['common', 'elite']).nullable(),
     engineType: z.string().nullable(),
-    size: z.number().int().nullable(),
+    /** A side in tiles for a square house, or [width, height]: Caesar's
+     *  houses merge into pairs, and a pair is 2 by 1. */
+    size: z.union([z.number().int(), z.tuple([z.number().int(), z.number().int()])]).nullable(),
     /**
      * A number where every difficulty agrees, five numbers where they do not -
      * the same shape as Pharaoh building cost, and for the same reason.

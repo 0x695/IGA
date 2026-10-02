@@ -838,6 +838,156 @@ if (caesar2Merged !== 3) throw new Error(`expected all 3 Caesar II buildings to 
 
 console.log(CAESAR2.length + ' Caesar II buildings, ' + caesar2Merged + ' merged into existing concepts');
 
+// --- CAESAR (1992), from the original executable, as Gaius transcribed it -----
+//
+// Caesar has no engine to read. Its source here is the disassembled US-build
+// CSR.EXE as the Gaius project (github.com/0x695/Gaius) has transcribed it,
+// cross-checked against the manual. Read on 2 October 2026:
+//
+//  - the construction dispatcher DS:127C (command id -> placement handler),
+//    with each handler's seed tile and footprint
+//    (docs/CAESAR_CONSTRUCTION_DISPATCH_FINDINGS.md sections 1, 7, 13, 19.1);
+//  - the cost table at 3496:1548 (by command id) and 3496:15A0 (by Forum
+//    grade), read straight out of the decompressed executable and compared
+//    with the printed prices in the manual: all of them agree, with one
+//    exception named on the Imperial Highway row;
+//  - each service building's reach, from the monthly scan's handler table
+//    (section 15.3);
+//  - the manual's own names (Forum grades, the eight workshop goods).
+//
+// Cost is one number except where the price varies by something the player
+// chooses or the map decides: a Forum has eight grades (`costBy: 'grade'`) and
+// the province commands' price is shifted left by the terrain under the cursor,
+// by 0, 1 or 2 (`costBy: 'terrain'`, listed cheapest to dearest). `employees`
+// is null throughout: no building states a worker count. The Tribune of the
+// Plebs assigns plebs to duties by the amount built, and a workshop's output
+// depends on the people living near it, not on a staff.
+//
+// `size` is the footprint when the building is placed. Several grow: the
+// Temple, the Bath Houses, and the Forum's three sizes, all named in `notes`.
+// Clear Area (command 2, and 35 on the province map) is a tool, not a
+// building, so it is left out, as Julius's own clear-land entry is.
+//
+// engineType is "command N / tile 0x.." - the engine's own identifiers, since
+// the executable has no symbol names: the command id the toolbar sends, and
+// the tile id the building writes to the city map.
+const CAESAR1 = [
+  { concept: 'Road', name: 'Road', category: 'Infrastructure', size: 1, cost: [3], engineType: 'command 4 / tiles 0x36-0x43',
+    notes: 'Dragged cell by cell; each piece is chosen from its neighbours. Right-click during the drag takes the whole stretch back. Intersections raise land value slightly. Gates form where a wall crosses it.' },
+  { concept: 'Plaza', name: 'Plaza', category: 'Infrastructure', size: 1, cost: [10], engineType: 'command 23',
+    notes: 'Paves an existing road piece; it cannot be laid on bare ground. Raises land value.' },
+  { concept: 'Reservoir', name: 'Reservoir / pipe', category: 'Infrastructure', size: 1, cost: [3], engineType: 'command 5 / tile 0xA4',
+    notes: 'One command builds both: a reservoir where the drag starts in water, pipe everywhere else. Water reaches 3 tiles from a reservoir. Pipes cannot cross each other or branch. The executable spells it "Resevoir\\pipe".' },
+  { concept: 'Well', name: 'Well', category: 'Infrastructure', size: 1, cost: [5], engineType: 'command 9 / tile 0xB8',
+    notes: 'Water for 1 tile around it. Needs no pipe.' },
+  { concept: 'Fountain', name: 'Fountain', category: 'Infrastructure', size: 1, cost: [10], engineType: 'command 10 / tiles 0xB9-0xBD',
+    notes: 'Water for 6 tiles once piped to a reservoir, and land value +1 within 2 tiles. Placed dry (0xBA); too many fountains in a row on one pipe run dry in turn, flipping between working and dry.' },
+  { concept: 'Wall', name: 'Wall', category: 'Military', size: 1, cost: [5], engineType: 'command 7',
+    notes: 'Dragged like a road. Becomes a gate where it crosses one; gates are weaker than wall, garrisoned, and cap land value nearby.' },
+  { concept: 'Tower', name: 'Tower', category: 'Military', size: 1, cost: [10], engineType: 'command 8 / tile 0x9E',
+    notes: 'Only on an existing wall piece, never a three- or four-way junction. Cuts the chance a barbarian breaks through nearby.' },
+  { concept: 'Housing', name: 'Housing', category: 'Housing', size: 1, cost: [2], engineType: 'command 11 / tile 0xC8',
+    notes: 'Places the first of sixteen grades. It then climbs or falls on its own, growing to a pair, 2×2 and finally 3×3; see the Housing page.' },
+  { concept: 'Temple', name: 'Temple', category: 'Religion', size: 1, cost: [20], engineType: 'command 13 / tiles 0xD8-0xDF',
+    notes: 'Grows like a house, with land value and population: 1×1, then 1×2, 2×2 and 3×2. Raises land value (+1, within 2 tiles, then 3) and lowers unrest. Counts toward Culture.' },
+  { concept: 'Bathhouse', name: 'Bath Houses', category: 'Health', size: 1, cost: [40], engineType: 'command 14 / tiles 0xE8, 0xEA',
+    notes: 'Needs water. Grows into the 2×2 Grand Baths when land value passes 12 and the city holds 160 people. Housing within 3 tiles counts it as its baths; land value +1 within 2 tiles.' },
+  { concept: 'Hospital', name: 'Hospital', category: 'Health', size: 2, cost: [60], engineType: 'command 15 / tile 0xED',
+    notes: 'Land value +1 within 3 tiles; houses within 4 tiles count it for their school-or-hospital need. Counts toward Culture.' },
+  { concept: 'School', name: 'School', category: 'Education', size: 2, cost: [60], engineType: 'command 16 / tile 0xEC',
+    notes: 'Land value +1 within 3 tiles; houses within 4 tiles count it for their school-or-hospital need. Counts toward Culture.' },
+  { concept: 'Oracle', name: 'Oracle', category: 'Religion', size: [2, 1], cost: [200], engineType: 'command 17 / tile 0xEB',
+    notes: 'Does not grow. Land value +2 within 8 tiles, and unrest −2 within 5. Counts toward Culture.' },
+  { concept: 'Theater', name: 'Theater', category: 'Entertainment', size: [2, 1], cost: [100], engineType: 'command 20 / tile 0xF0',
+    notes: 'Land value +1 within 3 tiles; houses within 4 count it as their entertainment. Counts toward Culture.' },
+  { concept: 'Colosseum', name: 'Coliseum', category: 'Entertainment', size: [3, 2], cost: [200], engineType: 'command 21 / tile 0xF1',
+    notes: 'Land value +1 within 4 tiles; houses within 6 count it as their entertainment. Counts toward Culture.' },
+  { concept: 'Hippodrome', name: 'Hippodrome', category: 'Entertainment', size: [4, 2], cost: [300], engineType: 'command 22 / tile 0xF2',
+    notes: 'Land value +1 within 5 tiles; houses within 7 count it as their entertainment. Counts toward Culture.' },
+  { concept: 'Forum', name: 'Forum', category: 'Government', size: 2, cost: [60, 100, 140, 200, 250, 300, 350, 500], costBy: 'grade', engineType: 'command 12 / tiles 0xE0-0xE7',
+    notes: 'Eight grades, chosen as it is built: Aventine 2×2 (60), Caelian 2×2 (100), Esquiline 2×2 (140), Janiculan 3×3 (200), Regia 3×3 (250), Pincian 3×3 (300), Palatine 3×3 (350), Romanum 4×4 (500). Taxes are collected from houses and workshops within 6, 8, 10 or 12 tiles by pair of grades; land value +1 within 2 to 5. At most thirty.' },
+  { concept: 'Prefecture', name: 'Prefecture', category: 'Government', size: 1, cost: [25], engineType: 'command 25 / tile 0xEE',
+    notes: 'Taxes collected within 4 tiles, unrest −2 within 3, land value +1 within 2 but capped at 8 there.' },
+  { concept: 'Barracks', name: 'Barracks', category: 'Military', size: 3, cost: [80], engineType: 'command 24 / tile 0xEF',
+    notes: 'Sends soldiers out to patrol. Unrest −3 within 5 tiles; land value +1 within 3 but capped at 5.' },
+  { concept: 'Heavy Industry', name: 'Heavy Industry', category: 'Industry', size: 4, cost: [300], engineType: 'command 26 / tile 0xF3',
+    notes: 'The raw materials a workshop within three tiles of it needs. Land value +1 within 4 tiles but capped at 2 there, the lowest limit any building sets.' },
+  { concept: 'Market', name: 'Market', category: 'Distribution', size: 2, cost: [20], engineType: 'command 27 / tile 0xF4',
+    notes: 'Where workshop goods are sold. Houses within 6 tiles count it as their market; land value +1 within 1 tile, capped at 16.' },
+  { concept: 'Workshop', name: 'Workshop', category: 'Workshops', size: 3, cost: [50], engineType: 'command 28 / tiles 0xF5-0xF6',
+    produces: ['Glass', 'Tin', 'Pottery', 'Copper', 'Wine', 'Ivory', 'Wheat', 'Spices'],
+    notes: 'One of eight industries, chosen as it is built (glass, tin, pottery and copper are tile 0xF5; wine, ivory, wheat and spices 0xF6). Land value +1 within 3 tiles but capped at 3. At most thirty. See the Production page.' },
+  { concept: 'Fort', name: 'Fort', category: 'Military', size: 1, cost: [500], engineType: 'command 29 / tile 0x4D',
+    notes: 'Province level, one cell on the province map. Founds a Cohort; at most ten, counting the Prima Cohors you start with. The price is never shifted by terrain.' },
+  { concept: 'Great Wall', name: 'Great Wall', category: 'Military', size: 1, cost: [40, 80, 160], costBy: 'terrain', engineType: 'command 37 / tiles 0x42-0x49, 0x62-0x6C',
+    notes: 'Province level, dragged like a road. Gates form where it crosses a road or highway: Cohorts pass, barbarians cannot, but a gate is weaker. It slowly decays unless plebs are assigned to province duty.' },
+  { concept: 'Great Tower', name: 'Great Tower', category: 'Military', size: 1, cost: [90, 180, 360], costBy: 'terrain', engineType: 'command 41 / tiles 0x62-0x67',
+    notes: 'Province level. Only on an existing Great Wall piece, never a three- or four-way junction.' },
+  { concept: 'Provincial Road', name: 'Provincial Road', category: 'Infrastructure', size: 1, cost: [30, 60, 120], costBy: 'terrain', engineType: 'command 36 / tiles 0x36-0x41',
+    notes: 'Province level, dragged like a road. Joins the capital to a town, which then grows and raises the Empire rating. Barbarians can march along it.' },
+  { concept: 'Imperial Highway', name: 'Imperial Highway', category: 'Infrastructure', size: 1, cost: [50, 100, 200], costBy: 'terrain', engineType: 'command 42 / tiles 0x6D-0x78',
+    notes: 'Province level. Joins the capital to the Imperial Highway junction at the province\'s edge. The executable\'s price word is 50 (so 50 to 200 by terrain); the manual prints "from 60 Denarii to 240 Denarii". The two disagree and no capture of a charge settles it.' },
+];
+
+if (CAESAR1.length !== 27) throw new Error(`expected 27 Caesar buildings, got ${CAESAR1.length}`);
+
+/* Spot checks, each against a number that is stated somewhere else. The prices
+   are the manual's printed ones (p.32-39, 40-42) bar the highway; the sizes are
+   the footprints Gaius found as exact rectangles of the same size in every
+   building of real saves. */
+const c1ByName = new Map(CAESAR1.map((r) => [r.name, r]));
+const C1_PRICES = {
+  Road: 3, Plaza: 10, 'Reservoir / pipe': 3, Well: 5, Fountain: 10, Wall: 5, Tower: 10, Housing: 2,
+  Temple: 20, 'Bath Houses': 40, Hospital: 60, School: 60, Oracle: 200, Theater: 100, Coliseum: 200,
+  Hippodrome: 300, Prefecture: 25, Barracks: 80, 'Heavy Industry': 300, Market: 20, Workshop: 50, Fort: 500,
+};
+for (const [name, price] of Object.entries(C1_PRICES)) {
+  const row = c1ByName.get(name);
+  if (!row || row.cost.length !== 1 || row.cost[0] !== price) throw new Error(`caesar1 ${name}: expected ${price}, got ${row && row.cost}`);
+}
+const c1Forum = c1ByName.get('Forum');
+if (c1Forum.cost.join() !== '60,100,140,200,250,300,350,500') throw new Error('caesar1 forum grades do not match the manual');
+for (const [name, base] of [['Provincial Road', 30], ['Great Wall', 40], ['Great Tower', 90]]) {
+  const row = c1ByName.get(name);
+  if (row.cost.join() !== [base, base * 2, base * 4].join()) throw new Error(`caesar1 ${name}: the terrain shift is 0, 1 or 2 bits`);
+}
+if (JSON.stringify(c1ByName.get('Coliseum').size) !== '[3,2]') throw new Error('caesar1 coliseum is 3x2');
+if (c1ByName.get('Barracks').size !== 3 || c1ByName.get('Heavy Industry').size !== 4) throw new Error('caesar1 barracks 3x3, heavy industry 4x4');
+
+let caesar1Merged = 0;
+for (const row of CAESAR1) {
+  const variant = {
+    game: 'caesar1',
+    name: row.name,
+    engineType: row.engineType,
+    size: row.size,
+    cost: row.cost,
+    ...(row.costBy ? { costBy: row.costBy } : {}),
+    employees: null,
+    requires: [],
+    produces: row.produces ?? [],
+    notes: row.notes,
+  };
+
+  const existing = byName.get(row.concept);
+  if (existing) {
+    existing.variants.push(variant);
+    caesar1Merged += 1;
+  } else {
+    const entry = {
+      id: 'caesar1-' + row.name.toLowerCase().replace(/[^a-z0-9]+/g, '-'),
+      name: row.concept,
+      category: row.category,
+      description: null,
+      variants: [variant],
+    };
+    byName.set(row.concept, entry);
+    buildings.push(entry);
+  }
+}
+
+console.log(CAESAR1.length + ' Caesar buildings, ' + caesar1Merged + ' merged into existing concepts');
+
 buildings.sort((a, b) => a.category.localeCompare(b.category) || a.name.localeCompare(b.name));
 
 await writeFile('src/data/buildings.json', JSON.stringify(buildings, null, 2) + '\n');

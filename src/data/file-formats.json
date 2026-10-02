@@ -1100,27 +1100,1359 @@
     "spec": null
   },
   {
-    "id": "caesar1-assets",
-    "name": "Caesar assets",
-    "shortName": null,
-    "title": null,
+    "id": "caesar1-vpx",
+    "name": ".VPX",
+    "shortName": "VPX",
+    "title": "The Caesar .VPX picture format",
     "games": [
       "caesar1"
     ],
-    "documentation": "partial",
-    "note": "Gaius, an open-source reimplementation, writes up the .VPX pictures, .PL8/.PL1 sprite sheets, .256/.P32 palettes, EMPIRE2 scenarios and .SAV saves, each labelled by how sure it is; none has its own page here yet. It predates the SG pipeline entirely, so nothing from the later games transfers.",
-    "summary": null,
+    "documentation": "documented",
+    "note": "Full-screen 320×200 pictures: four run-length-coded blocks, interleaved a byte at a time, with no palette inside. Decoded and matched against the running game.",
+    "summary": "Every full-screen picture in Caesar — the title, the Forum, the battle, the map of the Empire — is a .VPX file: four blocks of run-length-coded bytes that interleave into a 320 × 200 image of palette indices. The file carries no colours. The game loads a palette from a separate file before it shows each picture, and which palette goes with which picture is the part that has to be looked up.",
     "sources": [
       {
         "title": "Gaius — docs/FORMATS.md",
         "url": "https://github.com/0x695/Gaius/blob/master/docs/FORMATS.md"
       },
       {
-        "title": "Gaius — docs/CAESAR_CONSTRUCTION_DISPATCH_FINDINGS.md (the save writer and loader, section 22 and 33)",
-        "url": "https://github.com/0x695/Gaius/blob/master/docs/CAESAR_CONSTRUCTION_DISPATCH_FINDINGS.md"
+        "title": "Gaius — formats/vpx/vpx.hpp (the decoder)",
+        "url": "https://github.com/0x695/Gaius/blob/master/formats/vpx/vpx.hpp"
+      },
+      {
+        "title": "Gaius — formats/vpx/vpx.cpp",
+        "url": "https://github.com/0x695/Gaius/blob/master/formats/vpx/vpx.cpp"
       }
     ],
-    "spec": null
+    "spec": [
+      {
+        "kind": "prose",
+        "title": "Layout",
+        "body": [
+          "A .VPX file is exactly four blocks back to back, with nothing before, between or after them. Each block is an 8-byte header followed by its compressed payload, and each decodes to exactly 16,000 bytes: a quarter of the picture. A file whose blocks do not end exactly where the file ends is malformed, and the decoder here rejects it rather than guessing.",
+          "There are twenty in the US build. All decode to 320 × 200, one byte per pixel."
+        ]
+      },
+      {
+        "kind": "fields",
+        "title": "Block header, 8 bytes, once per block",
+        "rows": [
+          {
+            "offset": "0",
+            "size": "2",
+            "type": "u16",
+            "name": "packed_size",
+            "description": "Size of the whole block in bytes, this header included. The next block starts that far on."
+          },
+          {
+            "offset": "2",
+            "size": "2",
+            "type": "u16",
+            "name": "decoded_size",
+            "description": "Always 16000 (0x3E80) in every shipped file."
+          },
+          {
+            "offset": "4",
+            "size": "1",
+            "type": "u8",
+            "name": "fill A",
+            "description": "The low byte of the header's third word: the byte a \"fill A\" command repeats."
+          },
+          {
+            "offset": "5",
+            "size": "1",
+            "type": "u8",
+            "name": "fill B",
+            "description": "The high byte: the byte a \"fill B\" command repeats."
+          },
+          {
+            "offset": "6",
+            "size": "2",
+            "type": "u16",
+            "name": "field3",
+            "description": "Read by the engine, not needed to decode. Purpose not established."
+          },
+          {
+            "offset": "8",
+            "size": "packed_size − 8",
+            "type": "bytes",
+            "name": "payload",
+            "description": "The command stream, read until the block has produced 16,000 bytes."
+          }
+        ]
+      },
+      {
+        "kind": "list",
+        "title": "Commands",
+        "note": "n is the low six bits of the command byte, so every run is 1 to 64 bytes long.",
+        "items": [
+          {
+            "term": "00nnnnnn + 1 byte",
+            "description": "Explicit run: repeat the byte that follows, n + 1 times."
+          },
+          {
+            "term": "01nnnnnn",
+            "description": "Fill A run: repeat the header's fill A byte n + 1 times."
+          },
+          {
+            "term": "10nnnnnn",
+            "description": "Fill B run: repeat the header's fill B byte n + 1 times."
+          },
+          {
+            "term": "11nnnnnn + n + 1 bytes",
+            "description": "Literal run: copy the next n + 1 bytes unchanged."
+          }
+        ]
+      },
+      {
+        "kind": "prose",
+        "title": "Putting the planes together",
+        "body": [
+          "The four decoded blocks are not bit planes. They interleave one byte at a time: byte i of plane p (p from 0 to 3) is pixel 4i + p of the picture, read row by row. That is the memory layout of VGA's unchained 256-colour mode, where each plane holds every fourth column; the engine copies a block to the screen one plane at a time. The explanation is an inference from the sprite sheets, where the executable's blitter was read directly; the interleave itself is not.",
+          "The same layout is used by the .PL8 sprite sheets and the .VAS animations."
+        ]
+      },
+      {
+        "kind": "list",
+        "title": "Which palette goes with which picture",
+        "note": "Twenty pictures. \"Definitive\" means the engine's own load was read or a capture of the real screen matches; the rest are matched by eye.",
+        "items": [
+          {
+            "term": "EMAP2.VPX",
+            "description": "EMAP2.P32. Definitive: matches a capture of the map screen on 63,144 of 64,000 pixels, every difference being the province markers and status text the game draws on top."
+          },
+          {
+            "term": "NEWFORUM.VPX",
+            "description": "NEWFORUM.256. Definitive: the Forum capture's palette equals it in all 256 entries."
+          },
+          {
+            "term": "TEMPLE.VPX",
+            "description": "TEMPLE.256. Definitive: loaded with it by the ratings screen."
+          },
+          {
+            "term": "WAR2.VPX, WARMESS.VPX",
+            "description": "WAR2.256. Definitive: the battle screen, and the offer to hand a battle to the separate Cohort 2 program."
+          },
+          {
+            "term": "C_VITAE.VPX",
+            "description": "SHADE.256, the interface palette. Definitive: the governor's page."
+          },
+          {
+            "term": "PANEL1.VPX",
+            "description": "PANEL1.256, or PANEL1.P32: the two agree on every index the picture uses."
+          },
+          {
+            "term": "TITLE3.VPX",
+            "description": "TITLE3.256. Renders the title screen correctly."
+          },
+          {
+            "term": "LOSEPIC.VPX, WINPIC.VPX",
+            "description": "LOSEPIC.P32 and WINPIC.P32 respectively. By name."
+          },
+          {
+            "term": "IMPRLOGO.VPX, IMPRSEN.VPX",
+            "description": "IMPRLOGO.256. By name for the first; inference for the second, the same intro sequence."
+          },
+          {
+            "term": "LOGO.VPX",
+            "description": "IMPRLOGO.256. Inference: the picture uses only the 16 standard VGA colours and one grey, which that palette holds."
+          },
+          {
+            "term": "ROME1.VPX, ROME2.VPX",
+            "description": "ROME1.256. The natural-looking match; an inference for ROME2, which shows the same scene."
+          },
+          {
+            "term": "ROME.VPX",
+            "description": "SHADE.256. Inference: the picture uses only colours 0 to 15, which SHADE, PANEL1 and TEMPLE share."
+          },
+          {
+            "term": "PANEL1A.VPX to PANEL1D.VPX",
+            "description": "Unresolved. They use high palette indices that PANEL1.256 does not hold, and no palette has been matched to them."
+          }
+        ]
+      },
+      {
+        "kind": "callout",
+        "title": "What this can't tell you",
+        "body": "The meaning of the header's fourth word. The palette for PANEL1A to PANEL1D. And the palette for four others (LOGO, ROME, IMPRSEN, ROME2) is a best match, not a read of the code that loads them. Everything above is the US build; the international build ships some pictures under other names (FORUM32.VPX, IMP_LOGO.VPX, WAR.VPX), which have not been analysed."
+      }
+    ]
+  },
+  {
+    "id": "caesar1-pl8",
+    "name": ".PL8 / .PL1",
+    "shortName": "PL8",
+    "title": "The Caesar .PL8 sprite sheet format",
+    "games": [
+      "caesar1"
+    ],
+    "documentation": "documented",
+    "note": "Sprite and font sheets: a descriptor table, then pixels stored as four interleaved streams. Frames match the real city view pixel for pixel; the first header word is still unexplained.",
+    "summary": "The city's tiles and buildings, its walkers, the toolbar's icons and every font are .PL8 sheets: a small table of frame descriptors followed by the frames' pixels. The descriptors are plain; the pixels are the part that took a capture of the running game to get right, because they are four interleaved streams rather than rows.",
+    "sources": [
+      {
+        "title": "Gaius — docs/FORMATS.md",
+        "url": "https://github.com/0x695/Gaius/blob/master/docs/FORMATS.md"
+      },
+      {
+        "title": "Gaius — docs/CAESAR_CITY_RENDERER_FINDINGS.md",
+        "url": "https://github.com/0x695/Gaius/blob/master/docs/CAESAR_CITY_RENDERER_FINDINGS.md"
+      },
+      {
+        "title": "Gaius — formats/pl8/pl8.hpp (the decoder)",
+        "url": "https://github.com/0x695/Gaius/blob/master/formats/pl8/pl8.hpp"
+      }
+    ],
+    "spec": [
+      {
+        "kind": "prose",
+        "title": "Layout",
+        "body": [
+          "A sheet starts with a four-byte container header and a table of frame descriptors, one per frame. A descriptor does not hold pixels, only where they are: the pixel data of every frame lives at an absolute offset in the same file. Frames are packed back to back."
+        ]
+      },
+      {
+        "kind": "fields",
+        "title": "Container header",
+        "rows": [
+          {
+            "offset": "0",
+            "size": "2",
+            "type": "u16",
+            "name": "unknown_a",
+            "description": "42 in HOUSES.PL8, 61 in the international build's MINIFONT.PL8. Not the frame count. Meaning not established."
+          },
+          {
+            "offset": "2",
+            "size": "2",
+            "type": "u16",
+            "name": "frame_count",
+            "description": "The number of descriptors that follow. Confirmed exactly against HOUSES.PL8's 50 frames."
+          },
+          {
+            "offset": "4",
+            "size": "8 × frame_count",
+            "type": "descriptor[]",
+            "name": "frames",
+            "description": "The descriptor table, starting immediately after the header."
+          }
+        ]
+      },
+      {
+        "kind": "fields",
+        "title": "Frame descriptor, 8 bytes",
+        "rows": [
+          {
+            "offset": "0",
+            "size": "2",
+            "type": "u16 big-endian",
+            "name": "pixel_offset",
+            "description": "Absolute file offset of this frame's pixels. The one big-endian value in the format; everything else is little-endian."
+          },
+          {
+            "offset": "2",
+            "size": "1",
+            "type": "u8",
+            "name": "width",
+            "description": "In pixels. Always a multiple of 4 for a frame that has pixels."
+          },
+          {
+            "offset": "3",
+            "size": "1",
+            "type": "u8",
+            "name": "height",
+            "description": "In pixels."
+          },
+          {
+            "offset": "4",
+            "size": "2",
+            "type": "u16",
+            "name": "x",
+            "description": "The frame's origin x within its sheet's layout."
+          },
+          {
+            "offset": "6",
+            "size": "2",
+            "type": "u16",
+            "name": "y",
+            "description": "The frame's origin y."
+          }
+        ]
+      },
+      {
+        "kind": "prose",
+        "title": "Pixels",
+        "body": [
+          "A frame's width × height bytes are four streams stored one after another, interleaved one pixel at a time exactly as in a .VPX picture: pixel i, counted row by row, is entry i / 4 of stream i mod 4. The four streams are the planes of unchained VGA, each holding every fourth column, which is why a frame's width has to divide by four. Read row by row, no frame of the city view matches a capture of the real game; read this way, 13 HOUSES, 13 HOUSES2 and 72 FIXTS frames appear in the captures byte for byte, on the 16-pixel tile grid.",
+          "Colour index 0 is transparent when the engine draws a sprite. The ground tiles (every tile below 0xC8, from FIXTS.PL8) are drawn opaque. A frame's pixels are indices; the city sheets use only indices 0 to 15 of SHADE.256, the city palette."
+        ]
+      },
+      {
+        "kind": "prose",
+        "title": ".PL1, the one-bit variant",
+        "body": [
+          "MINIFONT.PL1 has the same container and descriptors, but one bit per pixel: each row is ceil(width / 8) bytes, most significant bit first, a set bit becoming pixel value 1 and a clear bit 0. The extension names the depth. The international build's 4,036-byte MINIFONT.PL8 is the same 72 frames at eight bits."
+        ]
+      },
+      {
+        "kind": "list",
+        "title": "The sheets, and what draws from them",
+        "note": "Frame counts are the US build's.",
+        "items": [
+          {
+            "term": "FIXTS.PL8, 190 frames",
+            "description": "Terrain and every city tile below 0xC8, one frame per tile id (16 × 16). Drawn opaque."
+          },
+          {
+            "term": "HOUSES.PL8, 50 frames",
+            "description": "Buildings and houses, tile 0xC8 and up. Its last six descriptors (frames 44 to 49) point at the end of the file and declare a size that would overrun it: empty placeholders. Why they exist is not explained."
+          },
+          {
+            "term": "HOUSES2.PL8, 44 frames",
+            "description": "Building states and animation frames, some of them 64 × 64."
+          },
+          {
+            "term": "MOREMEN.PL8, 86 frames",
+            "description": "Walkers and other city actors, drawn between the tile rows."
+          },
+          {
+            "term": "FIXT3.PL8, 125 frames; SPRITE2.PL8, 48 frames",
+            "description": "The province view's tiles and sprites. Strong inference: they load in place of the city sheets when the province is shown, and FIXT3 frames turn up in the map captures."
+          },
+          {
+            "term": "SPRITE2X.PL8, 48 frames",
+            "description": "The battle screen's banners."
+          },
+          {
+            "term": "P_BLOCKS.PL8, 40 frames of 16 × 16",
+            "description": "Frame, border and button pieces of the advisor and management screens: 31 of the 40 are found in captures."
+          },
+          {
+            "term": "POINTERS.PL8, 67 frames",
+            "description": "The toolbar buttons' icons (each button record names its frame and its handler), the histories' bar pieces, and the province markers on the empire map."
+          },
+          {
+            "term": "FONT1.PL8, 100 frames of 8 × 8",
+            "description": "The main text font; the engine picks a frame through a character table. FONT2.PL8 has the same shape and is the battle screen's font."
+          },
+          {
+            "term": "ROMFONT.PL8, 27 frames of 16 × 17",
+            "description": "A second font: letters with case folded to frames 0 to 25 and a 27th frame for everything else."
+          },
+          {
+            "term": "MINIFONT.PL1, 72 frames of 8 × 6",
+            "description": "Small capitals and digits: the histories' captions among other things."
+          },
+          {
+            "term": "TEMPLBIT.PL8, 3 frames",
+            "description": "The ratings screen's column pieces: the base, the shaft and the capital."
+          },
+          {
+            "term": "SHADE.PL8, 17 frames of 16 × 16",
+            "description": "The shading frames the city view's overlay map modes draw, chosen from the coverage, water and similar layers."
+          }
+        ]
+      },
+      {
+        "kind": "callout",
+        "title": "What this can't tell you",
+        "body": "What the first header word means. Why HOUSES.PL8 ends in six placeholder frames. Which frame is which in most sheets: the city sheets are mapped to tile ids, but HOUSES2.PL8 and FIXT3.PL8 are only partly mapped, and several fonts were checked less than FONT1. The palette for the toolbar icons is the city palette; no sheet carries its own."
+      }
+    ]
+  },
+  {
+    "id": "caesar1-palette",
+    "name": ".256 / .P32",
+    "shortName": "Palettes",
+    "title": "The Caesar palette formats, .256 and .P32",
+    "games": [
+      "caesar1"
+    ],
+    "documentation": "documented",
+    "note": "Two palette files: a raw 768-byte VGA DAC block, and a 32-colour packed version. Both checked against the DAC of the running game, entry by entry.",
+    "summary": "Caesar's pictures and sprites are all indices; the colours live in eight .256 files and six .P32 files. The .256 file is nothing but the VGA palette registers' contents, and the executable hands it to the BIOS untouched. The only subtle thing about either format is how the six-bit values are widened to eight, which is a convention of whoever draws the picture rather than anything in the file.",
+    "sources": [
+      {
+        "title": "Gaius — docs/FORMATS.md",
+        "url": "https://github.com/0x695/Gaius/blob/master/docs/FORMATS.md"
+      },
+      {
+        "title": "Gaius — formats/pal256/pal256.hpp",
+        "url": "https://github.com/0x695/Gaius/blob/master/formats/pal256/pal256.hpp"
+      },
+      {
+        "title": "Gaius — formats/p32/p32.hpp",
+        "url": "https://github.com/0x695/Gaius/blob/master/formats/p32/p32.hpp"
+      }
+    ],
+    "spec": [
+      {
+        "kind": "fields",
+        "title": ".256: a whole VGA palette",
+        "note": "In the executable the generic file loader reads the whole file into a buffer, and the palette routine passes that buffer untouched to the BIOS (INT 10h, function 1012h: set a block of DAC registers, 256 of them). So the file is the DAC block. In a non-VGA video mode the same routine programs only entries 0 to 15.",
+        "rows": [
+          {
+            "offset": "0",
+            "size": "768",
+            "type": "u8[256][3]",
+            "name": "colours",
+            "description": "Red, green, blue for each of 256 entries, each channel a six-bit VGA DAC value from 0 to 63. No header and no transform."
+          }
+        ]
+      },
+      {
+        "kind": "fields",
+        "title": ".P32: thirty-two colours",
+        "note": "Each nibble n is a DAC value of n × 4, so 15 means 60, not 63. That comes from captures of the running game: the map and Forum screens hold EMAP2.P32 and FORUM32.P32 in the DAC as exactly n × 4, in all 32 entries each.",
+        "rows": [
+          {
+            "offset": "0",
+            "size": "64",
+            "type": "u16[32]",
+            "name": "colours",
+            "description": "Little-endian words, one per colour. Bits 0 to 3 are red, bits 8 to 11 are blue, bits 12 to 15 are green; bits 4 to 7 are unused. Note that green sits in the high nibble, above blue."
+          }
+        ]
+      },
+      {
+        "kind": "prose",
+        "title": "Widening to eight bits",
+        "body": [
+          "A DAC value is six bits (0 to 63). To show one on an eight-bit display, screenshot tools disagree: some write v << 2, some (v << 2) | (v >> 4). The game never does either, so a comparison with a capture should be made at six bits. The tools here use the second form."
+        ]
+      },
+      {
+        "kind": "list",
+        "title": "Which file is which",
+        "note": "All eight US-build .256 files are 768 bytes with every byte in 0 to 63; a byte above 63 is rejected.",
+        "items": [
+          {
+            "term": "SHADE.256",
+            "description": "The city palette, and the interface palette. All 256 entries equal the DAC of every city-view capture. SHADE.P32 is its first 20 entries."
+          },
+          {
+            "term": "NEWFORUM.256",
+            "description": "The Forum. All 256 entries equal the Forum capture's DAC."
+          },
+          {
+            "term": "WAR2.256, TEMPLE.256, TITLE3.256, ROME1.256, IMPRLOGO.256",
+            "description": "The battle screen, the ratings screen, the title screen, the ROME1 and ROME2 pictures, and the intro pictures."
+          },
+          {
+            "term": "PANEL1.256 and PANEL1.P32",
+            "description": "The bottom panel. The first 32 entries of the .256 are exactly the .P32's nibbles times 4, and the picture renders to the same DAC value at all 64,000 pixels through either."
+          },
+          {
+            "term": "EMAP2.P32, FORUM32.P32, LOSEPIC.P32, WINPIC.P32",
+            "description": "The map of the Empire, the Forum's 32 colours, and the two end-of-game pictures."
+          }
+        ]
+      },
+      {
+        "kind": "callout",
+        "title": "What this can't tell you",
+        "body": "Which palette a given picture takes is not in either file. That table is on the .VPX page, with how sure each pairing is. The international build's palette files (it ships TEMPLE.P32, TITLE3.P32 and others) are not analysed here."
+      }
+    ]
+  },
+  {
+    "id": "caesar1-empire2",
+    "name": "EMPIRE2.0NN",
+    "shortName": "EMPIRE2",
+    "title": "The Caesar province map format, EMPIRE2.0NN",
+    "games": [
+      "caesar1"
+    ],
+    "documentation": "partial",
+    "note": "Fifty files of exactly 1,602 bytes: a two-byte prefix and a 40 × 40 grid of tile bytes, one file per province. The layout is certain; the full vocabulary of tile values is not.",
+    "summary": "Each of Caesar's fifty provinces is one EMPIRE2 file: the map the province view draws, the coast, the rivers, the towns and the borders where barbarians arrive. A saved game embeds a copy of the current one. The file is trivially simple. What the bytes in it mean is the part still being worked out.",
+    "sources": [
+      {
+        "title": "Gaius — docs/FORMATS.md",
+        "url": "https://github.com/0x695/Gaius/blob/master/docs/FORMATS.md"
+      },
+      {
+        "title": "Gaius — docs/CAESAR_CONSTRUCTION_DISPATCH_FINDINGS.md",
+        "url": "https://github.com/0x695/Gaius/blob/master/docs/CAESAR_CONSTRUCTION_DISPATCH_FINDINGS.md"
+      },
+      {
+        "title": "Gaius — formats/empire2/empire2.hpp",
+        "url": "https://github.com/0x695/Gaius/blob/master/formats/empire2/empire2.hpp"
+      }
+    ],
+    "spec": [
+      {
+        "kind": "fields",
+        "title": "The whole file, 1,602 bytes",
+        "note": "All fifty files round-trip through load and save byte for byte.",
+        "rows": [
+          {
+            "offset": "0",
+            "size": "2",
+            "type": "u8[2]",
+            "name": "prefix",
+            "description": "14 14 in all fifty files and in every save's embedded copy. The engine never reads it as a field: it is loaded and saved along with the map and is reached only by reads that run off the grid's top-left corner. It is not a width or height; the engine's 40s are constants."
+          },
+          {
+            "offset": "2",
+            "size": "1600",
+            "type": "u8[40][40]",
+            "name": "cells",
+            "description": "The map, row by row: the cell at row r, column c is byte 2 + 40r + c. One tile id per cell."
+          }
+        ]
+      },
+      {
+        "kind": "prose",
+        "title": "Which province is which",
+        "body": [
+          "The file for province NN is named EMPIRE2.0NN: the engine writes the province number as three decimal digits into the name and loads that. So EMPIRE2.000 is the first province and EMPIRE2.049 the last. A promotion that sends the governor to a new province loads the next one into the game state."
+        ]
+      },
+      {
+        "kind": "list",
+        "title": "Tile values the engine treats specially",
+        "note": "Most names are STRONG INFERENCE, matched by what the engine's own commands write and read rather than by a label in the file. The ranges for open ground and the cost shift are definitive.",
+        "items": [
+          {
+            "term": "0x00 to 0x1C",
+            "description": "Static terrain: water, mountains and the like. Never simulated; in real saves they form fixed blobs that are byte-identical from save to save."
+          },
+          {
+            "term": "0x1D to 0x35",
+            "description": "Open ground. This is the only terrain the province's build commands will lay on; anything below 0x1D is refused. Within it, the cost of a province build is shifted left by the ground: twice (×4) on 0x25 to 0x2C, once (×2) on 0x2D to 0x35. That is the manual's \"from 30 Denarii to 120 Denarii, depending on the terrain\"."
+          },
+          {
+            "term": "0x36 to 0x41",
+            "description": "Provincial road, in twelve shapes (straight, corners, junctions). The same twelve as the city's road pieces."
+          },
+          {
+            "term": "0x41 in the file",
+            "description": "The Imperial Highway's entry. When a province starts, the first 0x41 found scanning row by row becomes 0x78 and its position is remembered. This is the \"unexplained\" byte change between a raw scenario and the copy in a save."
+          },
+          {
+            "term": "0x42 to 0x49, 0x62 to 0x6C",
+            "description": "Great Wall pieces, with 0x44 and 0x45 the gates where a road crosses a wall, and 0x62 to 0x67 the Great Towers. Names are a strong inference from what the wall command writes."
+          },
+          {
+            "term": "0x4A",
+            "description": "The capital city. The player's first Cohort is placed on the first cell holding 0x4A."
+          },
+          {
+            "term": "0x4C, 0x61, 0x79, 0x7A",
+            "description": "Towns, in order of size: 0x61 smallest, 0x4C largest."
+          },
+          {
+            "term": "0x4D",
+            "description": "A fort."
+          },
+          {
+            "term": "0x51 to 0x58, 0x59 to 0x60",
+            "description": "Where barbarian armies enter: from the sea (0x51 plus a race index) and by land (0x59 plus the same). 0x59 to 0x60 are also the land border markers."
+          },
+          {
+            "term": "0x6D to 0x78",
+            "description": "Imperial Highway, in the same twelve shapes as the road. 0x7B and 0x7C are a road crossing a highway."
+          },
+          {
+            "term": "bit 7 (0x80)",
+            "description": "Not terrain: the engine sets it on the cells of a trace it is following. In the saves it is set on the capital's cell (0x4A becomes 0xCA)."
+          }
+        ]
+      },
+      {
+        "kind": "list",
+        "title": "The fifty provinces, in file order",
+        "note": "The names are the executable's own, in a table of 16-character fields; \"Caeariensis\" is spelled so there. Each province is attacked by one of sixteen barbarian races, which the executable also tabulates.",
+        "items": [
+          {
+            "term": "000",
+            "description": "Sicilia"
+          },
+          {
+            "term": "001",
+            "description": "Campania"
+          },
+          {
+            "term": "002",
+            "description": "Latium"
+          },
+          {
+            "term": "003",
+            "description": "Cisalpine Gaul"
+          },
+          {
+            "term": "004",
+            "description": "Corsica"
+          },
+          {
+            "term": "005",
+            "description": "Sardinia"
+          },
+          {
+            "term": "006",
+            "description": "Alpes Maritimae"
+          },
+          {
+            "term": "007",
+            "description": "Narbonensis"
+          },
+          {
+            "term": "008",
+            "description": "Hispania Inf."
+          },
+          {
+            "term": "009",
+            "description": "Baetica"
+          },
+          {
+            "term": "010",
+            "description": "Lusitania Inf."
+          },
+          {
+            "term": "011",
+            "description": "Lusitania Sup."
+          },
+          {
+            "term": "012",
+            "description": "Tarraconensis"
+          },
+          {
+            "term": "013",
+            "description": "Aquitania Inf."
+          },
+          {
+            "term": "014",
+            "description": "Hispania Sup."
+          },
+          {
+            "term": "015",
+            "description": "Aquitania Sup."
+          },
+          {
+            "term": "016",
+            "description": "Lugdunensis"
+          },
+          {
+            "term": "017",
+            "description": "Belgica"
+          },
+          {
+            "term": "018",
+            "description": "Gallia Sup."
+          },
+          {
+            "term": "019",
+            "description": "Gallia Inf."
+          },
+          {
+            "term": "020",
+            "description": "W. Britannia"
+          },
+          {
+            "term": "021",
+            "description": "E. Britannia"
+          },
+          {
+            "term": "022",
+            "description": "Britannia Sup."
+          },
+          {
+            "term": "023",
+            "description": "Caledonia"
+          },
+          {
+            "term": "024",
+            "description": "Germania Inf."
+          },
+          {
+            "term": "025",
+            "description": "Germania Sup."
+          },
+          {
+            "term": "026",
+            "description": "Pannonia"
+          },
+          {
+            "term": "027",
+            "description": "Dacia"
+          },
+          {
+            "term": "028",
+            "description": "Illyricum"
+          },
+          {
+            "term": "029",
+            "description": "Dalmatia"
+          },
+          {
+            "term": "030",
+            "description": "Macedonia"
+          },
+          {
+            "term": "031",
+            "description": "Achaea"
+          },
+          {
+            "term": "032",
+            "description": "Creta"
+          },
+          {
+            "term": "033",
+            "description": "Thracia"
+          },
+          {
+            "term": "034",
+            "description": "Asia"
+          },
+          {
+            "term": "035",
+            "description": "Pamphylia"
+          },
+          {
+            "term": "036",
+            "description": "Cappadocia"
+          },
+          {
+            "term": "037",
+            "description": "Assyria"
+          },
+          {
+            "term": "038",
+            "description": "Syria"
+          },
+          {
+            "term": "039",
+            "description": "Mesopotamia"
+          },
+          {
+            "term": "040",
+            "description": "Judea"
+          },
+          {
+            "term": "041",
+            "description": "Arabia"
+          },
+          {
+            "term": "042",
+            "description": "Aegyptus"
+          },
+          {
+            "term": "043",
+            "description": "Cyrenaica"
+          },
+          {
+            "term": "044",
+            "description": "Africa"
+          },
+          {
+            "term": "045",
+            "description": "Numidia"
+          },
+          {
+            "term": "046",
+            "description": "Mauretania"
+          },
+          {
+            "term": "047",
+            "description": "Caeariensis"
+          },
+          {
+            "term": "048",
+            "description": "Tingitania"
+          },
+          {
+            "term": "049",
+            "description": "Moesia"
+          }
+        ]
+      },
+      {
+        "kind": "callout",
+        "title": "What this can't tell you",
+        "body": "The full vocabulary of tile values: the ranges above are the ones the code tests, and the rest are inferred. The 0x41 to 0x78 change was seen in one scenario of one session across all the saves, though the code that does it is read. How the cells were authored, and whether any scenario carries anything the engine ignores, is unknown beyond the prefix."
+      }
+    ]
+  },
+  {
+    "id": "caesar1-sav",
+    "name": ".SAV",
+    "shortName": "SAV",
+    "title": "The Caesar savegame format",
+    "games": [
+      "caesar1"
+    ],
+    "documentation": "partial",
+    "note": "Exactly 57,126 bytes in twenty fixed blocks: the game's globals, the walkers, the five city layers, the province map and the yearly histories. Every block is located; a few fields in them are not yet named.",
+    "summary": "A Caesar save is a straight dump of the game's data segment, in the writer's order: 128 global words, the actor table, the city's five 100 × 100 layers and the rest. Nothing is compressed or indexed. The blocks' positions and sizes are certain, because the loader reads exactly what the writer writes; what is still partial is the meaning of some words and of the middle of an actor record.",
+    "sources": [
+      {
+        "title": "Gaius — docs/FORMATS.md",
+        "url": "https://github.com/0x695/Gaius/blob/master/docs/FORMATS.md"
+      },
+      {
+        "title": "Gaius — docs/CAESAR_CONSTRUCTION_DISPATCH_FINDINGS.md",
+        "url": "https://github.com/0x695/Gaius/blob/master/docs/CAESAR_CONSTRUCTION_DISPATCH_FINDINGS.md"
+      },
+      {
+        "title": "Gaius — formats/save/save.hpp",
+        "url": "https://github.com/0x695/Gaius/blob/master/formats/save/save.hpp"
+      },
+      {
+        "title": "Gaius — model/city_state.hpp",
+        "url": "https://github.com/0x695/Gaius/blob/master/model/city_state.hpp"
+      }
+    ],
+    "spec": [
+      {
+        "kind": "prose",
+        "title": "Layout",
+        "body": [
+          "A save is 57,126 bytes (0xDF26), always. The game's writer makes 175 write calls, one per record, from the data segment straight to the file; its loader reads the same 175 records, at the same addresses and sizes, in the same order. So reading and writing are the same list, and Gaius's writer produces a file that is byte-identical to every one of seventeen real saves it was given.",
+          "Saves are named CAESARxx.SAV, with xx chosen by the player. Everything is little-endian."
+        ]
+      },
+      {
+        "kind": "fields",
+        "title": "The twenty blocks, in file order",
+        "note": "Offsets and sizes in bytes. The block boundaries are confirmed by the loader, and by the footprint of every building in real saves coming out as an exact rectangle.",
+        "rows": [
+          {
+            "offset": "0x0000",
+            "size": "256",
+            "type": "u16[128]",
+            "name": "global words",
+            "description": "The game's state words. They are not a contiguous run of addresses: the writer takes them in its own order (with 15 discontinuities, skipping one address and writing another twice). The funds are the word at 0x3E."
+          },
+          {
+            "offset": "0x0100",
+            "size": "3500",
+            "type": "record[70]",
+            "name": "actors",
+            "description": "The walker and army table: 70 records of 50 bytes. See the record below."
+          },
+          {
+            "offset": "0x0EAC",
+            "size": "480",
+            "type": "record[30]",
+            "name": "Forums",
+            "description": "16 bytes each: +0 column, +2 row, +4 grade (0 to 7), +6 timer, +8 active, +A a facing counter. The count of forums is capped at 30."
+          },
+          {
+            "offset": "0x108C",
+            "size": "120",
+            "type": "record[10]",
+            "name": "Barracks",
+            "description": "12 bytes each: +0 column, +2 row, +4 timer, +6 active, +8 facing."
+          },
+          {
+            "offset": "0x1104",
+            "size": "720",
+            "type": "record[30]",
+            "name": "Workshops",
+            "description": "24 bytes each: +0 column, +2 row, +4 goods type (0 to 7), +6 timer, +8 active, +A facing, +C population nearby, +E sales, +0x10 production level, +0x12 last level, +0x14 industry."
+          },
+          {
+            "offset": "0x13D4",
+            "size": "10000",
+            "type": "u8[100][100]",
+            "name": "tiles",
+            "description": "The city map: one tile id per cell, row by row (index = row × 100 + column). Ids below 0xC8 are terrain, roads, walls and water; 0xC8 to 0xD7 are the sixteen house grades."
+          },
+          {
+            "offset": "0x3AE4",
+            "size": "10000",
+            "type": "u8[100][100]",
+            "name": "service flags",
+            "description": "Bit flags per cell: water (0x01), forum road access (0x02, a strong inference), bath houses (0x04), market (0x08), administration (0x20), school or hospital (0x40), entertainment (0x80). Rebuilt from the tiles at the end of every month."
+          },
+          {
+            "offset": "0x61F4",
+            "size": "10000",
+            "type": "i8[100][100]",
+            "name": "land value",
+            "description": "The Maps panel's \"land value\" layer, a signed byte per cell, built each month by every service building's reach."
+          },
+          {
+            "offset": "0x8904",
+            "size": "10000",
+            "type": "u8[100][100]",
+            "name": "part index and state",
+            "description": "Low nibble: the cell's position inside its building, 4 × row offset + column offset, with 0 the anchor. Held by every cell of every multi-cell building in every save. Other bits are state flags, only partly understood."
+          },
+          {
+            "offset": "0xB014",
+            "size": "10000",
+            "type": "i8[100][100]",
+            "name": "unrest",
+            "description": "The Maps panel's \"trouble areas\" layer, drawn on houses: a signed byte per cell, raised by what makes citizens unhappy and lowered by temples, prefectures, barracks and oracles. A low-grade house collapses when its cell exceeds a limit."
+          },
+          {
+            "offset": "0xD724",
+            "size": "1602",
+            "type": "EMPIRE2",
+            "name": "province map",
+            "description": "The current province's map file, with game state written into it. See EMPIRE2."
+          },
+          {
+            "offset": "0xDD66",
+            "size": "50",
+            "type": "u8[50]",
+            "name": "provinces given",
+            "description": "One flag per province already assigned to this governor."
+          },
+          {
+            "offset": "0xDD98",
+            "size": "8",
+            "type": "u8[8]",
+            "name": "workshops per goods",
+            "description": "How many workshops of each of the eight goods are built."
+          },
+          {
+            "offset": "0xDDA0",
+            "size": "10",
+            "type": "u8[10]",
+            "name": "population milestones",
+            "description": "Flags for 200, 1000, 2000, 4000, 8000, 12000, 16000 and 20000 people having been reached. The last two bytes are unused."
+          },
+          {
+            "offset": "0xDDAA",
+            "size": "60 × 4",
+            "type": "pair[15] × 4",
+            "name": "yearly histories",
+            "description": "Four tables of 15 (year, value) word pairs: population tax, industrial tax, funds, and population units."
+          },
+          {
+            "offset": "0xDE9A",
+            "size": "72",
+            "type": "pair[18]",
+            "name": "profit history",
+            "description": "The yearly profit or loss; 17 of the 18 records are used."
+          },
+          {
+            "offset": "0xDEE2",
+            "size": "68",
+            "type": "u16[34]",
+            "name": "final state",
+            "description": "Thirty-four more words (twelve of those bytes are the governor's name, padded with spaces to 12 characters; \"  Octavian  \" in every save), including the difficulty, the industrial tax rate, the monthly scan counters and last year's Treasurer's report."
+          }
+        ]
+      },
+      {
+        "kind": "fields",
+        "title": "An actor record, 50 bytes",
+        "note": "The other bytes belong to movement, targets and timers. They are laid out in Gaius's source (systems/actors.hpp) but not tabulated here.",
+        "rows": [
+          {
+            "offset": "+0x00",
+            "size": "2",
+            "type": "u16",
+            "name": "frame",
+            "description": "The sprite frame drawn: from MOREMEN.PL8 in the city view, SPRITE2.PL8 in the province view."
+          },
+          {
+            "offset": "+0x02",
+            "size": "2",
+            "type": "u16",
+            "name": "x",
+            "description": "World x in pixels. The sprite's bottom edge is drawn at y + 8."
+          },
+          {
+            "offset": "+0x04",
+            "size": "2",
+            "type": "u16",
+            "name": "y",
+            "description": "World y in pixels."
+          },
+          {
+            "offset": "+0x06",
+            "size": "1",
+            "type": "u8",
+            "name": "active",
+            "description": "Non-zero for a live record. The exact bit packing is not established."
+          },
+          {
+            "offset": "+0x07",
+            "size": "1",
+            "type": "u8",
+            "name": "type",
+            "description": "The actor class, indexing a table of fourteen handlers: 0 to 10 are city walkers (forum citizens, workshop traders, barracks patrols, rioters, invaders), 11 a barbarian army, 12 an army arriving by sea, 13 a Cohort."
+          },
+          {
+            "offset": "+0x08",
+            "size": "2",
+            "type": "u16",
+            "name": "index",
+            "description": "The record's own slot number; it matches the slot in every active record in the saves."
+          },
+          {
+            "offset": "+0x12",
+            "size": "2",
+            "type": "u8, u8",
+            "name": "destination or cell",
+            "description": "For a province actor, its current cell (column, row). For a city actor, where it is heading, not where it is."
+          },
+          {
+            "offset": "+0x18",
+            "size": "2",
+            "type": "u16",
+            "name": "position",
+            "description": "For a city actor, row × 100 + column: the reliable position. For a province actor, row × 40 + column."
+          },
+          {
+            "offset": "+0x31",
+            "size": "1",
+            "type": "u8",
+            "name": "state",
+            "description": "The behaviour: an index into a second table of sixteen handlers."
+          }
+        ]
+      },
+      {
+        "kind": "list",
+        "title": "Words worth knowing",
+        "note": "A few of the 162 words. Every one the writer saves has been identified by what reads and writes it; two (at data-segment addresses 0x6BDC and 0x6CBC) are never used.",
+        "items": [
+          {
+            "term": "funds",
+            "description": "The treasury, in denarii, at the global word at file offset 0x3E. Across a real session it falls 7182, 4692, 3210, 3144, which is how the word was pinned."
+          },
+          {
+            "term": "month, year",
+            "description": "The month runs 0 to 11. The year is a signed counter, not a BC or AD date: a new game starts at −13, and one session's saves run from −11 up through 14."
+          },
+          {
+            "term": "population",
+            "description": "Stored as units (a sum over every house cell) and as four times that. Both are saved."
+          },
+          {
+            "term": "rank, difficulty",
+            "description": "The governor's rank (1 for a new game) and the difficulty. The difficulty is the word the loader skips in the global block and keeps in the final state."
+          },
+          {
+            "term": "ratings",
+            "description": "Peace, Culture, Prosperity, Empire, and their average."
+          },
+          {
+            "term": "Legion",
+            "description": "Regular, irregular and auxiliary Centuries, this year and last."
+          },
+          {
+            "term": "plebs",
+            "description": "The pleb count, its five duty assignments and the unassigned remainder, welfare, and the needs each duty has."
+          }
+        ]
+      },
+      {
+        "kind": "callout",
+        "title": "What this can't tell you",
+        "body": "The middle of an actor record. A handful of the state bits in the part-index layer. The embedded province map holds scenario plus game state, and which of its changes are general rules rests on one scenario. And all seventeen real saves it was checked against are from one scenario (the embedded map is EMPIRE2.047) and from the first rank, so a field that only varies in another province or after a promotion could hide. The block layout comes from the executable's own writer and loader, not from those saves, which is why it can be stated as certain."
+      }
+    ]
+  },
+  {
+    "id": "caesar1-vas",
+    "name": ".VAS",
+    "shortName": "VAS",
+    "title": "The Caesar .VAS battle animation format",
+    "games": [
+      "caesar1"
+    ],
+    "documentation": "documented",
+    "note": "Frames of XOR deltas over a picture's four planes: the battle screen's win and loss animations. Played over WAR2.VPX, they draw the battle.",
+    "summary": "The two animations on the battle screen, LOSE0001 and WINS0001, are not videos. Each frame is a list of byte runs to XOR onto the four planes of a .VPX picture, so the animation accumulates over whatever the screen already shows.",
+    "sources": [
+      {
+        "title": "Gaius — docs/FORMATS.md",
+        "url": "https://github.com/0x695/Gaius/blob/master/docs/FORMATS.md"
+      },
+      {
+        "title": "Gaius — docs/CAESAR_CONSTRUCTION_DISPATCH_FINDINGS.md",
+        "url": "https://github.com/0x695/Gaius/blob/master/docs/CAESAR_CONSTRUCTION_DISPATCH_FINDINGS.md"
+      },
+      {
+        "title": "Gaius — formats/vas/vas.hpp",
+        "url": "https://github.com/0x695/Gaius/blob/master/formats/vas/vas.hpp"
+      }
+    ],
+    "spec": [
+      {
+        "kind": "prose",
+        "title": "Layout",
+        "body": [
+          "The player loads the whole file and, for each frame in turn, reads that frame's 32-bit offset from a table near the start. For each of the four planes it selects the plane and XORs that plane's block onto the screen, stepping to the next block by the block's own length. Each frame is drawn onto both display pages."
+        ]
+      },
+      {
+        "kind": "fields",
+        "title": "The file",
+        "note": "The rest of the first 0x14 bytes is not used by the player.",
+        "rows": [
+          {
+            "offset": "+0x02",
+            "size": "2",
+            "type": "u16",
+            "name": "frame count + 1",
+            "description": "One more than the number of frames."
+          },
+          {
+            "offset": "+0x14",
+            "size": "4 × frames",
+            "type": "u32[]",
+            "name": "frame offsets",
+            "description": "One 32-bit offset per frame, into the file. LOSE0001.VAS has 21 frames, WINS0001.VAS 20."
+          }
+        ]
+      },
+      {
+        "kind": "fields",
+        "title": "A frame: four plane blocks, back to back",
+        "note": "The plane is the same 16,000-byte quarter a .VPX block decodes to: pixel 4i + p is byte i of plane p.",
+        "rows": [
+          {
+            "offset": "+0",
+            "size": "2",
+            "type": "u16",
+            "name": "block length",
+            "description": "From the start of this block to the start of the next."
+          },
+          {
+            "offset": "+2",
+            "size": "2",
+            "type": "u16",
+            "name": "plane size",
+            "description": "Always 16000."
+          },
+          {
+            "offset": "+4",
+            "size": "4",
+            "type": "bytes",
+            "name": "skipped",
+            "description": "The decoder steps over these."
+          },
+          {
+            "offset": "+8",
+            "size": "runs",
+            "type": "u16[]",
+            "name": "runs",
+            "description": "Each a word w. If bit 15 is set, XOR the next (w & 0x7FFF) + 1 bytes of the file onto the plane. Otherwise skip (w & 0x7FFF) + 1 bytes of the plane. Runs continue until their counts reach the plane size."
+          }
+        ]
+      },
+      {
+        "kind": "callout",
+        "title": "What this can't tell you",
+        "body": "What the first 0x14 bytes beyond the frame count hold. One of the three players in the executable stops LOSE0001 after 13 frames; why is not established. Both files were checked by every block ending exactly where the next begins, and by playing them over WAR2.VPX in the WAR2 palette, which draws the battle."
+      }
+    ]
+  },
+  {
+    "id": "caesar1-screen-data",
+    "name": "CONTFRM.GD8 / EDATA.CSR",
+    "shortName": "Screen data",
+    "title": "Caesar's screen data files: CONTFRM.GD8 and EDATA.CSR",
+    "games": [
+      "caesar1"
+    ],
+    "documentation": "documented",
+    "note": "Two small data files the screens read: the Forum picture's click map, and the province markers on the map of the Empire.",
+    "summary": "The Forum is a painting with eight figures in it, each an advisor, and a click on a figure opens his screen. Which pixel belongs to which figure is not in the code; it is in a 1,000-byte file. The map of the Empire gets the position of each province's marker from a second one.",
+    "sources": [
+      {
+        "title": "Gaius — docs/FORMATS.md",
+        "url": "https://github.com/0x695/Gaius/blob/master/docs/FORMATS.md"
+      },
+      {
+        "title": "Gaius — docs/CAESAR_CONSTRUCTION_DISPATCH_FINDINGS.md",
+        "url": "https://github.com/0x695/Gaius/blob/master/docs/CAESAR_CONSTRUCTION_DISPATCH_FINDINGS.md"
+      },
+      {
+        "title": "Gaius — formats/screen_data/screen_data.hpp",
+        "url": "https://github.com/0x695/Gaius/blob/master/formats/screen_data/screen_data.hpp"
+      }
+    ],
+    "spec": [
+      {
+        "kind": "fields",
+        "title": "CONTFRM.GD8, 1,000 bytes",
+        "note": "Loaded whole by the Forum screen. The shapes of the non-zero regions match the painted figures exactly.",
+        "rows": [
+          {
+            "offset": "0",
+            "size": "1000",
+            "type": "u8[25][40]",
+            "name": "click map",
+            "description": "A grid of 40 columns by 25 rows, each cell covering 8 × 8 pixels of the 320 × 200 Forum picture (NEWFORUM.VPX). A cell is 0 or the number of a figure. The engine takes the cell under the mouse, (x / 8) + (y / 8) × 40, and a non-zero value v calls the far pointer at 4v in a table of eight handlers, one per advisor."
+          }
+        ]
+      },
+      {
+        "kind": "fields",
+        "title": "EDATA.CSR, 320 bytes",
+        "note": "The values are byte-swapped relative to everything else in the game: stored big-endian, read as little-endian words and swapped.",
+        "rows": [
+          {
+            "offset": "0",
+            "size": "200",
+            "type": "u16 pair[50]",
+            "name": "province markers",
+            "description": "For each of the 50 provinces, two big-endian words: x and y. The map draws a marker at x − 8, y − 32 (and 10 more in x for province 39)."
+          },
+          {
+            "offset": "200",
+            "size": "120",
+            "type": "bytes",
+            "name": "not read",
+            "description": "This build never loads them. What they were for is not known."
+          }
+        ]
+      },
+      {
+        "kind": "callout",
+        "title": "What this can't tell you",
+        "body": "What the last 120 bytes of EDATA.CSR hold. The click map differs in the international build because its Forum picture does."
+      }
+    ]
+  },
+  {
+    "id": "caesar1-sound",
+    "name": ".VOC / .XMI / SAMPLE.AD",
+    "shortName": "Sound",
+    "title": "Caesar's sound files: .VOC, .XMI and SAMPLE.AD",
+    "games": [
+      "caesar1"
+    ],
+    "documentation": "documented",
+    "note": "Three published formats: Creative Voice files for the effects, Miles Extended MIDI for the tunes, and a Miles timbre library for the FM chip. The game uses Miles's own drivers, whose source is public.",
+    "summary": "Caesar's sound is off the shelf. The effects are Creative Labs voice files, the tunes are Miles Sound System Extended MIDI, and the drivers that play them are byte-identical to the Audio Interface Library 2.14 release, whose source its author released as freeware. None of these formats had to be reverse engineered; what had to be worked out is which file plays when.",
+    "sources": [
+      {
+        "title": "Gaius — docs/FORMATS.md",
+        "url": "https://github.com/0x695/Gaius/blob/master/docs/FORMATS.md"
+      },
+      {
+        "title": "Gaius — docs/CAESAR_CONSTRUCTION_DISPATCH_FINDINGS.md",
+        "url": "https://github.com/0x695/Gaius/blob/master/docs/CAESAR_CONSTRUCTION_DISPATCH_FINDINGS.md"
+      },
+      {
+        "title": "Gaius — formats/voc/voc.hpp",
+        "url": "https://github.com/0x695/Gaius/blob/master/formats/voc/voc.hpp"
+      },
+      {
+        "title": "Gaius — formats/xmi/xmi.hpp",
+        "url": "https://github.com/0x695/Gaius/blob/master/formats/xmi/xmi.hpp"
+      },
+      {
+        "title": "Gaius — formats/gtl/gtl.hpp",
+        "url": "https://github.com/0x695/Gaius/blob/master/formats/gtl/gtl.hpp"
+      }
+    ],
+    "spec": [
+      {
+        "kind": "prose",
+        "title": "What there is",
+        "body": [
+          "The US build has 23 .VOC effects, 14 .XMI tunes with 14 matching .XM2 files, and one timbre library, SAMPLE.AD. Four loadable drivers (SBFM.ADV, ADLIB.ADV, SBDIG.ADV, PCSPKR.ADV) sit between them and the hardware."
+        ]
+      },
+      {
+        "kind": "list",
+        "title": "The files",
+        "items": [
+          {
+            "term": ".VOC, 23 files",
+            "description": "Creative Voice Files, a published format. Every one is 8-bit unsigned mono PCM in sound blocks, at 8 kHz or 4 kHz. On a Sound Blaster the game halves every sample's distance from 128 before it plays one."
+          },
+          {
+            "term": ".XMI, 14 files",
+            "description": "Miles Extended MIDI (an IFF FORM XDIR / CAT XMID container; delays are summed delay bytes, there is no running status, and note-ons carry their durations). They convert to Standard MIDI at 120 ticks a second, and all 14 do. These are what the AdLib and Sound Blaster FM chip play."
+          },
+          {
+            "term": ".XM2, 14 files",
+            "description": "The same tunes arranged for the PC speaker: the executable gives every tune the extension .xm2 when the speaker is the sound device."
+          },
+          {
+            "term": "SAMPLE.AD",
+            "description": "The Global Timbre Library for the Yamaha YM3812 (OPL2): a directory of 6-byte entries (patch, bank, 32-bit offset) ending at bank 0xFF, each timbre a 16-bit length and, for the YM3812, 12 bytes: transpose, then the modulator's AVEKM, KSLTL, AD, SR and waveform select, a feedback and connection byte, and the carrier's five. 162 timbres, all 14 bytes; bank 127 is the rhythm channel's, one timbre per key, with the note it plays in the transpose byte. Every timbre any tune asks for is in it."
+          },
+          {
+            "term": "SBFM.ADV, ADLIB.ADV, SBDIG.ADV",
+            "description": "Byte-identical to the Audio Interface Library 2.14 drivers of 14 November 1992. SBFM.ADV is its XMIDI driver for one YM3812. PCSPKR.ADV differs from the release (8,434 bytes against 8,377), an earlier or later version."
+          }
+        ]
+      },
+      {
+        "kind": "list",
+        "title": "Which tune plays when",
+        "note": "Nothing loops: every tune plays once. CZAR102.XMI is named nowhere in the US executable (inference: unused), and there is no CZARJIN3.",
+        "items": [
+          {
+            "term": "CZARTIT",
+            "description": "The title screen."
+          },
+          {
+            "term": "STARTER",
+            "description": "Entering the city after the start screen."
+          },
+          {
+            "term": "CZARJIN8",
+            "description": "Drawing the Forum picture."
+          },
+          {
+            "term": "CZARJIN5, A, B, 6, 4, 9, 7",
+            "description": "Each advisor's screen as it opens. CZARJIN5 is also the Options screen's."
+          },
+          {
+            "term": "CZARJIN1",
+            "description": "Promotion."
+          },
+          {
+            "term": "EMPTUNE",
+            "description": "The last promotion, to Caesar."
+          },
+          {
+            "term": "CZARJIN2",
+            "description": "The arrest, when the governor has been dismissed too often."
+          }
+        ]
+      },
+      {
+        "kind": "list",
+        "title": "The effects",
+        "note": "Only one sound plays at a time: an effect stops the tune, and a tune stops the effect. ATTACK, CHARGE, FLANK and TORTOISE are named nowhere in the US executable (inference: unused, perhaps for Cohort 2).",
+        "items": [
+          {
+            "term": "RESPONSE",
+            "description": "A construction command chosen."
+          },
+          {
+            "term": "DEMOL, FIRE, PUTOUT",
+            "description": "A building demolished, set alight, or a fire put out."
+          },
+          {
+            "term": "WATER",
+            "description": "A fountain running dry."
+          },
+          {
+            "term": "WAR_CRY, SWORD, BARBHORN",
+            "description": "An invader or a rioter appears; the battle message; a Cohort reaching an army."
+          },
+          {
+            "term": "FANFARE, WINCHEER, WALLCOLL",
+            "description": "A message; victory or defeat; the warning that the provinces need more workers."
+          },
+          {
+            "term": "MKT_THEA, COLISEUM, HORSES, HUBBUB, WORKSHOP, FOUNTAIN, MARCHROM, MARCHBAR",
+            "description": "City sounds: a theatre, a coliseum, a hippodrome, a forum or a market, a workshop, a working fountain, Roman walkers and barbarians in view. They take turns on a 512-step cycle, and one plays only if its source is on screen."
+          }
+        ]
+      },
+      {
+        "kind": "callout",
+        "title": "What this can't tell you",
+        "body": "These are US-build facts. The international build ships its music as .MDI files, which are re-orchestrations rather than conversions; their timing confirms the .XMI conversion. How the drivers translate a timbre to YM3812 register writes is in the public AIL source and not repeated here."
+      }
+    ]
   },
   {
     "id": "caesar2-assets",

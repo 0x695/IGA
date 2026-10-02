@@ -377,6 +377,102 @@ if (c2SizeBreak.name !== 'Grand Domus' || c2SizeBreak.size !== 2) {
   throw new Error('caesar2 level 26 (the 1->2 size break) should be Grand Domus, size 2');
 }
 
+/* --- CAESAR (1992), from the original executable, as Gaius transcribed it ----
+ *
+ * Caesar has no engine to read. This is the disassembled US-build CSR.EXE as the
+ * Gaius project (github.com/0x695/Gaius) has transcribed it, read on 2 October
+ * 2026, and the manual agrees on every point it states: "sixteen grades of
+ * housing"; the needs, "in order of importance: water supply, road access to a
+ * forum, nearby baths, nearby markets, nearby schools or hospitals, and sources
+ * of entertainment"; and "the fanciest houses actually have a slight drop in
+ * density". Sources inside the executable:
+ *
+ *  - the development handlers at DS:1212, one per tile id 0xC8-0xD7 (findings
+ *    section 16.5), which say for each grade what it climbs on and falls on;
+ *  - the population table at 3496:007E and the tax table at 3496:008E, sixteen
+ *    bytes each, read straight out of the decompressed executable.
+ *
+ * Tiles 0xC8-0xD7 are the grades, in tile order. They are not quite a ladder:
+ * a grade-4 house (0xCB) climbs to a pair (0xCC) where the cell to its right is
+ * free, and to a one-tile house (0xCF, 0xD0) where it is not, and both routes
+ * meet again at 0xD1. The rungs here follow tile order, and the notes say where
+ * a rung branches.
+ *
+ * The manual names no grade, and neither does the executable's text, so they
+ * are numbered. The land-value figures are the layer the Maps panel calls "land
+ * value" (A2C4 in the save; the Gaius code calls that layer `coverage`, for
+ * how it is built). A house climbs when land value at its anchor is above the
+ * first figure and falls when it is below the second. The city-size figure is in
+ * population units, four people each, and is the whole city's, not the house's.
+ *
+ * Needs are bits the monthly service pass sets on a house's cell:
+ *   water W (0x01), road access to a forum N (0x02, a strong inference), baths B
+ *   (0x04), market M (0x08), a school or hospital S (0x40), entertainment E (0x80).
+ * A house that lacks a bit it needs falls a grade whatever its land value.
+ */
+const C1_POP = [1, 1, 2, 3, 3, 5, 6, 5, 6, 4, 4, 3, 3, 2, 2, 1]; // 3496:007E
+const C1_TAX = [1, 2, 4, 6, 7, 10, 14, 9, 13, 15, 16, 17, 18, 20, 22, 25]; // 3496:008E
+// tile | w | h | climbs above | falls below | keeps | to climb | note
+const CAESAR1_HOUSING = `
+C8|1|1|0|0|-|nothing beyond land value|Falls to bare ground below 0. Collapses to rubble, and a rioter appears, if unrest at its cell passes 20.
+C9|1|1|1|1|-|water|Collapses if unrest passes 30.
+CA|1|1|2|2|W|nothing beyond land value|Collapses if unrest passes 40.
+CB|1|1|4|3|W|forum road, a city of 100 people|Collapses if unrest passes 48. Climbs to a pair (0xCC) if the cell to its right is free or a small house, otherwise to the one-tile 0xCF.
+CC|2|1|5|5|W N|a city of 200 people|A pair: two tiles, the right one swallowed from the neighbour.
+CD|2|1|6|6|W N|a market in reach, a city of 300 people|
+CE|2|1|7|7|W N M|baths in reach, a city of 400 people|Climbs to the pair 0xD1.
+CF|1|1|6|5|W N|a market in reach, a city of 300 people|The one-tile branch, where a pair could not form. Falls back to 0xCB.
+D0|1|1|7|7|W N M|baths in reach, a city of 400 people, and a free or small neighbour to its right|Becomes the pair 0xD1.
+D1|2|1|10|8|W N M B|a city of 500 people|Both branches meet here.
+D2|2|1|13|11|W N M B|a school or hospital, a city of 600 people|
+D3|2|1|16|14|W N M B S|a city of 700 people|
+D4|2|1|18|17|W N M B S|entertainment, a city of 800 people, and room for a 2×2|
+D5|2|2|20|19|W N M B S E|a city of 900 people|Falls back to two 0xD4 pairs.
+D6|2|2|22|21|W N M B S E|a city of 1000 people and room for a 3×3|
+D7|3|3||23|W N M B S E|nothing: the top grade|Falls back to a 2×2, a pair and three one-tile houses.
+`;
+
+const c1Rows = CAESAR1_HOUSING.trim()
+  .split('\n')
+  .map((line) => line.split('|'));
+if (c1Rows.length !== 16) throw new Error(`expected 16 Caesar housing grades, got ${c1Rows.length}`);
+
+const NEEDS_WORDS = { W: 'water', N: 'a forum road', M: 'a market', B: 'baths', S: 'a school or hospital', E: 'entertainment' };
+c1Rows.forEach(([tile, w, h, up, down, keeps, climb, note], index) => {
+  if (parseInt(tile, 16) !== 0xc8 + index) throw new Error(`caesar1 grade ${index} should be tile ${(0xc8 + index).toString(16)}, got ${tile}`);
+  const cells = Number(w) * Number(h);
+  const needs = keeps === '-' ? [] : keeps.split(' ').map((k) => NEEDS_WORDS[k]);
+  const requirements =
+    (needs.length ? `Keeps: ${needs.join(', ')}. ` : 'Keeps: nothing. ') + `To climb: ${climb}.`;
+  rows.push({
+    id: `caesar1-${String(index).padStart(2, '0')}`,
+    game: 'caesar1',
+    tier: null,
+    level: index + 1,
+    name: `Grade ${index + 1}`,
+    engineType: `tile 0x${tile}`,
+    size: w === h ? Number(w) : [Number(w), Number(h)],
+    // people = four per population unit, per tile, over the grade's footprint
+    maxPeople: 4 * C1_POP[index] * cells,
+    prosperity: null,
+    evolveDesirability: up === '' ? null : Number(up),
+    devolveDesirability: Number(down),
+    needs: null,
+    requirements,
+    note: `Tax units a tile: ${C1_TAX[index]}.${note ? " " + note : ""}`,
+  });
+});
+
+/* Spot checks. The population table peaks at the fifth-largest house and falls
+   at the top, as the manual says; the total for a full 3x3 is nine tiles of
+   one unit each. The sizes are the exact rectangles Gaius found for each grade
+   in real saves. */
+const c1Grades = rows.filter((r) => r.game === 'caesar1');
+if (c1Grades[0].maxPeople !== 4 || c1Grades[15].maxPeople !== 36) throw new Error('caesar1 first and last grades should hold 4 and 36');
+if (JSON.stringify(c1Grades[15].size) !== '3') throw new Error('caesar1 top grade is 3x3');
+if (c1Grades.filter((r) => Array.isArray(r.size)).length !== 7) throw new Error('caesar1 has seven pair grades');
+if (C1_POP.length !== 16 || C1_TAX.length !== 16) throw new Error('caesar1 population and tax tables are sixteen bytes each');
+
 for (const row of rows) if (!('tier' in row)) row.tier = null;
 
 await writeFile(OUT, `${JSON.stringify(rows, null, 2)}\n`, 'utf8');

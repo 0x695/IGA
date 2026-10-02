@@ -1,5 +1,138 @@
 [
   {
+    "id": "caesar1-copper-workshop",
+    "game": "caesar1",
+    "name": "Copper Workshop",
+    "engineType": "command 28 / goods 3 / tile 0xF5",
+    "size": 3,
+    "laborers": null,
+    "inputs": [
+      "Raw materials"
+    ],
+    "output": "Copper",
+    "productionRate": null,
+    "progressMax": null,
+    "rateByDifficulty": null
+  },
+  {
+    "id": "caesar1-glass-workshop",
+    "game": "caesar1",
+    "name": "Glass Workshop",
+    "engineType": "command 28 / goods 0 / tile 0xF5",
+    "size": 3,
+    "laborers": null,
+    "inputs": [
+      "Raw materials"
+    ],
+    "output": "Glass",
+    "productionRate": null,
+    "progressMax": null,
+    "rateByDifficulty": null
+  },
+  {
+    "id": "caesar1-heavy-industry",
+    "game": "caesar1",
+    "name": "Heavy Industry",
+    "engineType": "command 26 / tile 0xF3",
+    "size": 4,
+    "laborers": null,
+    "inputs": [],
+    "output": "Raw materials",
+    "productionRate": null,
+    "progressMax": null,
+    "rateByDifficulty": null
+  },
+  {
+    "id": "caesar1-ivory-workshop",
+    "game": "caesar1",
+    "name": "Ivory Workshop",
+    "engineType": "command 28 / goods 5 / tile 0xF6",
+    "size": 3,
+    "laborers": null,
+    "inputs": [
+      "Raw materials"
+    ],
+    "output": "Ivory",
+    "productionRate": null,
+    "progressMax": null,
+    "rateByDifficulty": null
+  },
+  {
+    "id": "caesar1-pottery-workshop",
+    "game": "caesar1",
+    "name": "Pottery Workshop",
+    "engineType": "command 28 / goods 2 / tile 0xF5",
+    "size": 3,
+    "laborers": null,
+    "inputs": [
+      "Raw materials"
+    ],
+    "output": "Pottery",
+    "productionRate": null,
+    "progressMax": null,
+    "rateByDifficulty": null
+  },
+  {
+    "id": "caesar1-spices-workshop",
+    "game": "caesar1",
+    "name": "Spices Workshop",
+    "engineType": "command 28 / goods 7 / tile 0xF6",
+    "size": 3,
+    "laborers": null,
+    "inputs": [
+      "Raw materials"
+    ],
+    "output": "Spices",
+    "productionRate": null,
+    "progressMax": null,
+    "rateByDifficulty": null
+  },
+  {
+    "id": "caesar1-tin-workshop",
+    "game": "caesar1",
+    "name": "Tin Workshop",
+    "engineType": "command 28 / goods 1 / tile 0xF5",
+    "size": 3,
+    "laborers": null,
+    "inputs": [
+      "Raw materials"
+    ],
+    "output": "Tin",
+    "productionRate": null,
+    "progressMax": null,
+    "rateByDifficulty": null
+  },
+  {
+    "id": "caesar1-wheat-workshop",
+    "game": "caesar1",
+    "name": "Wheat Workshop",
+    "engineType": "command 28 / goods 6 / tile 0xF6",
+    "size": 3,
+    "laborers": null,
+    "inputs": [
+      "Raw materials"
+    ],
+    "output": "Wheat",
+    "productionRate": null,
+    "progressMax": null,
+    "rateByDifficulty": null
+  },
+  {
+    "id": "caesar1-wine-workshop",
+    "game": "caesar1",
+    "name": "Wine Workshop",
+    "engineType": "command 28 / goods 4 / tile 0xF6",
+    "size": 3,
+    "laborers": null,
+    "inputs": [
+      "Raw materials"
+    ],
+    "output": "Wine",
+    "productionRate": null,
+    "progressMax": null,
+    "rateByDifficulty": null
+  },
+  {
     "id": "caesar2-bakery",
     "game": "caesar2",
     "name": "Bakery",

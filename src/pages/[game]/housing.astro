@@ -102,6 +102,17 @@ const PROVENANCE: Record<string, { summary: string; caveat: string; sources: { t
       { title: 'Caesar II manual (Impressions Games / Sierra), Appendix', url: 'https://0x695.github.io/IGA/manuals/caesar2.pdf' },
     ],
   },
+  caesar1: {
+    summary:
+      'Sixteen grades, from the hut the Housing command places to a 3×3 house, with what each needs to keep its place, what it needs to climb, and how many people it holds. The game names no grade, so they are numbered; and the ladder is not quite a ladder, because a house climbs to a pair of tiles or to a single one depending on room, and the routes meet again.',
+    caveat:
+      "Caesar has no engine to read. These rules are the original executable's own housing routines as the Gaius project has disassembled them, one for each of the sixteen tile ids a house can be (0xC8 to 0xD7), and the manual agrees with everything it states: sixteen grades, the same order of needs, and the fanciest houses being slightly less dense. People is four per population unit per tile over the grade's footprint; that the unit sum is the population is a strong inference, which the real saves bear out exactly. Land value is the layer the Maps panel shows as land value: a house climbs when it is above the first figure and falls when it is below the second. Needs are what the monthly pass finds within reach of the house, and one missing drops it a grade whatever its land value. City sizes are the whole city's, in people. Unrest, drawn on the Maps panel as trouble areas, collapses only the first four grades. What is not here: the exact room each grade needs to swallow a neighbour (it is per grade in the source), and the small random draw that moves land value each month.",
+    sources: [
+      { title: 'Gaius - findings, section 16 (the housing routines)', url: 'https://github.com/0x695/Gaius/blob/master/docs/CAESAR_CONSTRUCTION_DISPATCH_FINDINGS.md' },
+      { title: 'Gaius - systems/housing.cpp', url: 'https://github.com/0x695/Gaius/blob/master/systems/housing.cpp' },
+      { title: 'Caesar manual (Impressions Games, 1993)', url: 'https://0x695.github.io/IGA/manuals/caesar1.pdf' },
+    ],
+  },
   emperor: {
     summary:
       'Two ladders rather than one. Common housing runs eight rungs from a shelter to a luxurious apartment; elite housing runs five more, from a modest siheyuan to a heavenly compound, and a citizen never moves between the two.',
@@ -124,6 +135,16 @@ function scale(value: number | number[] | null): string {
 
 const hasModel = rungs.some((r) => r.data.needs !== null);
 const hasSize = rungs.some((r) => r.data.size !== null);
+/* Caesar's thresholds are land values rather than the desirability the other
+   ladders carry with a needs table, so they get their own pair of columns. */
+const hasLandValue =
+  !hasModel && rungs.some((r) => r.data.evolveDesirability !== null || r.data.devolveDesirability !== null);
+
+/** A footprint: one side for a square house, width by height otherwise. */
+function shape(size: number | [number, number] | null): string {
+  if (size === null) return '—';
+  return Array.isArray(size) ? `${size[0]}×${size[1]}` : `${size}×${size}`;
+}
 const hasRequirements = rungs.some((r) => r.data.requirements !== null);
 
 /* Only the columns this game actually has. A table of dashes says nothing. */
@@ -194,6 +215,8 @@ const NEEDS: { key: keyof NonNullable<typeof rungs[number]['data']['needs']>; la
                     <th>Rung</th>
                     {hasSize && <th class="num">Size</th>}
                     <th class="num">People</th>
+                    {hasLandValue && <th class="num">Climbs above</th>}
+                    {hasLandValue && <th class="num">Falls below</th>}
                     {hasModel && NEEDS.map((need) => <th class="num">{need.label}</th>)}
                     {hasModel && <th class="num">Desirability</th>}
                     {hasRequirements && <th>Needs</th>}
@@ -209,10 +232,12 @@ const NEEDS: { key: keyof NonNullable<typeof rungs[number]['data']['needs']>; la
                       </th>
                       {hasSize && (
                         <td class="num">
-                          {rung.data.size ? `${rung.data.size}×${rung.data.size}` : '—'}
+                          {shape(rung.data.size)}
                         </td>
                       )}
                       <td class="num">{scale(rung.data.maxPeople)}</td>
+                      {hasLandValue && <td class="num">{scale(rung.data.evolveDesirability)}</td>}
+                      {hasLandValue && <td class="num">{scale(rung.data.devolveDesirability)}</td>}
                       {hasModel &&
                         NEEDS.map((need) => (
                           <td class="num">{scale(rung.data.needs?.[need.key] ?? null)}</td>

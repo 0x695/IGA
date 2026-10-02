@@ -695,5 +695,37 @@
         "body": "The file format entry moved from undocumented to partially documented, pointing at Gaius's own format notes - which give each file a confidence label - but no spec page exists on this site yet. Writing those up is the obvious next piece of work here. Gaius lists its own open items too: the province view's art has not been checked against a capture of the real screen, four panel pictures have no matched palette, and nothing has yet run on a physical Android phone or a Steam Deck. The repository was public and receiving commits the day this entry was written."
       }
     ]
+  },
+  {
+    "id": "caesar-gets-its-reference-pages",
+    "date": "2026-10-02T15:10",
+    "title": "Caesar gets its reference pages, read from the executable and checked against the manual",
+    "summary": "Buildings, Housing, Production, two Mechanics pages and eight format pages for the 1992 original, all from the one source that exists for it: the executable itself, as the Gaius project has disassembled it, with the manual as the second source that checks it.",
+    "blocks": [
+      {
+        "kind": "prose",
+        "body": [
+          "Every other game on this site has either an engine to read or, for Caesar II, a decompilation and a manual that between them cover each other. Caesar had a reimplementation only since the entry before this one, and that reimplementation was itself built by reading the executable, so the new pages stand on the same two legs as Caesar II's: the machine code as transcribed, and the printed manual. Neither alone is enough. The manual states costs, names and rules without numbers behind them; the executable has the numbers and none of the names.",
+          "Where they overlap they agree, which is what makes the pages publishable. All twenty-two single prices in the executable's cost table equal the manual's printed ones, and so do the eight Forum grades (Aventine at 60 up to Romanum at 500) and four of the five province terrain ranges (Clear Area, the road, the wall and the tower). The manual says houses come in sixteen grades and lists their needs in a fixed order; the executable has sixteen housing routines that test exactly those needs in exactly that order. The manual says the lowest limit on land value applies where several buildings overlap; the executable keeps a running minimum of every limit that reaches a cell. The manual's \"fanciest houses actually have a slight drop in density\" shows in the executable's population table: people per tile peak at 24 in the middle grades and fall to 4 in the top one."
+        ]
+      },
+      {
+        "kind": "callout",
+        "title": "Two things that did not line up",
+        "body": "The Imperial Highway. The manual prints \"from 60 Denarii to 240 Denarii, depending on the terrain\"; the executable's price word for the command is 50, which the terrain shift makes 50 to 200. The Buildings page gives the executable's number and says the manual's differs, because no capture of the game charging for a highway section settles which is right. And the housing grades have no names: neither the manual nor the executable's text gives any, so the Housing page numbers them rather than inventing Caesar III's tents and villas."
+      },
+      {
+        "kind": "prose",
+        "body": [
+          "One naming decision worth recording, because it will trip anyone who reads the Gaius source next to these pages. The Gaius code calls the layer the Maps panel shows as \"land value\" coverage, and the layer the panel shows as \"trouble areas\" land value. That is a leftover from the research that built it, before the Maps panel was read. These pages follow the game: land value is the first, and unrest is the second, which is the one that collapses low-grade houses and is lowered by temples, prefectures, barracks and the Oracle.",
+          "The eight format pages cover the pictures (.VPX), the sprite sheets (.PL8 and .PL1), the palettes, the province maps, the savegame, the battle animations, the two small screen-data files and the sound files. The savegame page is a full block table with the actor record; the picture page carries which palette goes with which of the twenty pictures, with how sure each pairing is, and three of those are matches by eye rather than reads of the loading code."
+        ]
+      },
+      {
+        "kind": "callout",
+        "title": "What is not here",
+        "body": "The ratings, promotion, the Legion and its battles, and the plebs, which the Gaius findings cover and which these pages do not. No campaign data beyond what the Campaign page already had. And one number that looks like a gap and is not: the Buildings page has no worker count for any building, because Caesar has none. A workshop's output follows the people living near it, and the Tribune of the Plebs assigns plebs to duties by the total built."
+      }
+    ]
   }
 ]

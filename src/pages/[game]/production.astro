@@ -62,7 +62,16 @@ const SOURCE: Record<string, { label: string; url: string }> = {
     label: "the game's own manual (no engine table exists to read)",
     url: 'https://0x695.github.io/IGA/manuals/caesar2.pdf',
   },
+  caesar1: {
+    label: 'the original executable, as the Gaius project has disassembled it',
+    url: 'https://github.com/0x695/Gaius/blob/master/docs/CAESAR_CONSTRUCTION_DISPATCH_FINDINGS.md',
+  },
 };
+
+/* Caesar's workshops have a production level, not a progress bar: the three
+   columns that describe a bar would be dashes in every row, so they are left
+   off its table and its own caveat explains what is measured instead. */
+const showRates = game.id !== 'caesar1';
 const source = SOURCE[game.id];
 ---
 
@@ -79,11 +88,47 @@ const source = SOURCE[game.id];
       </p>
       <h1 class="head__title">Production chains</h1>
       <p class="head__summary">
-        Every building that makes something: what it takes in, what it puts out, how many labourers
-        it wants, and — where the source states it in a shape this page can stand behind — the rate
-        the engine steps its progress bar with. Read out of {source.label} rather than timed in play.
+        {game.id === 'caesar1'
+          ? `Every building that makes something: what it takes in and what it puts out. Read out of ${source.label}, and the manual's chapter on how the model works, rather than timed in play. Caesar measures a workshop by a production level, not a rate, and the note below says how.`
+          : `Every building that makes something: what it takes in, what it puts out, how many labourers it wants, and — where the source states it in a shape this page can stand behind — the rate the engine steps its progress bar with. Read out of ${source.label} rather than timed in play.`}
       </p>
 
+      {game.id === 'caesar1' && (
+        <aside class="caveat">
+          <h2 class="caveat__title">How a Caesar workshop is measured</h2>
+          <p>
+            There is no progress bar. A workshop has a <strong>production level from 0 to 7</strong>,
+            drawn as the jars beside it, and the game recomputes it every month as the sum of
+            several terms: how well the province suits that industry (a table of the fifty provinces
+            by the eight goods, which the Industrial Advisor's report reads out as Terrible, Poor,
+            Average, Good or Excellent); the population units within three tiles of it, divided by
+            sixteen, less four; the province's prospects for expansion; its sales; two levels when
+            a Heavy Industry stands within three tiles; a term from the industrial tax pressure,
+            which low rates build into one or two extra levels and high rates build into as many as
+            seven lost; and one level off for each of more than one, three and five workshops of the
+            same goods. The sum is clamped to 0
+            through 7. The year's industrial tax is each workshop's level times 64, summed, times the
+            industrial tax rate, over 25.
+          </p>
+          <p>
+            So this table has no rate, full or difficulty column: the source holds no figure that
+            means any of them. It has no worker count either, since output follows the people living
+            nearby rather than a staff, and no stock of raw materials, since the heavy industry is a
+            bonus for being near rather than a store that runs out. The Industrial Advisor's overall
+            rating is the average level of the active workshops, graded: 1 or less Terrible, 3 or
+            less Poor, 5 or less Average, 6 Good, 7 Excellent. How well each of the fifty provinces
+            suits each of the eight goods, and how the year's accounts use the levels, are on the{' '}
+            <a href={withBase('/mechanics/industry-and-taxes/')}>industry and taxes page</a>.
+          </p>
+          <p class="caveat__sources">
+            <a href="https://github.com/0x695/Gaius/blob/master/docs/CAESAR_CONSTRUCTION_DISPATCH_FINDINGS.md" target="_blank" rel="noopener noreferrer">Gaius findings, sections 19.4, 20.6, 25.3 and 36.3 ↗</a>
+            <span aria-hidden="true"> · </span>
+            <a href="https://0x695.github.io/IGA/manuals/caesar1.pdf" target="_blank" rel="noopener noreferrer">Caesar manual, pp. 49-51 and 56 ↗</a>
+          </p>
+        </aside>
+      )}
+
+      {game.id !== 'caesar1' && (
       <aside class="caveat">
         <h2 class="caveat__title">How to read the rate</h2>
         <p>
@@ -154,6 +199,7 @@ const source = SOURCE[game.id];
           </a>
         </p>
       </aside>
+      )}
     </section>
 
     <section class="section list">
@@ -169,10 +215,10 @@ const source = SOURCE[game.id];
                     <th>Takes</th>
                     <th>Makes</th>
                     <th class="num">Size</th>
-                    <th class="num">Workers</th>
-                    <th class="num">Rate</th>
-                    <th class="num">Full</th>
-                    <th class="num">Difficulty %</th>
+                    {game.id !== 'caesar1' && <th class="num">Workers</th>}
+                    {showRates && <th class="num">Rate</th>}
+                    {showRates && <th class="num">Full</th>}
+                    {showRates && <th class="num">Difficulty %</th>}
                   </tr>
                 </thead>
                 <tbody>
@@ -189,10 +235,10 @@ const source = SOURCE[game.id];
                       <td class="num">
                         {row.data.size ? `${row.data.size}×${row.data.size}` : '—'}
                       </td>
-                      <td class="num">{row.data.laborers ?? '—'}</td>
-                      <td class="num">{row.data.productionRate ?? '—'}</td>
-                      <td class="num">{row.data.progressMax ?? '—'}</td>
-                      <td class="num dim">{row.data.rateByDifficulty?.join(' · ') ?? '—'}</td>
+                      {game.id !== 'caesar1' && <td class="num">{row.data.laborers ?? '—'}</td>}
+                      {showRates && <td class="num">{row.data.productionRate ?? '—'}</td>}
+                      {showRates && <td class="num">{row.data.progressMax ?? '—'}</td>}
+                      {showRates && <td class="num dim">{row.data.rateByDifficulty?.join(' · ') ?? '—'}</td>}
                     </tr>
                   ))}
                 </tbody>

@@ -129,5 +129,555 @@
         "url": "https://0x695.github.io/IGA/manuals/caesar2.pdf"
       }
     ]
+  },
+  {
+    "id": "city-growth",
+    "title": "A city that rebuilds its own services every month",
+    "shortTitle": "How a city grows",
+    "games": [
+      "caesar1"
+    ],
+    "summary": "Caesar steps its whole city in 106 steps a month: a hundred one-row passes in which houses climb and fall, then a rebuild of land value, water and every service flag from scratch. Houses react to last month's services, so a city grows about a month behind the buildings that cause it. This is the model under the Housing page: where a house's land value, its needs and its unrest come from.",
+    "blocks": [
+      {
+        "kind": "prose",
+        "title": "One month is 106 steps",
+        "body": [
+          "The executable counts a month in steps. The first hundred of them, steps 0 to 99, each run the housing pass over one row of the 100 × 100 map: step n develops every house whose anchor tile is in row n. The last six do the bookkeeping. Step 100 resets the service layers. Step 101 counts the population, traces the water, and runs four small economy routines whose results become next month's inputs. Steps 102 to 105 each rescan one quarter of the map's rows (0, 25, 50 and 75) and lay every building's effect back down. After step 105 the month counter advances; every twelfth month the year turns and the year's accounts are settled (see the industry and taxes page).",
+          "Because the services are rebuilt at the end of one month and the houses are developed during the next, a house always reacts to last month's services. Building a market does nothing for the houses beside it until the month after the scan that next finds it."
+        ]
+      },
+      {
+        "kind": "prose",
+        "title": "Services are rebuilt from nothing",
+        "body": [
+          "Step 100 clears the whole land-value layer to zero and clears every service flag except two bits the Forum's walkers leave. Land value is then rebuilt by the four scans, each building adding its effect to the cells around it. The effect is a square (Chebyshev) radius: a radius of 3 covers a 7 × 7 block. Each source has three numbers: how much it adds, how far, and a ceiling.",
+          "The ceilings are why the manual's sentence \"when an area is under the effect of two or more different limitations, the lowest limit applies\" is literally true. Every cell keeps a running minimum of the ceilings of all the sources that reached it during the scan, and its land value is clamped to that. A heavy industry's ceiling of 2 caps every other building's effect within four tiles of it, however many temples are there. Land value has no lower clamp either: rubble and low houses can push it below zero, and the Maps panel has colours for −1 down to −4 and lower. The unrest layer, below, has no floor at all, and a real save holds −43 in it."
+        ]
+      },
+      {
+        "kind": "list",
+        "title": "What each building adds around it",
+        "note": "The figures are the original's, from its table of service handlers (one per tile id). Walls, towers, wells and reservoirs add nothing, as the manual lists.",
+        "items": [
+          {
+            "term": "Housing",
+            "description": "Each house adds a base figure plus an offset that rises from −1 for the lowest grades to +2 for the highest, within 1 or 2 tiles; the two lowest groups of grades are capped at 4 and at 8. The base is recomputed every month from the tax rate and the unemployed share of the population, and was 2 in the real save checked. So in a healthy city every house adds to land value, and in a badly taxed or idle one the low grades subtract, which is how taxes and unemployment move land value."
+          },
+          {
+            "term": "Temple",
+            "description": "Land value +1 within 2 tiles in its first four stages, within 3 in its last four. Unrest −2 within the same radius."
+          },
+          {
+            "term": "Forum",
+            "description": "Land value +1 within 2, 3, 4 or 5 tiles by pair of grades. Its tax-collecting reach (the administration flag) is 6, 8, 10 or 12."
+          },
+          {
+            "term": "Bath Houses",
+            "description": "When watered: land value +1 within 2 tiles, and the baths flag within 3."
+          },
+          {
+            "term": "Oracle",
+            "description": "Land value +2 within 8 tiles. Unrest −2 within 5."
+          },
+          {
+            "term": "School, Hospital",
+            "description": "Land value +1 within 3. The school-or-hospital flag within 4."
+          },
+          {
+            "term": "Prefecture",
+            "description": "Land value +1 within 2, capped at 8. The administration flag within 4. Unrest −2 within 3."
+          },
+          {
+            "term": "Barracks",
+            "description": "Land value +1 within 3, capped at 5. Unrest −3 within 5."
+          },
+          {
+            "term": "Theater, Coliseum, Hippodrome",
+            "description": "Land value +1 within 3, 4 and 5 tiles. The entertainment flag within 4, 6 and 7."
+          },
+          {
+            "term": "Market",
+            "description": "Land value +1 within 1 tile, capped at 16. The market flag within 6."
+          },
+          {
+            "term": "Workshop",
+            "description": "Land value +1 within 3, capped at 3."
+          },
+          {
+            "term": "Heavy Industry",
+            "description": "Land value +1 within 4, capped at 2: the lowest ceiling any building sets."
+          },
+          {
+            "term": "Working fountain",
+            "description": "Land value +1 within 2 tiles, once it has water."
+          },
+          {
+            "term": "Rubble and burning buildings",
+            "description": "Land value −2 within 3 tiles and −2 within 1, capped at 8. The only things that lower it, with the lowest house grades, as the manual says."
+          },
+          {
+            "term": "Road pieces and plazas",
+            "description": "Within 1 tile. A plain straight or corner piece adds nothing, and paved as a plaza it adds +1. A T-junction adds +1 (+2 as a plaza) and a four-way crossing +2 (+3 as a plaza). Which tile ids are the junctions is a strong inference from their shapes. It is the manual's \"simple roads\" adding nothing, and \"intersections ... raise land value slightly\"."
+          },
+          {
+            "term": "Wall gates",
+            "description": "Tiles 0x94 and 0x95: land value +1 within 2, capped at 8, and unrest −2 within 2. The identification is a strong inference: it matches the manual's gates, \"manned by local militia\", which \"raise land values slightly\" and \"set a limit on how high land values can rise around them\"."
+          }
+        ]
+      },
+      {
+        "kind": "list",
+        "title": "The six needs, and where each comes from",
+        "note": "The manual lists them \"in order of importance: water supply, road access to a forum, nearby baths, nearby markets, nearby schools or hospitals, and sources of entertainment\". That is exactly the order in which the housing routines test them, grade by grade, and the order of the Housing page's needs. The administration flag (Forum and Prefecture) is a seventh bit, used for taxes, not for housing.",
+        "items": [
+          {
+            "term": "Water",
+            "description": "Wells reach 1 tile, reservoirs 3, and a working fountain 6. A fountain works only if a run of pipe reaches a reservoir, and the game flips fountains between working and dry, which is the manual's \"alternate between filling and draining\"."
+          },
+          {
+            "term": "Road access to a forum",
+            "description": "Carried by the Forum's own walkers, who mark the cells they pass; a Forum sends its walkers on a timer that shortens with grade (7, 6, 5, 5, 4, 3, 2, 2). A strong inference that this is the manual's \"road access to a forum\". The refresh that turns the walkers' mark into the flag runs only when the executable's 18-month counter is zero, which would mean a house can keep the flag well after its forum is gone; that consequence has not been observed."
+          },
+          {
+            "term": "Baths",
+            "description": "Within 3 tiles of watered Bath Houses."
+          },
+          {
+            "term": "Market",
+            "description": "Within 6 tiles of a Market."
+          },
+          {
+            "term": "School or hospital",
+            "description": "Within 4 tiles of either."
+          },
+          {
+            "term": "Entertainment",
+            "description": "Within 4, 6 or 7 tiles of a Theater, Coliseum or Hippodrome."
+          }
+        ]
+      },
+      {
+        "kind": "prose",
+        "title": "Unrest is a second layer",
+        "body": [
+          "Land value is one of two layers a house reads. The other, which the Maps panel draws as \"trouble areas\" on houses, is unrest, and it is the one that can destroy a house. The lowest four grades collapse into rubble when unrest at their cell passes 20, 30, 40 or 48, and the collapse spawns a rioter and lowers the Peace rating by 2. Higher grades have no such test, which is the manual's \"people living in tents and low-grade housing are more likely to riot\".",
+          "Unrest is lowered by the buildings that calm people (temples, the Oracle, prefectures and barracks each subtract 2 or 3 around them) and raised by a monthly step over every house cell. That step adds a growth figure, which the economy routine computes from the population tax rate and the conscription rate, where the cell is inside a Forum's or Prefecture's administrative reach, and subtracts 2 where it is not, (plus or minus a small random draw), then clamps the cell to between −8 and +50. High taxes and conscription raise it. The manual adds unemployment to that list; in the executable the unemployed share acts through the base each house adds to land value instead."
+        ]
+      },
+      {
+        "kind": "prose",
+        "title": "What a house does with it",
+        "body": [
+          "Once a month, for each house whose anchor is in the current row, the game runs the handler for that grade. It first checks the unrest collapse (the lowest grades only), then compares land value at the anchor with the grade's two thresholds, then checks the service flags. A missing need drops the house a grade whatever its land value; a satisfied one lets it climb if land value is above the next threshold and the city is big enough. The thresholds, flags and city sizes are on the Housing page, grade by grade.",
+          "Growth outward is the same pass. A house that climbs to a pair, a 2 × 2 or a 3 × 3 first checks that the cells it would swallow are open ground or houses of an equal or lower grade; a building of any other kind blocks it. Temples and Bath Houses use the same machinery with their own thresholds, which is why the manual says \"temples act like houses\"."
+        ]
+      },
+      {
+        "kind": "callout",
+        "title": "Naming, and what has been checked",
+        "body": "The layer this page calls land value is the one stored at 0x61F4 in a save, which the Gaius source names \"coverage\" because of how it is built; unrest is the one at 0xB014, which that source names \"land_value\". The names follow the original's own Maps panel here, not that source. Checked against real saves: coverage and every service flag over all 10,000 cells of fifteen of the seventeen saves (the other two were written between a month's steps), the water pass, and a whole month's houses, records and unrest across six consecutive saves a month or less apart. The housing handlers have no direct ground truth in saves that far apart, so they are pinned by tests of exact writes; and the random draws that move unrest between steps could not be checked, because a save keeps no generator state. Not covered here: the ratings, promotion, the Legion and its battles, and the plebs."
+      }
+    ],
+    "sources": [
+      {
+        "title": "Gaius - findings (the executable, read from the disassembly)",
+        "url": "https://github.com/0x695/Gaius/blob/master/docs/CAESAR_CONSTRUCTION_DISPATCH_FINDINGS.md"
+      },
+      {
+        "title": "Gaius - systems/service.cpp and systems/housing.cpp",
+        "url": "https://github.com/0x695/Gaius/blob/master/systems/service.cpp"
+      },
+      {
+        "title": "Caesar manual (Impressions Games, 1993), How the Model Works",
+        "url": "https://0x695.github.io/IGA/manuals/caesar1.pdf"
+      }
+    ]
+  },
+  {
+    "id": "industry-and-taxes",
+    "title": "Where the denarii come from, and where they go",
+    "shortTitle": "Industry, taxes and the year's accounts",
+    "games": [
+      "caesar1"
+    ],
+    "summary": "Caesar keeps one purse and settles it once a year. Two taxes (on houses and on workshops) and the army, the plebs and the governor's pay all run on rates the player sets; the month only adds each rate to a running sum, and the year turns the sums into one set of accounts. A workshop's output is a level from 0 to 7, recomputed monthly from a sum of terms, with how well its province suits its goods the largest single one.",
+    "blocks": [
+      {
+        "kind": "prose",
+        "title": "A rate is a running sum",
+        "body": [
+          "The player sets six figures on the Forum's screens: the population tax and the industrial tax (each 0 to 25), the conscription rate (0 to 50, \"up to fifty percent of the population\"), the army wages bill (0 to 999), the pleb welfare expenditure (0 to 9999) and the governor's salary (0 to 9999). Names are matched by what each word does, a strong inference. At step 101 of every month the game adds each tax rate to a running sum; when the year turns it divides by twelve. So a tax rate counts for what it averaged over the year, and changing it in December barely changes the year's tax."
+        ]
+      },
+      {
+        "kind": "prose",
+        "title": "Population tax",
+        "body": [
+          "The year's population tax is every house cell's tax units added up, times the year's average rate, over 20. A house cell counts only if the administration flag is set on it, which is to say if it lies within reach of a Forum (6 to 12 tiles) or a Prefecture (4). The manual says the same thing: \"taxes will be automatically collected from nearby houses\". A house outside every reach pays nothing and sets a flag that the ratings advice reads.",
+          "Tax per head is the population tax divided by the population (plus one), kept in denarii and hundredths. The manual gives it as the figure that feeds the Prosperity rating."
+        ]
+      },
+      {
+        "kind": "list",
+        "title": "Tax units per tile, by house grade",
+        "note": "The 16 bytes at 3496:008E, read from the executable. A grade that holds fewer people can pay more per tile, and the last grade, which is less dense, still pays the most. Grades are numbered in tile order; see the Housing page.",
+        "items": [
+          {
+            "term": "Grade 1",
+            "description": "1"
+          },
+          {
+            "term": "Grade 2",
+            "description": "2"
+          },
+          {
+            "term": "Grade 3",
+            "description": "4"
+          },
+          {
+            "term": "Grade 4",
+            "description": "6"
+          },
+          {
+            "term": "Grade 5",
+            "description": "7"
+          },
+          {
+            "term": "Grade 6",
+            "description": "10"
+          },
+          {
+            "term": "Grade 7",
+            "description": "14"
+          },
+          {
+            "term": "Grade 8",
+            "description": "9"
+          },
+          {
+            "term": "Grade 9",
+            "description": "13"
+          },
+          {
+            "term": "Grade 10",
+            "description": "15"
+          },
+          {
+            "term": "Grade 11",
+            "description": "16"
+          },
+          {
+            "term": "Grade 12",
+            "description": "17"
+          },
+          {
+            "term": "Grade 13",
+            "description": "18"
+          },
+          {
+            "term": "Grade 14",
+            "description": "20"
+          },
+          {
+            "term": "Grade 15",
+            "description": "22"
+          },
+          {
+            "term": "Grade 16",
+            "description": "25"
+          }
+        ]
+      },
+      {
+        "kind": "prose",
+        "title": "Industrial tax",
+        "body": [
+          "The industrial tax is every active workshop's production level times 64, added up, times the year's average industrial rate, over 25. It reads each workshop record, so a level of 0 pays nothing and a level of 7 pays most.",
+          "There is also a running figure, named here the industrial tax pressure, that the year's settlement updates. With no Forum it is held at −50. At a rate of exactly 5 it does not move. At rates of 6 to 10 it rises each year by the rate less 5, and by half as much again while it is below 3; at any other rate it moves by twice the rate less 5, which is negative below 5. It is clamped to between −50 and 24. A workshop's level then takes a term from it: below −30 it adds two levels and below −10 one; from 0 upward it subtracts one level at 1, two at 3, three at 5, four at 8, five at 12, six at 16 and seven at 20. Overtaxing industry, in the manual's words, \"goes a long way towards shutting them down\"."
+        ]
+      },
+      {
+        "kind": "list",
+        "title": "How the year is settled, in order",
+        "note": "The manual states the tribute (\"fifty Denarii, and increases by one Denarii after every year you rule\") and the three operating costs. The cap of 100, Rome's 60 percent of a profit and the third missed payment are from the executable only, and the manual does not mention them.",
+        "items": [
+          {
+            "term": "1. The averages",
+            "description": "Both tax sums are divided by twelve."
+          },
+          {
+            "term": "2. The industry rating",
+            "description": "The average production level of the active workshops. It is what the Industrial Advisor reports: 1 or less Terrible, 3 or less Poor, 5 or less Average, 6 Good, 7 Excellent."
+          },
+          {
+            "term": "3. Population tax",
+            "description": "Collected as above."
+          },
+          {
+            "term": "4. Industrial tax",
+            "description": "Collected as above, and the pressure figure moves."
+          },
+          {
+            "term": "5. Construction",
+            "description": "The year's construction spending, which the build routine has been adding up as it charged each placement, becomes this year's \"construction work\" and the running total restarts."
+          },
+          {
+            "term": "6. Savings",
+            "description": "The governor's salary is added to his personal savings. Past 25,000 they stay at 25,000, the salary drops to 0 and a message is posted."
+          },
+          {
+            "term": "7. Operating costs",
+            "description": "Welfare, plus the governor's salary, plus the army wages bill. The manual lists the same three."
+          },
+          {
+            "term": "8. The funds",
+            "description": "Both taxes are added and the operating costs taken away; the funds cannot go below 0."
+          },
+          {
+            "term": "9. The tribute to Rome",
+            "description": "The tribute due starts at 50 denarii and grows by 1 each year, up to 100. It is paid from the funds, or all of them if they fall short. If the funds are then still above 500 and the year made a profit (taxes less construction less operating costs), Rome also takes 60 percent of that profit. If nothing could be paid, a missed-payment count rises, the funds go to 0 and a message is posted; at the third miss in a row the game ends."
+          },
+          {
+            "term": "10. The report",
+            "description": "The year's profit or loss (taxes less construction, operating costs and the tribute paid) and the other figures are copied into the Treasurer's report, and the history tables each take a new year. The Legion is recruited, the ratings are updated and promotion is considered, in that order."
+          }
+        ]
+      },
+      {
+        "kind": "prose",
+        "title": "A workshop's production level",
+        "body": [
+          "A workshop is not measured by a rate. Each month the game gives it a level from 0 to 7, drawn as the jars beside it, as the sum of these terms and no others, then clamps it: its province's suitability for its goods (below); the population units of the houses within three tiles, divided by 16, less 4; the province's prospects for expansion, which the Industrial Advisor's report also grades; its own sales; two levels where a Heavy Industry stands within three tiles; the industrial tax pressure above; and minus one level for each of more than one, more than three and more than five workshops of the same goods in the city.",
+          "The manual lists the same drivers, \"in order of importance\": tax, demand, towns, workforce, markets, suitability, limit, highway and heavy industry. It does not weight them."
+        ]
+      },
+      {
+        "kind": "list",
+        "title": "How well each province suits each goods",
+        "note": "The 400 bytes at 3496:1880 in the executable: 50 provinces by 8 goods, each a signed byte. The Industrial Advisor names the five values that occur: −3 Terrible, −2 Poor, 0 Average, 1 Good, 2 Excellent. The province is the one whose EMPIRE2 file it is, numbered as in that format's page. The value is added to a workshop's level as it stands, so a Terrible suitability costs three levels of a possible seven.",
+        "items": [
+          {
+            "term": "00 Sicilia",
+            "description": "Glass Average, Tin Poor, Pottery Good, Copper Terrible, Wine Average, Ivory Average, Wheat Excellent, Spices Average"
+          },
+          {
+            "term": "01 Campania",
+            "description": "Glass Average, Tin Poor, Pottery Excellent, Copper Terrible, Wine Average, Ivory Average, Wheat Good, Spices Average"
+          },
+          {
+            "term": "02 Latium",
+            "description": "Glass Good, Tin Poor, Pottery Good, Copper Terrible, Wine Good, Ivory Average, Wheat Average, Spices Average"
+          },
+          {
+            "term": "03 Cisalpine Gaul",
+            "description": "Glass Excellent, Tin Poor, Pottery Excellent, Copper Terrible, Wine Good, Ivory Average, Wheat Average, Spices Average"
+          },
+          {
+            "term": "04 Corsica",
+            "description": "Glass Poor, Tin Terrible, Pottery Average, Copper Good, Wine Average, Ivory Average, Wheat Excellent, Spices Average"
+          },
+          {
+            "term": "05 Sardinia",
+            "description": "Glass Poor, Tin Poor, Pottery Average, Copper Average, Wine Excellent, Ivory Average, Wheat Good, Spices Average"
+          },
+          {
+            "term": "06 Alpes Maritimae",
+            "description": "Glass Average, Tin Poor, Pottery Good, Copper Poor, Wine Excellent, Ivory Average, Wheat Average, Spices Average"
+          },
+          {
+            "term": "07 Narbonensis",
+            "description": "Glass Poor, Tin Average, Pottery Good, Copper Poor, Wine Excellent, Ivory Average, Wheat Good, Spices Average"
+          },
+          {
+            "term": "08 Hispania Inf.",
+            "description": "Glass Average, Tin Poor, Pottery Good, Copper Terrible, Wine Excellent, Ivory Average, Wheat Average, Spices Average"
+          },
+          {
+            "term": "09 Baetica",
+            "description": "Glass Average, Tin Average, Pottery Poor, Copper Excellent, Wine Average, Ivory Good, Wheat Average, Spices Average"
+          },
+          {
+            "term": "10 Lusitania Inf.",
+            "description": "Glass Average, Tin Poor, Pottery Poor, Copper Good, Wine Average, Ivory Average, Wheat Good, Spices Average"
+          },
+          {
+            "term": "11 Lusitania Sup.",
+            "description": "Glass Poor, Tin Good, Pottery Average, Copper Average, Wine Good, Ivory Average, Wheat Average, Spices Poor"
+          },
+          {
+            "term": "12 Tarraconensis",
+            "description": "Glass Poor, Tin Average, Pottery Good, Copper Poor, Wine Average, Ivory Good, Wheat Average, Spices Poor"
+          },
+          {
+            "term": "13 Aquitania Inf.",
+            "description": "Glass Poor, Tin Good, Pottery Average, Copper Good, Wine Excellent, Ivory Poor, Wheat Average, Spices Poor"
+          },
+          {
+            "term": "14 Hispania Sup.",
+            "description": "Glass Average, Tin Poor, Pottery Average, Copper Average, Wine Good, Ivory Poor, Wheat Good, Spices Poor"
+          },
+          {
+            "term": "15 Aquitania Sup.",
+            "description": "Glass Poor, Tin Good, Pottery Average, Copper Average, Wine Excellent, Ivory Poor, Wheat Average, Spices Poor"
+          },
+          {
+            "term": "16 Lugdunensis",
+            "description": "Glass Poor, Tin Average, Pottery Good, Copper Average, Wine Average, Ivory Terrible, Wheat Good, Spices Terrible"
+          },
+          {
+            "term": "17 Belgica",
+            "description": "Glass Poor, Tin Excellent, Pottery Average, Copper Average, Wine Average, Ivory Terrible, Wheat Good, Spices Terrible"
+          },
+          {
+            "term": "18 Gallia Sup.",
+            "description": "Glass Poor, Tin Poor, Pottery Excellent, Copper Poor, Wine Good, Ivory Poor, Wheat Good, Spices Poor"
+          },
+          {
+            "term": "19 Gallia Inf.",
+            "description": "Glass Poor, Tin Average, Pottery Average, Copper Average, Wine Good, Ivory Terrible, Wheat Good, Spices Terrible"
+          },
+          {
+            "term": "20 W. Britannia",
+            "description": "Glass Terrible, Tin Excellent, Pottery Average, Copper Excellent, Wine Terrible, Ivory Terrible, Wheat Average, Spices Terrible"
+          },
+          {
+            "term": "21 E. Britannia",
+            "description": "Glass Terrible, Tin Excellent, Pottery Average, Copper Average, Wine Terrible, Ivory Terrible, Wheat Good, Spices Terrible"
+          },
+          {
+            "term": "22 Britannia Sup.",
+            "description": "Glass Terrible, Tin Good, Pottery Good, Copper Excellent, Wine Terrible, Ivory Terrible, Wheat Average, Spices Terrible"
+          },
+          {
+            "term": "23 Caledonia",
+            "description": "Glass Terrible, Tin Average, Pottery Good, Copper Average, Wine Terrible, Ivory Terrible, Wheat Good, Spices Terrible"
+          },
+          {
+            "term": "24 Germania Inf.",
+            "description": "Glass Good, Tin Average, Pottery Good, Copper Average, Wine Poor, Ivory Terrible, Wheat Good, Spices Terrible"
+          },
+          {
+            "term": "25 Germania Sup.",
+            "description": "Glass Average, Tin Terrible, Pottery Good, Copper Good, Wine Good, Ivory Terrible, Wheat Average, Spices Terrible"
+          },
+          {
+            "term": "26 Pannonia",
+            "description": "Glass Average, Tin Poor, Pottery Excellent, Copper Terrible, Wine Good, Ivory Terrible, Wheat Good, Spices Terrible"
+          },
+          {
+            "term": "27 Dacia",
+            "description": "Glass Terrible, Tin Poor, Pottery Average, Copper Terrible, Wine Good, Ivory Terrible, Wheat Good, Spices Terrible"
+          },
+          {
+            "term": "28 Illyricum",
+            "description": "Glass Poor, Tin Terrible, Pottery Poor, Copper Terrible, Wine Excellent, Ivory Poor, Wheat Excellent, Spices Poor"
+          },
+          {
+            "term": "29 Dalmatia",
+            "description": "Glass Average, Tin Poor, Pottery Poor, Copper Poor, Wine Good, Ivory Poor, Wheat Good, Spices Poor"
+          },
+          {
+            "term": "30 Macedonia",
+            "description": "Glass Average, Tin Terrible, Pottery Excellent, Copper Terrible, Wine Average, Ivory Poor, Wheat Good, Spices Average"
+          },
+          {
+            "term": "31 Achaea",
+            "description": "Glass Poor, Tin Terrible, Pottery Good, Copper Terrible, Wine Average, Ivory Poor, Wheat Excellent, Spices Average"
+          },
+          {
+            "term": "32 Creta",
+            "description": "Glass Poor, Tin Terrible, Pottery Average, Copper Terrible, Wine Good, Ivory Terrible, Wheat Good, Spices Poor"
+          },
+          {
+            "term": "33 Thracia",
+            "description": "Glass Average, Tin Terrible, Pottery Average, Copper Terrible, Wine Good, Ivory Average, Wheat Poor, Spices Good"
+          },
+          {
+            "term": "34 Asia",
+            "description": "Glass Poor, Tin Terrible, Pottery Good, Copper Terrible, Wine Average, Ivory Average, Wheat Poor, Spices Good"
+          },
+          {
+            "term": "35 Pamphylia",
+            "description": "Glass Terrible, Tin Terrible, Pottery Good, Copper Poor, Wine Average, Ivory Average, Wheat Poor, Spices Good"
+          },
+          {
+            "term": "36 Cappadocia",
+            "description": "Glass Terrible, Tin Terrible, Pottery Poor, Copper Poor, Wine Good, Ivory Average, Wheat Poor, Spices Good"
+          },
+          {
+            "term": "37 Assyria",
+            "description": "Glass Terrible, Tin Poor, Pottery Poor, Copper Good, Wine Average, Ivory Average, Wheat Poor, Spices Excellent"
+          },
+          {
+            "term": "38 Syria",
+            "description": "Glass Average, Tin Terrible, Pottery Poor, Copper Poor, Wine Good, Ivory Average, Wheat Good, Spices Good"
+          },
+          {
+            "term": "39 Mesopotamia",
+            "description": "Glass Poor, Tin Terrible, Pottery Terrible, Copper Poor, Wine Terrible, Ivory Good, Wheat Average, Spices Excellent"
+          },
+          {
+            "term": "40 Judea",
+            "description": "Glass Good, Tin Terrible, Pottery Average, Copper Terrible, Wine Good, Ivory Average, Wheat Good, Spices Good"
+          },
+          {
+            "term": "41 Arabia",
+            "description": "Glass Average, Tin Terrible, Pottery Terrible, Copper Poor, Wine Poor, Ivory Excellent, Wheat Poor, Spices Excellent"
+          },
+          {
+            "term": "42 Aegyptus",
+            "description": "Glass Excellent, Tin Terrible, Pottery Terrible, Copper Terrible, Wine Poor, Ivory Excellent, Wheat Good, Spices Excellent"
+          },
+          {
+            "term": "43 Cyrenaica",
+            "description": "Glass Average, Tin Terrible, Pottery Terrible, Copper Terrible, Wine Poor, Ivory Good, Wheat Good, Spices Good"
+          },
+          {
+            "term": "44 Africa",
+            "description": "Glass Poor, Tin Terrible, Pottery Poor, Copper Poor, Wine Poor, Ivory Excellent, Wheat Excellent, Spices Good"
+          },
+          {
+            "term": "45 Numidia",
+            "description": "Glass Terrible, Tin Terrible, Pottery Terrible, Copper Average, Wine Poor, Ivory Good, Wheat Excellent, Spices Good"
+          },
+          {
+            "term": "46 Mauretania",
+            "description": "Glass Terrible, Tin Terrible, Pottery Terrible, Copper Good, Wine Poor, Ivory Good, Wheat Good, Spices Good"
+          },
+          {
+            "term": "47 Caeariensis",
+            "description": "Glass Terrible, Tin Terrible, Pottery Terrible, Copper Excellent, Wine Average, Ivory Good, Wheat Average, Spices Good"
+          },
+          {
+            "term": "48 Tingitania",
+            "description": "Glass Terrible, Tin Terrible, Pottery Poor, Copper Good, Wine Good, Ivory Average, Wheat Good, Spices Good"
+          },
+          {
+            "term": "49 Moesia",
+            "description": "Glass Poor, Tin Terrible, Pottery Poor, Copper Poor, Wine Good, Ivory Poor, Wheat Excellent, Spices Poor"
+          }
+        ]
+      },
+      {
+        "kind": "callout",
+        "title": "What has been checked, and what has not",
+        "body": "The yearly accounts were checked against every real save: each save's last year of funds, taxes and costs is reproduced exactly, and the funds history balances year by year with two outside payments explained. Every save's industry rating equals the average the report computes. The suitability table is read from the executable and its shape is right where it can be tested (West Britain is Excellent for tin and copper, Egypt for glass and spices, Sicily for wheat), but no real save pins a single entry of it. A rule that never fired in the saves, the third missed tribute for one, is read from the code and has no save behind it. And the rates, as above, are named by what they do, a strong inference. Not covered: the ratings and promotion, the Legion and its battles, and what the plebs do."
+      }
+    ],
+    "sources": [
+      {
+        "title": "Gaius - findings (the executable, read from the disassembly)",
+        "url": "https://github.com/0x695/Gaius/blob/master/docs/CAESAR_CONSTRUCTION_DISPATCH_FINDINGS.md"
+      },
+      {
+        "title": "Gaius - systems/economy.cpp",
+        "url": "https://github.com/0x695/Gaius/blob/master/systems/economy.cpp"
+      },
+      {
+        "title": "Caesar manual (Impressions Games, 1993), How the Model Works",
+        "url": "https://0x695.github.io/IGA/manuals/caesar1.pdf"
+      }
+    ]
   }
 ]

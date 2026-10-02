@@ -15,7 +15,9 @@
  *    ("about 6-7 per year", "I assume the bump is like 15%"). A reference that
  *    reprints someone's assumption as a figure is worse than one that says
  *    nothing.
- *  - CAESAR and CAESAR II have no engine that carries them.
+ *  - CAESAR and CAESAR II have no engine. Caesar II's five rows are the manual's
+ *    own; Caesar's nine are the original executable's, as the Gaius project
+ *    has disassembled it, and fill none of the three rate columns (see below).
  *
  * The three that are here are not the same shape, and productionRate /
  * progressMax / rateByDifficulty are filled in only as far as each source
@@ -378,6 +380,76 @@ if (bakery.inputs.join() !== 'Wheat' || bakery.output !== 'Bread') {
 rows.push(...caesar2Rows);
 
 console.log(`${caesar2Rows.length} Caesar II producers added`);
+
+// --- CAESAR (1992), from the original executable, as Gaius transcribed it -------
+//
+// Caesar has no engine to read; this is the disassembled US-build CSR.EXE as the
+// Gaius project (github.com/0x695/Gaius) has transcribed it, read on 2 October
+// 2026, with the manual stating the same chain: "a heavy industrial plant makes
+// raw materials; a nearby workshop uses the raw materials to produce one of
+// eight kinds of goods; then these goods are sold to markets" (p.56).
+//
+// What is here: the building that makes raw materials, and the eight workshops,
+// whose names are the executable's own string table in the order the save keeps
+// them (Glass, Tin, Pottery, Copper, Wine, Ivory, Wheat, Spices), which matches
+// the manual's list. Goods 0-3 place tile 0xF5 and goods 4-7 tile 0xF6.
+//
+// What is NOT here, and is a different shape from every other game on this
+// page: there is no per-step progress bar, no rate and no completed-load
+// threshold, so productionRate, progressMax and rateByDifficulty stay null.
+// A workshop has a production LEVEL from 0 to 7, shown as the jars in front of
+// it, recomputed every month from the sum of several terms (the page's caveat
+// lists them) and clamped. It is the level, not a rate, that the yearly
+// industrial tax multiplies. There is no worker count either: output depends on
+// the people living within three tiles, not on a staff.
+//
+// Raw materials are not a stock either: a workshop simply gets a bonus term for
+// a Heavy Industry within three tiles of it.
+//
+// id | name | input | output | goods index
+const CAESAR1_GOODS = ['Glass', 'Tin', 'Pottery', 'Copper', 'Wine', 'Ivory', 'Wheat', 'Spices'];
+
+const caesar1Rows = [
+  {
+    id: 'caesar1-heavy-industry',
+    game: 'caesar1',
+    name: 'Heavy Industry',
+    engineType: 'command 26 / tile 0xF3',
+    size: 4,
+    laborers: null,
+    inputs: [],
+    output: 'Raw materials',
+    productionRate: null,
+    progressMax: null,
+    rateByDifficulty: null,
+  },
+  ...CAESAR1_GOODS.map((goods, index) => ({
+    id: `caesar1-${goods.toLowerCase()}-workshop`,
+    game: 'caesar1',
+    name: `${goods} Workshop`,
+    engineType: `command 28 / goods ${index} / tile 0x${index < 4 ? 'F5' : 'F6'}`,
+    size: 3,
+    laborers: null,
+    inputs: ['Raw materials'],
+    output: goods,
+    productionRate: null,
+    progressMax: null,
+    rateByDifficulty: null,
+  })),
+];
+
+if (caesar1Rows.length !== 9) throw new Error(`expected 9 Caesar producers, got ${caesar1Rows.length}`);
+if (CAESAR1_GOODS.length !== 8) throw new Error('Caesar has eight goods');
+const c1Wine = caesar1Rows.find((r) => r.id === 'caesar1-wine-workshop');
+if (c1Wine.output !== 'Wine' || !c1Wine.engineType.endsWith('tile 0xF6')) {
+  throw new Error(`caesar1 wine: ${c1Wine.output}, ${c1Wine.engineType} (goods 4 is the first of tile 0xF6)`);
+}
+const c1Glass = caesar1Rows.find((r) => r.id === 'caesar1-glass-workshop');
+if (!c1Glass.engineType.endsWith('tile 0xF5')) throw new Error('caesar1 glass (goods 0) is tile 0xF5');
+
+rows.push(...caesar1Rows);
+
+console.log(`${caesar1Rows.length} Caesar producers added`);
 
 rows.sort((a, b) => a.game.localeCompare(b.game) || a.name.localeCompare(b.name));
 

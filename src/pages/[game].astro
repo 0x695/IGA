@@ -249,8 +249,9 @@ for (const row of g.fullCredits ?? []) {
           <a class="buildings-link" href={withBase(`/${game.id}/buildings/`)}>
             <span class="buildings-link__count">{buildingCount} buildings →</span>
             <span class="buildings-link__note">
-              Every building the engine defines, with its footprint in tiles and the constant that
-              names it in the source. Filterable by name or category.
+              {game.id === 'caesar1'
+                ? "Every building and structure the toolbar can place, with its footprint in tiles, its price in denarii and the command and tile numbers that name it in the original's executable. Filterable by name or category."
+                : 'Every building the engine defines, with its footprint in tiles and the constant that names it in the source. Filterable by name or category.'}
             </span>
           </a>
         ) : (
@@ -268,8 +269,9 @@ for (const row of g.fullCredits ?? []) {
           <a class="buildings-link" href={withBase(`/${game.id}/housing/`)}>
             <span class="buildings-link__count">{housingCount} rungs -></span>
             <span class="buildings-link__note">
-              The ladder a citizen climbs, rung by rung, and what each one demands before it will
-              evolve - the number half this game's mission goals are written against.
+              {game.id === 'caesar1'
+                ? 'Sixteen grades of house, what each needs to keep its place and to climb to the next, and how many people it holds. The game names none of them.'
+                : "The ladder a citizen climbs, rung by rung, and what each one demands before it will evolve - the number half this game's mission goals are written against."}
             </span>
           </a>
         ) : (
@@ -305,9 +307,9 @@ for (const row of g.fullCredits ?? []) {
           <a class="buildings-link" href={withBase(`/${game.id}/production/`)}>
             <span class="buildings-link__count">{productionCount} producers -></span>
             <span class="buildings-link__note">
-              Every chain from raw material to finished good, read out of the engine rather than
-              timed with a stopwatch - with the rate it steps each workshop's progress bar with,
-              where the source states one in a shape this page can stand behind.
+              {game.id === 'caesar1'
+                ? "The raw-materials plant and the eight workshops, read out of the original's executable. Caesar measures a workshop by a production level from 0 to 7, not a rate, and the page says how that level is made up."
+                : "Every chain from raw material to finished good, read out of the engine rather than timed with a stopwatch - with the rate it steps each workshop's progress bar with, where the source states one in a shape this page can stand behind."}
             </span>
           </a>
         ) : (
