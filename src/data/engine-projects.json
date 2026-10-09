@@ -22,7 +22,7 @@
       "date": "2026-09-12T12:22:23Z",
       "branch": "master"
     },
-    "activityCheckedAt": "2026-09-14"
+    "activityCheckedAt": "2026-10-09"
   },
   {
     "id": "augustus",
@@ -43,11 +43,11 @@
     "websiteUrl": null,
     "playUrl": "https://augustus.josecadete.net/",
     "lastCommit": {
-      "sha": "b7d8ee1",
-      "date": "2026-09-13T13:37:49Z",
+      "sha": "0ffea95",
+      "date": "2026-10-08T15:38:06Z",
       "branch": "master"
     },
-    "activityCheckedAt": "2026-09-14"
+    "activityCheckedAt": "2026-10-09"
   },
   {
     "id": "akhenaten",
@@ -68,11 +68,11 @@
     "websiteUrl": "https://dalerank.github.io/Akhenaten/",
     "playUrl": "https://dalerank.github.io/Akhenaten/play/",
     "lastCommit": {
-      "sha": "14eeb6b",
-      "date": "2026-09-13T22:26:58Z",
+      "sha": "bccbdd8",
+      "date": "2026-10-03T21:49:45Z",
       "branch": "master"
     },
-    "activityCheckedAt": "2026-09-14"
+    "activityCheckedAt": "2026-10-09"
   },
   {
     "id": "ozymandias-godot",
@@ -97,7 +97,7 @@
       "date": "2026-02-20T05:34:36Z",
       "branch": "master"
     },
-    "activityCheckedAt": "2026-09-14"
+    "activityCheckedAt": "2026-10-09"
   },
   {
     "id": "ozymandias-julius",
@@ -122,7 +122,7 @@
       "date": "2026-02-03T09:28:16Z",
       "branch": "master"
     },
-    "activityCheckedAt": "2026-09-14"
+    "activityCheckedAt": "2026-10-09"
   },
   {
     "id": "openpharaoh",
@@ -147,7 +147,7 @@
       "date": "2012-09-19T14:49:54Z",
       "branch": "master"
     },
-    "activityCheckedAt": "2026-09-14"
+    "activityCheckedAt": "2026-10-09"
   },
   {
     "id": "olympus",
@@ -172,7 +172,7 @@
       "date": "2026-07-04T11:14:32Z",
       "branch": "main"
     },
-    "activityCheckedAt": "2026-09-14"
+    "activityCheckedAt": "2026-10-09"
   },
   {
     "id": "ezeus",
@@ -193,11 +193,11 @@
     "websiteUrl": null,
     "playUrl": null,
     "lastCommit": {
-      "sha": "9200381",
-      "date": "2026-09-10T12:03:51Z",
+      "sha": "474a962",
+      "date": "2026-09-16T14:12:37Z",
       "branch": "main"
     },
-    "activityCheckedAt": "2026-09-14"
+    "activityCheckedAt": "2026-10-09"
   },
   {
     "id": "citybuilderengine",
@@ -222,7 +222,7 @@
       "date": "2021-01-05T18:00:54Z",
       "branch": "main"
     },
-    "activityCheckedAt": "2026-09-14"
+    "activityCheckedAt": "2026-10-09"
   },
   {
     "id": "caesar2-reconstruction",
@@ -247,7 +247,7 @@
       "date": "2026-09-06T17:16:12Z",
       "branch": "main"
     },
-    "activityCheckedAt": "2026-09-14"
+    "activityCheckedAt": "2026-10-09"
   },
   {
     "id": "caesar2-port",
@@ -272,7 +272,7 @@
       "date": "2026-09-13T17:48:41Z",
       "branch": "main"
     },
-    "activityCheckedAt": "2026-09-14"
+    "activityCheckedAt": "2026-10-09"
   },
   {
     "id": "gaius",
@@ -293,10 +293,10 @@
     "websiteUrl": null,
     "playUrl": null,
     "lastCommit": {
-      "sha": "33cd7ce",
-      "date": "2026-10-02T09:59:50Z",
+      "sha": "954024f",
+      "date": "2026-10-04T22:47:57Z",
       "branch": "master"
     },
-    "activityCheckedAt": "2026-10-02"
+    "activityCheckedAt": "2026-10-09"
   }
 ]

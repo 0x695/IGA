@@ -267,7 +267,7 @@ for (const row of g.fullCredits ?? []) {
       {
         housingCount > 0 ? (
           <a class="buildings-link" href={withBase(`/${game.id}/housing/`)}>
-            <span class="buildings-link__count">{housingCount} rungs -></span>
+            <span class="buildings-link__count">{housingCount} rungs →</span>
             <span class="buildings-link__note">
               {game.id === 'caesar1'
                 ? 'Sixteen grades of house, what each needs to keep its place and to climb to the next, and how many people it holds. The game names none of them.'
@@ -288,7 +288,7 @@ for (const row of g.fullCredits ?? []) {
         mechanics.length > 0 ? (
           mechanics.map((topic) => (
             <a class="buildings-link" href={withBase(`/mechanics/${topic.id}/`)}>
-              <span class="buildings-link__count">{topic.data.shortTitle} -></span>
+              <span class="buildings-link__count">{topic.data.shortTitle} →</span>
               <span class="buildings-link__note">{topic.data.summary}</span>
             </a>
           ))
@@ -305,7 +305,7 @@ for (const row of g.fullCredits ?? []) {
       {
         productionCount > 0 ? (
           <a class="buildings-link" href={withBase(`/${game.id}/production/`)}>
-            <span class="buildings-link__count">{productionCount} producers -></span>
+            <span class="buildings-link__count">{productionCount} producers →</span>
             <span class="buildings-link__note">
               {game.id === 'caesar1'
                 ? "The raw-materials plant and the eight workshops, read out of the original's executable. Caesar measures a workshop by a production level from 0 to 7, not a rate, and the page says how that level is made up."
@@ -325,7 +325,7 @@ for (const row of g.fullCredits ?? []) {
       {
         missionCount > 0 ? (
           <a class="buildings-link" href={withBase(`/${game.id}/campaign/`)}>
-            <span class="buildings-link__count">{campaignLink.label} -></span>
+            <span class="buildings-link__count">{campaignLink.label} →</span>
             <span class="buildings-link__note">{campaignLink.note}</span>
           </a>
         ) : (
@@ -341,7 +341,7 @@ for (const row of g.fullCredits ?? []) {
       {
         cheatCount > 0 ? (
           <a class="buildings-link" href={withBase(`/${game.id}/cheats/`)}>
-            <span class="buildings-link__count">{cheatCount} codes -></span>
+            <span class="buildings-link__count">{cheatCount} {cheatCount === 1 ? "code" : "codes"} →</span>
             <span class="buildings-link__note">
               Every documented cheat code, and how to trigger it - save-file byte offsets for the two
               games that predate any cheat box, and the Ctrl+Alt+C codes the later manuals never
@@ -503,7 +503,7 @@ for (const row of g.fullCredits ?? []) {
         g.manuals ? (
           g.manuals.map((manual) => (
             <a class="buildings-link" href={withBase(manual.url)} target="_blank" rel="noopener noreferrer">
-              <span class="buildings-link__count">{manual.title} -></span>
+              <span class="buildings-link__count">{manual.title} →</span>
               <span class="buildings-link__note">Scanned copy, {manual.source}.</span>
             </a>
           ))
