@@ -769,5 +769,25 @@
         "body": "Population capacity and specific needs per rung. The reconstruction carries a per-rung people table that its census reads, but it has not been checked against the manual or the running game, so it is not published."
       }
     ]
+  },
+  {
+    "id": "caesar-ii-housing-capacity",
+    "date": "2026-10-09T18:30",
+    "title": "Caesar II's housing capacity, and why it jumps",
+    "summary": "The Housing page's People column is filled for all 32 rungs, read from the reconstruction's per-rung people table.",
+    "blocks": [
+      {
+        "kind": "prose",
+        "title": "Per tile, not per house",
+        "body": [
+          "The table the census reads, houses_to_people, holds a figure per tile. The census adds it once for every map cell that is a house, and a house writes its type into every cell it covers, so a 2×2 house holds four times its figure and a 3×3 house nine times. The Housing page shows the whole-house total, which is why the column goes from 45 at the last 1×1 rung to 400 at the first 2×2, and ends at 4,500 for the Small Palace."
+        ]
+      },
+      {
+        "kind": "callout",
+        "title": "How sure this is",
+        "body": "It is read from the code, not confirmed against the manual (which states no capacities) or the running game. The rung the manual does not name is counted at 2 people, so the Vacant Lot label is this site's, not a claim that it is empty. Specific needs per rung are still not published."
+      }
+    ]
   }
 ]

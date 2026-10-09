@@ -362,6 +362,17 @@ CAESAR2_LAND_VALUE.forEach(([falls, climbs], i) => {
   if (i > 0 && climbs <= CAESAR2_LAND_VALUE[i - 1][1]) throw new Error(`caesar2 rung ${i}: climbs-above should rise with the rung`);
 });
 
+/* houses_to_people[32], read from the same data.c. census.c adds this value
+   once per map cell whose base_kind is a house, and change_house() writes
+   that base_kind into every cell of a house's footprint, so the figure is
+   people PER TILE; a house holds size x size times it. Not corroborated by the
+   manual or by play - the same kind of inference Caesar's housing note makes. */
+const CAESAR2_PEOPLE_PER_TILE = [
+  2, 4, 6, 8, 10, 12, 6, 7, 8, 9, 12, 16, 20, 24, 28, 32,
+  36, 42, 48, 54, 20, 25, 30, 35, 40, 45, 100, 120, 150, 200, 300, 500,
+];
+if (CAESAR2_PEOPLE_PER_TILE.length !== 32) throw new Error(`expected 32 Caesar II people values, got ${CAESAR2_PEOPLE_PER_TILE.length}`);
+
 CAESAR2_NAMES.forEach((name, index) => {
   rows.push({
     id: `caesar2-${String(index).padStart(2, '0')}`,
@@ -371,7 +382,7 @@ CAESAR2_NAMES.forEach((name, index) => {
     name,
     engineType: `house_gfxdat[${index}]`,
     size: CAESAR2_SIZES[index],
-    maxPeople: null,
+    maxPeople: CAESAR2_PEOPLE_PER_TILE[index] * CAESAR2_SIZES[index] ** 2,
     prosperity: null,
     evolveDesirability: CAESAR2_LAND_VALUE[index][1],
     devolveDesirability: CAESAR2_LAND_VALUE[index][0],
@@ -390,6 +401,9 @@ const c2First = rows.find((r) => r.id === 'caesar2-01');
 const c2Last = rows.find((r) => r.id === 'caesar2-31');
 if (c2First.name !== 'One Hut' || c2First.size !== 1) throw new Error('caesar2 level 1 should be One Hut, size 1');
 if (c2Last.name !== 'Small Palace' || c2Last.size !== 3) throw new Error('caesar2 level 31 should be Small Palace, size 3');
+if (rows.find((r) => r.id === 'caesar2-25').maxPeople !== 45 || rows.find((r) => r.id === 'caesar2-26').maxPeople !== 400 || c2Last.maxPeople !== 4500) {
+  throw new Error('caesar2 people totals should be 45 (rung 25, 1x1), 400 (rung 26, 2x2) and 4500 (rung 31, 3x3)');
+}
 const c2SizeBreak = rows.find((r) => r.game === 'caesar2' && r.level === 26);
 if (c2SizeBreak.name !== 'Grand Domus' || c2SizeBreak.size !== 2) {
   throw new Error('caesar2 level 26 (the 1->2 size break) should be Grand Domus, size 2');
