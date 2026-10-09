@@ -3,7 +3,12 @@
     "id": "walkers",
     "title": "Walkers, and why a city is not a spreadsheet",
     "shortTitle": "The walker model",
-    "games": ["caesar3", "pharaoh", "zeus", "emperor"],
+    "games": [
+      "caesar3",
+      "pharaoh",
+      "zeus",
+      "emperor"
+    ],
     "summary": "Every Impressions city runs two opposite systems at once. Employment is a global pool with no geography in it at all. Services are delivered by a person who walks out of a building and covers whatever they happen to pass. Almost every frustration these games produce comes from expecting one of those to behave like the other.",
     "blocks": [
       {
@@ -96,14 +101,14 @@
     "games": [
       "caesar2"
     ],
-    "summary": "Caesar II runs one evolution pass over the city map each cycle, and it doesn't only decide whether a house upgrades. Wells, fountains, bathhouses, forums and temples are on the same pass, growing and shrinking through their own tiers by the same land-value logic - a design later Impressions games mostly dropped in favour of fixed-size civic buildings.",
+    "summary": "Caesar II runs one evolution pass over the city map each cycle, and it doesn't only decide whether a house upgrades. Wells, fountains, bathhouses, forums and temples are on the same pass, growing and shrinking through their own tiers by the same land-value logic - a design later Impressions games mostly dropped.",
     "blocks": [
       {
         "kind": "prose",
         "title": "One scan, every building type",
         "body": [
           "citymap_evolution() in the reconstruction's src/evolver.c walks the city map row by row once per cycle, and the same function that decides whether a hut becomes a hovel also decides whether a well becomes a maintained well. The dispatch is a single chain of tile-type range checks - wells at 0xD7-0xDA, fountains at 0xDB-0xDE, bathhouses at 0xDF-0xE2, three separate forum size-classes at 0xAE-0xB9, three temple size-classes at 0xA2-0xAD - each compared against the land value at that tile and pushed up or down a tier by the same evolve_a_building()/devolve_a_building() pair that houses use. It is one mechanic wearing five costumes, not five separate systems that happen to look similar.",
-          "The tiers themselves are cosmetic for three of those five: a well, a fountain and a bathhouse occupy the same footprint - literally the same footprint_size argument - at every quality level, so growing one is a reskin with no planning consequence. Forums and temples are not: their footprint argument changes with their size-class (2, 3 or 4 tiles for a forum; 1, 2 or 3 for a temple), so a forum that grows into its next size-class needs room on the map it may not have. Caesar II does not warn about this in advance the way a modern city builder would flag insufficient space - the tile scan simply skips a building whose new footprint doesn't clear, and it stays at its current tier until the surrounding tiles free up or the player demolishes something."
+          "Footprints do not change as a building climbs. A well, a fountain and a bathhouse occupy the same footprint - literally the same footprint_size argument - at every quality level, and so do forums and temples: what differs is the size class. The toolbar has three Forum buttons (2, 3 and 4 tiles square) and three Temple commands (1, 2 and 3), and each size class is a separate building with its own four quality tiers - tile ids 0xAE-0xB9 for forums, 0xA2-0xAD for temples. A tier is not purely cosmetic: forums and temples each carry a land-value effect entry for every one of their twelve types, so a grander tier changes what the building does to the land around it. The game announces the medium and large forum as new structures when the city reaches 400 and 1,800 people. Houses are the only family in this pass whose footprint changes as it grows."
         ]
       },
       {

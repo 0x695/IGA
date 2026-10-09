@@ -1828,6 +1828,17 @@
         "repoUrl": null,
         "websiteUrl": null,
         "playUrl": null
+      },
+      {
+        "title": "ModDB — Emperor: Rise of the Middle Kingdom",
+        "url": "https://www.moddb.com/games/emperor-rise-of-the-middle-kingdom",
+        "kind": "tool",
+        "note": "Two mods (a building-limit patch and a Full HD+ resolution mirror) and the official v1.0.1.0 patch in five languages on the files tab, as of writing.",
+        "author": "ModDB community",
+        "authorUrl": null,
+        "repoUrl": null,
+        "websiteUrl": null,
+        "playUrl": null
       }
     ],
     "image": "/images/emperor.webp",

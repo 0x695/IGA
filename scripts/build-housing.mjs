@@ -344,6 +344,24 @@ const CAESAR2_SIZES = [
 ];
 if (CAESAR2_SIZES.length !== 32) throw new Error(`expected 32 Caesar II sizes, got ${CAESAR2_SIZES.length}`);
 
+/* house_evolution[32] = {devolve_below, evolve_above} per rung, signed chars,
+   read from the same data.c on 9 October 2026. The first rung's 253 is -3 as a
+   signed char. A house climbs when its land value is above the second figure
+   and falls when it is below the first; rungs 26-29 use the best land value
+   across their 2x2 footprint and 30-31 across their 3x3 (evolver.c). */
+const CAESAR2_LAND_VALUE = [
+  [-3, 1], [0, 3], [2, 5], [4, 7], [6, 9], [9, 11], [11, 13], [13, 16],
+  [16, 18], [18, 20], [20, 22], [22, 24], [24, 26], [26, 28], [28, 30], [30, 32],
+  [32, 34], [34, 36], [36, 38], [38, 40], [40, 42], [42, 44], [44, 46], [46, 48],
+  [48, 50], [50, 52], [52, 54], [54, 56], [56, 58], [58, 60], [60, 62], [62, 125],
+];
+if (CAESAR2_LAND_VALUE.length !== 32) throw new Error(`expected 32 Caesar II land-value pairs, got ${CAESAR2_LAND_VALUE.length}`);
+CAESAR2_LAND_VALUE.forEach(([falls, climbs], i) => {
+  if (falls >= climbs) throw new Error(`caesar2 rung ${i}: falls-below ${falls} should be under climbs-above ${climbs}`);
+  if (i > 0 && falls > CAESAR2_LAND_VALUE[i - 1][1]) throw new Error(`caesar2 rung ${i}: falls-below should not exceed the rung below's climbs-above`);
+  if (i > 0 && climbs <= CAESAR2_LAND_VALUE[i - 1][1]) throw new Error(`caesar2 rung ${i}: climbs-above should rise with the rung`);
+});
+
 CAESAR2_NAMES.forEach((name, index) => {
   rows.push({
     id: `caesar2-${String(index).padStart(2, '0')}`,
@@ -355,8 +373,8 @@ CAESAR2_NAMES.forEach((name, index) => {
     size: CAESAR2_SIZES[index],
     maxPeople: null,
     prosperity: null,
-    evolveDesirability: null,
-    devolveDesirability: null,
+    evolveDesirability: CAESAR2_LAND_VALUE[index][1],
+    devolveDesirability: CAESAR2_LAND_VALUE[index][0],
     needs: null,
     requirements: null,
     note:

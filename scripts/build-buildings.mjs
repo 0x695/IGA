@@ -780,18 +780,19 @@ console.log(zeusRows.length + ' Zeus buildings, ' + zeusMerged + ' merged into e
 // --- CAESAR II, from the reconstruction's evolver.c + the manual -------------
 //
 // Caesar II has no single building table the way Julius or eZeus do - its
-// civic buildings (unlike its houses) grow through size tiers, not just
-// quality ones, and the reconstruction's src/evolver.c passes each tier's
-// footprint as a literal argument to evolve_a_building()/devolve_a_building()
+// civic buildings climb through quality tiers like its houses do, and the
+// reconstruction's src/evolver.c passes each family's footprint as a literal argument to evolve_a_building()/devolve_a_building()
 // (read verbatim on 14 September 2026), one call site per building family.
-// Three of those families keep the SAME footprint at every quality tier -
-// Well, Fountain and Bathhouse - which is what makes them safe to publish as
-// single-size entries here, the same shape as every other building on this
-// page. Forum and Temple genuinely change footprint as they grow (2/3/4 and
-// 1/2/3 tiles respectively) and are not in this table yet for exactly that
-// reason - a size that depends on which of three tiers is currently built
-// needs a different representation than this page's one-size-per-row shape,
-// and that hasn't been built.
+// Well, Fountain and Bathhouse have one footprint at every quality tier.
+// Forum and Temple do too - their footprint never changes as they evolve
+// (evolve_a_building() is handed the same footprint_size at every tier) - but
+// each comes in three SIZE CLASSES the player picks at placement: the toolbar
+// has three Forum buttons (act_select_small/medium/large_forum in action.c,
+// pm_build_shape 1/2/3, footprints 2/3/4 per forum_gfxdat) and three Temple
+// commands (0x14/0x15/0x16, put_x1/x2/x3_area). Each size class is a separate
+// building with its own four quality tiers (tile ids 0xAE-0xB9 for forums,
+// 0xA2-0xAD for temples). Read on 9 October 2026. An earlier version of this
+// comment said Forum and Temple "grow" between footprints; they do not.
 //
 // Employees and cost are not published for the same reason as Caesar III's:
 // no equivalent of an enum-and-properties join was found, and the manual
@@ -800,6 +801,18 @@ const CAESAR2 = [
   { name: 'Well', size: 1, category: 'Infrastructure' },
   { name: 'Fountain', size: 1, category: 'Infrastructure' },
   { name: 'Bathhouse', size: 2, category: 'Health' },
+  { name: 'Small Forum', size: 2, category: 'Government', tiles: '0xAE-0xB1',
+    notes: 'Chosen at placement, not grown into: the toolbar has three Forum buttons. Four quality tiers, one footprint throughout.' },
+  { name: 'Medium Forum', size: 3, category: 'Government', tiles: '0xB2-0xB5',
+    notes: 'The game announces it as a new structure when the city reaches 400 people. Four quality tiers, one footprint throughout.' },
+  { name: 'Large Forum', size: 4, category: 'Government', tiles: '0xB6-0xB9',
+    notes: 'The game announces it as a new structure when the city reaches 1,800 people. Four quality tiers, one footprint throughout.' },
+  { name: 'Small Temple', size: 1, category: 'Religion', tiles: '0xA2-0xA5',
+    notes: 'Chosen at placement. Four quality tiers, one footprint throughout; a tier needs both land value and city population to climb.' },
+  { name: 'Medium Temple', size: 2, category: 'Religion', tiles: '0xA6-0xA9',
+    notes: 'Chosen at placement. Four quality tiers, one footprint throughout; a tier needs both land value and city population to climb.' },
+  { name: 'Large Temple', size: 3, category: 'Religion', tiles: '0xAA-0xAD',
+    notes: 'Chosen at placement. Four quality tiers, one footprint throughout; a tier needs both land value and city population to climb.' },
 ];
 
 let caesar2Merged = 0;
@@ -808,13 +821,13 @@ for (const row of CAESAR2) {
     game: 'caesar2',
     name: row.name,
     // No enum symbol exists to cite - see the file-level comment above.
-    engineType: 'evolver.c: ' + row.name,
+    engineType: row.tiles ? 'tiles ' + row.tiles : 'evolver.c: ' + row.name,
     size: row.size,
     cost: null,
     employees: null,
     requires: [],
     produces: [],
-    notes: null,
+    notes: row.notes ?? null,
   };
 
   const existing = byName.get(row.name);
@@ -835,6 +848,13 @@ for (const row of CAESAR2) {
 }
 
 if (caesar2Merged !== 3) throw new Error(`expected all 3 Caesar II buildings to merge, got ${caesar2Merged}`);
+
+// forum_gfxdat's shape column reads 2,2,2,2,3,3,3,3,4,4,4,4 over tile ids 0xAE-0xB9;
+// the temple commands place 1, 2 and 3.
+const c2Size = (id) => buildings.find((b) => b.id === id)?.variants.find((v) => v.game === 'caesar2')?.size;
+for (const [id, size] of [['small-forum', 2], ['medium-forum', 3], ['large-forum', 4], ['small-temple', 1], ['medium-temple', 2], ['large-temple', 3]]) {
+  if (c2Size('caesar2-' + id) !== size) throw new Error(`caesar2 ${id} should be size ${size}`);
+}
 
 console.log(CAESAR2.length + ' Caesar II buildings, ' + caesar2Merged + ' merged into existing concepts');
 

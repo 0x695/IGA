@@ -2653,6 +2653,25 @@
     ]
   },
   {
+    "id": "caesar2-large-forum",
+    "name": "Large Forum",
+    "category": "Government",
+    "description": null,
+    "variants": [
+      {
+        "game": "caesar2",
+        "name": "Large Forum",
+        "engineType": "tiles 0xB6-0xB9",
+        "size": 4,
+        "cost": null,
+        "employees": null,
+        "requires": [],
+        "produces": [],
+        "notes": "The game announces it as a new structure when the city reaches 1,800 people. Four quality tiers, one footprint throughout."
+      }
+    ]
+  },
+  {
     "id": "zeus-maintenance-office",
     "name": "Maintenance Office",
     "category": "Government",
@@ -2668,6 +2687,25 @@
         "requires": [],
         "produces": [],
         "notes": null
+      }
+    ]
+  },
+  {
+    "id": "caesar2-medium-forum",
+    "name": "Medium Forum",
+    "category": "Government",
+    "description": null,
+    "variants": [
+      {
+        "game": "caesar2",
+        "name": "Medium Forum",
+        "engineType": "tiles 0xB2-0xB5",
+        "size": 3,
+        "cost": null,
+        "employees": null,
+        "requires": [],
+        "produces": [],
+        "notes": "The game announces it as a new structure when the city reaches 400 people. Four quality tiers, one footprint throughout."
       }
     ]
   },
@@ -2772,6 +2810,25 @@
         "requires": [],
         "produces": [],
         "notes": null
+      }
+    ]
+  },
+  {
+    "id": "caesar2-small-forum",
+    "name": "Small Forum",
+    "category": "Government",
+    "description": null,
+    "variants": [
+      {
+        "game": "caesar2",
+        "name": "Small Forum",
+        "engineType": "tiles 0xAE-0xB1",
+        "size": 2,
+        "cost": null,
+        "employees": null,
+        "requires": [],
+        "produces": [],
+        "notes": "Chosen at placement, not grown into: the toolbar has three Forum buttons. Four quality tiers, one footprint throughout."
       }
     ]
   },
@@ -6377,6 +6434,25 @@
     ]
   },
   {
+    "id": "caesar2-large-temple",
+    "name": "Large Temple",
+    "category": "Religion",
+    "description": null,
+    "variants": [
+      {
+        "game": "caesar2",
+        "name": "Large Temple",
+        "engineType": "tiles 0xAA-0xAD",
+        "size": 3,
+        "cost": null,
+        "employees": null,
+        "requires": [],
+        "produces": [],
+        "notes": "Chosen at placement. Four quality tiers, one footprint throughout; a tier needs both land value and city population to climb."
+      }
+    ]
+  },
+  {
     "id": "large-temple-ceres",
     "name": "Large Temple Ceres",
     "category": "Religion",
@@ -6487,6 +6563,25 @@
         "requires": [],
         "produces": [],
         "notes": "One is built per god (fourteen in total) - a Shrine fully exalted to its final tier."
+      }
+    ]
+  },
+  {
+    "id": "caesar2-medium-temple",
+    "name": "Medium Temple",
+    "category": "Religion",
+    "description": null,
+    "variants": [
+      {
+        "game": "caesar2",
+        "name": "Medium Temple",
+        "engineType": "tiles 0xA6-0xA9",
+        "size": 2,
+        "cost": null,
+        "employees": null,
+        "requires": [],
+        "produces": [],
+        "notes": "Chosen at placement. Four quality tiers, one footprint throughout; a tier needs both land value and city population to climb."
       }
     ]
   },
@@ -6685,6 +6780,25 @@
         "requires": [],
         "produces": [],
         "notes": null
+      }
+    ]
+  },
+  {
+    "id": "caesar2-small-temple",
+    "name": "Small Temple",
+    "category": "Religion",
+    "description": null,
+    "variants": [
+      {
+        "game": "caesar2",
+        "name": "Small Temple",
+        "engineType": "tiles 0xA2-0xA5",
+        "size": 1,
+        "cost": null,
+        "employees": null,
+        "requires": [],
+        "produces": [],
+        "notes": "Chosen at placement. Four quality tiers, one footprint throughout; a tier needs both land value and city population to climb."
       }
     ]
   },

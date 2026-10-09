@@ -350,12 +350,11 @@ const communityLinks = defineCollection({
  * one working it (walls, roads, decoration) or where the constructor's shape
  * made the value ambiguous to extract mechanically.
  *
- * CAESAR II has only three rows, and that is the honest ceiling of what its
- * decompilation supports for this table's shape: most of its civic buildings
- * change footprint as they grow through quality tiers, which a one-size-per-
- * row table cannot represent. Well, Fountain and Bathhouse are the exception
- * - same footprint at every tier - so those three are here, sized from a
- * literal argument in src/evolver.c, with no cost or employees column for
+ * CAESAR II has nine rows: Well, Fountain, Bathhouse, and the Forum and
+ * Temple in their three size classes each. A building's footprint never
+ * changes as it climbs its four quality tiers - the size class is chosen at
+ * placement, so each class is its own row. Sizes come from literal arguments
+ * in src/evolver.c and forum_gfxdat; there is no cost or employees column for
  * the same "no table found" reason as Caesar III's.
  */
 const buildings = defineCollection({

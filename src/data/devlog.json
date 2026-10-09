@@ -727,5 +727,47 @@
         "body": "The ratings, promotion, the Legion and its battles, and the plebs, which the Gaius findings cover and which these pages do not. No campaign data beyond what the Campaign page already had. And one number that looks like a gap and is not: the Buildings page has no worker count for any building, because Caesar has none. A workshop's output follows the people living near it, and the Tribune of the Plebs assigns plebs to duties by the total built."
       }
     ]
+  },
+  {
+    "id": "emperor-gets-moddb",
+    "date": "2026-10-09T17:20",
+    "title": "Emperor gets its ModDB link, so all six have one",
+    "summary": "ModDB's Emperor page joins Tools & Mods. It lists two mods and the official patch in five languages.",
+    "blocks": [
+      {
+        "kind": "prose",
+        "title": "What is on the page",
+        "body": [
+          "Emperor was the last game without a ModDB entry. The page lists a patch that removes the game's building limit, a Full HD+ resolution mirror, and the official v1.0.1.0 patch in French, German, Italian, Polish and Spanish on its files tab. It is linked as a place to browse, like the other five."
+        ]
+      }
+    ]
+  },
+  {
+    "id": "caesar-ii-forum-temple-and-land-value",
+    "date": "2026-10-09T17:45",
+    "title": "Caesar II's Forum, Temple and land-value gaps closed, and a wrong claim corrected",
+    "summary": "Six Forum and Temple rows join Caesar II's Buildings page and its Housing page gains the land-value thresholds. The reading also showed that Forum and Temple footprints never change as they grow, which the site had said they did.",
+    "blocks": [
+      {
+        "kind": "prose",
+        "title": "The correction",
+        "body": [
+          "Earlier pages said Forum and Temple change footprint as they grow through their size tiers, and that this was why they were missing from Buildings. That was a misreading. evolve_a_building() is handed the same footprint at every tier. What differs is the size class: the toolbar has three Forum buttons (2, 3 and 4 tiles square) and three Temple commands (1, 2 and 3), each a separate building with its own four quality tiers. Buildings now has nine Caesar II rows, and the Growth tiers mechanics page and the Buildings caveat say so. The two older devlog entries that made the claim are left as written."
+        ]
+      },
+      {
+        "kind": "prose",
+        "title": "Land value",
+        "body": [
+          "The housing thresholds were in src/data.c all along, as house_evolution: a falls-below and a climbs-above figure per rung. Housing now shows both for all 32 rungs. The build checks that they rise with the rung and that a rung's climb figure is never under the next rung's fall figure. Rungs 26 to 29 are tested against the best land value anywhere under their 2×2 footprint, and rungs 30 and 31 under their 3×3."
+        ]
+      },
+      {
+        "kind": "callout",
+        "title": "What is still open",
+        "body": "Population capacity and specific needs per rung. The reconstruction carries a per-rung people table that its census reads, but it has not been checked against the manual or the running game, so it is not published."
+      }
+    ]
   }
 ]
