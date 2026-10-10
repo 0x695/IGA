@@ -789,5 +789,32 @@
         "body": "It is read from the code, not confirmed against the manual (which states no capacities) or the running game. The rung the manual does not name is counted at 2 people, so the Vacant Lot label is this site's, not a claim that it is empty. Specific needs per rung are still not published."
       }
     ]
+  },
+  {
+    "id": "caesar-ii-what-holds-a-house-back",
+    "date": "2026-10-10T10:15",
+    "title": "Caesar II has no needs table, so there is a page on what holds a house back",
+    "summary": "A new Mechanics page sets out the ladder of land-value ceilings that stands in for per-rung needs, with the rung each one stops a house at.",
+    "blocks": [
+      {
+        "kind": "prose",
+        "title": "Needs are ceilings",
+        "body": [
+          "The Housing page said per-rung needs were missing. They are not missing, they were never a table. Every cycle the game caps each house's land value at the first of about thirty-five tests it fails: no water holds it to 2, no Forum to 6, a Business next door to 10, and so on up to 64. Set against the climb figures, a house with no water can reach One Hut and stop, and one with water, a Forum and no Market stops at Primitive House."
+        ]
+      },
+      {
+        "kind": "prose",
+        "title": "Checked against the manual",
+        "body": [
+          "The manual gives the 0 to 64 range, names missing water as a limiting factor, and lists the structures that limit land value as Barracks, Praefectures, Markets, Businesses, Walls, Gates and Towers. Those are exactly the structures in the code's list. It gives no numbers, so the numbers are the code's alone."
+        ]
+      },
+      {
+        "kind": "callout",
+        "title": "What is inferred",
+        "body": "A few flags are tied to buildings by tile id and the manual's list rather than by name, and the security test is read from the code, not seen in play. The page says both."
+      }
+    ]
   }
 ]

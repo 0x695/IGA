@@ -684,5 +684,218 @@
         "url": "https://0x695.github.io/IGA/manuals/caesar1.pdf"
       }
     ]
+  },
+  {
+    "id": "limiting-factors",
+    "title": "What holds a house back",
+    "shortTitle": "Limiting factors",
+    "games": [
+      "caesar2"
+    ],
+    "summary": "Caesar II has no table of what each housing level needs. What it has is a ladder of ceilings on land value: a house with no water can never get past One Hut, however much the neighbourhood is worth, and each missing service sets a higher ceiling than the one before.",
+    "blocks": [
+      {
+        "kind": "prose",
+        "title": "A ceiling, not a requirement",
+        "body": [
+          "The Housing page gives each rung a land value it must pass to climb. This is the other half: every cycle the game works out a ceiling for every house and trims its land value down to it. The ceiling comes from the first of about thirty-five tests that the house fails, in a fixed order, and each test sets a higher ceiling than the one before. Land value runs from 0 to 64, and the top of the ladder is 64, so a house that passes every test is held to nothing.",
+          "Because the climb figures are known, every ceiling translates into a rung. A house with no water has a ceiling of 2, and the first rung's climb figure is 1 and the second's is 3, so it can reach One Hut and no further. That is the mechanism behind the manual's remark that no one wants to live in a house without water, however good its schools are. A house that already stands higher falls back when its ceiling drops, until the figure its rung falls below is within the ceiling, which can leave it a rung above where a new house would stop.",
+          "The ceiling is read across the house's whole footprint, so a 2×2 or 3×3 house is helped by a service reaching any one of its tiles. It only ever limits: the positive influences on land value, from temples, Forums, gardens and the rest, are separate and are what lift the value toward the ceiling."
+        ]
+      },
+      {
+        "kind": "list",
+        "title": "The ceilings, in the order the game tests them",
+        "note": "The first test a house fails sets its ceiling, and the tests run in this order, so the ceilings only ever rise as you read down. \"Climbing stops at\" is the highest rung whose climb figure the ceiling still lets a house pass, from the Housing page's table.",
+        "items": [
+          {
+            "term": "Held to 2 · No water of any kind",
+            "description": "No well within two tiles and no fountain or reservoir supply. Climbing stops at One Hut."
+          },
+          {
+            "term": "Held to 6 · Out of reach of every Forum",
+            "description": "The small Forum reaches 3 tiles, the medium 4 and the large 5. Climbing stops at Three Huts."
+          },
+          {
+            "term": "Held to 10 · A Business next door",
+            "description": "Within one tile. Climbing stops at Large Communal Hut."
+          },
+          {
+            "term": "Held to 12 · Out of reach of every Market",
+            "description": "A Market reaches 3 tiles. Climbing stops at Primitive House."
+          },
+          {
+            "term": "Held to 14 · Water from a well only",
+            "description": "No fountain or reservoir supply. Climbing stops at Simple House."
+          },
+          {
+            "term": "Held to 16 · A Business within two tiles",
+            "description": "Climbing stops at Simple House."
+          },
+          {
+            "term": "Held to 18 · Out of reach of a supplied Bath House",
+            "description": "A Bath House that has no water supply does not count. Climbing stops at Small House."
+          },
+          {
+            "term": "Held to 20 · No entertainment at all",
+            "description": "Entertainment is summed over the three kinds; see below. Climbing stops at Average House."
+          },
+          {
+            "term": "Held to 24 · A Barracks within three tiles",
+            "description": "Climbing stops at Large House."
+          },
+          {
+            "term": "Held to 24 · No security at all",
+            "description": "Neither a Praefecture or Barracks within three tiles, nor a patrol having passed by. Climbing stops at Large House."
+          },
+          {
+            "term": "Held to 26 · A Business within four tiles",
+            "description": "Climbing stops at Grand House."
+          },
+          {
+            "term": "Held to 26 · Entertainment of 1",
+            "description": "One level in total. Climbing stops at Grand House."
+          },
+          {
+            "term": "Held to 26 · A wall or tower within two tiles",
+            "description": "Tile ids 0xBF to 0xCA, other than the gate. Climbing stops at Grand House."
+          },
+          {
+            "term": "Held to 28 · Entertainment of 2",
+            "description": "Climbing stops at Primitive Insula."
+          },
+          {
+            "term": "Held to 30 · A gate within two tiles",
+            "description": "Tile id 0xC0. Climbing stops at Simple Insula."
+          },
+          {
+            "term": "Held to 30 · Hospital coverage under 20%",
+            "description": "A city-wide figure; see below. Climbing stops at Simple Insula."
+          },
+          {
+            "term": "Held to 32 · Entertainment of 3",
+            "description": "Climbing stops at Small Insula."
+          },
+          {
+            "term": "Held to 34 · Out of reach of a Grammaticus",
+            "description": "A Grammaticus reaches 6 tiles. Climbing stops at Average Insula."
+          },
+          {
+            "term": "Held to 34 · A Praefecture within two tiles",
+            "description": "Climbing stops at Average Insula."
+          },
+          {
+            "term": "Held to 36 · Hospital coverage under 40%",
+            "description": "Climbing stops at Improved Insula."
+          },
+          {
+            "term": "Held to 38 · Entertainment of 4",
+            "description": "Climbing stops at Large Insula."
+          },
+          {
+            "term": "Held to 40 · A Market within two tiles",
+            "description": "Climbing stops at Grand Insula."
+          },
+          {
+            "term": "Held to 42 · Only one kind of security",
+            "description": "A Praefecture or Barracks within reach, or a patrol, but not both. Climbing stops at Imperial Insula."
+          },
+          {
+            "term": "Held to 44 · Hospital coverage under 60%",
+            "description": "Climbing stops at Simple Domus."
+          },
+          {
+            "term": "Held to 44 · Entertainment of 5",
+            "description": "Climbing stops at Simple Domus."
+          },
+          {
+            "term": "Held to 46 · Out of reach of a Rhetor",
+            "description": "A Rhetor reaches 8 tiles. Climbing stops at Small Domus."
+          },
+          {
+            "term": "Held to 46 · Library coverage under 20%",
+            "description": "A city-wide figure; see below. Climbing stops at Small Domus."
+          },
+          {
+            "term": "Held to 48 · Entertainment of 6",
+            "description": "Climbing stops at Average Domus."
+          },
+          {
+            "term": "Held to 50 · Library coverage under 40%",
+            "description": "Climbing stops at Improved Domus."
+          },
+          {
+            "term": "Held to 52 · Hospital coverage under 80%",
+            "description": "Climbing stops at Large Domus."
+          },
+          {
+            "term": "Held to 54 · Library coverage under 60%",
+            "description": "Climbing stops at Grand Domus."
+          },
+          {
+            "term": "Held to 56 · Entertainment of 7",
+            "description": "Climbing stops at Simple Villa."
+          },
+          {
+            "term": "Held to 58 · Hospital coverage under 100%",
+            "description": "Climbing stops at Small Villa."
+          },
+          {
+            "term": "Held to 58 · Library coverage under 80%",
+            "description": "Climbing stops at Small Villa."
+          },
+          {
+            "term": "Held to 60 · Entertainment of 8",
+            "description": "Climbing stops at Improved Villa."
+          },
+          {
+            "term": "Held to 62 · Library coverage under 100%",
+            "description": "Climbing stops at Grand Villa."
+          },
+          {
+            "term": "Held to 64 · Nothing: the top of the scale",
+            "description": "Every rung is open, up to the Small Palace."
+          }
+        ]
+      },
+      {
+        "kind": "list",
+        "title": "How the three summed figures are made",
+        "note": "Read from the same functions as the ceilings.",
+        "items": [
+          {
+            "term": "Entertainment",
+            "description": "The sum of three levels, each from 0 to 3: the best Theatre or Odium reaching the house, the best Arena or Colosseum, and the best Circus or Circus Maximus. A building gives a higher level the nearer the house is to it. The sum runs from 0 to 9."
+          },
+          {
+            "term": "Hospital coverage",
+            "description": "The number of Hospitals the city can reach by road and Forum, times 1,000, divided by the population, as a percentage. A city under 100 people counts as fully covered, and a city with no reachable Hospital as not at all."
+          },
+          {
+            "term": "Library coverage",
+            "description": "The same calculation with Libraries, at 1,200 people each."
+          }
+        ]
+      },
+      {
+        "kind": "callout",
+        "title": "How sure this is",
+        "body": "The ceilings and their order are read from the reconstruction's cap_land_value() and are exact for that code. The manual agrees on the shape: land values from 0 to 64, missing water as a limiting factor for housing, and the structures that limit land value being Barracks, Praefectures, Markets, Businesses, Walls, Gates and Towers, which are exactly the structures in the list. It states no numbers. Two things are inferred rather than read: a few coverage flags are tied to buildings by tile id and by the manual's list, not by a name in the code, and the security test combines a patrol flag with police reach in a way that is read from the code and not seen in play. Ground tiles 0x1E to 0x51 also count as water in the first test and are not identified."
+      }
+    ],
+    "sources": [
+      {
+        "title": "Caesar II Reconstruction - src/evolver.c",
+        "url": "https://github.com/second-impressions/caesar2-reconstruction/blob/main/src/evolver.c"
+      },
+      {
+        "title": "Caesar II Reconstruction - src/census.c",
+        "url": "https://github.com/second-impressions/caesar2-reconstruction/blob/main/src/census.c"
+      },
+      {
+        "title": "Caesar II manual (Impressions Games / Sierra), Land Values",
+        "url": "https://0x695.github.io/IGA/manuals/caesar2.pdf"
+      }
+    ]
   }
 ]
