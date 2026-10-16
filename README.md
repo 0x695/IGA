@@ -48,12 +48,12 @@ Hung off those hubs:
 
 | | |
 | --- | --- |
-| **File formats** | Five written specs — SG/`.555`, `.eng`, `.map`, `.sav`, `c3_model.txt` |
-| **Buildings** | Filterable references for Caesar III and Pharaoh |
+| **File formats** | Fifteen written specs — SG/`.555`, `.eng`, Caesar III's `.map`, `.sav` and `c3_model.txt`, Caesar's eight asset and save formats, Caesar II's `.SAV` and text |
+| **Buildings** | Filterable references for Caesar, Caesar II, Caesar III, Pharaoh and Zeus |
 | **Campaigns** | Every game, from mission configs where an engine has them |
-| **Housing** | Ladders for Caesar III, Pharaoh, Zeus and Emperor |
-| **Production** | Pharaoh's chains, with the rate the engine actually steps |
-| **Mechanics** | The walker model, and why a city is not a spreadsheet |
+| **Housing** | Ladders for every game; Caesar II's has land-value thresholds and per-house capacity |
+| **Production** | Chains for Caesar, Caesar II, Caesar III, Pharaoh and Zeus, with a rate only where the source states one |
+| **Mechanics** | The walker model, Caesar's city growth and taxes, and Caesar II's growth tiers and what holds a house back |
 
 Plus a [devlog](https://0x695.github.io/IGA/devlog/) covering how it was built —
 including the mistakes — and Pagefind search across the lot.
@@ -79,9 +79,9 @@ Use `npm run build` to exercise it.
 ### Regenerating data
 
 ```
-npm run buildings    # Caesar III from Julius, Pharaoh from Akhenaten
-npm run housing      # housing ladders
-npm run production   # Pharaoh's production chains
+npm run buildings    # Caesar III from Julius, Pharaoh from Akhenaten, plus Zeus, Caesar and Caesar II
+npm run housing      # housing ladders, all six games
+npm run production   # production chains, five games
 npm run engines      # each project's last commit date
 npm run links        # check every outbound link
 ```
