@@ -1351,6 +1351,23 @@
         "activityCheckedAt": "2026-10-09"
       },
       {
+        "title": "Zeus QOL",
+        "url": "https://github.com/andrehamon/zeus-qol",
+        "kind": "tool",
+        "note": "A quality-of-life patcher for the GOG release of Zeus and Poseidon (Zeus.exe 2.1.4.0 only): widescreen up to 2560x1600, re-rendered menu and map art, city zoom, remappable keys and a city image export. GPL-3.0, no game files included, and it backs up what it changes.",
+        "author": "André Hamon",
+        "authorUrl": "https://github.com/andrehamon",
+        "repoUrl": "https://github.com/andrehamon/zeus-qol",
+        "websiteUrl": null,
+        "playUrl": null,
+        "lastCommit": {
+          "sha": "d67cb53",
+          "date": "2026-10-20T19:55:04Z",
+          "branch": "main"
+        },
+        "activityCheckedAt": "2026-10-21"
+      },
+      {
         "title": "Adventure Editor (map & scenario editor)",
         "url": "https://zeus.heavengames.com/scendesign/",
         "kind": "tool",

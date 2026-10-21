@@ -816,5 +816,25 @@
         "body": "A few flags are tied to buildings by tile id and the manual's list rather than by name, and the security test is read from the code, not seen in play. The page says both."
       }
     ]
+  },
+  {
+    "id": "zeus-gets-zeus-qol",
+    "date": "2026-10-21T09:00",
+    "title": "Zeus gets a second widescreen tool: Zeus QOL",
+    "summary": "André Hamon's Zeus QOL joins Zeus's Tools & Mods list, with its limits stated.",
+    "blocks": [
+      {
+        "kind": "prose",
+        "title": "What it is",
+        "body": [
+          "A patcher for the GOG release of Zeus with Poseidon. Its own README lists widescreen up to 2560x1600, re-rendered menu and map art, city zoom, remappable keys and a city image export. It is GPL-3.0, ships no game files and backs up what it changes, so it fits the site's link-out rule."
+        ]
+      },
+      {
+        "kind": "callout",
+        "title": "Where it stops",
+        "body": "It refuses anything but Zeus.exe 2.1.4.0, so Steam and disc copies are not supported. Its commit date and short SHA were read from the GitHub API on 21 October 2026; the live check on the hub refreshes them."
+      }
+    ]
   }
 ]
