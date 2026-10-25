@@ -22,7 +22,7 @@
       "date": "2026-09-12T12:22:23Z",
       "branch": "master"
     },
-    "activityCheckedAt": "2026-10-09"
+    "activityCheckedAt": "2026-10-25"
   },
   {
     "id": "augustus",
@@ -43,11 +43,11 @@
     "websiteUrl": null,
     "playUrl": "https://augustus.josecadete.net/",
     "lastCommit": {
-      "sha": "0ffea95",
-      "date": "2026-10-08T15:38:06Z",
+      "sha": "dae1899",
+      "date": "2026-10-24T10:47:59Z",
       "branch": "master"
     },
-    "activityCheckedAt": "2026-10-09"
+    "activityCheckedAt": "2026-10-25"
   },
   {
     "id": "akhenaten",
@@ -68,11 +68,11 @@
     "websiteUrl": "https://dalerank.github.io/Akhenaten/",
     "playUrl": "https://dalerank.github.io/Akhenaten/play/",
     "lastCommit": {
-      "sha": "bccbdd8",
-      "date": "2026-10-03T21:49:45Z",
+      "sha": "33d5186",
+      "date": "2026-10-12T09:46:47Z",
       "branch": "master"
     },
-    "activityCheckedAt": "2026-10-09"
+    "activityCheckedAt": "2026-10-25"
   },
   {
     "id": "ozymandias-godot",
@@ -97,7 +97,7 @@
       "date": "2026-02-20T05:34:36Z",
       "branch": "master"
     },
-    "activityCheckedAt": "2026-10-09"
+    "activityCheckedAt": "2026-10-25"
   },
   {
     "id": "ozymandias-julius",
@@ -122,7 +122,7 @@
       "date": "2026-02-03T09:28:16Z",
       "branch": "master"
     },
-    "activityCheckedAt": "2026-10-09"
+    "activityCheckedAt": "2026-10-25"
   },
   {
     "id": "openpharaoh",
@@ -147,7 +147,7 @@
       "date": "2012-09-19T14:49:54Z",
       "branch": "master"
     },
-    "activityCheckedAt": "2026-10-09"
+    "activityCheckedAt": "2026-10-25"
   },
   {
     "id": "olympus",
@@ -172,7 +172,7 @@
       "date": "2026-07-04T11:14:32Z",
       "branch": "main"
     },
-    "activityCheckedAt": "2026-10-09"
+    "activityCheckedAt": "2026-10-25"
   },
   {
     "id": "ezeus",
@@ -193,11 +193,11 @@
     "websiteUrl": null,
     "playUrl": null,
     "lastCommit": {
-      "sha": "474a962",
-      "date": "2026-09-16T14:12:37Z",
+      "sha": "ec76519",
+      "date": "2026-10-19T10:04:28Z",
       "branch": "main"
     },
-    "activityCheckedAt": "2026-10-09"
+    "activityCheckedAt": "2026-10-25"
   },
   {
     "id": "caesar2-reconstruction",
@@ -222,7 +222,7 @@
       "date": "2026-09-06T17:16:12Z",
       "branch": "main"
     },
-    "activityCheckedAt": "2026-10-09"
+    "activityCheckedAt": "2026-10-25"
   },
   {
     "id": "caesar2-port",
@@ -247,7 +247,7 @@
       "date": "2026-09-13T17:48:41Z",
       "branch": "main"
     },
-    "activityCheckedAt": "2026-10-09"
+    "activityCheckedAt": "2026-10-25"
   },
   {
     "id": "gaius",
@@ -261,17 +261,17 @@
     "language": "C++17 (SDL2)",
     "status": "active",
     "saveCompat": "Reads and writes the original's .SAV files — all 17 real saves round-trip byte-identical",
-    "platforms": "Windows, Linux, Steam Deck, Android",
+    "platforms": "Browser (WebAssembly), Windows, Linux, Steam Deck, Android",
     "activity": "Begun Sep 2026 · the whole game plays, simulation checked against real saves · actively developed",
     "repoUrl": "https://github.com/0x695/Gaius",
     "docsUrl": "https://github.com/0x695/Gaius/tree/master/docs",
     "websiteUrl": null,
-    "playUrl": null,
+    "playUrl": "https://0x695.github.io/Gaius/",
     "lastCommit": {
-      "sha": "954024f",
-      "date": "2026-10-04T22:47:57Z",
+      "sha": "98768a6",
+      "date": "2026-10-12T10:18:16Z",
       "branch": "master"
     },
-    "activityCheckedAt": "2026-10-09"
+    "activityCheckedAt": "2026-10-25"
   }
 ]
