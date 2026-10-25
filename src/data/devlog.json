@@ -876,5 +876,26 @@
         "body": "Saves made with the patched exe crash the original exe, so the card says so. The repository shows no license in GitHub's data, so the entry does not state one. The account has no display name and is credited by its username. The commit date and short SHA were read from the GitHub API on 25 October 2026."
       }
     ]
+  },
+  {
+    "id": "three-projects-three-pages",
+    "date": "2026-10-26T10:00",
+    "title": "Three fan projects turned into three pages",
+    "summary": "Zeus gets a saved-game format page and a page on the limits of a big city; Emperor gets a page on how the original runs.",
+    "blocks": [
+      {
+        "kind": "prose",
+        "title": "What came out of them",
+        "body": [
+          "The Zeus Limit Patcher reads and rewrites Zeus saves, so its source is a map of the save container: a 300-entry manifest and compressed blocks, with six tables identified. That is the first written spec for any Zeus file, and it replaces a hub row that said none existed. The same code gives the table sizes behind Zeus's city limits.",
+          "Yongle, the Emperor display layer, hooks the running game, so it had to learn how the main loop, the clocks and the screen modes work. Its source is the first public account of how Emperor runs. Its loader for the .sg3 pictures also gave the SG page a second reader, and one question about the transparent colour that the page now records."
+        ]
+      },
+      {
+        "kind": "callout",
+        "title": "Read from code, not checked against the game",
+        "body": "All three pages come from other people's source, with no game files to test against here, and each says so. Yongle's own reverse-engineering notes are unpublished, so its page is the part most likely to need revising."
+      }
+    ]
   }
 ]

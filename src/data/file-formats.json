@@ -25,6 +25,10 @@
       {
         "title": "OpenPharaoh — 010 Editor SG3 binary template",
         "url": "https://github.com/gaddas/OpenPharaoh"
+      },
+      {
+        "title": "Yongle - src/core/assets/sg3.cpp",
+        "url": "https://github.com/riap0526/yongle/blob/main/src/core/assets/sg3.cpp"
       }
     ],
     "spec": [
@@ -452,6 +456,11 @@
         "kind": "callout",
         "title": "A useful sanity check",
         "body": "A frequently reported figure for the fixed prelude of an SG file is 20,680 bytes. That is not a magic number: it is 80 bytes of header, plus the 600-byte index, plus 100 bitmap records of 200 bytes each. If a file you are parsing does not agree, read the bitmap record count at offset 20 rather than assuming 100."
+      },
+      {
+        "kind": "callout",
+        "title": "A second reader for Emperor, and a transparency question",
+        "body": "Yongle, a display layer for Emperor, reads the game's own .sg3 and .555 files with a loader of its own, and it follows this page: the 80-byte header, the 300 group ids, the entries from byte 40,680, 64 bytes each or 72 from version 214, the type byte at 50, and run-length rows where 0xFF skips pixels. It differs on one point. It treats both 0x7C1F, which is magenta in 5-5-5, and 0xF81F as transparent, and says 0xF81F appears in the font pack's plain glyphs. This page names 0xF81F alone. Which values really occur in the shipped files has not been checked here."
       }
     ]
   },
@@ -1090,11 +1099,10 @@
     "title": null,
     "games": [
       "pharaoh",
-      "zeus",
       "emperor"
     ],
     "documentation": "partial",
-    "note": "Undocumented. These titles have their own scenario and save formats, and no public write-up exists — Akhenaten and the Ozymandias projects are the closest thing to a spec for Pharaoh.",
+    "note": "Undocumented. These titles have their own scenario and save formats, and no public write-up exists - Akhenaten and the Ozymandias projects are the closest thing to a spec for Pharaoh.",
     "summary": null,
     "sources": [],
     "spec": null
@@ -2680,6 +2688,194 @@
         "kind": "callout",
         "title": "Real translation bugs the tooling now corrects",
         "body": "The 1995 French C2.ENG splits several strings with a NUL byte instead of a space and merges two others, which shifted every later index in four groups onto the wrong text in the shipped game; the 1995 releases also have no battle icon tooltips at all, so those groups alias a Senate letter instead. Both are documented, sourced defects in the original release — reproduced faithfully by a byte-exact reimplementation, and separately corrected in the reimplementation's own translation template with the reason recorded alongside the fix."
+      }
+    ]
+  },
+  {
+    "id": "zeus-sav",
+    "name": ".sav",
+    "shortName": "SAV",
+    "title": "The Zeus saved-game container",
+    "games": [
+      "zeus"
+    ],
+    "documentation": "partial",
+    "note": "The outer container is documented: a 300-slot manifest, then one block per entry, most of them compressed with PKWARE DCL. What is inside the blocks is known for six of them only, and Zeus scenario files are not documented.",
+    "summary": "A Zeus save is a table of arrays copied out of the running game. A manifest says where each array lives, how big its elements are and how many there are, and the blocks follow in order. This page comes from a third-party patcher that reads and rewrites saves and checks every rewrite by reading it back, so the container is solid. The records inside are barely mapped.",
+    "sources": [
+      {
+        "title": "Zeus Limit Patcher - src/SavLimits.cs",
+        "url": "https://github.com/Vicinity4813/zeus-limit-patcher/blob/main/src/SavLimits.cs"
+      },
+      {
+        "title": "Zeus Limit Patcher - src/ZeusPak.cs",
+        "url": "https://github.com/Vicinity4813/zeus-limit-patcher/blob/main/src/ZeusPak.cs"
+      },
+      {
+        "title": "Zeus Limit Patcher - src/Limits.cs",
+        "url": "https://github.com/Vicinity4813/zeus-limit-patcher/blob/main/src/Limits.cs"
+      },
+      {
+        "title": "Zeus Limit Patcher - README",
+        "url": "https://github.com/Vicinity4813/zeus-limit-patcher/blob/main/README.md"
+      }
+    ],
+    "spec": [
+      {
+        "kind": "prose",
+        "title": "One part, or several",
+        "body": [
+          "A save is one part. An adventure save holds one part per episode, written back to back, because the next episode needs the state of the last. Every part has the same layout: 8 bytes of version fields, then a manifest of 300 entries of 20 bytes each, then the data blocks.",
+          "The blocks begin at entry 3 and run in index order until the first entry whose element size is 0. Entries 0 to 2 have no block in the file as the patcher reads it. A reader finds later parts by looking for the same 8 version bytes again after the previous part ends."
+        ]
+      },
+      {
+        "kind": "fields",
+        "title": "Part header",
+        "note": "All integers are little-endian.",
+        "rows": [
+          {
+            "offset": "0",
+            "size": "8",
+            "type": "2 x uint32",
+            "name": "versions",
+            "description": "Two version fields. Their values are not established here; the patcher only compares them between parts."
+          },
+          {
+            "offset": "8",
+            "size": "6000",
+            "type": "entry[300]",
+            "name": "manifest",
+            "description": "Three hundred entries of 20 bytes, laid out below."
+          },
+          {
+            "offset": "6008",
+            "size": "-",
+            "type": "-",
+            "name": "blocks",
+            "description": "One block per entry from 3 up to the first entry of size 0."
+          }
+        ]
+      },
+      {
+        "kind": "fields",
+        "title": "Manifest entry",
+        "note": "Twenty bytes. The manifest mirrors the executable's own save table, a list of 139 entries of the same size at 0x63C2D0 in Zeus.exe 2.1.4.0.",
+        "rows": [
+          {
+            "offset": "0",
+            "size": "4",
+            "type": "uint32",
+            "name": "compressed",
+            "description": "Non-zero if the block has a 4-byte size prefix and may be compressed."
+          },
+          {
+            "offset": "4",
+            "size": "4",
+            "type": "uint32",
+            "name": "address",
+            "description": "The array's address in the running game, written as it was. On load the game compares only the element size and the count, so a save from a different exe layout still loads."
+          },
+          {
+            "offset": "8",
+            "size": "4",
+            "type": "uint32",
+            "name": "element size",
+            "description": "Bytes per element."
+          },
+          {
+            "offset": "12",
+            "size": "4",
+            "type": "uint32",
+            "name": "count",
+            "description": "Number of elements. The block holds element size times count bytes once decompressed."
+          },
+          {
+            "offset": "16",
+            "size": "4",
+            "type": "uint32",
+            "name": "ptr",
+            "description": "Purpose not established."
+          }
+        ]
+      },
+      {
+        "kind": "prose",
+        "title": "Blocks and compression",
+        "body": [
+          "A block with the compressed flag set starts with a signed 32-bit number. If it is positive it is the size of the compressed data that follows, and the data is PKWARE Data Compression Library output: the binary form, with a dictionary of 4, 5 or 6 bits. If it is negative the data that follows is stored raw at full size, which is what a writer does when compression would not make the block smaller. A block without the flag has no prefix and is raw.",
+          "This is the same PKWARE DCL that Caesar III's saves use, so the warning on that format's page applies here too: a zlib call on this data fails."
+        ]
+      },
+      {
+        "kind": "list",
+        "title": "The entries that are identified",
+        "note": "Element size by count, as the manifest of an unpatched save reports them. The record offsets are inside the element.",
+        "items": [
+          {
+            "term": "Entry 28 - walkers",
+            "description": "388 bytes by 2000. Offset 14 is non-zero while the walker exists. Offset 58 is a 16-bit index into the paths."
+          },
+          {
+            "term": "Entry 29 - path owners",
+            "description": "2 bytes by 1000. One 16-bit value per path."
+          },
+          {
+            "term": "Entry 30 - paths",
+            "description": "1 byte by 500,000. The game keeps 500 bytes for each of 1000 paths; the manifest counts them as single bytes."
+          },
+          {
+            "term": "Entry 31 - army companies",
+            "description": "156 bytes by 100. A free slot is all zeros; a used one has at least one non-zero byte."
+          },
+          {
+            "term": "Entry 35 - buildings",
+            "description": "280 bytes by 4000. Offset 0 is non-zero while the building exists."
+          },
+          {
+            "term": "Entry 73 - building list",
+            "description": "2 bytes by 4000. A 16-bit value per slot."
+          }
+        ]
+      },
+      {
+        "kind": "prose",
+        "title": "Saves from a patched executable",
+        "body": [
+          "The Zeus Limit Patcher doubles the table sizes in Zeus.exe, and a save written by the patched game doubles the counts above to 4000, 2000, 8000 and 200, with new addresses (walkers move from 0xDBD788 to 0x1615E8C, buildings from 0x92E658 to 0x1886010). The original game can open a save from a patched one only by crashing. A patched game opens saves from either. The same project's save tool converts in both directions, and refuses to shrink a save that really uses the extra room."
+        ]
+      },
+      {
+        "kind": "callout",
+        "title": "Where the knowledge stops",
+        "body": "Six entries of up to 139 are identified, and for each only the fields above. Every other block is known by its element size and count alone. The version fields and the ptr field are unexplained. There is no map for how saved cities relate to scenario files, and Zeus scenario files themselves are not covered here. All of this comes from one project's code, which was tested on saved games including a large invasion saved and loaded again. It has not been checked against the game's own source, which does not exist publicly."
+      },
+      {
+        "kind": "list",
+        "title": "A related container: MAPS",
+        "note": "Used for scenario and world-map data. The same code reads and rewrites it.",
+        "items": [
+          {
+            "term": "Header",
+            "description": "The four letters MAPS, then two uint32 version fields. The second is 33; the first has been seen between 227 and 321."
+          },
+          {
+            "term": "Manifest",
+            "description": "The same 300 entries of 20 bytes, starting at offset 12. Blocks begin at entry 4 and stop at the first entry of size 0."
+          },
+          {
+            "term": "World map elements - block 17",
+            "description": "200 elements of 40 or 72 bytes. A byte at offset 0 is the variant, 0 meaning unused, and two uint16 at offsets 4 and 6 are the x and y position on the world map."
+          },
+          {
+            "term": "World map routes - block 18",
+            "description": "232 routes of 324 bytes. Points of 6 bytes each (x, y and a third value of unknown purpose) start at offset 8. The point count is the byte at offset 321 and a flag at 322 says the route exists."
+          },
+          {
+            "term": "World map picture",
+            "description": "The world-map art is 838 by 738 pixels, and the coordinates above are in its space. The maps are named Zeus_MapOfGreece01 to 10 and Poseidon_map01 to 04."
+          }
+        ]
       }
     ]
   }

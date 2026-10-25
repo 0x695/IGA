@@ -55,12 +55,12 @@ Hung off those hubs:
 
 | | |
 | --- | --- |
-| **File formats** | Fifteen written specs — SG/`.555`, `.eng`, Caesar III's `.map`, `.sav` and `c3_model.txt`, Caesar's eight asset and save formats, Caesar II's `.SAV` and text |
+| **File formats** | Sixteen written specs — SG/`.555`, `.eng`, Caesar III's `.map`, `.sav` and `c3_model.txt`, Caesar's eight asset and save formats, Caesar II's `.SAV` and text, Zeus's `.sav` container |
 | **Buildings** | Filterable references for Caesar, Caesar II, Caesar III, Pharaoh and Zeus |
 | **Campaigns** | Every game, from mission configs where an engine has them |
 | **Housing** | Ladders for every game; Caesar II's has land-value thresholds and per-house capacity |
 | **Production** | Chains for Caesar, Caesar II, Caesar III, Pharaoh and Zeus, with a rate only where the source states one |
-| **Mechanics** | The walker model, Caesar's city growth and taxes, and Caesar II's growth tiers and what holds a house back |
+| **Mechanics** | The walker model, Caesar's city growth and taxes, Caesar II's growth tiers and what holds a house back, Zeus's city limits, and how the original Emperor runs |
 
 Plus a [devlog](https://0x695.github.io/IGA/devlog/) covering how it was built —
 including the mistakes — and Pagefind search across the lot.

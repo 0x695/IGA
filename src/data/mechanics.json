@@ -897,5 +897,160 @@
         "url": "https://0x695.github.io/IGA/manuals/caesar2.pdf"
       }
     ]
+  },
+  {
+    "id": "city-limits",
+    "title": "What limits a big Zeus city",
+    "shortTitle": "City limits",
+    "games": [
+      "zeus"
+    ],
+    "summary": "Zeus keeps its walkers, paths, buildings and army companies in fixed tables. A large city fills them, and then walkers stop appearing, workers cannot find a way, no more buildings can be placed and big invasions stay small. A patcher for the English executable has mapped the tables and doubled them.",
+    "blocks": [
+      {
+        "kind": "prose",
+        "title": "Fixed tables",
+        "body": [
+          "The game does not grow its arrays. Each kind of thing the simulation tracks has a table with a set number of slots, allocated in the executable, and a city can run out. When it does, nothing warns the player; the symptoms are the ones that get blamed on bugs or on the economy. Walkers who should leave a building never appear. Workers fail to find a route. The build tool refuses a placement. An invasion arrives with fewer companies than the scenario asks for.",
+          "These are limits of Zeus.exe 2.1.4.0, the English executable, which is the one the GOG and Steam releases ship. The French retail executable is laid out differently."
+        ]
+      },
+      {
+        "kind": "list",
+        "title": "The tables",
+        "note": "Original size, and the size after the Zeus Limit Patcher. Record sizes are as stored in a save.",
+        "items": [
+          {
+            "term": "Walkers",
+            "description": "2000, patched 4000. Records of 388 bytes. People and animals moving in the city. The free-walker queue holds 1999, so slot 0 is not handed out."
+          },
+          {
+            "term": "Paths",
+            "description": "1000, patched 2000. The game keeps 500 bytes for each path and an owner value of 2 bytes. Walkers refer to a path by number."
+          },
+          {
+            "term": "Buildings",
+            "description": "4000, patched 8000. Records of 280 bytes, plus a list of 4000 16-bit values and a set of per-building arrays that grow with it, among them two matrices of 27 rows."
+          },
+          {
+            "term": "Army companies",
+            "description": "100, patched 200. Records of 156 bytes. Soldiers, invaders and monsters are grouped into companies, which is why a big invasion can hit the ceiling long before the walker table is full."
+          }
+        ]
+      },
+      {
+        "kind": "prose",
+        "title": "What the patcher changes, and what it cannot",
+        "body": [
+          "The patcher moves the four tables into a new, larger section of the executable and fixes every reference to them, 18,558 of them in the GOG executable, along with the related counts and the save table. It also hands each new walker the lowest free number, so numbers stay as low as in the original game. It checks every patch by undoing it and comparing with the original byte for byte, and refuses to write anything if that fails.",
+          "It was tested in game on cities with more than 4000 buildings, and on an invasion with 152 companies and 2338 walkers in use at once, saved and loaded again. Two other tables of 2000 entries were left alone because their role is unknown and they were never full in the cities measured. Map size, graphics and rules do not change.",
+          "The price is save compatibility. A save written by the patched game crashes the original executable, so a player who might go back needs to keep copies. The container page explains why."
+        ]
+      },
+      {
+        "kind": "callout",
+        "title": "How sure this is",
+        "body": "The table sizes, record sizes and the offsets of the alive flags are read from a third party's patcher and its save tool, which agree with each other and round-trip real saves. They are not checked against the original source, which is not public, and they say nothing about how population or economy relate to these tables. How large a city must be to hit a limit is not established here."
+      }
+    ],
+    "sources": [
+      {
+        "title": "Zeus Limit Patcher - README",
+        "url": "https://github.com/Vicinity4813/zeus-limit-patcher/blob/main/README.md"
+      },
+      {
+        "title": "Zeus Limit Patcher - src/Limits.cs",
+        "url": "https://github.com/Vicinity4813/zeus-limit-patcher/blob/main/src/Limits.cs"
+      },
+      {
+        "title": "Zeus Limit Patcher - src/SavLimits.cs",
+        "url": "https://github.com/Vicinity4813/zeus-limit-patcher/blob/main/src/SavLimits.cs"
+      }
+    ]
+  },
+  {
+    "id": "how-the-original-runs",
+    "title": "How the original Emperor runs",
+    "shortTitle": "How the original runs",
+    "games": [
+      "emperor"
+    ],
+    "summary": "Emperor has no open-source engine, so its inner workings have been a blank. Yongle, a display layer that hooks the running game, has had to learn how the loop, the clock, the screen modes and the scroll work. This page gathers what that tells us.",
+    "blocks": [
+      {
+        "kind": "prose",
+        "title": "Three clocks",
+        "body": [
+          "The game does not run drawing, simulation and scrolling on one beat. Frames are presented to the screen at most every 50 milliseconds, about 20 a second, unless something forces one, such as a pressed button, a message or a screen change. The simulation has its own timer. Scrolling has a third.",
+          "The simulation timer is driven by the game speed, which runs from 10 to 100. The interval between simulation ticks comes from a table indexed by (100 - speed) / 10, with 2 milliseconds added. Scrolling moves one step, a tile width plus 2 pixels sideways or 4 half rows up and down, every ((100 - scroll speed) / 10) x 12 + 2 milliseconds, and the scroll speed also runs from 10 to 100.",
+          "Two behaviours follow. The simulation pauses while the view is scrolling. And 100 percent speed is not a fixed pace: it runs as fast as the computer can draw, which is why a large city on a big screen runs slower than a small one at the same setting."
+        ]
+      },
+      {
+        "kind": "prose",
+        "title": "Three screen modes",
+        "body": [
+          "The game knows 640 by 480, 800 by 600 and 1024 by 768, stored as a mode number in Emperor.inf. About twenty places in the code choose between an 800 layout and a 1024 layout with a width comparison and do nothing for any other width. That is why the interface does not simply stretch, and why the sidebar and top bar need their own handling at other sizes. The front-end pictures are fixed 1024 by 768 frames."
+        ]
+      },
+      {
+        "kind": "list",
+        "title": "Named in the hook layer",
+        "note": "Emperor.exe 1.0.1.0, image base 0x400000, no relocations. The names are Yongle's; the original has no symbols.",
+        "items": [
+          {
+            "term": "game_main - 0x4754F0",
+            "description": "WinMain."
+          },
+          {
+            "term": "game_loop_step - 0x475B00",
+            "description": "One main-loop iteration that produces a frame."
+          },
+          {
+            "term": "sim_tick - 0x5371A0",
+            "description": "One simulation tick."
+          },
+          {
+            "term": "screen_present - 0x52BE40",
+            "description": "Frame presentation, with the 50 millisecond limit."
+          },
+          {
+            "term": "screen_mode_get_size - 0x52B910",
+            "description": "Mode 1, 2 or 3 to a screen size."
+          },
+          {
+            "term": "viewport_init - 0x469820 and city_render - 0x46A220",
+            "description": "The city view and its drawing."
+          },
+          {
+            "term": "scroll_get_direction - 0x52B310 and scroll_step_due - 0x53A210",
+            "description": "Edge and arrow-key scrolling, and the scroll timer."
+          }
+        ]
+      },
+      {
+        "kind": "callout",
+        "title": "How sure this is",
+        "body": "Everything here comes from one project's source comments for the GOG release, whose Emperor.exe has the SHA-256 6373328bfc5c4886d9abc9544eb706e89e7d465b18176ea8205fe27aaee53c0e. It has not been checked against another copy of the executable, and the project says its notes on the symbols and timing are in Traditional Chinese and not yet published. The project is at version 0.1.0 and is not an engine: it hooks the original executable rather than replacing it. The page will need checking against those notes when they appear."
+      }
+    ],
+    "sources": [
+      {
+        "title": "Yongle - src/games/emperor/emperor.cpp",
+        "url": "https://github.com/riap0526/yongle/blob/main/src/games/emperor/emperor.cpp"
+      },
+      {
+        "title": "Yongle - src/games/emperor/scroll.cpp",
+        "url": "https://github.com/riap0526/yongle/blob/main/src/games/emperor/scroll.cpp"
+      },
+      {
+        "title": "Yongle - src/games/emperor/resolution.cpp",
+        "url": "https://github.com/riap0526/yongle/blob/main/src/games/emperor/resolution.cpp"
+      },
+      {
+        "title": "Yongle - README",
+        "url": "https://github.com/riap0526/yongle/blob/main/README.md"
+      }
+    ]
   }
 ]
