@@ -856,5 +856,25 @@
         "body": "Version 0.1.0, tested by its author on the GOG release (1.0.1.0) on Windows 11. The commit date and short SHA were read from the GitHub API on 25 October 2026. The account shows the name Samurai47, which is what the entry credits."
       }
     ]
+  },
+  {
+    "id": "zeus-gets-the-limit-patcher",
+    "date": "2026-10-25T15:30",
+    "title": "Zeus gets a patcher for its hard data limits",
+    "summary": "Vicinity4813's Zeus Limit Patcher joins Zeus's Tools & Mods list, with its save-game warning kept on the card.",
+    "blocks": [
+      {
+        "kind": "prose",
+        "title": "What it changes",
+        "body": [
+          "Big Zeus cities hit fixed table sizes: walkers stop appearing and no more buildings can be placed. The patcher edits your own English Zeus.exe 2.1.4.0 to double four of them: walkers from 2000 to 4000, paths from 1000 to 2000, buildings from 4000 to 8000 and army companies from 100 to 200. Its README says it works with Zeus QOL if that is installed first. No game files are included."
+        ]
+      },
+      {
+        "kind": "callout",
+        "title": "The catch",
+        "body": "Saves made with the patched exe crash the original exe, so the card says so. The repository shows no license in GitHub's data, so the entry does not state one. The account has no display name and is credited by its username. The commit date and short SHA were read from the GitHub API on 25 October 2026."
+      }
+    ]
   }
 ]
