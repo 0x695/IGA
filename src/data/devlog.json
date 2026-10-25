@@ -836,5 +836,25 @@
         "body": "It refuses anything but Zeus.exe 2.1.4.0, so Steam and disc copies are not supported. Its commit date and short SHA were read from the GitHub API on 21 October 2026; the live check on the hub refreshes them."
       }
     ]
+  },
+  {
+    "id": "emperor-gets-yongle",
+    "date": "2026-10-25T14:00",
+    "title": "Emperor gets Yongle, which is a tool and not yet an engine",
+    "summary": "A new display and quality-of-life layer for Emperor joins Tools & Mods, and the hub's wanted board stays.",
+    "blocks": [
+      {
+        "kind": "prose",
+        "title": "Why it is a tool",
+        "body": [
+          "Yongle is a ddraw.dll that hooks the original Emperor.exe while it runs, the way OpenRCT2 began. The executable still does the work, so it does not meet the bar the hub's engine section sets. Its README calls a full reimplementation a long-term goal, and the wanted board now says so."
+        ]
+      },
+      {
+        "kind": "callout",
+        "title": "Early and narrow",
+        "body": "Version 0.1.0, tested by its author on the GOG release (1.0.1.0) on Windows 11. The commit date and short SHA were read from the GitHub API on 25 October 2026. The account shows the name Samurai47, which is what the entry credits."
+      }
+    ]
   }
 ]

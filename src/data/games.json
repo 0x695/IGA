@@ -1779,7 +1779,7 @@
     "accent": "var(--game-emperor)",
     "engineNote": "Built on the Zeus engine. Last title on the 2D sprite engine, and the first in the series with multiplayer.",
     "timelineNote": "Built on the Zeus engine, spanning Xia to Song-Jin China. Last title on the 2D sprite engine, and the first with multiplayer.",
-    "wanted": "No open-source engine reimplementation exists for Emperor — confirmed across two research passes. It shares the Zeus engine generation and .sg3/.555 formats, so an eZeus- or Julius-lineage fork is technically plausible. The most credible open target in the whole archive.",
+    "wanted": "No open-source engine reimplementation exists for Emperor — confirmed across two research passes. It shares the Zeus engine generation and .sg3/.555 formats, so an eZeus- or Julius-lineage fork is technically plausible. The most credible open target in the whole archive. Yongle, listed under Tools & Mods, hooks the original executable rather than replacing it; its own README calls a full reimplementation a long-term goal, so this still stands.",
     "storefronts": [
       {
         "store": "GOG",
@@ -1812,6 +1812,23 @@
           "branch": "main"
         },
         "activityCheckedAt": "2026-10-09"
+      },
+      {
+        "title": "Yongle",
+        "url": "https://github.com/riap0526/yongle",
+        "kind": "tool",
+        "note": "A single ddraw.dll dropped into the game folder that hooks the original Emperor.exe in memory: native-resolution borderless display, smooth scrolling, steady game speed in big cities and an in-game display menu. Early (v0.1.0), tested on GOG 1.0.1.0. AGPL-3.0; the game's own files are never modified. Not an engine reimplementation yet - its README names that as a long-term goal.",
+        "author": "Samurai47",
+        "authorUrl": "https://github.com/riap0526",
+        "repoUrl": "https://github.com/riap0526/yongle",
+        "websiteUrl": null,
+        "playUrl": null,
+        "lastCommit": {
+          "sha": "3532d83",
+          "date": "2026-10-25T12:24:08Z",
+          "branch": "main"
+        },
+        "activityCheckedAt": "2026-10-25"
       },
       {
         "title": "Campaign Creator (map & scenario editor)",
