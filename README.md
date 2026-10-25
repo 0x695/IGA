@@ -40,9 +40,16 @@ attached and a reader can see how stale the answer is.
 
 ## What is on it
 
-Six self-contained game hubs. Each carries that game's engine projects, file
-format status, community links, full development credits, and where to buy the
-game today.
+Six self-contained game hubs. Each always shows the same twelve sections, empty
+or not: credits, file formats, buildings, housing, mechanics, production,
+campaign, cheats, open-source engines, how to play it today, tools and mods,
+manual and community. An empty section says so rather than disappearing.
+
+The hubs track eleven open-source engine projects (eight active, two dormant,
+one dead), each with its author, status, and last commit pulled from GitHub, and
+a link to a browser build where one exists (Augustus, Akhenaten, the Caesar II
+port and Gaius). They also list fan tools and mods, such as the widescreen
+patchers for Zeus and Emperor, and where to buy each game today.
 
 Hung off those hubs:
 
@@ -82,7 +89,7 @@ Use `npm run build` to exercise it.
 npm run buildings    # Caesar III from Julius, Pharaoh from Akhenaten, plus Zeus, Caesar and Caesar II
 npm run housing      # housing ladders, all six games
 npm run production   # production chains, five games
-npm run engines      # each project's last commit date
+npm run engines      # last commit date of every engine project and tool
 npm run links        # check every outbound link
 ```
 
@@ -136,8 +143,10 @@ cannot be copied**.
 
 Built on [Julius](https://github.com/bvschaik/julius),
 [Augustus](https://github.com/Keriew/augustus),
-[Akhenaten](https://github.com/dalerank/Akhenaten) and
-[eZeus](https://github.com/MaurycyLiebner/eZeus), whose authors did the actual
+[Akhenaten](https://github.com/dalerank/Akhenaten),
+[eZeus](https://github.com/MaurycyLiebner/eZeus), the
+[Caesar II reconstruction](https://github.com/second-impressions/caesar2-reconstruction)
+and [Gaius](https://github.com/0x695/Gaius), whose authors did the actual
 reverse engineering. This site mostly reads what they wrote down.
 
 Impressions Games Archive is a fan-run reference. Not affiliated with
