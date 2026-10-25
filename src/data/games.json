@@ -1368,6 +1368,23 @@
         "activityCheckedAt": "2026-10-25"
       },
       {
+        "title": "Zeus Limit Patcher",
+        "url": "https://github.com/Vicinity4813/zeus-limit-patcher",
+        "kind": "tool",
+        "note": "Doubles the engine's fixed data limits in your own English Zeus.exe 2.1.4.0 (GOG, Steam or widescreen builds): walkers 2000 to 4000, paths 1000 to 2000, buildings 4000 to 8000, army companies 100 to 200. It keeps a copy of the original exe, but saves made with the patched exe will crash the original. Works alongside Zeus QOL. Windows only; no game files included.",
+        "author": "Vicinity4813",
+        "authorUrl": "https://github.com/Vicinity4813",
+        "repoUrl": "https://github.com/Vicinity4813/zeus-limit-patcher",
+        "websiteUrl": null,
+        "playUrl": null,
+        "lastCommit": {
+          "sha": "9a842fc",
+          "date": "2026-10-23T17:29:24Z",
+          "branch": "main"
+        },
+        "activityCheckedAt": "2026-10-25"
+      },
+      {
         "title": "Adventure Editor (map & scenario editor)",
         "url": "https://zeus.heavengames.com/scendesign/",
         "kind": "tool",
