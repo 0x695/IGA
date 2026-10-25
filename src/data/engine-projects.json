@@ -200,31 +200,6 @@
     "activityCheckedAt": "2026-10-09"
   },
   {
-    "id": "citybuilderengine",
-    "name": "CityBuilderEngine",
-    "games": [
-      "zeus"
-    ],
-    "author": "Vinorcola",
-    "authorUrl": "https://github.com/Vinorcola",
-    "lineage": "Independent — inspired by Zeus, not a reimplementation",
-    "language": "C++14 (Qt5)",
-    "status": "dormant",
-    "saveCompat": "N/A — new engine, not save-compatible",
-    "platforms": "Windows, Linux (Qt5) · server/client split",
-    "activity": "Early stage — map engine only",
-    "repoUrl": "https://github.com/Vinorcola/CityBuilderEngine",
-    "docsUrl": null,
-    "websiteUrl": null,
-    "playUrl": null,
-    "lastCommit": {
-      "sha": "ed1a287",
-      "date": "2021-01-05T18:00:54Z",
-      "branch": "main"
-    },
-    "activityCheckedAt": "2026-10-09"
-  },
-  {
     "id": "caesar2-reconstruction",
     "name": "Caesar II Reconstruction",
     "games": [
